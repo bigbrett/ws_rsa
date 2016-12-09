@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xd:acceleratorMap xmlns:xd="http://www.xilinx.com/xidane" xd:functionName="rsa_toplevel" xd:componentRef="rsa_toplevel" xd:initiationInterval="1070" xd:clockPeriod="100.000000" xd:sequential="true" xd:hostMachine="64" xd:reset="control">
+  <xd:controlReg xd:name="control" xd:interfaceRef="s_axi_AXILiteS" xd:busTypeRef="axilite" xd:type="generic_axi_lite" xd:offset="0x0"/>
+  <xd:arg xd:name="*(inData)" xd:originalName="inData" xd:direction="in" xd:interfaceRef="s_axi_AXILiteS" xd:busTypeRef="axilite" xd:offset="0x10" xd:handshakeRef="ap_none" xd:dataWidth="1024"/>
+  <xd:arg xd:name="*(outData)" xd:originalName="outData" xd:direction="out" xd:interfaceRef="s_axi_AXILiteS" xd:busTypeRef="axilite" xd:offset="0x94" xd:statusOffset="0x114" xd:handshakeRef="ap_vld" xd:dataWidth="1024"/>
+  <xd:latencyEstimates xd:best-case="1069" xd:worst-case="1069" xd:average-case="1069"/>
+  <xd:resourceEstimates xd:LUT="18146" xd:FF="11728" xd:BRAM="0" xd:DSP="4"/>
+</xd:acceleratorMap>

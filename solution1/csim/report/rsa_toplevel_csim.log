@@ -1,0 +1,6 @@
+   Compiling ../../rsa_tb.cpp in debug mode
+   Compiling ../../rsa_toplevel.cpp in debug mode
+   Generating csim.exe
+res = 59 [ 0b00111011 ]
+Test Failed !!!
+CRITICAL WARNING: [SIM 1] 'csim_design' failed: nonzero return value.

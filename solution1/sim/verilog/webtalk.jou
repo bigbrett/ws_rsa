@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Webtalk v2016.2 (64-bit)
+# SW Build 1577090 on Thu Jun  2 16:32:35 MDT 2016
+# IP Build 1577682 on Fri Jun  3 12:00:54 MDT 2016
+# Start of session at: Tue Dec  6 18:20:56 2016
+# Process ID: 3044
+# Current directory: /home/brett/workspace/Vivado_WS/ws_rsa64bit/solution1/sim/verilog
+# Command line: wbtcv -mode batch -source /home/brett/workspace/Vivado_WS/ws_rsa64bit/solution1/sim/verilog/xsim.dir/rsa_toplevel/webtalk/xsim_webtalk.tcl -notrace
+# Log file: /home/brett/workspace/Vivado_WS/ws_rsa64bit/solution1/sim/verilog/webtalk.log
+# Journal file: /home/brett/workspace/Vivado_WS/ws_rsa64bit/solution1/sim/verilog/webtalk.jou
+#-----------------------------------------------------------
+source /home/brett/workspace/Vivado_WS/ws_rsa64bit/solution1/sim/verilog/xsim.dir/rsa_toplevel/webtalk/xsim_webtalk.tcl -notrace
