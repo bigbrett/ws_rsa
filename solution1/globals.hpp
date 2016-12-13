@@ -18,7 +18,7 @@
 using namespace hls;
 using namespace std;
 
-#define NUM_BITS 8
+#define NUM_BITS 4
 
 
 // arbitrary precision for RSA

@@ -4,6 +4,8 @@
 #include <bitset>
 #include "globals.hpp"
 #include "rsa_toplevel.hpp"
+#include "montMult.hpp"
+#include "ModExp.hpp"
 
 
 int main()
@@ -17,15 +19,18 @@ int main()
 	uint1024_t modulus  = uint1024_t("0xb4d92132b03210f62e52129ae31ef25e03c2dd734a7235efd36bad80c28885f3a9ee1ab626c30072bb3fd9906bf89a259ffd9d5fd75f87a30d75178b9579b257b5dca13ca7546866ad9f2db0072d59335fb128b7295412dd5c43df2c4f2d2f9c1d59d2bb444e6dac1d9cef27190a97aae7030c5c004c5aea3cf99afe89b86d6d",16);
 	uint1024_t exponent = uint1024_t("0x6f1e6ab386677cdc86a18f24f42073b328847724fbbd293eee9cdec29ac4dfe953a4256d7e6b9abee426db3b4ddc367a9fcf68ff168a7000d3a7fa8b9d9064ef4f271865045925660fab620fad0aeb58f946e33bdff6968f4c29ac62bd08cf53cb8be2116f2c339465a64fd02517f2bafca72c9f3ca5bbf96b24c1345eb936d1",16);
 #else
-		uint1024_t X   = 3;
-		uint1024_t Y   = 4;
-		uint1024_t M   = 77;
+		uint1024_t M   = 7;
+		uint1024_t e   = 10;
+		uint1024_t n   = 13;
 		uint1024_t res;
 #endif
 //	exponent = exponent << 1;
 	// Execute DUT Function with message input
 //	rsa_toplevel(cipher,exponent,modulus,message);
-	rsa_toplevel(X,Y,M,&res);
+	res = ModExp(M,e,n);
+
+//	double foo = res;
+//	res =  pow(foo,NUM_BITS) % M;
 
 	// Read output from DUT function
 	cerr << "res = " << res << " [ 0b" << bitset<8>(res) << " ]" << endl;

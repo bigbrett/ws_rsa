@@ -48625,7 +48625,7 @@ using namespace std;
 #pragma empty_line
 // arbitrary precision for RSA
 //typedef ap_uint<1024> uint1024_t; // 1024 bit unsigned integer
-typedef ap_uint<32> uint1024_t; // 1024 bit unsigned integer
+typedef ap_uint<8> uint1024_t; // 1024 bit unsigned integer
 #pragma empty_line
 #pragma empty_line
 // standard axi word
@@ -48640,43 +48640,18 @@ struct axiWord
 #pragma empty_line
 #pragma empty_line
 //void rsa_toplevel(ap_uint<1024> base, ap_uint<1024> exponent, ap_uint<1024> modulus, ap_uint<1024>* outData);
-//void rsa_toplevel(uint1024_t base, uint1024_t exponent, uint1024_t modulus, uint1024_t* outData);
-void rsa_toplevel(ap_uint<34> base, ap_uint<33> exponent, ap_uint<32> modulus, ap_uint<32>* outData);
+void rsa_toplevel(uint1024_t base, uint1024_t exponent, uint1024_t modulus, uint1024_t* outData);
+//void rsa_toplevel(ap_uint<34> base, ap_uint<33> exponent, ap_uint<32> modulus, ap_uint<34>* outData);
 #pragma line 2 "ws_rsa64bit/solution1/rsa_toplevel.cpp" 2
 #pragma empty_line
-//void rsa_toplevel(uint32_t text_arr[32], uint32_t exponent_arr[32], uint32_t modulus_arr[32], uint32_t outData[32])
-//void rsa_toplevel(uint1024_t base, uint1024_t exponent, uint1024_t modulus, uint1024_t* outData)
-void rsa_toplevel(ap_uint<34> base, ap_uint<33> exponent, ap_uint<32> modulus, ap_uint<32>* outData){
-//#pragma HLS INTERFACE s_axilite port=base
+void rsa_toplevel(uint1024_t X, uint1024_t Y, uint1024_t M, uint1024_t* outData){
+#pragma HLS INTERFACE s_axilite port=base
 //#pragma HLS INTERFACE s_axilite port=exponent
 //#pragma HLS INTERFACE s_axilite port=modulus
 //#pragma HLS INTERFACE s_axilite port=outData
 //#pragma HLS INTERFACE s_axilite port=return
 #pragma empty_line
-//	uint1024_t res = 1;   // Initialize result
-//	int k = 0;
-//
-//	base = base % modulus;
-//
-//	loop:for (k=0; k<RADIX; k++)
-//	{
-//		//		if (exponent.bit(k))
-//		if (exponent.test(0))
-//			res = (res*base) % modulus;
-//		exponent = exponent >> 1;
-//		base = (base*base) % modulus;
-//	}
-//	*outData = res;
 #pragma empty_line
- uint1024_t R0, Ri,qi;
 #pragma empty_line
- int i;
- for (i=0; i<32+2; i++)
- {
-  qi = R0.bit(0);
-  Ri = (R0 + base.bit(i)*exponent + qi*modulus)/2;
-  R0 = Ri;
- }
- *outData = Ri;
 #pragma empty_line
 }

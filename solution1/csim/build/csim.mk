@@ -19,7 +19,7 @@ __SIM_DDS__ = 1
 
 ObjDir = obj
 
-HLS_SOURCES = ../../rsa_tb.cpp ../../rsa_toplevel.cpp
+HLS_SOURCES = ../../rsa_tb.cpp ../../ModExp.cpp ../../montMult.cpp ../../rsa_toplevel.cpp
 
 TARGET := csim.exe
 
@@ -75,6 +75,18 @@ $(ObjDir)/rsa_tb.o: ../../rsa_tb.cpp $(ObjDir)/.dir
 	$(Verb)  $(CC) -c -MMD  $(IFLAG) $(DFLAG)  $< -o $@ ; \
 
 -include $(ObjDir)/rsa_tb.d
+
+$(ObjDir)/ModExp.o: ../../ModExp.cpp $(ObjDir)/.dir
+	$(Echo) "   Compiling ../../ModExp.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
+	$(Verb)  $(CC) -c -MMD  $(IFLAG) $(DFLAG)  $< -o $@ ; \
+
+-include $(ObjDir)/ModExp.d
+
+$(ObjDir)/montMult.o: ../../montMult.cpp $(ObjDir)/.dir
+	$(Echo) "   Compiling ../../montMult.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
+	$(Verb)  $(CC) -c -MMD  $(IFLAG) $(DFLAG)  $< -o $@ ; \
+
+-include $(ObjDir)/montMult.d
 
 $(ObjDir)/rsa_toplevel.o: ../../rsa_toplevel.cpp $(ObjDir)/.dir
 	$(Echo) "   Compiling ../../rsa_toplevel.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
