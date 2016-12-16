@@ -21329,6 +21329,1191 @@ namespace std __attribute__ ((__visibility__ ("default")))
 
 }
 # 4 "/home/brett/workspace/Vivado_WS/ws_rsa64bit/solution1/rsa_tb.cpp" 2
+# 1 "/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/gcc/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bitset" 1 3
+# 47 "/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/gcc/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bitset" 3
+       
+# 48 "/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/gcc/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bitset" 3
+# 62 "/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/gcc/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bitset" 3
+namespace std __attribute__ ((__visibility__ ("default")))
+{
+
+
+
+
+
+
+
+
+  template<size_t _Nw>
+    struct _Base_bitset
+    {
+      typedef unsigned long _WordT;
+
+
+      _WordT _M_w[_Nw];
+
+      _Base_bitset()
+      : _M_w() { }
+# 91 "/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/gcc/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bitset" 3
+      _Base_bitset(unsigned long __val)
+      : _M_w()
+      { _M_w[0] = __val; }
+
+
+      static size_t
+      _S_whichword(size_t __pos )
+      { return __pos / (8 * 8); }
+
+      static size_t
+      _S_whichbyte(size_t __pos )
+      { return (__pos % (8 * 8)) / 8; }
+
+      static size_t
+      _S_whichbit(size_t __pos )
+      { return __pos % (8 * 8); }
+
+      static _WordT
+      _S_maskbit(size_t __pos )
+      { return (static_cast<_WordT>(1)) << _S_whichbit(__pos); }
+
+      _WordT&
+      _M_getword(size_t __pos)
+      { return _M_w[_S_whichword(__pos)]; }
+
+      _WordT
+      _M_getword(size_t __pos) const
+      { return _M_w[_S_whichword(__pos)]; }
+
+
+
+
+
+
+
+      _WordT&
+      _M_hiword()
+      { return _M_w[_Nw - 1]; }
+
+      _WordT
+      _M_hiword() const
+      { return _M_w[_Nw - 1]; }
+
+      void
+      _M_do_and(const _Base_bitset<_Nw>& __x)
+      {
+ for (size_t __i = 0; __i < _Nw; __i++)
+   _M_w[__i] &= __x._M_w[__i];
+      }
+
+      void
+      _M_do_or(const _Base_bitset<_Nw>& __x)
+      {
+ for (size_t __i = 0; __i < _Nw; __i++)
+   _M_w[__i] |= __x._M_w[__i];
+      }
+
+      void
+      _M_do_xor(const _Base_bitset<_Nw>& __x)
+      {
+ for (size_t __i = 0; __i < _Nw; __i++)
+   _M_w[__i] ^= __x._M_w[__i];
+      }
+
+      void
+      _M_do_left_shift(size_t __shift);
+
+      void
+      _M_do_right_shift(size_t __shift);
+
+      void
+      _M_do_flip()
+      {
+ for (size_t __i = 0; __i < _Nw; __i++)
+   _M_w[__i] = ~_M_w[__i];
+      }
+
+      void
+      _M_do_set()
+      {
+ for (size_t __i = 0; __i < _Nw; __i++)
+   _M_w[__i] = ~static_cast<_WordT>(0);
+      }
+
+      void
+      _M_do_reset()
+      { __builtin_memset(_M_w, 0, _Nw * sizeof(_WordT)); }
+
+      bool
+      _M_is_equal(const _Base_bitset<_Nw>& __x) const
+      {
+ for (size_t __i = 0; __i < _Nw; ++__i)
+   if (_M_w[__i] != __x._M_w[__i])
+     return false;
+ return true;
+      }
+
+      size_t
+      _M_are_all_aux() const
+      {
+ for (size_t __i = 0; __i < _Nw - 1; __i++)
+   if (_M_w[__i] != ~static_cast<_WordT>(0))
+     return 0;
+ return ((_Nw - 1) * (8 * 8)
+  + __builtin_popcountl(_M_hiword()));
+      }
+
+      bool
+      _M_is_any() const
+      {
+ for (size_t __i = 0; __i < _Nw; __i++)
+   if (_M_w[__i] != static_cast<_WordT>(0))
+     return true;
+ return false;
+      }
+
+      size_t
+      _M_do_count() const
+      {
+ size_t __result = 0;
+ for (size_t __i = 0; __i < _Nw; __i++)
+   __result += __builtin_popcountl(_M_w[__i]);
+ return __result;
+      }
+
+      unsigned long
+      _M_do_to_ulong() const;
+
+
+
+
+
+
+
+      size_t
+      _M_do_find_first(size_t __not_found) const;
+
+
+      size_t
+      _M_do_find_next(size_t __prev, size_t __not_found) const;
+    };
+
+
+  template<size_t _Nw>
+    void
+    _Base_bitset<_Nw>::_M_do_left_shift(size_t __shift)
+    {
+      if (__builtin_expect(__shift != 0, 1))
+ {
+   const size_t __wshift = __shift / (8 * 8);
+   const size_t __offset = __shift % (8 * 8);
+
+   if (__offset == 0)
+     for (size_t __n = _Nw - 1; __n >= __wshift; --__n)
+       _M_w[__n] = _M_w[__n - __wshift];
+   else
+     {
+       const size_t __sub_offset = ((8 * 8)
+        - __offset);
+       for (size_t __n = _Nw - 1; __n > __wshift; --__n)
+  _M_w[__n] = ((_M_w[__n - __wshift] << __offset)
+        | (_M_w[__n - __wshift - 1] >> __sub_offset));
+       _M_w[__wshift] = _M_w[0] << __offset;
+     }
+
+   std::fill(_M_w + 0, _M_w + __wshift, static_cast<_WordT>(0));
+ }
+    }
+
+  template<size_t _Nw>
+    void
+    _Base_bitset<_Nw>::_M_do_right_shift(size_t __shift)
+    {
+      if (__builtin_expect(__shift != 0, 1))
+ {
+   const size_t __wshift = __shift / (8 * 8);
+   const size_t __offset = __shift % (8 * 8);
+   const size_t __limit = _Nw - __wshift - 1;
+
+   if (__offset == 0)
+     for (size_t __n = 0; __n <= __limit; ++__n)
+       _M_w[__n] = _M_w[__n + __wshift];
+   else
+     {
+       const size_t __sub_offset = ((8 * 8)
+        - __offset);
+       for (size_t __n = 0; __n < __limit; ++__n)
+  _M_w[__n] = ((_M_w[__n + __wshift] >> __offset)
+        | (_M_w[__n + __wshift + 1] << __sub_offset));
+       _M_w[__limit] = _M_w[_Nw-1] >> __offset;
+     }
+
+   std::fill(_M_w + __limit + 1, _M_w + _Nw, static_cast<_WordT>(0));
+ }
+    }
+
+  template<size_t _Nw>
+    unsigned long
+    _Base_bitset<_Nw>::_M_do_to_ulong() const
+    {
+      for (size_t __i = 1; __i < _Nw; ++__i)
+ if (_M_w[__i])
+   __throw_overflow_error(("_Base_bitset::_M_do_to_ulong"));
+      return _M_w[0];
+    }
+# 314 "/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/gcc/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bitset" 3
+  template<size_t _Nw>
+    size_t
+    _Base_bitset<_Nw>::_M_do_find_first(size_t __not_found) const
+    {
+      for (size_t __i = 0; __i < _Nw; __i++)
+ {
+   _WordT __thisword = _M_w[__i];
+   if (__thisword != static_cast<_WordT>(0))
+     return (__i * (8 * 8)
+      + __builtin_ctzl(__thisword));
+ }
+
+      return __not_found;
+    }
+
+  template<size_t _Nw>
+    size_t
+    _Base_bitset<_Nw>::_M_do_find_next(size_t __prev, size_t __not_found) const
+    {
+
+      ++__prev;
+
+
+      if (__prev >= _Nw * (8 * 8))
+ return __not_found;
+
+
+      size_t __i = _S_whichword(__prev);
+      _WordT __thisword = _M_w[__i];
+
+
+      __thisword &= (~static_cast<_WordT>(0)) << _S_whichbit(__prev);
+
+      if (__thisword != static_cast<_WordT>(0))
+ return (__i * (8 * 8)
+  + __builtin_ctzl(__thisword));
+
+
+      __i++;
+      for (; __i < _Nw; __i++)
+ {
+   __thisword = _M_w[__i];
+   if (__thisword != static_cast<_WordT>(0))
+     return (__i * (8 * 8)
+      + __builtin_ctzl(__thisword));
+ }
+
+      return __not_found;
+    }
+
+
+
+
+
+
+  template<>
+    struct _Base_bitset<1>
+    {
+      typedef unsigned long _WordT;
+      _WordT _M_w;
+
+      _Base_bitset()
+      : _M_w(0)
+      { }
+
+
+
+
+      _Base_bitset(unsigned long __val)
+
+      : _M_w(__val)
+      { }
+
+      static size_t
+      _S_whichword(size_t __pos )
+      { return __pos / (8 * 8); }
+
+      static size_t
+      _S_whichbyte(size_t __pos )
+      { return (__pos % (8 * 8)) / 8; }
+
+      static size_t
+      _S_whichbit(size_t __pos )
+      { return __pos % (8 * 8); }
+
+      static _WordT
+      _S_maskbit(size_t __pos )
+      { return (static_cast<_WordT>(1)) << _S_whichbit(__pos); }
+
+      _WordT&
+      _M_getword(size_t)
+      { return _M_w; }
+
+      _WordT
+      _M_getword(size_t) const
+      { return _M_w; }
+
+
+
+
+
+
+
+      _WordT&
+      _M_hiword()
+      { return _M_w; }
+
+      _WordT
+      _M_hiword() const
+      { return _M_w; }
+
+      void
+      _M_do_and(const _Base_bitset<1>& __x)
+      { _M_w &= __x._M_w; }
+
+      void
+      _M_do_or(const _Base_bitset<1>& __x)
+      { _M_w |= __x._M_w; }
+
+      void
+      _M_do_xor(const _Base_bitset<1>& __x)
+      { _M_w ^= __x._M_w; }
+
+      void
+      _M_do_left_shift(size_t __shift)
+      { _M_w <<= __shift; }
+
+      void
+      _M_do_right_shift(size_t __shift)
+      { _M_w >>= __shift; }
+
+      void
+      _M_do_flip()
+      { _M_w = ~_M_w; }
+
+      void
+      _M_do_set()
+      { _M_w = ~static_cast<_WordT>(0); }
+
+      void
+      _M_do_reset()
+      { _M_w = 0; }
+
+      bool
+      _M_is_equal(const _Base_bitset<1>& __x) const
+      { return _M_w == __x._M_w; }
+
+      size_t
+      _M_are_all_aux() const
+      { return __builtin_popcountl(_M_w); }
+
+      bool
+      _M_is_any() const
+      { return _M_w != 0; }
+
+      size_t
+      _M_do_count() const
+      { return __builtin_popcountl(_M_w); }
+
+      unsigned long
+      _M_do_to_ulong() const
+      { return _M_w; }
+
+
+
+
+
+
+
+      size_t
+      _M_do_find_first(size_t __not_found) const
+      {
+        if (_M_w != 0)
+          return __builtin_ctzl(_M_w);
+        else
+          return __not_found;
+      }
+
+
+      size_t
+      _M_do_find_next(size_t __prev, size_t __not_found) const
+      {
+ ++__prev;
+ if (__prev >= ((size_t) (8 * 8)))
+   return __not_found;
+
+ _WordT __x = _M_w >> __prev;
+ if (__x != 0)
+   return __builtin_ctzl(__x) + __prev;
+ else
+   return __not_found;
+      }
+    };
+
+
+
+
+
+
+  template<>
+    struct _Base_bitset<0>
+    {
+      typedef unsigned long _WordT;
+
+      _Base_bitset()
+      { }
+
+
+
+
+      _Base_bitset(unsigned long)
+
+      { }
+
+      static size_t
+      _S_whichword(size_t __pos )
+      { return __pos / (8 * 8); }
+
+      static size_t
+      _S_whichbyte(size_t __pos )
+      { return (__pos % (8 * 8)) / 8; }
+
+      static size_t
+      _S_whichbit(size_t __pos )
+      { return __pos % (8 * 8); }
+
+      static _WordT
+      _S_maskbit(size_t __pos )
+      { return (static_cast<_WordT>(1)) << _S_whichbit(__pos); }
+# 551 "/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/gcc/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bitset" 3
+      _WordT&
+      _M_getword(size_t)
+      {
+ __throw_out_of_range(("_Base_bitset::_M_getword"));
+ return *new _WordT;
+      }
+
+      _WordT
+      _M_getword(size_t __pos) const
+      { return 0; }
+
+      _WordT
+      _M_hiword() const
+      { return 0; }
+
+      void
+      _M_do_and(const _Base_bitset<0>&)
+      { }
+
+      void
+      _M_do_or(const _Base_bitset<0>&)
+      { }
+
+      void
+      _M_do_xor(const _Base_bitset<0>&)
+      { }
+
+      void
+      _M_do_left_shift(size_t)
+      { }
+
+      void
+      _M_do_right_shift(size_t)
+      { }
+
+      void
+      _M_do_flip()
+      { }
+
+      void
+      _M_do_set()
+      { }
+
+      void
+      _M_do_reset()
+      { }
+
+
+
+
+      bool
+      _M_is_equal(const _Base_bitset<0>&) const
+      { return true; }
+
+      size_t
+      _M_are_all_aux() const
+      { return 0; }
+
+      bool
+      _M_is_any() const
+      { return false; }
+
+      size_t
+      _M_do_count() const
+      { return 0; }
+
+      unsigned long
+      _M_do_to_ulong() const
+      { return 0; }
+# 629 "/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/gcc/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bitset" 3
+      size_t
+      _M_do_find_first(size_t) const
+      { return 0; }
+
+      size_t
+      _M_do_find_next(size_t, size_t) const
+      { return 0; }
+    };
+
+
+
+  template<size_t _Extrabits>
+    struct _Sanitize
+    {
+      typedef unsigned long _WordT;
+
+      static void
+      _S_do_sanitize(_WordT& __val)
+      { __val &= ~((~static_cast<_WordT>(0)) << _Extrabits); }
+    };
+
+  template<>
+    struct _Sanitize<0>
+    {
+      typedef unsigned long _WordT;
+
+      static void
+      _S_do_sanitize(_WordT) { }
+    };
+# 741 "/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/gcc/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bitset" 3
+  template<size_t _Nb>
+    class bitset
+    : private _Base_bitset<((_Nb) / (8 * 8) + ((_Nb) % (8 * 8) == 0 ? 0 : 1))>
+    {
+    private:
+      typedef _Base_bitset<((_Nb) / (8 * 8) + ((_Nb) % (8 * 8) == 0 ? 0 : 1))> _Base;
+      typedef unsigned long _WordT;
+
+      void
+      _M_do_sanitize()
+      {
+ typedef _Sanitize<_Nb % (8 * 8)> __sanitize_type;
+ __sanitize_type::_S_do_sanitize(this->_M_hiword());
+      }
+
+
+
+
+
+    public:
+# 773 "/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/gcc/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bitset" 3
+      class reference
+      {
+ friend class bitset;
+
+ _WordT* _M_wp;
+ size_t _M_bpos;
+
+
+ reference();
+
+      public:
+ reference(bitset& __b, size_t __pos)
+ {
+   _M_wp = &__b._M_getword(__pos);
+   _M_bpos = _Base::_S_whichbit(__pos);
+ }
+
+ ~reference()
+ { }
+
+
+ reference&
+ operator=(bool __x)
+ {
+   if (__x)
+     *_M_wp |= _Base::_S_maskbit(_M_bpos);
+   else
+     *_M_wp &= ~_Base::_S_maskbit(_M_bpos);
+   return *this;
+ }
+
+
+ reference&
+ operator=(const reference& __j)
+ {
+   if ((*(__j._M_wp) & _Base::_S_maskbit(__j._M_bpos)))
+     *_M_wp |= _Base::_S_maskbit(_M_bpos);
+   else
+     *_M_wp &= ~_Base::_S_maskbit(_M_bpos);
+   return *this;
+ }
+
+
+ bool
+ operator~() const
+ { return (*(_M_wp) & _Base::_S_maskbit(_M_bpos)) == 0; }
+
+
+ operator bool() const
+ { return (*(_M_wp) & _Base::_S_maskbit(_M_bpos)) != 0; }
+
+
+ reference&
+ flip()
+ {
+   *_M_wp ^= _Base::_S_maskbit(_M_bpos);
+   return *this;
+ }
+      };
+      friend class reference;
+
+
+
+      bitset()
+      { }
+
+
+
+
+
+
+      bitset(unsigned long __val)
+      : _Base(__val)
+      { _M_do_sanitize(); }
+# 858 "/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/gcc/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bitset" 3
+      template<class _CharT, class _Traits, class _Alloc>
+ explicit
+ bitset(const std::basic_string<_CharT, _Traits, _Alloc>& __s,
+        size_t __position = 0)
+ : _Base()
+ {
+   if (__position > __s.size())
+     __throw_out_of_range(("bitset::bitset initial position " "not valid")
+                     );
+   _M_copy_from_string(__s, __position,
+         std::basic_string<_CharT, _Traits, _Alloc>::npos,
+         _CharT('0'), _CharT('1'));
+ }
+# 881 "/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/gcc/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bitset" 3
+      template<class _CharT, class _Traits, class _Alloc>
+ bitset(const std::basic_string<_CharT, _Traits, _Alloc>& __s,
+        size_t __position, size_t __n)
+ : _Base()
+ {
+   if (__position > __s.size())
+     __throw_out_of_range(("bitset::bitset initial position " "not valid")
+                     );
+   _M_copy_from_string(__s, __position, __n, _CharT('0'), _CharT('1'));
+ }
+
+
+
+      template<class _CharT, class _Traits, class _Alloc>
+ bitset(const std::basic_string<_CharT, _Traits, _Alloc>& __s,
+        size_t __position, size_t __n,
+        _CharT __zero, _CharT __one = _CharT('1'))
+ : _Base()
+ {
+   if (__position > __s.size())
+     __throw_out_of_range(("bitset::bitset initial position " "not valid")
+                     );
+   _M_copy_from_string(__s, __position, __n, __zero, __one);
+ }
+# 943 "/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/gcc/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bitset" 3
+      bitset<_Nb>&
+      operator&=(const bitset<_Nb>& __rhs)
+      {
+ this->_M_do_and(__rhs);
+ return *this;
+      }
+
+      bitset<_Nb>&
+      operator|=(const bitset<_Nb>& __rhs)
+      {
+ this->_M_do_or(__rhs);
+ return *this;
+      }
+
+      bitset<_Nb>&
+      operator^=(const bitset<_Nb>& __rhs)
+      {
+ this->_M_do_xor(__rhs);
+ return *this;
+      }
+# 972 "/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/gcc/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bitset" 3
+      bitset<_Nb>&
+      operator<<=(size_t __position)
+      {
+ if (__builtin_expect(__position < _Nb, 1))
+   {
+     this->_M_do_left_shift(__position);
+     this->_M_do_sanitize();
+   }
+ else
+   this->_M_do_reset();
+ return *this;
+      }
+
+      bitset<_Nb>&
+      operator>>=(size_t __position)
+      {
+ if (__builtin_expect(__position < _Nb, 1))
+   {
+     this->_M_do_right_shift(__position);
+     this->_M_do_sanitize();
+   }
+ else
+   this->_M_do_reset();
+ return *this;
+      }
+# 1005 "/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/gcc/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bitset" 3
+      bitset<_Nb>&
+      _Unchecked_set(size_t __pos)
+      {
+ this->_M_getword(__pos) |= _Base::_S_maskbit(__pos);
+ return *this;
+      }
+
+      bitset<_Nb>&
+      _Unchecked_set(size_t __pos, int __val)
+      {
+ if (__val)
+   this->_M_getword(__pos) |= _Base::_S_maskbit(__pos);
+ else
+   this->_M_getword(__pos) &= ~_Base::_S_maskbit(__pos);
+ return *this;
+      }
+
+      bitset<_Nb>&
+      _Unchecked_reset(size_t __pos)
+      {
+ this->_M_getword(__pos) &= ~_Base::_S_maskbit(__pos);
+ return *this;
+      }
+
+      bitset<_Nb>&
+      _Unchecked_flip(size_t __pos)
+      {
+ this->_M_getword(__pos) ^= _Base::_S_maskbit(__pos);
+ return *this;
+      }
+
+      bool
+      _Unchecked_test(size_t __pos) const
+      { return ((this->_M_getword(__pos) & _Base::_S_maskbit(__pos))
+  != static_cast<_WordT>(0)); }
+
+
+
+
+
+
+      bitset<_Nb>&
+      set()
+      {
+ this->_M_do_set();
+ this->_M_do_sanitize();
+ return *this;
+      }
+
+
+
+
+
+
+
+      bitset<_Nb>&
+      set(size_t __position, bool __val = true)
+      {
+ if (__position >= _Nb)
+   __throw_out_of_range(("bitset::set"));
+ return _Unchecked_set(__position, __val);
+      }
+
+
+
+
+      bitset<_Nb>&
+      reset()
+      {
+ this->_M_do_reset();
+ return *this;
+      }
+# 1085 "/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/gcc/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bitset" 3
+      bitset<_Nb>&
+      reset(size_t __position)
+      {
+ if (__position >= _Nb)
+   __throw_out_of_range(("bitset::reset"));
+ return _Unchecked_reset(__position);
+      }
+
+
+
+
+      bitset<_Nb>&
+      flip()
+      {
+ this->_M_do_flip();
+ this->_M_do_sanitize();
+ return *this;
+      }
+
+
+
+
+
+
+      bitset<_Nb>&
+      flip(size_t __position)
+      {
+ if (__position >= _Nb)
+   __throw_out_of_range(("bitset::flip"));
+ return _Unchecked_flip(__position);
+      }
+
+
+      bitset<_Nb>
+      operator~() const
+      { return bitset<_Nb>(*this).flip(); }
+# 1137 "/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/gcc/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bitset" 3
+      reference
+      operator[](size_t __position)
+      { return reference(*this, __position); }
+
+      bool
+      operator[](size_t __position) const
+      { return _Unchecked_test(__position); }
+# 1152 "/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/gcc/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bitset" 3
+      unsigned long
+      to_ulong() const
+      { return this->_M_do_to_ulong(); }
+# 1170 "/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/gcc/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bitset" 3
+      template<class _CharT, class _Traits, class _Alloc>
+ std::basic_string<_CharT, _Traits, _Alloc>
+ to_string() const
+ {
+   std::basic_string<_CharT, _Traits, _Alloc> __result;
+   _M_copy_to_string(__result, _CharT('0'), _CharT('1'));
+   return __result;
+ }
+
+
+
+      template<class _CharT, class _Traits, class _Alloc>
+ std::basic_string<_CharT, _Traits, _Alloc>
+ to_string(_CharT __zero, _CharT __one = _CharT('1')) const
+ {
+   std::basic_string<_CharT, _Traits, _Alloc> __result;
+   _M_copy_to_string(__result, __zero, __one);
+   return __result;
+ }
+
+
+
+      template<class _CharT, class _Traits>
+ std::basic_string<_CharT, _Traits, std::allocator<_CharT> >
+ to_string() const
+ { return to_string<_CharT, _Traits, std::allocator<_CharT> >(); }
+
+
+
+      template<class _CharT, class _Traits>
+ std::basic_string<_CharT, _Traits, std::allocator<_CharT> >
+ to_string(_CharT __zero, _CharT __one = _CharT('1')) const
+ { return to_string<_CharT, _Traits,
+                    std::allocator<_CharT> >(__zero, __one); }
+
+      template<class _CharT>
+ std::basic_string<_CharT, std::char_traits<_CharT>,
+                   std::allocator<_CharT> >
+ to_string() const
+ {
+   return to_string<_CharT, std::char_traits<_CharT>,
+                    std::allocator<_CharT> >();
+ }
+
+      template<class _CharT>
+ std::basic_string<_CharT, std::char_traits<_CharT>,
+                   std::allocator<_CharT> >
+ to_string(_CharT __zero, _CharT __one = _CharT('1')) const
+ {
+   return to_string<_CharT, std::char_traits<_CharT>,
+                    std::allocator<_CharT> >(__zero, __one);
+ }
+
+      std::basic_string<char, std::char_traits<char>, std::allocator<char> >
+      to_string() const
+      {
+ return to_string<char, std::char_traits<char>,
+                  std::allocator<char> >();
+      }
+
+      std::basic_string<char, std::char_traits<char>, std::allocator<char> >
+      to_string(char __zero, char __one = '1') const
+      {
+ return to_string<char, std::char_traits<char>,
+                  std::allocator<char> >(__zero, __one);
+      }
+
+
+      template<class _CharT, class _Traits>
+        void
+        _M_copy_from_ptr(const _CharT*, size_t, size_t, size_t,
+    _CharT, _CharT);
+
+      template<class _CharT, class _Traits, class _Alloc>
+ void
+ _M_copy_from_string(const std::basic_string<_CharT,
+       _Traits, _Alloc>& __s, size_t __pos, size_t __n,
+       _CharT __zero, _CharT __one)
+ { _M_copy_from_ptr<_CharT, _Traits>(__s.data(), __s.size(), __pos, __n,
+         __zero, __one); }
+
+      template<class _CharT, class _Traits, class _Alloc>
+ void
+        _M_copy_to_string(std::basic_string<_CharT, _Traits, _Alloc>&,
+     _CharT, _CharT) const;
+
+
+      template<class _CharT, class _Traits, class _Alloc>
+ void
+ _M_copy_from_string(const std::basic_string<_CharT,
+       _Traits, _Alloc>& __s, size_t __pos, size_t __n)
+ { _M_copy_from_string(__s, __pos, __n, _CharT('0'), _CharT('1')); }
+
+      template<class _CharT, class _Traits, class _Alloc>
+ void
+        _M_copy_to_string(std::basic_string<_CharT, _Traits,_Alloc>& __s) const
+ { _M_copy_to_string(__s, _CharT('0'), _CharT('1')); }
+
+
+      size_t
+      count() const
+      { return this->_M_do_count(); }
+
+
+      size_t
+      size() const
+      { return _Nb; }
+
+
+
+      bool
+      operator==(const bitset<_Nb>& __rhs) const
+      { return this->_M_is_equal(__rhs); }
+
+      bool
+      operator!=(const bitset<_Nb>& __rhs) const
+      { return !this->_M_is_equal(__rhs); }
+# 1295 "/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/gcc/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bitset" 3
+      bool
+      test(size_t __position) const
+      {
+ if (__position >= _Nb)
+   __throw_out_of_range(("bitset::test"));
+ return _Unchecked_test(__position);
+      }
+
+
+
+
+
+
+
+      bool
+      all() const
+      { return this->_M_are_all_aux() == _Nb; }
+
+
+
+
+
+      bool
+      any() const
+      { return this->_M_is_any(); }
+
+
+
+
+
+      bool
+      none() const
+      { return !this->_M_is_any(); }
+
+
+
+      bitset<_Nb>
+      operator<<(size_t __position) const
+      { return bitset<_Nb>(*this) <<= __position; }
+
+      bitset<_Nb>
+      operator>>(size_t __position) const
+      { return bitset<_Nb>(*this) >>= __position; }
+# 1346 "/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/gcc/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bitset" 3
+      size_t
+      _Find_first() const
+      { return this->_M_do_find_first(_Nb); }
+# 1357 "/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/gcc/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bitset" 3
+      size_t
+      _Find_next(size_t __prev ) const
+      { return this->_M_do_find_next(__prev, _Nb); }
+    };
+
+
+  template<size_t _Nb>
+    template<class _CharT, class _Traits>
+      void
+      bitset<_Nb>::
+      _M_copy_from_ptr(const _CharT* __s, size_t __len,
+         size_t __pos, size_t __n, _CharT __zero, _CharT __one)
+      {
+ reset();
+ const size_t __nbits = std::min(_Nb, std::min(__n, __len - __pos));
+ for (size_t __i = __nbits; __i > 0; --__i)
+   {
+     const _CharT __c = __s[__pos + __nbits - __i];
+     if (_Traits::eq(__c, __zero))
+       ;
+     else if (_Traits::eq(__c, __one))
+       _Unchecked_set(__i - 1);
+     else
+       __throw_invalid_argument(("bitset::_M_copy_from_ptr"));
+   }
+      }
+
+  template<size_t _Nb>
+    template<class _CharT, class _Traits, class _Alloc>
+      void
+      bitset<_Nb>::
+      _M_copy_to_string(std::basic_string<_CharT, _Traits, _Alloc>& __s,
+   _CharT __zero, _CharT __one) const
+      {
+ __s.assign(_Nb, __zero);
+ for (size_t __i = _Nb; __i > 0; --__i)
+   if (_Unchecked_test(__i - 1))
+     _Traits::assign(__s[_Nb - __i], __one);
+      }
+# 1407 "/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/gcc/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bitset" 3
+  template<size_t _Nb>
+    inline bitset<_Nb>
+    operator&(const bitset<_Nb>& __x, const bitset<_Nb>& __y)
+    {
+      bitset<_Nb> __result(__x);
+      __result &= __y;
+      return __result;
+    }
+
+  template<size_t _Nb>
+    inline bitset<_Nb>
+    operator|(const bitset<_Nb>& __x, const bitset<_Nb>& __y)
+    {
+      bitset<_Nb> __result(__x);
+      __result |= __y;
+      return __result;
+    }
+
+  template <size_t _Nb>
+    inline bitset<_Nb>
+    operator^(const bitset<_Nb>& __x, const bitset<_Nb>& __y)
+    {
+      bitset<_Nb> __result(__x);
+      __result ^= __y;
+      return __result;
+    }
+# 1444 "/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/gcc/bin/../lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bitset" 3
+  template<class _CharT, class _Traits, size_t _Nb>
+    std::basic_istream<_CharT, _Traits>&
+    operator>>(std::basic_istream<_CharT, _Traits>& __is, bitset<_Nb>& __x)
+    {
+      typedef typename _Traits::char_type char_type;
+      typedef std::basic_istream<_CharT, _Traits> __istream_type;
+      typedef typename __istream_type::ios_base __ios_base;
+
+      std::basic_string<_CharT, _Traits> __tmp;
+      __tmp.reserve(_Nb);
+
+
+
+      const char_type __zero = __is.widen('0');
+      const char_type __one = __is.widen('1');
+
+      typename __ios_base::iostate __state = __ios_base::goodbit;
+      typename __istream_type::sentry __sentry(__is);
+      if (__sentry)
+ {
+   try
+     {
+       for (size_t __i = _Nb; __i > 0; --__i)
+  {
+    static typename _Traits::int_type __eof = _Traits::eof();
+
+    typename _Traits::int_type __c1 = __is.rdbuf()->sbumpc();
+    if (_Traits::eq_int_type(__c1, __eof))
+      {
+        __state |= __ios_base::eofbit;
+        break;
+      }
+    else
+      {
+        const char_type __c2 = _Traits::to_char_type(__c1);
+        if (_Traits::eq(__c2, __zero))
+   __tmp.push_back(__zero);
+        else if (_Traits::eq(__c2, __one))
+   __tmp.push_back(__one);
+        else if (_Traits::
+          eq_int_type(__is.rdbuf()->sputbackc(__c2),
+        __eof))
+   {
+     __state |= __ios_base::failbit;
+     break;
+   }
+      }
+  }
+     }
+   catch(__cxxabiv1::__forced_unwind&)
+     {
+       __is._M_setstate(__ios_base::badbit);
+       throw;
+     }
+   catch(...)
+     { __is._M_setstate(__ios_base::badbit); }
+ }
+
+      if (__tmp.empty() && _Nb)
+ __state |= __ios_base::failbit;
+      else
+ __x._M_copy_from_string(__tmp, static_cast<size_t>(0), _Nb,
+    __zero, __one);
+      if (__state)
+ __is.setstate(__state);
+      return __is;
+    }
+
+  template <class _CharT, class _Traits, size_t _Nb>
+    std::basic_ostream<_CharT, _Traits>&
+    operator<<(std::basic_ostream<_CharT, _Traits>& __os,
+        const bitset<_Nb>& __x)
+    {
+      std::basic_string<_CharT, _Traits> __tmp;
+
+
+
+      const ctype<_CharT>& __ct = use_facet<ctype<_CharT> >(__os.getloc());
+      __x._M_copy_to_string(__tmp, __ct.widen('0'), __ct.widen('1'));
+      return __os << __tmp;
+    }
+
+
+
+}
+# 5 "/home/brett/workspace/Vivado_WS/ws_rsa64bit/solution1/rsa_tb.cpp" 2
 # 1 "/home/brett/workspace/Vivado_WS/ws_rsa64bit/solution1/globals.hpp" 1
 
 
@@ -42139,42 +43324,69 @@ using namespace std;
 
 
 
+
+
+
 typedef ap_uint<1024> uint1024_t;
-
-
-
-struct axiWord
-{
- uint1024_t data;
- ap_uint<1> user;
- ap_uint<1> last;
-};
-# 5 "/home/brett/workspace/Vivado_WS/ws_rsa64bit/solution1/rsa_tb.cpp" 2
+# 6 "/home/brett/workspace/Vivado_WS/ws_rsa64bit/solution1/rsa_tb.cpp" 2
 # 1 "/home/brett/workspace/Vivado_WS/ws_rsa64bit/solution1/rsa_toplevel.hpp" 1
 
 
 
 
-void rsa_toplevel(uint1024_t* inData, uint1024_t* outData);
-# 6 "/home/brett/workspace/Vivado_WS/ws_rsa64bit/solution1/rsa_tb.cpp" 2
+
+
+
+void rsa_toplevel(uint1024_t base, uint1024_t exponent, uint1024_t modulus, uint1024_t* outData);
+# 7 "/home/brett/workspace/Vivado_WS/ws_rsa64bit/solution1/rsa_tb.cpp" 2
+# 1 "/home/brett/workspace/Vivado_WS/ws_rsa64bit/solution1/montMult.hpp" 1
+
+
+
+
+
+
+
+void montMult(uint1024_t base, uint1024_t exponent, uint1024_t modulus, uint1024_t* outData);
+# 8 "/home/brett/workspace/Vivado_WS/ws_rsa64bit/solution1/rsa_tb.cpp" 2
+# 1 "/home/brett/workspace/Vivado_WS/ws_rsa64bit/solution1/ModExp.hpp" 1
+
+
+
+
+
+
+
+uint1024_t ModExp(uint1024_t M, uint1024_t e, uint1024_t n, uint1024_t Mbar, uint1024_t xbar);
+# 9 "/home/brett/workspace/Vivado_WS/ws_rsa64bit/solution1/rsa_tb.cpp" 2
 
 
 int main()
 {
  uint1024_t returnval = 0;
- uint1024_t cipher = 0;
- uint1024_t message = 2;
+# 22 "/home/brett/workspace/Vivado_WS/ws_rsa64bit/solution1/rsa_tb.cpp"
+  uint1024_t M = 2790;
+  uint1024_t e = 2753;
+  uint1024_t n = 3233;
+
+  uint1024_t Mbar = 1330;
+  uint1024_t xbar = 1785;
+
+  uint1024_t res;
+
+ res = ModExp(M,e,n,Mbar,xbar);
 
 
- rsa_toplevel(&message,&cipher);
-
-
- cerr << "cipher = " << cipher << endl;
 
 
 
+ cerr << "res = " << res << " [ 0b" << bitset<8>(res) << " ]" << endl;
 
- if (cipher != 29)
+
+
+
+
+ if (res != 65)
  {
   cout << "Test Failed !!!" << endl;
   returnval = 1;

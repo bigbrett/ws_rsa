@@ -1,7 +1,9 @@
 #include "montMult.hpp"
 
 void montMult(uint1024_t X, uint1024_t Y, uint1024_t M, uint1024_t* outData){
-#pragma HLS inline
+//#pragma HLS PIPELINE enable_flush
+//#pragma HLS inline
+#pragma HLS ALLOCATION instances=mul limit=256 operation
 
 	ap_uint<NUM_BITS+1> S,qi;
 	S = 0;
@@ -13,11 +15,6 @@ void montMult(uint1024_t X, uint1024_t Y, uint1024_t M, uint1024_t* outData){
 		if (S.bit(0) == 1)
 			S += M;
 		S = S >> 1;
-
-//		qi = ((S.bit(i) + X*Y.bit(i)) * Minv) & 0x1; // a%2 == a & 1
-//		S = (X*Y.bit(i) + qi*M + S) >> 1; // a/2 == a>>1
-//		S = (X*Y.bit(i) + qi*M + Slast) >> 2; // a/2 == a>>2
-//		Slast = S;
 	}
 
 	if (M <= S)

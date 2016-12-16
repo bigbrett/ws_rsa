@@ -57,6 +57,10 @@ $(ObjDir)/rsa_tb.cpp_pre.cpp.tb.o : rsa_tb.cpp_pre.cpp.tb.cpp $(ObjDir)/.dir
 	$(Echo) "   Compiling rsa_tb.cpp_pre.cpp.tb.cpp" $(AVE_DIR_DLOG)
 	$(Verb) gcc -fno-builtin-isinf -fno-builtin-isnan -c $(IFLAG) $(DFLAG)  $< -o $@; \
 
-$(ObjDir)/rsa_toplevel.cpp_pre.cpp.tb.o : rsa_toplevel.cpp_pre.cpp.tb.cpp $(ObjDir)/.dir
-	$(Echo) "   Compiling rsa_toplevel.cpp_pre.cpp.tb.cpp" $(AVE_DIR_DLOG)
+$(ObjDir)/montMult.cpp_pre.cpp.tb.o : montMult.cpp_pre.cpp.tb.cpp $(ObjDir)/.dir
+	$(Echo) "   Compiling montMult.cpp_pre.cpp.tb.cpp" $(AVE_DIR_DLOG)
+	$(Verb) gcc -fno-builtin-isinf -fno-builtin-isnan -c $(IFLAG) $(DFLAG)  $< -o $@; \
+
+$(ObjDir)/ModExp.cpp_pre.cpp.tb.o : ModExp.cpp_pre.cpp.tb.cpp $(ObjDir)/.dir
+	$(Echo) "   Compiling ModExp.cpp_pre.cpp.tb.cpp" $(AVE_DIR_DLOG)
 	$(Verb) gcc -fno-builtin-isinf -fno-builtin-isnan -c $(IFLAG) $(DFLAG)  $< -o $@; \

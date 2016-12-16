@@ -35,12 +35,12 @@ if {$ret == 1} {
 	return -code error -errorcode $::errorCode
 }
 
-if {[file isfile rsa_toplevel.autotvin.dat]} {
-	file delete -force rsa_toplevel.autotvin.dat
+if {[file isfile ModExp.autotvin.dat]} {
+	file delete -force ModExp.autotvin.dat
 }
 
-if {[file isfile rsa_toplevel.autotvout.dat]} {
-	file delete -force rsa_toplevel.autotvout.dat
+if {[file isfile ModExp.autotvout.dat]} {
+	file delete -force ModExp.autotvout.dat
 }
 
 sc_sim_check $ret $err "temp0.log"

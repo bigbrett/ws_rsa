@@ -8,7 +8,7 @@
 #
 # Settings for Vivado implementation flow
 #
-set top_module rsa_toplevel
+set top_module ModExp
 set language vhdl
 set family zynq
 set device xc7z020

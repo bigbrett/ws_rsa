@@ -5,7 +5,7 @@
 #include "montMult.hpp"
 
 
-uint1024_t ModExp(uint1024_t M, uint1024_t e, uint1024_t n);
+void ModExp(uint1024_t M, uint1024_t e, uint1024_t n, uint1024_t Mbar, uint1024_t xbar, uint1024_t* out);
 
 
 #endif

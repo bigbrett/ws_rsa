@@ -1,7 +1,0 @@
-Running: xsim.dir/rsa_toplevel/xsimk -simmode gui -wdb rsa_toplevel.wdb -simrunnum 0 -socket 54595
-Design successfully loaded
-Design Loading Memory Usage: 52484 KB (Peak: 52880 KB)
-Design Loading CPU Usage: 0 ms
-Simulation completed
-Simulation Memory Usage: 134292 KB (Peak: 191756 KB)
-Simulation CPU Usage: 40 ms

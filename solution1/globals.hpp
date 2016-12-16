@@ -18,7 +18,7 @@
 using namespace hls;
 using namespace std;
 
-#define NUM_BITS 4
+#define NUM_BITS 1024
 
 
 // arbitrary precision for RSA
@@ -26,13 +26,6 @@ using namespace std;
 typedef ap_uint<NUM_BITS> uint1024_t; // 1024 bit unsigned integer
 
 
-// standard axi word
-struct axiWord
-{
-	uint1024_t data;
-	ap_uint<1>  user;
-	ap_uint<1>  last;
-};
 
 
 
