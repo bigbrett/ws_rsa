@@ -19,7 +19,7 @@ __SIM_DDS__ = 1
 
 ObjDir = obj
 
-HLS_SOURCES = ../../rsa_tb.cpp ../../ModExp.cpp ../../montMult.cpp
+HLS_SOURCES = ../../rsa_tb.cpp ../../ModExp.cpp ../../modExpConstGen.cpp ../../montMult.cpp ../../mwr2mm.cpp ../../testModMult.cpp
 
 TARGET := csim.exe
 
@@ -82,8 +82,26 @@ $(ObjDir)/ModExp.o: ../../ModExp.cpp $(ObjDir)/.dir
 
 -include $(ObjDir)/ModExp.d
 
+$(ObjDir)/modExpConstGen.o: ../../modExpConstGen.cpp $(ObjDir)/.dir
+	$(Echo) "   Compiling ../../modExpConstGen.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
+	$(Verb)  $(CC) -c -MMD  $(IFLAG) $(DFLAG)  $< -o $@ ; \
+
+-include $(ObjDir)/modExpConstGen.d
+
 $(ObjDir)/montMult.o: ../../montMult.cpp $(ObjDir)/.dir
 	$(Echo) "   Compiling ../../montMult.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
 	$(Verb)  $(CC) -c -MMD  $(IFLAG) $(DFLAG)  $< -o $@ ; \
 
 -include $(ObjDir)/montMult.d
+
+$(ObjDir)/mwr2mm.o: ../../mwr2mm.cpp $(ObjDir)/.dir
+	$(Echo) "   Compiling ../../mwr2mm.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
+	$(Verb)  $(CC) -c -MMD  $(IFLAG) $(DFLAG)  $< -o $@ ; \
+
+-include $(ObjDir)/mwr2mm.d
+
+$(ObjDir)/testModMult.o: ../../testModMult.cpp $(ObjDir)/.dir
+	$(Echo) "   Compiling ../../testModMult.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
+	$(Verb)  $(CC) -c -MMD  $(IFLAG) $(DFLAG)  $< -o $@ ; \
+
+-include $(ObjDir)/testModMult.d

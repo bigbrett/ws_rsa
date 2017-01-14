@@ -1,0 +1,8 @@
+   Compiling ../../rsa_tb.cpp in debug mode
+   Compiling ../../ModExp.cpp in debug mode
+   Compiling ../../modExpConstGen.cpp in debug mode
+   Compiling ../../montMult.cpp in debug mode
+   Compiling ../../testModMult.cpp in debug mode
+   Generating csim.exe
+csim.exe: /opt/Xilinx/Vivado_HLS/2016.2/include/etc/ap_private.h:3286: void ap_private<_AP_W, _AP_S, false>::fromString(const char*, uint32_t, uint8_t) [with int _AP_W = 1024, bool _AP_S = false, uint32_t = unsigned int, uint8_t = unsigned char]: Assertion `(slen <= numbits || radix != 2) && "Insufficient bit width"' failed.
+CRITICAL WARNING: [SIM 1] CSim failed with errors.

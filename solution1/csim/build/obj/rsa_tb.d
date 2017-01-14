@@ -8,4 +8,4 @@ obj/rsa_tb.o: ../../rsa_tb.cpp ../../globals.hpp \
  /opt/Xilinx/Vivado_HLS/2016.2/include/etc/ap_private.h \
  /opt/Xilinx/Vivado_HLS/2016.2/include/etc/ap_fixed_sim.h \
  /opt/Xilinx/Vivado_HLS/2016.2/include/etc/ap_int_sim.h \
- ../../rsa_toplevel.hpp ../../montMult.hpp ../../ModExp.hpp
+ ../../montMult.hpp ../../ModExp.hpp ../../mwr2mm.hpp

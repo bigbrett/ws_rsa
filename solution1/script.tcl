@@ -8,12 +8,18 @@ set_top ModExp
 add_files ws_rsa64bit/solution1/ModExp.cpp
 add_files ws_rsa64bit/solution1/ModExp.hpp
 add_files ws_rsa64bit/solution1/globals.hpp
+add_files ws_rsa64bit/solution1/modExpConstGen.cpp
+add_files ws_rsa64bit/solution1/modExpConstGen.hpp
 add_files ws_rsa64bit/solution1/montMult.cpp
 add_files ws_rsa64bit/solution1/montMult.hpp
+add_files ws_rsa64bit/solution1/mwr2mm.cpp
+add_files ws_rsa64bit/solution1/mwr2mm.hpp
+add_files ws_rsa64bit/solution1/testModMult.cpp
+add_files ws_rsa64bit/solution1/testModMult.hpp
 add_files -tb ws_rsa64bit/solution1/rsa_tb.cpp
 open_solution "solution1"
 set_part {xc7z020clg484-1} -tool vivado
-create_clock -period 8 -name default
+create_clock -period 20 -name default
 #source "./ws_rsa64bit/solution1/directives.tcl"
 csim_design -clean
 csynth_design
