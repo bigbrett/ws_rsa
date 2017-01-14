@@ -48654,25 +48654,36 @@ typedef ap_uint<1024> uint1024_t; // 1024 bit unsigned integer
 void montMult(uint1024_t base, uint1024_t exponent, uint1024_t modulus, uint1024_t* outData);
 #pragma line 2 "ws_rsa64bit/solution1/montMult.cpp" 2
 #pragma empty_line
-void montMult(uint1024_t X, uint1024_t Y, uint1024_t M, uint1024_t* outData){
+#pragma empty_line
+//void montMult(uint1024_t X, uint1024_t Y, uint1024_t M, uint1024_t* outData){
+void montMult(uint1024_t X0, uint1024_t Y0, uint1024_t M0, uint1024_t* outData)
+{
 #pragma HLS ALLOCATION instances=mul limit=256 operation
 #pragma empty_line
- ap_uint<1024 +1> S = 0;
-//	ap_uint<2*NUM_BITS> S;
-//	S = 0;
+ /* IMPT BUGFIX: INTERMEDIATE WIDTHS MUST BE GREATER
+	 * THAN OR EQUAL TO NUM_BITS+1 OR OVERFLOW CAUSES
+	 * THE INTEGER LIBRARY TO SCREW UP SIGN EXTENTIONS */
+ ap_uint<1024 +2> S = 0;
+ ap_uint<1024 +2> X = X0, Y = Y0, M=M0;
 #pragma empty_line
  int i;
  for (i=0; i<1024; i++)
  {
-  S += X[i]*Y;
-  if (S.test(0))
-   S += M;
-  S = S >> 1;
+  //if(PRINT_ON){cout << "i = "<<dec<<i<<endl;}
+  if (X.test(i)) {
+   S += Y; //if(PRINT_ON){cout<<" S+=("<<X[i]<<")*Y-->"<<endl;cout<<"    "<<hex<<S<<endl;}
+  }
+  if (S.test(0)) {
+   S += M; //if(PRINT_ON){cout<<" S += M-->"<<endl<<"    "<<hex<<S<<endl;}
+  }
+  S = S >> 1; //if(PRINT_ON){cout<<" S >> 1-->"<<endl<<"    "<<hex<<S<<endl<<endl;}
  }
 #pragma empty_line
-//	if (M <= S)
+ //if(PRINT_ON){cout << "LOOP END" << endl << " S = " << S << endl;}
  if (S >= M)
+ {
   S -= M;
-#pragma empty_line
+  //if(PRINT_ON){cout << "***SUBTRACTED MODULUS" << endl << "FINAL MONTMULT = " << hex << S << endl;}
+ }
  *outData = S.range(1024 -1,0);
 }

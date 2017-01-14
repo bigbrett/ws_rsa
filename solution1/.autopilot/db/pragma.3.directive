@@ -1,11 +1,3 @@
 <AutoPilot:ProjectResources xmlns:AutoPilot="com.autoesl.autopilot.ui.directiveView">
-<sourceFile name="">
-<directive functionLabel="" functionName="ModExp" label="">
-<pragma name="ALLOCATION">
-<option name="instances" positionalBoolean="4" value="montMult"/>
-<option name="limit" value="1"/>
-<option name="function" positionalBoolean="type" value=""/>
-</pragma>
-</directive>
-</sourceFile>
+<sourceFile name=""/>
 </AutoPilot:ProjectResources>

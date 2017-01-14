@@ -770,4 +770,7 @@
 #pragma line 5 "ws_rsa64bit/solution1/ModExp.hpp" 2 ::: 48629
 #pragma line 1 "ws_rsa64bit/solution1/montMult.hpp" 1 ::: 48630
 #pragma line 6 "ws_rsa64bit/solution1/ModExp.hpp" 2 ::: 48639
-#pragma line 2 "ws_rsa64bit/solution1/ModExp.cpp" 2 ::: 48643
+#pragma line 1 "ws_rsa64bit/solution1/mwr2mm.hpp" 1 ::: 48640
+#pragma line 7 "ws_rsa64bit/solution1/ModExp.hpp" 2 ::: 48647
+#pragma line 2 "ws_rsa64bit/solution1/ModExp.cpp" 2 ::: 48651
+#pragma line 58 "ws_rsa64bit/solution1/ModExp.cpp" ::: 48690

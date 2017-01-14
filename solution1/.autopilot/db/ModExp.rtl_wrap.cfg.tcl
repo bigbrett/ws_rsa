@@ -52,7 +52,7 @@ set Interface3 "wire"
 set DataType3 "[list ap_uint 1024 ]"
 set Port3 [list $PortName3 $Interface3 $DataType3 $Pointer3 $Dims3 $Const3 $Volatile3 $ArrayOpt3]
 lappend PortList $Port3
-set PortName4 "xbar"
+set PortName4 "xbar_in"
 set BitWidth4 "1024"
 set ArrayOpt4 ""
 set Const4 "0"

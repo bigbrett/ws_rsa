@@ -2,8 +2,8 @@
 # Vivado v2016.2 (64-bit)
 # SW Build 1577090 on Thu Jun  2 16:32:35 MDT 2016
 # IP Build 1577682 on Fri Jun  3 12:00:54 MDT 2016
-# Start of session at: Sat Dec 17 16:48:08 2016
-# Process ID: 22061
+# Start of session at: Sat Jan 14 14:34:05 2017
+# Process ID: 8707
 # Current directory: /home/brett/workspace/Vivado_WS/ws_rsa64bit/solution1/impl/ip
 # Command line: vivado -notrace -mode batch -source run_ippack.tcl
 # Log file: /home/brett/workspace/Vivado_WS/ws_rsa64bit/solution1/impl/ip/vivado.log
@@ -13,4 +13,4 @@ source run_ippack.tcl -notrace
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx/Vivado/2016.2/data/ip'.
-INFO: [Common 17-206] Exiting Vivado at Sat Dec 17 16:48:13 2016...
+INFO: [Common 17-206] Exiting Vivado at Sat Jan 14 14:34:11 2017...

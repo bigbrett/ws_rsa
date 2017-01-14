@@ -41,8 +41,8 @@ set SCTraceFileName "mytrace"
 set SCTraceFileFormat "vcd"
 set SCTraceOption "all"
 set TargetInfo "xc7z020:clg484:-1"
-set SourceFiles {sc {} c {testModMult.cpp montMult.cpp modExpConstGen.cpp ModExp.cpp}}
-set SourceFlags {sc {} c {{} {} {} {}}}
+set SourceFiles {sc {} c {testModMult.cpp mwr2mm.cpp montMult.cpp modExpConstGen.cpp ModExp.cpp}}
+set SourceFlags {sc {} c {{} {} {} {} {}}}
 set DirectiveFile {/home/brett/workspace/Vivado_WS/ws_rsa64bit/solution1/solution1.directive}
 set TBFiles {verilog rsa_tb.cpp bc rsa_tb.cpp vhdl rsa_tb.cpp sc rsa_tb.cpp cas rsa_tb.cpp c {}}
 set SpecLanguage "C"

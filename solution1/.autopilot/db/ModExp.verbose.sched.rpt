@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'ModExp'
 ================================================================
-* Date:           Sat Dec 17 16:47:52 2016
+* Date:           Sat Jan 14 14:32:08 2017
 
 * Version:        2016.2 (Build 1577090 on Thu Jun 02 16:59:10 MDT 2016)
 * Project:        ws_rsa64bit
@@ -88,32 +88,32 @@ IsGatedGlobalClock: 0
 * FSM state operations: 
 
  <State 1>: 1.57ns
-ST_1: xbar_V_buf [1/1] 0.00ns
-:0  %xbar_V_buf = alloca i1024
+ST_1: xbar_V [1/1] 0.00ns
+:0  %xbar_V = alloca i1024
 
 ST_1: stg_7 [1/1] 0.00ns
-:1  call void (...)* @_ssdm_op_SpecBitsMap(i1024 %M_V), !map !125
+:1  call void (...)* @_ssdm_op_SpecBitsMap(i1024 %M_V), !map !112
 
 ST_1: stg_8 [1/1] 0.00ns
-:2  call void (...)* @_ssdm_op_SpecBitsMap(i1024 %e_V), !map !131
+:2  call void (...)* @_ssdm_op_SpecBitsMap(i1024 %e_V), !map !118
 
 ST_1: stg_9 [1/1] 0.00ns
-:3  call void (...)* @_ssdm_op_SpecBitsMap(i1024 %n_V), !map !135
+:3  call void (...)* @_ssdm_op_SpecBitsMap(i1024 %n_V), !map !122
 
 ST_1: stg_10 [1/1] 0.00ns
-:4  call void (...)* @_ssdm_op_SpecBitsMap(i1024 %Mbar_V), !map !139
+:4  call void (...)* @_ssdm_op_SpecBitsMap(i1024 %Mbar_V), !map !126
 
 ST_1: stg_11 [1/1] 0.00ns
-:5  call void (...)* @_ssdm_op_SpecBitsMap(i1024 %xbar_V), !map !143
+:5  call void (...)* @_ssdm_op_SpecBitsMap(i1024 %xbar_in_V), !map !130
 
 ST_1: stg_12 [1/1] 0.00ns
-:6  call void (...)* @_ssdm_op_SpecBitsMap(i1024* %out_V), !map !147
+:6  call void (...)* @_ssdm_op_SpecBitsMap(i1024* %out_V), !map !134
 
 ST_1: stg_13 [1/1] 0.00ns
 :7  call void (...)* @_ssdm_op_SpecTopModule([7 x i8]* @ModExp_str) nounwind
 
-ST_1: xbar_V_read [1/1] 0.00ns
-:8  %xbar_V_read = call i1024 @_ssdm_op_Read.ap_auto.i1024(i1024 %xbar_V)
+ST_1: xbar_in_V_read [1/1] 0.00ns
+:8  %xbar_in_V_read = call i1024 @_ssdm_op_Read.ap_auto.i1024(i1024 %xbar_in_V)
 
 ST_1: Mbar_V_read [1/1] 0.00ns
 :9  %Mbar_V_read = call i1024 @_ssdm_op_Read.ap_auto.i1024(i1024 %Mbar_V)
@@ -128,21 +128,21 @@ ST_1: stg_18 [1/1] 0.00ns
 :12  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [1 x i8]* @p_str14, [1 x i8]* @p_str14, [16 x i8]* @ModExp_montMult.str, [1 x i8]* @p_str14) nounwind
 
 ST_1: stg_19 [1/1] 1.57ns
-:13  store i1024 %xbar_V_read, i1024* %xbar_V_buf
+:13  store i1024 %xbar_in_V_read, i1024* %xbar_V
 
 ST_1: stg_20 [1/1] 1.57ns
 :14  br label %1
 
 
  <State 2>: 1.04ns
-ST_2: bvh_d_index [1/1] 0.00ns
-:0  %bvh_d_index = phi i11 [ 1023, %0 ], [ %i, %._crit_edge ]
+ST_2: i_assign [1/1] 0.00ns
+:0  %i_assign = phi i11 [ 1023, %0 ], [ %i, %._crit_edge ]
 
-ST_2: index_assign_cast [1/1] 0.00ns
-:1  %index_assign_cast = sext i11 %bvh_d_index to i32
+ST_2: i_assign_cast [1/1] 0.00ns
+:1  %i_assign_cast = sext i11 %i_assign to i32
 
 ST_2: tmp [1/1] 0.00ns
-:2  %tmp = call i1 @_ssdm_op_BitSelect.i1.i11.i32(i11 %bvh_d_index, i32 10)
+:2  %tmp = call i1 @_ssdm_op_BitSelect.i1.i11.i32(i11 %i_assign, i32 10)
 
 ST_2: empty [1/1] 0.00ns
 :3  %empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 1024, i64 1024, i64 1024)
@@ -150,51 +150,51 @@ ST_2: empty [1/1] 0.00ns
 ST_2: stg_25 [1/1] 0.00ns
 :4  br i1 %tmp, label %4, label %2
 
-ST_2: xbar_V_buf_load_1 [1/1] 0.00ns
-:0  %xbar_V_buf_load_1 = load i1024* %xbar_V_buf
+ST_2: xbar_V_load_1 [1/1] 0.00ns
+:0  %xbar_V_load_1 = load i1024* %xbar_V
 
-ST_2: call_ret [2/2] 1.04ns
-:1  %call_ret = call fastcc i1024 @ModExp_montMult(i1024 %xbar_V_buf_load_1, i1024 %xbar_V_buf_load_1, i1024 %n_V_read)
+ST_2: xbar_V_1 [2/2] 1.04ns
+:1  %xbar_V_1 = call fastcc i1024 @ModExp_montMult(i1024 %xbar_V_load_1, i1024 %xbar_V_load_1, i1024 %n_V_read)
 
-ST_2: tmp_8 [1/1] 0.00ns
-:2  %tmp_8 = call i1 @_ssdm_op_BitSelect.i1.i1024.i32(i1024 %e_V_read, i32 %index_assign_cast)
+ST_2: tmp_9 [1/1] 0.00ns
+:2  %tmp_9 = call i1 @_ssdm_op_BitSelect.i1.i1024.i32(i1024 %e_V_read, i32 %i_assign_cast)
 
-ST_2: xbar_V_buf_load [1/1] 0.00ns
-:0  %xbar_V_buf_load = load i1024* %xbar_V_buf
+ST_2: xbar_V_load [1/1] 0.00ns
+:0  %xbar_V_load = load i1024* %xbar_V
 
 ST_2: call_ret3 [2/2] 1.04ns
-:1  %call_ret3 = call fastcc i1024 @ModExp_montMult(i1024 %xbar_V_buf_load, i1024 1, i1024 %n_V_read)
+:1  %call_ret3 = call fastcc i1024 @ModExp_montMult(i1024 %xbar_V_load, i1024 1, i1024 %n_V_read)
 
 
  <State 3>: 2.94ns
-ST_3: call_ret [1/2] 1.37ns
-:1  %call_ret = call fastcc i1024 @ModExp_montMult(i1024 %xbar_V_buf_load_1, i1024 %xbar_V_buf_load_1, i1024 %n_V_read)
+ST_3: xbar_V_1 [1/2] 1.37ns
+:1  %xbar_V_1 = call fastcc i1024 @ModExp_montMult(i1024 %xbar_V_load_1, i1024 %xbar_V_load_1, i1024 %n_V_read)
 
 ST_3: stg_32 [1/1] 0.00ns
-:3  br i1 %tmp_8, label %3, label %._crit_edge.pre
+:3  br i1 %tmp_9, label %3, label %._crit_edge.pre
 
 ST_3: stg_33 [1/1] 1.57ns
-._crit_edge.pre:0  store i1024 %call_ret, i1024* %xbar_V_buf
+._crit_edge.pre:0  store i1024 %xbar_V_1, i1024* %xbar_V
 
 ST_3: stg_34 [1/1] 0.00ns
 ._crit_edge.pre:1  br label %._crit_edge
 
-ST_3: call_ret1 [2/2] 1.04ns
-:0  %call_ret1 = call fastcc i1024 @ModExp_montMult(i1024 %Mbar_V_read, i1024 %call_ret, i1024 %n_V_read)
+ST_3: xbar_V_2 [2/2] 1.04ns
+:0  %xbar_V_2 = call fastcc i1024 @ModExp_montMult(i1024 %Mbar_V_read, i1024 %xbar_V_1, i1024 %n_V_read)
 
 
  <State 4>: 2.94ns
-ST_4: call_ret1 [1/2] 1.37ns
-:0  %call_ret1 = call fastcc i1024 @ModExp_montMult(i1024 %Mbar_V_read, i1024 %call_ret, i1024 %n_V_read)
+ST_4: xbar_V_2 [1/2] 1.37ns
+:0  %xbar_V_2 = call fastcc i1024 @ModExp_montMult(i1024 %Mbar_V_read, i1024 %xbar_V_1, i1024 %n_V_read)
 
 ST_4: stg_37 [1/1] 1.57ns
-:1  store i1024 %call_ret1, i1024* %xbar_V_buf
+:1  store i1024 %xbar_V_2, i1024* %xbar_V
 
 ST_4: stg_38 [1/1] 0.00ns
 :2  br label %._crit_edge
 
 ST_4: i [1/1] 1.84ns
-._crit_edge:0  %i = add i11 %bvh_d_index, -1
+._crit_edge:0  %i = add i11 %i_assign, -1
 
 ST_4: stg_40 [1/1] 0.00ns
 ._crit_edge:1  br label %1
@@ -202,7 +202,7 @@ ST_4: stg_40 [1/1] 0.00ns
 
  <State 5>: 1.37ns
 ST_5: call_ret3 [1/2] 1.37ns
-:1  %call_ret3 = call fastcc i1024 @ModExp_montMult(i1024 %xbar_V_buf_load, i1024 1, i1024 %n_V_read)
+:1  %call_ret3 = call fastcc i1024 @ModExp_montMult(i1024 %xbar_V_load, i1024 1, i1024 %n_V_read)
 
 ST_5: stg_42 [1/1] 0.00ns
 :2  call void @_ssdm_op_Write.ap_auto.i1024P(i1024* %out_V, i1024 %call_ret3)

@@ -41,8 +41,8 @@
 </PerformanceEstimates>
 <AreaEstimates>
 <Resources>
-<FF>24613</FF>
-<LUT>9141</LUT>
+<FF>23603</FF>
+<LUT>7543</LUT>
 <BRAM_18K>0</BRAM_18K>
 <DSP48E>0</DSP48E>
 </Resources>
@@ -126,8 +126,8 @@
 <Attribute>data</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>X_V</name>
-<Object>X_V</Object>
+<name>X0_V</name>
+<Object>X0_V</Object>
 <Type>scalar</Type>
 <Scope></Scope>
 <IOProtocol>ap_none</IOProtocol>
@@ -137,8 +137,8 @@
 <Attribute>data</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>Y_V</name>
-<Object>Y_V</Object>
+<name>Y0_V</name>
+<Object>Y0_V</Object>
 <Type>scalar</Type>
 <Scope></Scope>
 <IOProtocol>ap_none</IOProtocol>
@@ -148,8 +148,8 @@
 <Attribute>data</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>M_V</name>
-<Object>M_V</Object>
+<name>M0_V</name>
+<Object>M0_V</Object>
 <Type>scalar</Type>
 <Scope></Scope>
 <IOProtocol>ap_none</IOProtocol>
@@ -192,8 +192,8 @@
 </PerformanceEstimates>
 <AreaEstimates>
 <Resources>
-<FF>27703</FF>
-<LUT>12236</LUT>
+<FF>26693</FF>
+<LUT>10638</LUT>
 <BRAM_18K>0</BRAM_18K>
 <DSP48E>0</DSP48E>
 </Resources>
@@ -314,8 +314,8 @@
 <CType>int</CType>
 </RtlPorts>
 <RtlPorts>
-<name>xbar_V</name>
-<Object>xbar_V</Object>
+<name>xbar_in_V</name>
+<Object>xbar_in_V</Object>
 <Type>scalar</Type>
 <Scope></Scope>
 <IOProtocol>ap_none</IOProtocol>

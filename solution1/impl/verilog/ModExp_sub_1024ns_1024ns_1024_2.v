@@ -8,7 +8,7 @@
 
 `timescale 1 ns / 1 ps
 
-module ModExp_sub_1024ns_1024ns_1024_2_AddSubnS_0(clk, reset, ce, a, b, s);
+module ModExp_sub_1024ns_1024ns_1024_2_AddSubnS_1(clk, reset, ce, a, b, s);
 
 // ---- input/output ports list here ----
 input clk;
@@ -76,14 +76,14 @@ always @ (posedge clk) begin
 end
 
 // small adder generation 
-        ModExp_sub_1024ns_1024ns_1024_2_AddSubnS_0_fadder u0 (
+        ModExp_sub_1024ns_1024ns_1024_2_AddSubnS_1_fadder u0 (
             .faa    ( a0_cb ),
             .fab    ( b0_cb ),
             .facin  ( faccout_ini ),
             .fas    ( fas[511:0] ),
             .facout ( faccout0_co0 )
         );
-        ModExp_sub_1024ns_1024ns_1024_2_AddSubnS_0_fadder_f u1 (
+        ModExp_sub_1024ns_1024ns_1024_2_AddSubnS_1_fadder_f u1 (
             .faa    ( a1_cb_regi1[0] ),
             .fab    ( b1_cb_regi1[0] ),
             .facin  ( faccout0_co0_reg ),
@@ -109,7 +109,7 @@ assign s = s_tmp;
 endmodule
 
 // short adder
-module ModExp_sub_1024ns_1024ns_1024_2_AddSubnS_0_fadder 
+module ModExp_sub_1024ns_1024ns_1024_2_AddSubnS_1_fadder 
 #(parameter
     N = 512
 )(
@@ -124,7 +124,7 @@ assign {facout, fas} = faa + fab + facin;
 endmodule
 
 // the final stage short adder
-module ModExp_sub_1024ns_1024ns_1024_2_AddSubnS_0_fadder_f 
+module ModExp_sub_1024ns_1024ns_1024_2_AddSubnS_1_fadder_f 
 #(parameter
     N = 512
 )(
@@ -161,7 +161,7 @@ output[dout_WIDTH - 1:0] dout;
 
 
 
-ModExp_sub_1024ns_1024ns_1024_2_AddSubnS_0 ModExp_sub_1024ns_1024ns_1024_2_AddSubnS_0_U(
+ModExp_sub_1024ns_1024ns_1024_2_AddSubnS_1 ModExp_sub_1024ns_1024ns_1024_2_AddSubnS_1_U(
     .clk( clk ),
     .reset( reset ),
     .ce( ce ),

@@ -5,8 +5,8 @@
   <xd:arg xd:name="e" xd:originalName="e" xd:direction="in" xd:interfaceRef="e_V" xd:busTypeRef="register" xd:handshakeRef="ap_none" xd:dataWidth="1024"/>
   <xd:arg xd:name="n" xd:originalName="n" xd:direction="in" xd:interfaceRef="n_V" xd:busTypeRef="register" xd:handshakeRef="ap_none" xd:dataWidth="1024"/>
   <xd:arg xd:name="Mbar" xd:originalName="Mbar" xd:direction="in" xd:interfaceRef="Mbar_V" xd:busTypeRef="register" xd:handshakeRef="ap_none" xd:dataWidth="1024"/>
-  <xd:arg xd:name="xbar" xd:originalName="xbar" xd:direction="in" xd:interfaceRef="xbar_V" xd:busTypeRef="register" xd:handshakeRef="ap_none" xd:dataWidth="1024"/>
+  <xd:arg xd:name="xbar_in" xd:originalName="xbar_in" xd:direction="in" xd:interfaceRef="xbar_in_V" xd:busTypeRef="register" xd:handshakeRef="ap_none" xd:dataWidth="1024"/>
   <xd:arg xd:name="*(out)" xd:originalName="out" xd:direction="out" xd:interfaceRef="out_V" xd:busTypeRef="register" xd:handshakeRef="ap_vld" xd:dataWidth="1024"/>
   <xd:latencyEstimates xd:best-case="6304774" xd:worst-case="12600326" xd:average-case="9452550"/>
-  <xd:resourceEstimates xd:LUT="12236" xd:FF="27703" xd:BRAM="0" xd:DSP="0"/>
+  <xd:resourceEstimates xd:LUT="10638" xd:FF="26693" xd:BRAM="0" xd:DSP="0"/>
 </xd:acceleratorMap>

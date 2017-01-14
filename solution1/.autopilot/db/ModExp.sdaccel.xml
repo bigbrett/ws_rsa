@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'ModExp'" level="0">
-<item name = "Date">Sat Dec 17 16:47:52 2016
+<item name = "Date">Sat Jan 14 14:32:08 2017
 </item>
 <item name = "Version">2016.2 (Build 1577090 on Thu Jun 02 16:59:10 MDT 2016)</item>
 <item name = "Project">ws_rsa64bit</item>
@@ -49,19 +49,19 @@
 <column name="DSP">-, -, -, -</column>
 <column name="Expression">-, -, 0, 11</column>
 <column name="FIFO">-, -, -, -</column>
-<column name="Instance">-, -, 24613, 9141</column>
+<column name="Instance">-, -, 23603, 7543</column>
 <column name="Memory">-, -, -, -</column>
 <column name="Multiplexer">-, -, -, 3084</column>
 <column name="Register">-, -, 3090, -</column>
 <specialColumn name="Available">280, 220, 106400, 53200</specialColumn>
-<specialColumn name="Utilization (%)">0, 0, 26, 23</specialColumn>
+<specialColumn name="Utilization (%)">0, 0, 25, 19</specialColumn>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="6">Instance, Module, BRAM_18K, DSP48E, FF, LUT</keys>
-<column name="grp_ModExp_montMult_fu_95">ModExp_montMult, 0, 0, 24613, 9141</column>
+<column name="grp_ModExp_montMult_fu_95">ModExp_montMult, 0, 0, 23603, 7543</column>
 </table>
 </item>
 <item name = "DSP48"><table name="" hasTotal="0">
@@ -84,21 +84,21 @@
 <item name = "Multiplexer"><table name="" hasTotal="1">
 <keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
 <column name="ap_NS_fsm">1, 6, 1, 6</column>
-<column name="bvh_d_index_reg_83">11, 2, 11, 22</column>
-<column name="grp_ModExp_montMult_fu_95_X_V">1024, 3, 1024, 3072</column>
-<column name="grp_ModExp_montMult_fu_95_Y_V">1024, 4, 1024, 4096</column>
-<column name="xbar_V_buf_fu_48">1024, 2, 1024, 2048</column>
+<column name="grp_ModExp_montMult_fu_95_X0_V">1024, 3, 1024, 3072</column>
+<column name="grp_ModExp_montMult_fu_95_Y0_V">1024, 4, 1024, 4096</column>
+<column name="i_assign_reg_83">11, 2, 11, 22</column>
+<column name="xbar_V_fu_48">1024, 2, 1024, 2048</column>
 </table>
 </item>
 <item name = "Register"><table name="" hasTotal="1">
 <keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
 <column name="ap_CS_fsm">5, 0, 5, 0</column>
 <column name="ap_reg_grp_ModExp_montMult_fu_95_ap_start">1, 0, 1, 0</column>
-<column name="bvh_d_index_reg_83">11, 0, 11, 0</column>
-<column name="call_ret_reg_199">1024, 0, 1024, 0</column>
+<column name="i_assign_reg_83">11, 0, 11, 0</column>
 <column name="reg_134">1024, 0, 1024, 0</column>
-<column name="tmp_8_reg_195">1, 0, 1, 0</column>
-<column name="xbar_V_buf_fu_48">1024, 0, 1024, 0</column>
+<column name="tmp_9_reg_195">1, 0, 1, 0</column>
+<column name="xbar_V_1_reg_199">1024, 0, 1024, 0</column>
+<column name="xbar_V_fu_48">1024, 0, 1024, 0</column>
 </table>
 </item>
 </section>
@@ -118,7 +118,7 @@
 <column name="e_V">in, 1024, ap_none, e_V, scalar</column>
 <column name="n_V">in, 1024, ap_none, n_V, scalar</column>
 <column name="Mbar_V">in, 1024, ap_none, Mbar_V, scalar</column>
-<column name="xbar_V">in, 1024, ap_none, xbar_V, scalar</column>
+<column name="xbar_in_V">in, 1024, ap_none, xbar_in_V, scalar</column>
 <column name="out_V">out, 1024, ap_vld, out_V, pointer</column>
 <column name="out_V_ap_vld">out, 1, ap_vld, out_V, pointer</column>
 </table>
@@ -129,8 +129,8 @@
 <item name = "Max Delay">2.94</item>
 <item name = "Critical Path Table"><table name="Critical Path Table" hasTotal="0">
 <keys size="15">Name, Operator, Delay, Accumulated Delay, Store Source, Resource, Core, Interface, Type, Port, Array, Scope, Pointer, Callee, Phi Node</keys>
-<column name="'call_ret', ws_rsa64bit/solution1/ModExp.cpp:18">call, 1.37, 1.37, -, -, -, -, -, -, -, -, -, ModExp_montMult, -</column>
-<column name="ws_rsa64bit/solution1/ModExp.cpp:18">store, 1.57, 2.94, &apos;call_ret&apos;, ws_rsa64bit/solution1/ModExp.cpp:18, -, -, -, -, -, -, -, &apos;xbar_V_buf&apos;, -, -</column>
+<column name="'xbar.V', ws_rsa64bit/solution1/ModExp.cpp:34">call, 1.37, 1.37, -, -, -, -, -, -, -, -, -, ModExp_montMult, -</column>
+<column name="ws_rsa64bit/solution1/ModExp.cpp:34">store, 1.57, 2.94, &apos;xbar.V&apos;, ws_rsa64bit/solution1/ModExp.cpp:34, -, -, -, -, -, -, -, &apos;xbar.V&apos;, -, -</column>
 </table>
 </item>
 </section>

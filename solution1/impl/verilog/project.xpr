@@ -6,7 +6,7 @@
 <Project Version="7" Minor="14" Path="/home/brett/workspace/Vivado_WS/ws_rsa64bit/solution1/impl/verilog/project.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
-    <Option Name="Id" Val="2ca942a468864811b249e5900d02ba9e"/>
+    <Option Name="Id" Val="62f63acaa60d4dd0a4b6c4a6cddc2631"/>
     <Option Name="Part" Val="xc7z020clg484-1"/>
     <Option Name="CompiledLibDir" Val="$PCACHEDIR/compile_simlib"/>
     <Option Name="CompiledLibDirXSim" Val=""/>
@@ -49,7 +49,7 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/ModExp_add_1024ns_1024ns_1024_2.v">
+      <File Path="$PPRDIR/ModExp_add_1026ns_1026ns_1026_2.v">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -64,13 +64,6 @@
         </FileInfo>
       </File>
       <File Path="$PPRDIR/ModExp_sub_1024ns_1024ns_1024_2.v">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/ModExp_add_1025ns_1025ns_1025_2.v">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>

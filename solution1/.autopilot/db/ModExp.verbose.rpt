@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'ModExp'
 ================================================================
-* Date:           Sat Dec 17 16:47:52 2016
+* Date:           Sat Jan 14 14:32:08 2017
 
 * Version:        2016.2 (Build 1577090 on Thu Jun 02 16:59:10 MDT 2016)
 * Project:        ws_rsa64bit
@@ -61,16 +61,16 @@
 |DSP              |        -|      -|       -|      -|
 |Expression       |        -|      -|       0|     11|
 |FIFO             |        -|      -|       -|      -|
-|Instance         |        -|      -|   24613|   9141|
+|Instance         |        -|      -|   23603|   7543|
 |Memory           |        -|      -|       -|      -|
 |Multiplexer      |        -|      -|       -|   3084|
 |Register         |        -|      -|    3090|      -|
 +-----------------+---------+-------+--------+-------+
-|Total            |        0|      0|   27703|  12236|
+|Total            |        0|      0|   26693|  10638|
 +-----------------+---------+-------+--------+-------+
 |Available        |      280|    220|  106400|  53200|
 +-----------------+---------+-------+--------+-------+
-|Utilization (%)  |        0|      0|      26|     23|
+|Utilization (%)  |        0|      0|      25|     19|
 +-----------------+---------+-------+--------+-------+
 
 + Detail: 
@@ -78,9 +78,9 @@
     +---------------------------+-----------------+---------+-------+-------+------+
     |          Instance         |      Module     | BRAM_18K| DSP48E|   FF  |  LUT |
     +---------------------------+-----------------+---------+-------+-------+------+
-    |grp_ModExp_montMult_fu_95  |ModExp_montMult  |        0|      0|  24613|  9141|
+    |grp_ModExp_montMult_fu_95  |ModExp_montMult  |        0|      0|  23603|  7543|
     +---------------------------+-----------------+---------+-------+-------+------+
-    |Total                      |                 |        0|      0|  24613|  9141|
+    |Total                      |                 |        0|      0|  23603|  7543|
     +---------------------------+-----------------+---------+-------+-------+------+
 
     * DSP48: 
@@ -102,17 +102,17 @@
     +--------------+----------+-------+---+----+------------+------------+
 
     * Multiplexer: 
-    +-------------------------------+------+-----------+------+-----------+
-    |              Name             |  LUT | Input Size| Bits | Total Bits|
-    +-------------------------------+------+-----------+------+-----------+
-    |ap_NS_fsm                      |     1|          6|     1|          6|
-    |bvh_d_index_reg_83             |    11|          2|    11|         22|
-    |grp_ModExp_montMult_fu_95_X_V  |  1024|          3|  1024|       3072|
-    |grp_ModExp_montMult_fu_95_Y_V  |  1024|          4|  1024|       4096|
-    |xbar_V_buf_fu_48               |  1024|          2|  1024|       2048|
-    +-------------------------------+------+-----------+------+-----------+
-    |Total                          |  3084|         17|  3084|       9244|
-    +-------------------------------+------+-----------+------+-----------+
+    +--------------------------------+------+-----------+------+-----------+
+    |              Name              |  LUT | Input Size| Bits | Total Bits|
+    +--------------------------------+------+-----------+------+-----------+
+    |ap_NS_fsm                       |     1|          6|     1|          6|
+    |grp_ModExp_montMult_fu_95_X0_V  |  1024|          3|  1024|       3072|
+    |grp_ModExp_montMult_fu_95_Y0_V  |  1024|          4|  1024|       4096|
+    |i_assign_reg_83                 |    11|          2|    11|         22|
+    |xbar_V_fu_48                    |  1024|          2|  1024|       2048|
+    +--------------------------------+------+-----------+------+-----------+
+    |Total                           |  3084|         17|  3084|       9244|
+    +--------------------------------+------+-----------+------+-----------+
 
     * Register: 
     +-------------------------------------------+------+----+------+-----------+
@@ -120,11 +120,11 @@
     +-------------------------------------------+------+----+------+-----------+
     |ap_CS_fsm                                  |     5|   0|     5|          0|
     |ap_reg_grp_ModExp_montMult_fu_95_ap_start  |     1|   0|     1|          0|
-    |bvh_d_index_reg_83                         |    11|   0|    11|          0|
-    |call_ret_reg_199                           |  1024|   0|  1024|          0|
+    |i_assign_reg_83                            |    11|   0|    11|          0|
     |reg_134                                    |  1024|   0|  1024|          0|
-    |tmp_8_reg_195                              |     1|   0|     1|          0|
-    |xbar_V_buf_fu_48                           |  1024|   0|  1024|          0|
+    |tmp_9_reg_195                              |     1|   0|     1|          0|
+    |xbar_V_1_reg_199                           |  1024|   0|  1024|          0|
+    |xbar_V_fu_48                               |  1024|   0|  1024|          0|
     +-------------------------------------------+------+----+------+-----------+
     |Total                                      |  3090|   0|  3090|          0|
     +-------------------------------------------+------+----+------+-----------+
@@ -148,7 +148,7 @@
 |e_V           |  in |  1024|   ap_none  |      e_V     |    scalar    |
 |n_V           |  in |  1024|   ap_none  |      n_V     |    scalar    |
 |Mbar_V        |  in |  1024|   ap_none  |    Mbar_V    |    scalar    |
-|xbar_V        |  in |  1024|   ap_none  |    xbar_V    |    scalar    |
+|xbar_in_V     |  in |  1024|   ap_none  |   xbar_in_V  |    scalar    |
 |out_V         | out |  1024|   ap_vld   |     out_V    |    pointer   |
 |out_V_ap_vld  | out |     1|   ap_vld   |     out_V    |    pointer   |
 +--------------+-----+------+------------+--------------+--------------+
@@ -197,32 +197,32 @@ IsGatedGlobalClock: 0
 * FSM state operations: 
 
  <State 1>: 1.57ns
-ST_1: xbar_V_buf [1/1] 0.00ns
-:0  %xbar_V_buf = alloca i1024
+ST_1: xbar_V [1/1] 0.00ns
+:0  %xbar_V = alloca i1024
 
 ST_1: stg_7 [1/1] 0.00ns
-:1  call void (...)* @_ssdm_op_SpecBitsMap(i1024 %M_V), !map !125
+:1  call void (...)* @_ssdm_op_SpecBitsMap(i1024 %M_V), !map !112
 
 ST_1: stg_8 [1/1] 0.00ns
-:2  call void (...)* @_ssdm_op_SpecBitsMap(i1024 %e_V), !map !131
+:2  call void (...)* @_ssdm_op_SpecBitsMap(i1024 %e_V), !map !118
 
 ST_1: stg_9 [1/1] 0.00ns
-:3  call void (...)* @_ssdm_op_SpecBitsMap(i1024 %n_V), !map !135
+:3  call void (...)* @_ssdm_op_SpecBitsMap(i1024 %n_V), !map !122
 
 ST_1: stg_10 [1/1] 0.00ns
-:4  call void (...)* @_ssdm_op_SpecBitsMap(i1024 %Mbar_V), !map !139
+:4  call void (...)* @_ssdm_op_SpecBitsMap(i1024 %Mbar_V), !map !126
 
 ST_1: stg_11 [1/1] 0.00ns
-:5  call void (...)* @_ssdm_op_SpecBitsMap(i1024 %xbar_V), !map !143
+:5  call void (...)* @_ssdm_op_SpecBitsMap(i1024 %xbar_in_V), !map !130
 
 ST_1: stg_12 [1/1] 0.00ns
-:6  call void (...)* @_ssdm_op_SpecBitsMap(i1024* %out_V), !map !147
+:6  call void (...)* @_ssdm_op_SpecBitsMap(i1024* %out_V), !map !134
 
 ST_1: stg_13 [1/1] 0.00ns
 :7  call void (...)* @_ssdm_op_SpecTopModule([7 x i8]* @ModExp_str) nounwind
 
-ST_1: xbar_V_read [1/1] 0.00ns
-:8  %xbar_V_read = call i1024 @_ssdm_op_Read.ap_auto.i1024(i1024 %xbar_V)
+ST_1: xbar_in_V_read [1/1] 0.00ns
+:8  %xbar_in_V_read = call i1024 @_ssdm_op_Read.ap_auto.i1024(i1024 %xbar_in_V)
 
 ST_1: Mbar_V_read [1/1] 0.00ns
 :9  %Mbar_V_read = call i1024 @_ssdm_op_Read.ap_auto.i1024(i1024 %Mbar_V)
@@ -237,21 +237,21 @@ ST_1: stg_18 [1/1] 0.00ns
 :12  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [1 x i8]* @p_str14, [1 x i8]* @p_str14, [16 x i8]* @ModExp_montMult.str, [1 x i8]* @p_str14) nounwind
 
 ST_1: stg_19 [1/1] 1.57ns
-:13  store i1024 %xbar_V_read, i1024* %xbar_V_buf
+:13  store i1024 %xbar_in_V_read, i1024* %xbar_V
 
 ST_1: stg_20 [1/1] 1.57ns
 :14  br label %1
 
 
  <State 2>: 1.04ns
-ST_2: bvh_d_index [1/1] 0.00ns
-:0  %bvh_d_index = phi i11 [ 1023, %0 ], [ %i, %._crit_edge ]
+ST_2: i_assign [1/1] 0.00ns
+:0  %i_assign = phi i11 [ 1023, %0 ], [ %i, %._crit_edge ]
 
-ST_2: index_assign_cast [1/1] 0.00ns
-:1  %index_assign_cast = sext i11 %bvh_d_index to i32
+ST_2: i_assign_cast [1/1] 0.00ns
+:1  %i_assign_cast = sext i11 %i_assign to i32
 
 ST_2: tmp [1/1] 0.00ns
-:2  %tmp = call i1 @_ssdm_op_BitSelect.i1.i11.i32(i11 %bvh_d_index, i32 10)
+:2  %tmp = call i1 @_ssdm_op_BitSelect.i1.i11.i32(i11 %i_assign, i32 10)
 
 ST_2: empty [1/1] 0.00ns
 :3  %empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 1024, i64 1024, i64 1024)
@@ -259,51 +259,51 @@ ST_2: empty [1/1] 0.00ns
 ST_2: stg_25 [1/1] 0.00ns
 :4  br i1 %tmp, label %4, label %2
 
-ST_2: xbar_V_buf_load_1 [1/1] 0.00ns
-:0  %xbar_V_buf_load_1 = load i1024* %xbar_V_buf
+ST_2: xbar_V_load_1 [1/1] 0.00ns
+:0  %xbar_V_load_1 = load i1024* %xbar_V
 
-ST_2: call_ret [2/2] 1.04ns
-:1  %call_ret = call fastcc i1024 @ModExp_montMult(i1024 %xbar_V_buf_load_1, i1024 %xbar_V_buf_load_1, i1024 %n_V_read)
+ST_2: xbar_V_1 [2/2] 1.04ns
+:1  %xbar_V_1 = call fastcc i1024 @ModExp_montMult(i1024 %xbar_V_load_1, i1024 %xbar_V_load_1, i1024 %n_V_read)
 
-ST_2: tmp_8 [1/1] 0.00ns
-:2  %tmp_8 = call i1 @_ssdm_op_BitSelect.i1.i1024.i32(i1024 %e_V_read, i32 %index_assign_cast)
+ST_2: tmp_9 [1/1] 0.00ns
+:2  %tmp_9 = call i1 @_ssdm_op_BitSelect.i1.i1024.i32(i1024 %e_V_read, i32 %i_assign_cast)
 
-ST_2: xbar_V_buf_load [1/1] 0.00ns
-:0  %xbar_V_buf_load = load i1024* %xbar_V_buf
+ST_2: xbar_V_load [1/1] 0.00ns
+:0  %xbar_V_load = load i1024* %xbar_V
 
 ST_2: call_ret3 [2/2] 1.04ns
-:1  %call_ret3 = call fastcc i1024 @ModExp_montMult(i1024 %xbar_V_buf_load, i1024 1, i1024 %n_V_read)
+:1  %call_ret3 = call fastcc i1024 @ModExp_montMult(i1024 %xbar_V_load, i1024 1, i1024 %n_V_read)
 
 
  <State 3>: 2.94ns
-ST_3: call_ret [1/2] 1.37ns
-:1  %call_ret = call fastcc i1024 @ModExp_montMult(i1024 %xbar_V_buf_load_1, i1024 %xbar_V_buf_load_1, i1024 %n_V_read)
+ST_3: xbar_V_1 [1/2] 1.37ns
+:1  %xbar_V_1 = call fastcc i1024 @ModExp_montMult(i1024 %xbar_V_load_1, i1024 %xbar_V_load_1, i1024 %n_V_read)
 
 ST_3: stg_32 [1/1] 0.00ns
-:3  br i1 %tmp_8, label %3, label %._crit_edge.pre
+:3  br i1 %tmp_9, label %3, label %._crit_edge.pre
 
 ST_3: stg_33 [1/1] 1.57ns
-._crit_edge.pre:0  store i1024 %call_ret, i1024* %xbar_V_buf
+._crit_edge.pre:0  store i1024 %xbar_V_1, i1024* %xbar_V
 
 ST_3: stg_34 [1/1] 0.00ns
 ._crit_edge.pre:1  br label %._crit_edge
 
-ST_3: call_ret1 [2/2] 1.04ns
-:0  %call_ret1 = call fastcc i1024 @ModExp_montMult(i1024 %Mbar_V_read, i1024 %call_ret, i1024 %n_V_read)
+ST_3: xbar_V_2 [2/2] 1.04ns
+:0  %xbar_V_2 = call fastcc i1024 @ModExp_montMult(i1024 %Mbar_V_read, i1024 %xbar_V_1, i1024 %n_V_read)
 
 
  <State 4>: 2.94ns
-ST_4: call_ret1 [1/2] 1.37ns
-:0  %call_ret1 = call fastcc i1024 @ModExp_montMult(i1024 %Mbar_V_read, i1024 %call_ret, i1024 %n_V_read)
+ST_4: xbar_V_2 [1/2] 1.37ns
+:0  %xbar_V_2 = call fastcc i1024 @ModExp_montMult(i1024 %Mbar_V_read, i1024 %xbar_V_1, i1024 %n_V_read)
 
 ST_4: stg_37 [1/1] 1.57ns
-:1  store i1024 %call_ret1, i1024* %xbar_V_buf
+:1  store i1024 %xbar_V_2, i1024* %xbar_V
 
 ST_4: stg_38 [1/1] 0.00ns
 :2  br label %._crit_edge
 
 ST_4: i [1/1] 1.84ns
-._crit_edge:0  %i = add i11 %bvh_d_index, -1
+._crit_edge:0  %i = add i11 %i_assign, -1
 
 ST_4: stg_40 [1/1] 0.00ns
 ._crit_edge:1  br label %1
@@ -311,7 +311,7 @@ ST_4: stg_40 [1/1] 0.00ns
 
  <State 5>: 1.37ns
 ST_5: call_ret3 [1/2] 1.37ns
-:1  %call_ret3 = call fastcc i1024 @ModExp_montMult(i1024 %xbar_V_buf_load, i1024 1, i1024 %n_V_read)
+:1  %call_ret3 = call fastcc i1024 @ModExp_montMult(i1024 %xbar_V_load, i1024 1, i1024 %n_V_read)
 
 ST_5: stg_42 [1/1] 0.00ns
 :2  call void @_ssdm_op_Write.ap_auto.i1024P(i1024* %out_V, i1024 %call_ret3)
@@ -337,7 +337,7 @@ Port [ M_V]:  wired=1; compound=0; hidden=0; nouse=1; global=0; static=0; extern
 Port [ e_V]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
 Port [ n_V]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
 Port [ Mbar_V]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
-Port [ xbar_V]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ xbar_in_V]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
 Port [ out_V]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=1; type=0; pingpong=0; private_global=0; IO mode=ap_vld:ce=0
 ---------------- STG Properties END ------------------
 
@@ -345,41 +345,41 @@ Port [ out_V]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; exte
 
 <LifeTime>
 <method=bitvector/>
-xbar_V_buf        (alloca           ) [ 011110]
-stg_7             (specbitsmap      ) [ 000000]
-stg_8             (specbitsmap      ) [ 000000]
-stg_9             (specbitsmap      ) [ 000000]
-stg_10            (specbitsmap      ) [ 000000]
-stg_11            (specbitsmap      ) [ 000000]
-stg_12            (specbitsmap      ) [ 000000]
-stg_13            (spectopmodule    ) [ 000000]
-xbar_V_read       (read             ) [ 000000]
-Mbar_V_read       (read             ) [ 001110]
-n_V_read          (read             ) [ 001111]
-e_V_read          (read             ) [ 001110]
-stg_18            (specresourcelimit) [ 000000]
-stg_19            (store            ) [ 000000]
-stg_20            (br               ) [ 011110]
-bvh_d_index       (phi              ) [ 001110]
-index_assign_cast (sext             ) [ 000000]
-tmp               (bitselect        ) [ 001110]
-empty             (speclooptripcount) [ 000000]
-stg_25            (br               ) [ 000000]
-xbar_V_buf_load_1 (load             ) [ 000100]
-tmp_8             (bitselect        ) [ 000110]
-xbar_V_buf_load   (load             ) [ 000001]
-call_ret          (call             ) [ 000010]
-stg_32            (br               ) [ 000000]
-stg_33            (store            ) [ 000000]
-stg_34            (br               ) [ 000000]
-call_ret1         (call             ) [ 000000]
-stg_37            (store            ) [ 000000]
-stg_38            (br               ) [ 000000]
-i                 (add              ) [ 011110]
-stg_40            (br               ) [ 011110]
-call_ret3         (call             ) [ 000000]
-stg_42            (write            ) [ 000000]
-stg_43            (ret              ) [ 000000]
+xbar_V         (alloca           ) [ 011110]
+stg_7          (specbitsmap      ) [ 000000]
+stg_8          (specbitsmap      ) [ 000000]
+stg_9          (specbitsmap      ) [ 000000]
+stg_10         (specbitsmap      ) [ 000000]
+stg_11         (specbitsmap      ) [ 000000]
+stg_12         (specbitsmap      ) [ 000000]
+stg_13         (spectopmodule    ) [ 000000]
+xbar_in_V_read (read             ) [ 000000]
+Mbar_V_read    (read             ) [ 001110]
+n_V_read       (read             ) [ 001111]
+e_V_read       (read             ) [ 001110]
+stg_18         (specresourcelimit) [ 000000]
+stg_19         (store            ) [ 000000]
+stg_20         (br               ) [ 011110]
+i_assign       (phi              ) [ 001110]
+i_assign_cast  (sext             ) [ 000000]
+tmp            (bitselect        ) [ 001110]
+empty          (speclooptripcount) [ 000000]
+stg_25         (br               ) [ 000000]
+xbar_V_load_1  (load             ) [ 000100]
+tmp_9          (bitselect        ) [ 000110]
+xbar_V_load    (load             ) [ 000001]
+xbar_V_1       (call             ) [ 000010]
+stg_32         (br               ) [ 000000]
+stg_33         (store            ) [ 000000]
+stg_34         (br               ) [ 000000]
+xbar_V_2       (call             ) [ 000000]
+stg_37         (store            ) [ 000000]
+stg_38         (br               ) [ 000000]
+i              (add              ) [ 011110]
+stg_40         (br               ) [ 011110]
+call_ret3      (call             ) [ 000000]
+stg_42         (write            ) [ 000000]
+stg_43         (ret              ) [ 000000]
 </LifeTime>
 
 <model>
@@ -421,12 +421,12 @@ stg_43            (ret              ) [ 000000]
 </bind>
 </comp>
 
-<comp id="8" class="1000" name="xbar_V">
+<comp id="8" class="1000" name="xbar_in_V">
 <pin_list>
 <pin id="9" dir="1" index="0" bw="1" slack="0"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="xbar_V"/></StgValue>
+<StgValue><ssdm name="xbar_in_V"/></StgValue>
 </bind>
 </comp>
 
@@ -601,18 +601,18 @@ stg_43            (ret              ) [ 000000]
 </bind>
 </comp>
 
-<comp id="48" class="1004" name="xbar_V_buf_fu_48">
+<comp id="48" class="1004" name="xbar_V_fu_48">
 <pin_list>
 <pin id="49" dir="0" index="0" bw="1" slack="0"/>
 <pin id="50" dir="1" index="1" bw="1024" slack="0"/>
 </pin_list>
 <bind>
 <opcode="alloca(26) " fcode="alloca"/>
-<opset="xbar_V_buf/1 "/>
+<opset="xbar_V/1 "/>
 </bind>
 </comp>
 
-<comp id="52" class="1004" name="xbar_V_read_read_fu_52">
+<comp id="52" class="1004" name="xbar_in_V_read_read_fu_52">
 <pin_list>
 <pin id="53" dir="0" index="0" bw="1024" slack="0"/>
 <pin id="54" dir="0" index="1" bw="1024" slack="0"/>
@@ -620,7 +620,7 @@ stg_43            (ret              ) [ 000000]
 </pin_list>
 <bind>
 <opcode="read(1150) " fcode="read"/>
-<opset="xbar_V_read/1 "/>
+<opset="xbar_in_V_read/1 "/>
 </bind>
 </comp>
 
@@ -673,17 +673,17 @@ stg_43            (ret              ) [ 000000]
 </bind>
 </comp>
 
-<comp id="83" class="1005" name="bvh_d_index_reg_83">
+<comp id="83" class="1005" name="i_assign_reg_83">
 <pin_list>
 <pin id="84" dir="0" index="0" bw="11" slack="1"/>
 <pin id="85" dir="1" index="1" bw="11" slack="1"/>
 </pin_list>
 <bind>
-<opset="bvh_d_index (phireg) "/>
+<opset="i_assign (phireg) "/>
 </bind>
 </comp>
 
-<comp id="87" class="1004" name="bvh_d_index_phi_fu_87">
+<comp id="87" class="1004" name="i_assign_phi_fu_87">
 <pin_list>
 <pin id="88" dir="0" index="0" bw="11" slack="1"/>
 <pin id="89" dir="0" index="1" bw="0" slack="2147483647"/>
@@ -693,7 +693,7 @@ stg_43            (ret              ) [ 000000]
 </pin_list>
 <bind>
 <opcode="phi(47) " fcode="phi"/>
-<opset="bvh_d_index/2 "/>
+<opset="i_assign/2 "/>
 </bind>
 </comp>
 
@@ -707,7 +707,7 @@ stg_43            (ret              ) [ 000000]
 </pin_list>
 <bind>
 <opcode="call(48) " fcode="call"/>
-<opset="call_ret/2 call_ret3/2 call_ret1/3 "/>
+<opset="xbar_V_1/2 call_ret3/2 xbar_V_2/3 "/>
 </bind>
 </comp>
 
@@ -718,7 +718,7 @@ stg_43            (ret              ) [ 000000]
 </pin_list>
 <bind>
 <opcode="load(27) " fcode="load"/>
-<opset="xbar_V_buf_load_1/2 xbar_V_buf_load/2 "/>
+<opset="xbar_V_load_1/2 xbar_V_load/2 "/>
 </bind>
 </comp>
 
@@ -740,7 +740,7 @@ stg_43            (ret              ) [ 000000]
 <pin id="136" dir="1" index="1" bw="1024" slack="1"/>
 </pin_list>
 <bind>
-<opset="xbar_V_buf_load_1 xbar_V_buf_load "/>
+<opset="xbar_V_load_1 xbar_V_load "/>
 </bind>
 </comp>
 
@@ -756,14 +756,14 @@ stg_43            (ret              ) [ 000000]
 </bind>
 </comp>
 
-<comp id="145" class="1004" name="index_assign_cast_fu_145">
+<comp id="145" class="1004" name="i_assign_cast_fu_145">
 <pin_list>
 <pin id="146" dir="0" index="0" bw="11" slack="0"/>
 <pin id="147" dir="1" index="1" bw="32" slack="0"/>
 </pin_list>
 <bind>
 <opcode="sext(35) " fcode="sext"/>
-<opset="index_assign_cast/2 "/>
+<opset="i_assign_cast/2 "/>
 </bind>
 </comp>
 
@@ -780,7 +780,7 @@ stg_43            (ret              ) [ 000000]
 </bind>
 </comp>
 
-<comp id="157" class="1004" name="tmp_8_fu_157">
+<comp id="157" class="1004" name="tmp_9_fu_157">
 <pin_list>
 <pin id="158" dir="0" index="0" bw="1" slack="0"/>
 <pin id="159" dir="0" index="1" bw="1024" slack="1"/>
@@ -789,7 +789,7 @@ stg_43            (ret              ) [ 000000]
 </pin_list>
 <bind>
 <opcode="bitselect(1000) " fcode="bitselect"/>
-<opset="tmp_8/2 "/>
+<opset="tmp_9/2 "/>
 </bind>
 </comp>
 
@@ -805,13 +805,13 @@ stg_43            (ret              ) [ 000000]
 </bind>
 </comp>
 
-<comp id="170" class="1005" name="xbar_V_buf_reg_170">
+<comp id="170" class="1005" name="xbar_V_reg_170">
 <pin_list>
 <pin id="171" dir="0" index="0" bw="1024" slack="0"/>
 <pin id="172" dir="1" index="1" bw="1024" slack="0"/>
 </pin_list>
 <bind>
-<opset="xbar_V_buf "/>
+<opset="xbar_V "/>
 </bind>
 </comp>
 
@@ -845,23 +845,23 @@ stg_43            (ret              ) [ 000000]
 </bind>
 </comp>
 
-<comp id="195" class="1005" name="tmp_8_reg_195">
+<comp id="195" class="1005" name="tmp_9_reg_195">
 <pin_list>
 <pin id="196" dir="0" index="0" bw="1" slack="1"/>
 <pin id="197" dir="1" index="1" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<opset="tmp_8 "/>
+<opset="tmp_9 "/>
 </bind>
 </comp>
 
-<comp id="199" class="1005" name="call_ret_reg_199">
+<comp id="199" class="1005" name="xbar_V_1_reg_199">
 <pin_list>
 <pin id="200" dir="0" index="0" bw="1024" slack="1"/>
 <pin id="201" dir="1" index="1" bw="1024" slack="1"/>
 </pin_list>
 <bind>
-<opset="call_ret "/>
+<opset="xbar_V_1 "/>
 </bind>
 </comp>
 
@@ -986,19 +986,19 @@ stg_43            (ret              ) [ 000000]
 	Port: ModExp : e_V | {1 }
 	Port: ModExp : n_V | {1 }
 	Port: ModExp : Mbar_V | {1 }
-	Port: ModExp : xbar_V | {1 }
+	Port: ModExp : xbar_in_V | {1 }
   - Chain level:
 	State 1
 	State 2
-		index_assign_cast : 1
+		i_assign_cast : 1
 		tmp : 1
 		stg_25 : 2
-		call_ret : 1
-		tmp_8 : 2
+		xbar_V_1 : 1
+		tmp_9 : 2
 		call_ret3 : 1
 	State 3
 		stg_33 : 1
-		call_ret1 : 1
+		xbar_V_2 : 1
 	State 4
 		stg_37 : 1
 	State 5
@@ -1013,23 +1013,23 @@ stg_43            (ret              ) [ 000000]
 |----------|---------------------------|---------|---------|---------|
 | Operation|      Functional Unit      |  Delay  |    FF   |   LUT   |
 |----------|---------------------------|---------|---------|---------|
-|   call   | grp_ModExp_montMult_fu_95 |  3.142  |  25631  |  11171  |
+|   call   | grp_ModExp_montMult_fu_95 |  3.142  |  24627  |   8551  |
 |----------|---------------------------|---------|---------|---------|
 |    add   |          i_fu_164         |    0    |    0    |    11   |
 |----------|---------------------------|---------|---------|---------|
-|          |   xbar_V_read_read_fu_52  |    0    |    0    |    0    |
+|          | xbar_in_V_read_read_fu_52 |    0    |    0    |    0    |
 |   read   |   Mbar_V_read_read_fu_58  |    0    |    0    |    0    |
 |          |    n_V_read_read_fu_64    |    0    |    0    |    0    |
 |          |    e_V_read_read_fu_70    |    0    |    0    |    0    |
 |----------|---------------------------|---------|---------|---------|
 |   write  |     stg_42_write_fu_76    |    0    |    0    |    0    |
 |----------|---------------------------|---------|---------|---------|
-|   sext   |  index_assign_cast_fu_145 |    0    |    0    |    0    |
+|   sext   |    i_assign_cast_fu_145   |    0    |    0    |    0    |
 |----------|---------------------------|---------|---------|---------|
 | bitselect|         tmp_fu_149        |    0    |    0    |    0    |
-|          |        tmp_8_fu_157       |    0    |    0    |    0    |
+|          |        tmp_9_fu_157       |    0    |    0    |    0    |
 |----------|---------------------------|---------|---------|---------|
-|   Total  |                           |  3.142  |  25631  |  11182  |
+|   Total  |                           |  3.142  |  24627  |   8562  |
 |----------|---------------------------|---------|---------|---------|
 
 Memories:
@@ -1040,14 +1040,14 @@ N/A
 |                   |   FF   |
 +-------------------+--------+
 |Mbar_V_read_reg_177|  1024  |
-| bvh_d_index_reg_83|   11   |
-|  call_ret_reg_199 |  1024  |
 |  e_V_read_reg_187 |  1024  |
+|  i_assign_reg_83  |   11   |
 |     i_reg_204     |   11   |
 |  n_V_read_reg_182 |  1024  |
 |      reg_134      |  1024  |
-|   tmp_8_reg_195   |    1   |
-| xbar_V_buf_reg_170|  1024  |
+|   tmp_9_reg_195   |    1   |
+|  xbar_V_1_reg_199 |  1024  |
+|   xbar_V_reg_170  |  1024  |
 +-------------------+--------+
 |       Total       |  6167  |
 +-------------------+--------+
@@ -1056,7 +1056,7 @@ N/A
 |---------------------------|------|------|------|--------||---------||---------|
 |            Comp           |  Pin | Size |  BW  | S x BW ||  Delay  ||   LUT   |
 |---------------------------|------|------|------|--------||---------||---------|
-|     bvh_d_index_reg_83    |  p0  |   2  |  11  |   22   ||    11   |
+|      i_assign_reg_83      |  p0  |   2  |  11  |   22   ||    11   |
 | grp_ModExp_montMult_fu_95 |  p1  |   3  | 1024 |  3072  ||   1024  |
 | grp_ModExp_montMult_fu_95 |  p2  |   5  | 1024 |  5120  ||   1024  |
 |---------------------------|------|------|------|--------||---------||---------|
@@ -1069,10 +1069,10 @@ N/A
 +-----------+--------+--------+--------+
 |           |  Delay |   FF   |   LUT  |
 +-----------+--------+--------+--------+
-|  Function |    3   |  25631 |  11182 |
+|  Function |    3   |  24627 |  8562  |
 |   Memory  |    -   |    -   |    -   |
 |Multiplexer|    5   |    -   |  2059  |
 |  Register |    -   |  6167  |    -   |
 +-----------+--------+--------+--------+
-|   Total   |    8   |  31798 |  13241 |
+|   Total   |    8   |  30794 |  10621 |
 +-----------+--------+--------+--------+

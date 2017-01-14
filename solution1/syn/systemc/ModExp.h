@@ -27,7 +27,7 @@ struct ModExp : public sc_module {
     sc_in< sc_lv<1024> > e_V;
     sc_in< sc_lv<1024> > n_V;
     sc_in< sc_lv<1024> > Mbar_V;
-    sc_in< sc_lv<1024> > xbar_V;
+    sc_in< sc_lv<1024> > xbar_in_V;
     sc_out< sc_lv<1024> > out_V;
     sc_out< sc_logic > out_V_ap_vld;
 
@@ -50,10 +50,10 @@ struct ModExp : public sc_module {
     sc_signal< sc_logic > ap_sig_cseq_ST_st2_fsm_1;
     sc_signal< bool > ap_sig_41;
     sc_signal< sc_lv<1> > tmp_fu_149_p3;
-    sc_signal< sc_lv<1> > tmp_8_fu_157_p3;
-    sc_signal< sc_lv<1> > tmp_8_reg_195;
+    sc_signal< sc_lv<1> > tmp_9_fu_157_p3;
+    sc_signal< sc_lv<1> > tmp_9_reg_195;
     sc_signal< sc_lv<1024> > grp_ModExp_montMult_fu_95_ap_return;
-    sc_signal< sc_lv<1024> > call_ret_reg_199;
+    sc_signal< sc_lv<1024> > xbar_V_1_reg_199;
     sc_signal< sc_logic > ap_sig_cseq_ST_st3_fsm_2;
     sc_signal< bool > ap_sig_68;
     sc_signal< sc_logic > grp_ModExp_montMult_fu_95_ap_done;
@@ -63,14 +63,14 @@ struct ModExp : public sc_module {
     sc_signal< sc_logic > grp_ModExp_montMult_fu_95_ap_start;
     sc_signal< sc_logic > grp_ModExp_montMult_fu_95_ap_idle;
     sc_signal< sc_logic > grp_ModExp_montMult_fu_95_ap_ready;
-    sc_signal< sc_lv<1024> > grp_ModExp_montMult_fu_95_X_V;
-    sc_signal< sc_lv<1024> > grp_ModExp_montMult_fu_95_Y_V;
-    sc_signal< sc_lv<11> > bvh_d_index_reg_83;
+    sc_signal< sc_lv<1024> > grp_ModExp_montMult_fu_95_X0_V;
+    sc_signal< sc_lv<1024> > grp_ModExp_montMult_fu_95_Y0_V;
+    sc_signal< sc_lv<11> > i_assign_reg_83;
     sc_signal< sc_logic > ap_reg_grp_ModExp_montMult_fu_95_ap_start;
     sc_signal< sc_logic > ap_sig_cseq_ST_st5_fsm_4;
     sc_signal< bool > ap_sig_108;
-    sc_signal< sc_lv<1024> > xbar_V_buf_fu_48;
-    sc_signal< sc_lv<32> > index_assign_cast_fu_145_p1;
+    sc_signal< sc_lv<1024> > xbar_V_fu_48;
+    sc_signal< sc_lv<32> > i_assign_cast_fu_145_p1;
     sc_signal< sc_lv<5> > ap_NS_fsm;
     static const sc_logic ap_const_logic_1;
     static const sc_logic ap_const_logic_0;
@@ -87,7 +87,7 @@ struct ModExp : public sc_module {
     static const sc_lv<32> ap_const_lv32_3;
     static const sc_lv<11> ap_const_lv11_3FF;
     static const sc_lv<32> ap_const_lv32_4;
-    static const sc_lv<1024> ap_const_lv1024_lc_3;
+    static const sc_lv<1024> ap_const_lv1024_lc_2;
     static const sc_lv<32> ap_const_lv32_A;
     static const sc_lv<11> ap_const_lv11_7FF;
     // Thread declarations
@@ -105,14 +105,14 @@ struct ModExp : public sc_module {
     void thread_ap_sig_cseq_ST_st3_fsm_2();
     void thread_ap_sig_cseq_ST_st4_fsm_3();
     void thread_ap_sig_cseq_ST_st5_fsm_4();
-    void thread_grp_ModExp_montMult_fu_95_X_V();
-    void thread_grp_ModExp_montMult_fu_95_Y_V();
+    void thread_grp_ModExp_montMult_fu_95_X0_V();
+    void thread_grp_ModExp_montMult_fu_95_Y0_V();
     void thread_grp_ModExp_montMult_fu_95_ap_start();
+    void thread_i_assign_cast_fu_145_p1();
     void thread_i_fu_164_p2();
-    void thread_index_assign_cast_fu_145_p1();
     void thread_out_V();
     void thread_out_V_ap_vld();
-    void thread_tmp_8_fu_157_p3();
+    void thread_tmp_9_fu_157_p3();
     void thread_tmp_fu_149_p3();
     void thread_ap_NS_fsm();
     void thread_hdltv_gen();

@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'ModExp_montMult'" level="0">
-<item name = "Date">Sat Dec 17 16:47:52 2016
+<item name = "Date">Sat Jan 14 14:32:08 2017
 </item>
 <item name = "Version">2016.2 (Build 1577090 on Thu Jun 02 16:59:10 MDT 2016)</item>
 <item name = "Project">ws_rsa64bit</item>
@@ -48,24 +48,23 @@
 <item name = "Summary"><table name="" hasTotal="1">
 <keys size="5">Name, BRAM_18K, DSP48E, FF, LUT</keys>
 <column name="DSP">-, -, -, -</column>
-<column name="Expression">-, -, 0, 4005</column>
+<column name="Expression">-, -, 0, 3428</column>
 <column name="FIFO">-, -, -, -</column>
-<column name="Instance">-, -, 12291, 4097</column>
+<column name="Instance">-, -, 9225, 3075</column>
 <column name="Memory">-, -, -, -</column>
-<column name="Multiplexer">-, -, -, 1039</column>
-<column name="Register">-, -, 12322, -</column>
+<column name="Multiplexer">-, -, -, 1040</column>
+<column name="Register">-, -, 14378, -</column>
 <specialColumn name="Available">280, 220, 106400, 53200</specialColumn>
-<specialColumn name="Utilization (%)">0, 0, 23, 17</specialColumn>
+<specialColumn name="Utilization (%)">0, 0, 22, 14</specialColumn>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="6">Instance, Module, BRAM_18K, DSP48E, FF, LUT</keys>
-<column name="ModExp_add_1024ns_1024ns_1024_2_U2">ModExp_add_1024ns_1024ns_1024_2, 0, 0, 3072, 1024</column>
-<column name="ModExp_add_1025ns_1025ns_1025_2_U3">ModExp_add_1025ns_1025ns_1025_2, 0, 0, 3072, 1024</column>
-<column name="ModExp_add_1025ns_1025ns_1025_2_U4">ModExp_add_1025ns_1025ns_1025_2, 0, 0, 3075, 1025</column>
-<column name="ModExp_sub_1024ns_1024ns_1024_2_U1">ModExp_sub_1024ns_1024ns_1024_2, 0, 0, 3072, 1024</column>
+<column name="ModExp_add_1026ns_1026ns_1026_2_U1">ModExp_add_1026ns_1026ns_1026_2, 0, 0, 3075, 1025</column>
+<column name="ModExp_add_1026ns_1026ns_1026_2_U3">ModExp_add_1026ns_1026ns_1026_2, 0, 0, 3078, 1026</column>
+<column name="ModExp_sub_1024ns_1024ns_1024_2_U2">ModExp_sub_1024ns_1024ns_1024_2, 0, 0, 3072, 1024</column>
 </table>
 </item>
 <item name = "DSP48"><table name="" hasTotal="0">
@@ -82,41 +81,43 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="i_fu_97_p2">+, 0, 0, 11, 11, 1</column>
-<column name="r_V_fu_118_p2">and, 0, 0, 1602, 1024, 1024</column>
-<column name="exitcond_fu_91_p2">icmp, 0, 0, 5, 11, 12</column>
-<column name="tmp_2_fu_123_p2">icmp, 0, 0, 337, 1024, 1024</column>
-<column name="ssdm_int_V_write_assign_fu_179_p3">select, 0, 0, 1024, 1, 1024</column>
-<column name="tmp_4_fu_174_p3">select, 0, 0, 1024, 1, 1024</column>
-<column name="tmp_cast_fu_110_p3">select, 0, 0, 2, 1, 2</column>
+<column name="i_fu_106_p2">+, 0, 0, 11, 11, 1</column>
+<column name="exitcond_fu_100_p2">icmp, 0, 0, 5, 11, 12</column>
+<column name="tmp_fu_124_p2">icmp, 0, 0, 337, 1025, 1025</column>
+<column name="p_Val2_1_fu_142_p3">select, 0, 0, 1026, 1, 1026</column>
+<column name="ssdm_int_V_write_assign_fu_180_p3">select, 0, 0, 1024, 1, 1024</column>
+<column name="tmp_5_fu_175_p3">select, 0, 0, 1025, 1, 1025</column>
 </table>
 </item>
 <item name = "Multiplexer"><table name="" hasTotal="1">
 <keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
 <column name="ap_NS_fsm">4, 10, 1, 10</column>
-<column name="bvh_d_index_reg_68">11, 2, 11, 22</column>
-<column name="p_s_reg_56">1024, 2, 1024, 2048</column>
+<column name="i_assign_reg_65">11, 2, 11, 22</column>
+<column name="p_s_reg_54">1025, 2, 1025, 2050</column>
 </table>
 </item>
 <item name = "Register"><table name="" hasTotal="1">
 <keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
-<column name="M_V_read_reg_185">1024, 0, 1024, 0</column>
-<column name="S_V_3_reg_235">1025, 0, 1025, 0</column>
-<column name="S_V_reg_260">1024, 0, 1024, 0</column>
-<column name="X_V_read_reg_196">1024, 0, 1024, 0</column>
-<column name="Y_V_read_reg_191">1024, 0, 1024, 0</column>
+<column name="M0_V_read_reg_185">1024, 0, 1024, 0</column>
+<column name="M_V_cast_reg_205">1024, 0, 1025, 1</column>
+<column name="M_V_reg_200">1024, 0, 1026, 2</column>
+<column name="S_V_reg_244">1026, 0, 1026, 0</column>
+<column name="X_V_reg_190">1024, 0, 1026, 2</column>
+<column name="Y_V_reg_195">1024, 0, 1026, 2</column>
 <column name="ap_CS_fsm">9, 0, 9, 0</column>
 <column name="ap_return">1024, 0, 1024, 0</column>
-<column name="bvh_d_index_reg_68">11, 0, 11, 0</column>
-<column name="i_reg_214">11, 0, 11, 0</column>
-<column name="p_cast_reg_206">1024, 0, 1025, 1</column>
-<column name="p_s_reg_56">1024, 0, 1024, 0</column>
-<column name="r_V_reg_219">1024, 0, 1024, 0</column>
-<column name="tmp_1_reg_201">1024, 0, 1025, 1</column>
-<column name="tmp_2_reg_225">1, 0, 1, 0</column>
-<column name="tmp_3_reg_245">1024, 0, 1024, 0</column>
-<column name="tmp_7_reg_240">1, 0, 1, 0</column>
-<column name="tmp_reg_250">1024, 0, 1024, 0</column>
+<column name="i_assign_reg_65">11, 0, 11, 0</column>
+<column name="i_reg_219">11, 0, 11, 0</column>
+<column name="p_Val2_1_reg_249">1026, 0, 1026, 0</column>
+<column name="p_cast_reg_210">1025, 0, 1026, 1</column>
+<column name="p_s_reg_54">1025, 0, 1025, 0</column>
+<column name="tmp_2_reg_264">1025, 0, 1025, 0</column>
+<column name="tmp_3_reg_259">1025, 0, 1025, 0</column>
+<column name="tmp_4_reg_239">1024, 0, 1024, 0</column>
+<column name="tmp_6_reg_274">1024, 0, 1024, 0</column>
+<column name="tmp_7_reg_224">1, 0, 1, 0</column>
+<column name="tmp_8_reg_254">1, 0, 1, 0</column>
+<column name="tmp_reg_229">1, 0, 1, 0</column>
 </table>
 </item>
 </section>
@@ -133,9 +134,9 @@
 <column name="ap_idle">out, 1, ap_ctrl_hs, ModExp_montMult, return value</column>
 <column name="ap_ready">out, 1, ap_ctrl_hs, ModExp_montMult, return value</column>
 <column name="ap_return">out, 1024, ap_ctrl_hs, ModExp_montMult, return value</column>
-<column name="X_V">in, 1024, ap_none, X_V, scalar</column>
-<column name="Y_V">in, 1024, ap_none, Y_V, scalar</column>
-<column name="M_V">in, 1024, ap_none, M_V, scalar</column>
+<column name="X0_V">in, 1024, ap_none, X0_V, scalar</column>
+<column name="Y0_V">in, 1024, ap_none, Y0_V, scalar</column>
+<column name="M0_V">in, 1024, ap_none, M0_V, scalar</column>
 </table>
 </item>
 </section>

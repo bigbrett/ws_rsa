@@ -10,7 +10,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.NUMERIC_STD.all;
 
-entity ModExp_sub_1024ns_1024ns_1024_2_AddSubnS_0 is
+entity ModExp_sub_1024ns_1024ns_1024_2_AddSubnS_1 is
 port (
     clk: in std_logic;
     reset: in std_logic;
@@ -20,8 +20,8 @@ port (
     s: out std_logic_vector(1023 downto 0));
 end entity;
 
-architecture behav of ModExp_sub_1024ns_1024ns_1024_2_AddSubnS_0 is
-  component ModExp_sub_1024ns_1024ns_1024_2_AddSubnS_0_fadder is 
+architecture behav of ModExp_sub_1024ns_1024ns_1024_2_AddSubnS_1 is
+  component ModExp_sub_1024ns_1024ns_1024_2_AddSubnS_1_fadder is 
     port (
       faa : IN STD_LOGIC_VECTOR (512-1 downto 0);
       fab : IN STD_LOGIC_VECTOR (512-1 downto 0);
@@ -29,7 +29,7 @@ architecture behav of ModExp_sub_1024ns_1024ns_1024_2_AddSubnS_0 is
       fas : OUT STD_LOGIC_VECTOR (512-1 downto 0);
       facout : OUT STD_LOGIC_VECTOR (0 downto 0));
   end component;
-  component ModExp_sub_1024ns_1024ns_1024_2_AddSubnS_0_fadder_f is 
+  component ModExp_sub_1024ns_1024ns_1024_2_AddSubnS_1_fadder_f is 
     port (
       faa : IN STD_LOGIC_VECTOR (512-1 downto 0);
       fab : IN STD_LOGIC_VECTOR (512-1 downto 0);
@@ -107,14 +107,14 @@ architecture behav of ModExp_sub_1024ns_1024ns_1024_2_AddSubnS_0 is
 
 
 -- small adder generation 
-  u0 : ModExp_sub_1024ns_1024ns_1024_2_AddSubnS_0_fadder
+  u0 : ModExp_sub_1024ns_1024ns_1024_2_AddSubnS_1_fadder
       port map
           (faa    => a0_cb,
           fab    => b0_cb,
           facin  => faccout_ini,
           fas    => fas(511 downto 0),
           facout => faccout0_co0);
-    u1 : ModExp_sub_1024ns_1024ns_1024_2_AddSubnS_0_fadder_f
+    u1 : ModExp_sub_1024ns_1024ns_1024_2_AddSubnS_1_fadder_f
         port map
             (faa    => a1_cb_regi1(0),
             fab    => b1_cb_regi1(0),
@@ -148,7 +148,7 @@ use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
 
-entity ModExp_sub_1024ns_1024ns_1024_2_AddSubnS_0_fadder is
+entity ModExp_sub_1024ns_1024ns_1024_2_AddSubnS_1_fadder is
 generic(N : natural :=512);
 port (
     faa : IN STD_LOGIC_VECTOR (N-1 downto 0);
@@ -158,7 +158,7 @@ port (
     facout : OUT STD_LOGIC_VECTOR (0 downto 0));
 end;
 
-architecture behav of ModExp_sub_1024ns_1024ns_1024_2_AddSubnS_0_fadder is
+architecture behav of ModExp_sub_1024ns_1024ns_1024_2_AddSubnS_1_fadder is
     signal tmp : STD_LOGIC_VECTOR (N downto 0);
 begin
 
@@ -174,7 +174,7 @@ use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
 
-entity ModExp_sub_1024ns_1024ns_1024_2_AddSubnS_0_fadder_f is
+entity ModExp_sub_1024ns_1024ns_1024_2_AddSubnS_1_fadder_f is
 generic(N : natural :=512);
 port (
     faa : IN STD_LOGIC_VECTOR (N-1 downto 0);
@@ -184,7 +184,7 @@ port (
     facout : OUT STD_LOGIC_VECTOR (0 downto 0));
 end;
 
-architecture behav of ModExp_sub_1024ns_1024ns_1024_2_AddSubnS_0_fadder_f is
+architecture behav of ModExp_sub_1024ns_1024ns_1024_2_AddSubnS_1_fadder_f is
     signal tmp : STD_LOGIC_VECTOR (N downto 0);
 begin
 
@@ -214,7 +214,7 @@ entity ModExp_sub_1024ns_1024ns_1024_2 is
 end entity;
 
 architecture arch of ModExp_sub_1024ns_1024ns_1024_2 is
-    component ModExp_sub_1024ns_1024ns_1024_2_AddSubnS_0 is
+    component ModExp_sub_1024ns_1024ns_1024_2_AddSubnS_1 is
         port (
             clk : IN STD_LOGIC;
             reset : IN STD_LOGIC;
@@ -227,7 +227,7 @@ architecture arch of ModExp_sub_1024ns_1024ns_1024_2 is
 
 
 begin
-    ModExp_sub_1024ns_1024ns_1024_2_AddSubnS_0_U :  component ModExp_sub_1024ns_1024ns_1024_2_AddSubnS_0
+    ModExp_sub_1024ns_1024ns_1024_2_AddSubnS_1_U :  component ModExp_sub_1024ns_1024ns_1024_2_AddSubnS_1
     port map (
         clk => clk,
         reset => reset,

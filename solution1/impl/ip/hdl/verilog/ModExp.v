@@ -7,7 +7,7 @@
 
 `timescale 1 ns / 1 ps 
 
-(* CORE_GENERATION_INFO="ModExp,hls_ip_2016_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=1,HLS_INPUT_PART=xc7z020clg484-1,HLS_INPUT_CLOCK=20.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=17.010000,HLS_SYN_LAT=9452550,HLS_SYN_TPT=none,HLS_SYN_MEM=0,HLS_SYN_DSP=0,HLS_SYN_FF=27703,HLS_SYN_LUT=12236}" *)
+(* CORE_GENERATION_INFO="ModExp,hls_ip_2016_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=1,HLS_INPUT_PART=xc7z020clg484-1,HLS_INPUT_CLOCK=20.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=17.010000,HLS_SYN_LAT=9452550,HLS_SYN_TPT=none,HLS_SYN_MEM=0,HLS_SYN_DSP=0,HLS_SYN_FF=26693,HLS_SYN_LUT=10638}" *)
 
 module ModExp (
         ap_clk,
@@ -20,7 +20,7 @@ module ModExp (
         e_V,
         n_V,
         Mbar_V,
-        xbar_V,
+        xbar_in_V,
         out_V,
         out_V_ap_vld
 );
@@ -36,7 +36,7 @@ parameter    ap_const_lv32_2 = 32'b10;
 parameter    ap_const_lv32_3 = 32'b11;
 parameter    ap_const_lv11_3FF = 11'b1111111111;
 parameter    ap_const_lv32_4 = 32'b100;
-parameter    ap_const_lv1024_lc_3 = 1024'b1;
+parameter    ap_const_lv1024_lc_2 = 1024'b1;
 parameter    ap_const_lv32_A = 32'b1010;
 parameter    ap_const_lv11_7FF = 11'b11111111111;
 
@@ -50,7 +50,7 @@ input  [1023:0] M_V;
 input  [1023:0] e_V;
 input  [1023:0] n_V;
 input  [1023:0] Mbar_V;
-input  [1023:0] xbar_V;
+input  [1023:0] xbar_in_V;
 output  [1023:0] out_V;
 output   out_V_ap_vld;
 
@@ -66,10 +66,10 @@ reg   [1023:0] reg_134;
 reg    ap_sig_cseq_ST_st2_fsm_1;
 reg    ap_sig_41;
 wire   [0:0] tmp_fu_149_p3;
-wire   [0:0] tmp_8_fu_157_p3;
-reg   [0:0] tmp_8_reg_195;
+wire   [0:0] tmp_9_fu_157_p3;
+reg   [0:0] tmp_9_reg_195;
 wire   [1023:0] grp_ModExp_montMult_fu_95_ap_return;
-reg   [1023:0] call_ret_reg_199;
+reg   [1023:0] xbar_V_1_reg_199;
 reg    ap_sig_cseq_ST_st3_fsm_2;
 reg    ap_sig_68;
 wire    grp_ModExp_montMult_fu_95_ap_done;
@@ -79,14 +79,14 @@ reg    ap_sig_81;
 wire    grp_ModExp_montMult_fu_95_ap_start;
 wire    grp_ModExp_montMult_fu_95_ap_idle;
 wire    grp_ModExp_montMult_fu_95_ap_ready;
-reg   [1023:0] grp_ModExp_montMult_fu_95_X_V;
-reg   [1023:0] grp_ModExp_montMult_fu_95_Y_V;
-reg   [10:0] bvh_d_index_reg_83;
+reg   [1023:0] grp_ModExp_montMult_fu_95_X0_V;
+reg   [1023:0] grp_ModExp_montMult_fu_95_Y0_V;
+reg   [10:0] i_assign_reg_83;
 reg    ap_reg_grp_ModExp_montMult_fu_95_ap_start;
 reg    ap_sig_cseq_ST_st5_fsm_4;
 reg    ap_sig_108;
-reg   [1023:0] xbar_V_buf_fu_48;
-wire  signed [31:0] index_assign_cast_fu_145_p1;
+reg   [1023:0] xbar_V_fu_48;
+wire  signed [31:0] i_assign_cast_fu_145_p1;
 reg   [4:0] ap_NS_fsm;
 
 // power-on initialization
@@ -102,9 +102,9 @@ ModExp_montMult grp_ModExp_montMult_fu_95(
     .ap_done(grp_ModExp_montMult_fu_95_ap_done),
     .ap_idle(grp_ModExp_montMult_fu_95_ap_idle),
     .ap_ready(grp_ModExp_montMult_fu_95_ap_ready),
-    .X_V(grp_ModExp_montMult_fu_95_X_V),
-    .Y_V(grp_ModExp_montMult_fu_95_Y_V),
-    .M_V(n_V),
+    .X0_V(grp_ModExp_montMult_fu_95_X0_V),
+    .Y0_V(grp_ModExp_montMult_fu_95_Y0_V),
+    .M0_V(n_V),
     .ap_return(grp_ModExp_montMult_fu_95_ap_return)
 );
 
@@ -120,7 +120,7 @@ always @ (posedge ap_clk) begin
     if (ap_rst == 1'b1) begin
         ap_reg_grp_ModExp_montMult_fu_95_ap_start <= 1'b0;
     end else begin
-        if ((((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (tmp_fu_149_p3 == 1'b0)) | ((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~(tmp_fu_149_p3 == 1'b0)) | ((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~(1'b0 == grp_ModExp_montMult_fu_95_ap_done) & ~(1'b0 == tmp_8_reg_195)))) begin
+        if ((((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (tmp_fu_149_p3 == 1'b0)) | ((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~(tmp_fu_149_p3 == 1'b0)) | ((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~(1'b0 == grp_ModExp_montMult_fu_95_ap_done) & ~(1'b0 == tmp_9_reg_195)))) begin
             ap_reg_grp_ModExp_montMult_fu_95_ap_start <= 1'b1;
         end else if ((1'b1 == grp_ModExp_montMult_fu_95_ap_ready)) begin
             ap_reg_grp_ModExp_montMult_fu_95_ap_start <= 1'b0;
@@ -129,36 +129,36 @@ always @ (posedge ap_clk) begin
 end
 
 always @ (posedge ap_clk) begin
-    if (((1'b1 == ap_sig_cseq_ST_st4_fsm_3) & ~((1'b0 == grp_ModExp_montMult_fu_95_ap_done) & ~(1'b0 == tmp_8_reg_195)))) begin
-        bvh_d_index_reg_83 <= i_fu_164_p2;
+    if (((1'b1 == ap_sig_cseq_ST_st4_fsm_3) & ~((1'b0 == grp_ModExp_montMult_fu_95_ap_done) & ~(1'b0 == tmp_9_reg_195)))) begin
+        i_assign_reg_83 <= i_fu_164_p2;
     end else if (((1'b1 == ap_sig_cseq_ST_st1_fsm_0) & ~(ap_start == 1'b0))) begin
-        bvh_d_index_reg_83 <= ap_const_lv11_3FF;
+        i_assign_reg_83 <= ap_const_lv11_3FF;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if ((((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~(1'b0 == grp_ModExp_montMult_fu_95_ap_done) & (1'b0 == tmp_8_reg_195)) | ((1'b1 == ap_sig_cseq_ST_st4_fsm_3) & ~(1'b0 == tmp_8_reg_195) & ~((1'b0 == grp_ModExp_montMult_fu_95_ap_done) & ~(1'b0 == tmp_8_reg_195))))) begin
-        xbar_V_buf_fu_48 <= grp_ModExp_montMult_fu_95_ap_return;
+    if ((((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~(1'b0 == grp_ModExp_montMult_fu_95_ap_done) & (1'b0 == tmp_9_reg_195)) | ((1'b1 == ap_sig_cseq_ST_st4_fsm_3) & ~(1'b0 == tmp_9_reg_195) & ~((1'b0 == grp_ModExp_montMult_fu_95_ap_done) & ~(1'b0 == tmp_9_reg_195))))) begin
+        xbar_V_fu_48 <= grp_ModExp_montMult_fu_95_ap_return;
     end else if (((1'b1 == ap_sig_cseq_ST_st1_fsm_0) & ~(ap_start == 1'b0))) begin
-        xbar_V_buf_fu_48 <= xbar_V;
-    end
-end
-
-always @ (posedge ap_clk) begin
-    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~(1'b0 == grp_ModExp_montMult_fu_95_ap_done))) begin
-        call_ret_reg_199 <= grp_ModExp_montMult_fu_95_ap_return;
+        xbar_V_fu_48 <= xbar_in_V;
     end
 end
 
 always @ (posedge ap_clk) begin
     if ((((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (tmp_fu_149_p3 == 1'b0)) | ((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & ~(tmp_fu_149_p3 == 1'b0)))) begin
-        reg_134 <= xbar_V_buf_fu_48;
+        reg_134 <= xbar_V_fu_48;
     end
 end
 
 always @ (posedge ap_clk) begin
     if (((1'b1 == ap_sig_cseq_ST_st2_fsm_1) & (tmp_fu_149_p3 == 1'b0))) begin
-        tmp_8_reg_195 <= tmp_8_fu_157_p3;
+        tmp_9_reg_195 <= tmp_9_fu_157_p3;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) & ~(1'b0 == grp_ModExp_montMult_fu_95_ap_done))) begin
+        xbar_V_1_reg_199 <= grp_ModExp_montMult_fu_95_ap_return;
     end
 end
 
@@ -227,24 +227,24 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st4_fsm_3) & ~(1'b0 == tmp_8_reg_195))) begin
-        grp_ModExp_montMult_fu_95_X_V = Mbar_V;
+    if (((1'b1 == ap_sig_cseq_ST_st4_fsm_3) & ~(1'b0 == tmp_9_reg_195))) begin
+        grp_ModExp_montMult_fu_95_X0_V = Mbar_V;
     end else if (((1'b1 == ap_sig_cseq_ST_st3_fsm_2) | (1'b1 == ap_sig_cseq_ST_st5_fsm_4))) begin
-        grp_ModExp_montMult_fu_95_X_V = reg_134;
+        grp_ModExp_montMult_fu_95_X0_V = reg_134;
     end else begin
-        grp_ModExp_montMult_fu_95_X_V = 'bx;
+        grp_ModExp_montMult_fu_95_X0_V = 'bx;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_sig_cseq_ST_st4_fsm_3) & ~(1'b0 == tmp_8_reg_195))) begin
-        grp_ModExp_montMult_fu_95_Y_V = call_ret_reg_199;
+    if (((1'b1 == ap_sig_cseq_ST_st4_fsm_3) & ~(1'b0 == tmp_9_reg_195))) begin
+        grp_ModExp_montMult_fu_95_Y0_V = xbar_V_1_reg_199;
     end else if ((1'b1 == ap_sig_cseq_ST_st5_fsm_4)) begin
-        grp_ModExp_montMult_fu_95_Y_V = ap_const_lv1024_lc_3;
+        grp_ModExp_montMult_fu_95_Y0_V = ap_const_lv1024_lc_2;
     end else if ((1'b1 == ap_sig_cseq_ST_st3_fsm_2)) begin
-        grp_ModExp_montMult_fu_95_Y_V = reg_134;
+        grp_ModExp_montMult_fu_95_Y0_V = reg_134;
     end else begin
-        grp_ModExp_montMult_fu_95_Y_V = 'bx;
+        grp_ModExp_montMult_fu_95_Y0_V = 'bx;
     end
 end
 
@@ -280,7 +280,7 @@ always @ (*) begin
             end
         end
         ap_ST_st4_fsm_3 : begin
-            if (~((1'b0 == grp_ModExp_montMult_fu_95_ap_done) & ~(1'b0 == tmp_8_reg_195))) begin
+            if (~((1'b0 == grp_ModExp_montMult_fu_95_ap_done) & ~(1'b0 == tmp_9_reg_195))) begin
                 ap_NS_fsm = ap_ST_st2_fsm_1;
             end else begin
                 ap_NS_fsm = ap_ST_st4_fsm_3;
@@ -321,14 +321,14 @@ end
 
 assign grp_ModExp_montMult_fu_95_ap_start = ap_reg_grp_ModExp_montMult_fu_95_ap_start;
 
-assign i_fu_164_p2 = ($signed(bvh_d_index_reg_83) + $signed(ap_const_lv11_7FF));
+assign i_assign_cast_fu_145_p1 = $signed(i_assign_reg_83);
 
-assign index_assign_cast_fu_145_p1 = $signed(bvh_d_index_reg_83);
+assign i_fu_164_p2 = ($signed(i_assign_reg_83) + $signed(ap_const_lv11_7FF));
 
 assign out_V = grp_ModExp_montMult_fu_95_ap_return;
 
-assign tmp_8_fu_157_p3 = e_V[index_assign_cast_fu_145_p1];
+assign tmp_9_fu_157_p3 = e_V[i_assign_cast_fu_145_p1];
 
-assign tmp_fu_149_p3 = bvh_d_index_reg_83[ap_const_lv32_A];
+assign tmp_fu_149_p3 = i_assign_reg_83[ap_const_lv32_A];
 
 endmodule //ModExp

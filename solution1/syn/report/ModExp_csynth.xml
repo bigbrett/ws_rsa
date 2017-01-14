@@ -48,8 +48,8 @@
 
 <AreaEstimates>
 <Resources>
-<FF>27703</FF>
-<LUT>12236</LUT>
+<FF>26693</FF>
+<LUT>10638</LUT>
 <BRAM_18K>0</BRAM_18K>
 <DSP48E>0</DSP48E>
 </Resources>
@@ -177,8 +177,8 @@
 <CType>int</CType>
 </RtlPorts>
 <RtlPorts>
-<name>xbar_V</name>
-<Object>xbar_V</Object>
+<name>xbar_in_V</name>
+<Object>xbar_in_V</Object>
 <Type>scalar</Type>
 <Scope></Scope>
 <IOProtocol>ap_none</IOProtocol>

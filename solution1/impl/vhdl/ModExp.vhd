@@ -21,7 +21,7 @@ port (
     e_V : IN STD_LOGIC_VECTOR (1023 downto 0);
     n_V : IN STD_LOGIC_VECTOR (1023 downto 0);
     Mbar_V : IN STD_LOGIC_VECTOR (1023 downto 0);
-    xbar_V : IN STD_LOGIC_VECTOR (1023 downto 0);
+    xbar_in_V : IN STD_LOGIC_VECTOR (1023 downto 0);
     out_V : OUT STD_LOGIC_VECTOR (1023 downto 0);
     out_V_ap_vld : OUT STD_LOGIC );
 end;
@@ -30,7 +30,7 @@ end;
 architecture behav of ModExp is 
     attribute CORE_GENERATION_INFO : STRING;
     attribute CORE_GENERATION_INFO of behav : architecture is
-    "ModExp,hls_ip_2016_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=1,HLS_INPUT_PART=xc7z020clg484-1,HLS_INPUT_CLOCK=20.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=17.010000,HLS_SYN_LAT=9452550,HLS_SYN_TPT=none,HLS_SYN_MEM=0,HLS_SYN_DSP=0,HLS_SYN_FF=27703,HLS_SYN_LUT=12236}";
+    "ModExp,hls_ip_2016_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=1,HLS_INPUT_PART=xc7z020clg484-1,HLS_INPUT_CLOCK=20.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=17.010000,HLS_SYN_LAT=9452550,HLS_SYN_TPT=none,HLS_SYN_MEM=0,HLS_SYN_DSP=0,HLS_SYN_FF=26693,HLS_SYN_LUT=10638}";
     constant ap_const_logic_1 : STD_LOGIC := '1';
     constant ap_const_logic_0 : STD_LOGIC := '0';
     constant ap_ST_st1_fsm_0 : STD_LOGIC_VECTOR (4 downto 0) := "00001";
@@ -46,7 +46,7 @@ architecture behav of ModExp is
     constant ap_const_lv32_3 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000011";
     constant ap_const_lv11_3FF : STD_LOGIC_VECTOR (10 downto 0) := "01111111111";
     constant ap_const_lv32_4 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000100";
-    constant ap_const_lv1024_lc_3 : STD_LOGIC_VECTOR (1023 downto 0) := "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001";
+    constant ap_const_lv1024_lc_2 : STD_LOGIC_VECTOR (1023 downto 0) := "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001";
     constant ap_const_lv32_A : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000001010";
     constant ap_const_lv11_7FF : STD_LOGIC_VECTOR (10 downto 0) := "11111111111";
 
@@ -59,10 +59,10 @@ architecture behav of ModExp is
     signal ap_sig_cseq_ST_st2_fsm_1 : STD_LOGIC;
     signal ap_sig_41 : BOOLEAN;
     signal tmp_fu_149_p3 : STD_LOGIC_VECTOR (0 downto 0);
-    signal tmp_8_fu_157_p3 : STD_LOGIC_VECTOR (0 downto 0);
-    signal tmp_8_reg_195 : STD_LOGIC_VECTOR (0 downto 0);
+    signal tmp_9_fu_157_p3 : STD_LOGIC_VECTOR (0 downto 0);
+    signal tmp_9_reg_195 : STD_LOGIC_VECTOR (0 downto 0);
     signal grp_ModExp_montMult_fu_95_ap_return : STD_LOGIC_VECTOR (1023 downto 0);
-    signal call_ret_reg_199 : STD_LOGIC_VECTOR (1023 downto 0);
+    signal xbar_V_1_reg_199 : STD_LOGIC_VECTOR (1023 downto 0);
     signal ap_sig_cseq_ST_st3_fsm_2 : STD_LOGIC;
     signal ap_sig_68 : BOOLEAN;
     signal grp_ModExp_montMult_fu_95_ap_done : STD_LOGIC;
@@ -72,14 +72,14 @@ architecture behav of ModExp is
     signal grp_ModExp_montMult_fu_95_ap_start : STD_LOGIC;
     signal grp_ModExp_montMult_fu_95_ap_idle : STD_LOGIC;
     signal grp_ModExp_montMult_fu_95_ap_ready : STD_LOGIC;
-    signal grp_ModExp_montMult_fu_95_X_V : STD_LOGIC_VECTOR (1023 downto 0);
-    signal grp_ModExp_montMult_fu_95_Y_V : STD_LOGIC_VECTOR (1023 downto 0);
-    signal bvh_d_index_reg_83 : STD_LOGIC_VECTOR (10 downto 0);
+    signal grp_ModExp_montMult_fu_95_X0_V : STD_LOGIC_VECTOR (1023 downto 0);
+    signal grp_ModExp_montMult_fu_95_Y0_V : STD_LOGIC_VECTOR (1023 downto 0);
+    signal i_assign_reg_83 : STD_LOGIC_VECTOR (10 downto 0);
     signal ap_reg_grp_ModExp_montMult_fu_95_ap_start : STD_LOGIC := '0';
     signal ap_sig_cseq_ST_st5_fsm_4 : STD_LOGIC;
     signal ap_sig_108 : BOOLEAN;
-    signal xbar_V_buf_fu_48 : STD_LOGIC_VECTOR (1023 downto 0);
-    signal index_assign_cast_fu_145_p1 : STD_LOGIC_VECTOR (31 downto 0);
+    signal xbar_V_fu_48 : STD_LOGIC_VECTOR (1023 downto 0);
+    signal i_assign_cast_fu_145_p1 : STD_LOGIC_VECTOR (31 downto 0);
     signal ap_NS_fsm : STD_LOGIC_VECTOR (4 downto 0);
 
     component ModExp_montMult IS
@@ -90,9 +90,9 @@ architecture behav of ModExp is
         ap_done : OUT STD_LOGIC;
         ap_idle : OUT STD_LOGIC;
         ap_ready : OUT STD_LOGIC;
-        X_V : IN STD_LOGIC_VECTOR (1023 downto 0);
-        Y_V : IN STD_LOGIC_VECTOR (1023 downto 0);
-        M_V : IN STD_LOGIC_VECTOR (1023 downto 0);
+        X0_V : IN STD_LOGIC_VECTOR (1023 downto 0);
+        Y0_V : IN STD_LOGIC_VECTOR (1023 downto 0);
+        M0_V : IN STD_LOGIC_VECTOR (1023 downto 0);
         ap_return : OUT STD_LOGIC_VECTOR (1023 downto 0) );
     end component;
 
@@ -107,9 +107,9 @@ begin
         ap_done => grp_ModExp_montMult_fu_95_ap_done,
         ap_idle => grp_ModExp_montMult_fu_95_ap_idle,
         ap_ready => grp_ModExp_montMult_fu_95_ap_ready,
-        X_V => grp_ModExp_montMult_fu_95_X_V,
-        Y_V => grp_ModExp_montMult_fu_95_Y_V,
-        M_V => n_V,
+        X0_V => grp_ModExp_montMult_fu_95_X0_V,
+        Y0_V => grp_ModExp_montMult_fu_95_Y0_V,
+        M0_V => n_V,
         ap_return => grp_ModExp_montMult_fu_95_ap_return);
 
 
@@ -134,7 +134,7 @@ begin
             if (ap_rst = '1') then
                 ap_reg_grp_ModExp_montMult_fu_95_ap_start <= ap_const_logic_0;
             else
-                if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (tmp_fu_149_p3 = ap_const_lv1_0)) or ((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not((tmp_fu_149_p3 = ap_const_lv1_0))) or ((ap_const_logic_1 = ap_sig_cseq_ST_st3_fsm_2) and not((ap_const_logic_0 = grp_ModExp_montMult_fu_95_ap_done)) and not((ap_const_lv1_0 = tmp_8_reg_195))))) then 
+                if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (tmp_fu_149_p3 = ap_const_lv1_0)) or ((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not((tmp_fu_149_p3 = ap_const_lv1_0))) or ((ap_const_logic_1 = ap_sig_cseq_ST_st3_fsm_2) and not((ap_const_logic_0 = grp_ModExp_montMult_fu_95_ap_done)) and not((ap_const_lv1_0 = tmp_9_reg_195))))) then 
                     ap_reg_grp_ModExp_montMult_fu_95_ap_start <= ap_const_logic_1;
                 elsif ((ap_const_logic_1 = grp_ModExp_montMult_fu_95_ap_ready)) then 
                     ap_reg_grp_ModExp_montMult_fu_95_ap_start <= ap_const_logic_0;
@@ -144,40 +144,32 @@ begin
     end process;
 
 
-    bvh_d_index_reg_83_assign_proc : process (ap_clk)
+    i_assign_reg_83_assign_proc : process (ap_clk)
     begin
         if (ap_clk'event and ap_clk = '1') then
-            if (((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3) and not(((ap_const_logic_0 = grp_ModExp_montMult_fu_95_ap_done) and not((ap_const_lv1_0 = tmp_8_reg_195)))))) then 
-                bvh_d_index_reg_83 <= i_fu_164_p2;
+            if (((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3) and not(((ap_const_logic_0 = grp_ModExp_montMult_fu_95_ap_done) and not((ap_const_lv1_0 = tmp_9_reg_195)))))) then 
+                i_assign_reg_83 <= i_fu_164_p2;
             elsif (((ap_const_logic_1 = ap_sig_cseq_ST_st1_fsm_0) and not((ap_start = ap_const_logic_0)))) then 
-                bvh_d_index_reg_83 <= ap_const_lv11_3FF;
+                i_assign_reg_83 <= ap_const_lv11_3FF;
             end if; 
         end if;
     end process;
 
-    xbar_V_buf_fu_48_assign_proc : process (ap_clk)
+    xbar_V_fu_48_assign_proc : process (ap_clk)
     begin
         if (ap_clk'event and ap_clk = '1') then
-            if ((((ap_const_logic_1 = ap_sig_cseq_ST_st3_fsm_2) and not((ap_const_logic_0 = grp_ModExp_montMult_fu_95_ap_done)) and (ap_const_lv1_0 = tmp_8_reg_195)) or ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3) and not((ap_const_lv1_0 = tmp_8_reg_195)) and not(((ap_const_logic_0 = grp_ModExp_montMult_fu_95_ap_done) and not((ap_const_lv1_0 = tmp_8_reg_195))))))) then 
-                xbar_V_buf_fu_48 <= grp_ModExp_montMult_fu_95_ap_return;
+            if ((((ap_const_logic_1 = ap_sig_cseq_ST_st3_fsm_2) and not((ap_const_logic_0 = grp_ModExp_montMult_fu_95_ap_done)) and (ap_const_lv1_0 = tmp_9_reg_195)) or ((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3) and not((ap_const_lv1_0 = tmp_9_reg_195)) and not(((ap_const_logic_0 = grp_ModExp_montMult_fu_95_ap_done) and not((ap_const_lv1_0 = tmp_9_reg_195))))))) then 
+                xbar_V_fu_48 <= grp_ModExp_montMult_fu_95_ap_return;
             elsif (((ap_const_logic_1 = ap_sig_cseq_ST_st1_fsm_0) and not((ap_start = ap_const_logic_0)))) then 
-                xbar_V_buf_fu_48 <= xbar_V;
+                xbar_V_fu_48 <= xbar_in_V;
             end if; 
-        end if;
-    end process;
-    process (ap_clk)
-    begin
-        if (ap_clk'event and ap_clk = '1') then
-            if (((ap_const_logic_1 = ap_sig_cseq_ST_st3_fsm_2) and not((ap_const_logic_0 = grp_ModExp_montMult_fu_95_ap_done)))) then
-                call_ret_reg_199 <= grp_ModExp_montMult_fu_95_ap_return;
-            end if;
         end if;
     end process;
     process (ap_clk)
     begin
         if (ap_clk'event and ap_clk = '1') then
             if ((((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (tmp_fu_149_p3 = ap_const_lv1_0)) or ((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and not((tmp_fu_149_p3 = ap_const_lv1_0))))) then
-                reg_134 <= xbar_V_buf_fu_48;
+                reg_134 <= xbar_V_fu_48;
             end if;
         end if;
     end process;
@@ -185,12 +177,20 @@ begin
     begin
         if (ap_clk'event and ap_clk = '1') then
             if (((ap_const_logic_1 = ap_sig_cseq_ST_st2_fsm_1) and (tmp_fu_149_p3 = ap_const_lv1_0))) then
-                tmp_8_reg_195 <= tmp_8_fu_157_p3;
+                tmp_9_reg_195 <= tmp_9_fu_157_p3;
+            end if;
+        end if;
+    end process;
+    process (ap_clk)
+    begin
+        if (ap_clk'event and ap_clk = '1') then
+            if (((ap_const_logic_1 = ap_sig_cseq_ST_st3_fsm_2) and not((ap_const_logic_0 = grp_ModExp_montMult_fu_95_ap_done)))) then
+                xbar_V_1_reg_199 <= grp_ModExp_montMult_fu_95_ap_return;
             end if;
         end if;
     end process;
 
-    ap_NS_fsm_assign_proc : process (ap_start, ap_CS_fsm, tmp_fu_149_p3, tmp_8_reg_195, grp_ModExp_montMult_fu_95_ap_done)
+    ap_NS_fsm_assign_proc : process (ap_start, ap_CS_fsm, tmp_fu_149_p3, tmp_9_reg_195, grp_ModExp_montMult_fu_95_ap_done)
     begin
         case ap_CS_fsm is
             when ap_ST_st1_fsm_0 => 
@@ -212,7 +212,7 @@ begin
                     ap_NS_fsm <= ap_ST_st3_fsm_2;
                 end if;
             when ap_ST_st4_fsm_3 => 
-                if (not(((ap_const_logic_0 = grp_ModExp_montMult_fu_95_ap_done) and not((ap_const_lv1_0 = tmp_8_reg_195))))) then
+                if (not(((ap_const_logic_0 = grp_ModExp_montMult_fu_95_ap_done) and not((ap_const_lv1_0 = tmp_9_reg_195))))) then
                     ap_NS_fsm <= ap_ST_st2_fsm_1;
                 else
                     ap_NS_fsm <= ap_ST_st4_fsm_3;
@@ -338,35 +338,35 @@ begin
     end process;
 
 
-    grp_ModExp_montMult_fu_95_X_V_assign_proc : process(Mbar_V, reg_134, tmp_8_reg_195, ap_sig_cseq_ST_st3_fsm_2, ap_sig_cseq_ST_st4_fsm_3, ap_sig_cseq_ST_st5_fsm_4)
+    grp_ModExp_montMult_fu_95_X0_V_assign_proc : process(Mbar_V, reg_134, tmp_9_reg_195, ap_sig_cseq_ST_st3_fsm_2, ap_sig_cseq_ST_st4_fsm_3, ap_sig_cseq_ST_st5_fsm_4)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3) and not((ap_const_lv1_0 = tmp_8_reg_195)))) then 
-            grp_ModExp_montMult_fu_95_X_V <= Mbar_V;
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3) and not((ap_const_lv1_0 = tmp_9_reg_195)))) then 
+            grp_ModExp_montMult_fu_95_X0_V <= Mbar_V;
         elsif (((ap_const_logic_1 = ap_sig_cseq_ST_st3_fsm_2) or (ap_const_logic_1 = ap_sig_cseq_ST_st5_fsm_4))) then 
-            grp_ModExp_montMult_fu_95_X_V <= reg_134;
+            grp_ModExp_montMult_fu_95_X0_V <= reg_134;
         else 
-            grp_ModExp_montMult_fu_95_X_V <= "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
+            grp_ModExp_montMult_fu_95_X0_V <= "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
         end if; 
     end process;
 
 
-    grp_ModExp_montMult_fu_95_Y_V_assign_proc : process(reg_134, tmp_8_reg_195, call_ret_reg_199, ap_sig_cseq_ST_st3_fsm_2, ap_sig_cseq_ST_st4_fsm_3, ap_sig_cseq_ST_st5_fsm_4)
+    grp_ModExp_montMult_fu_95_Y0_V_assign_proc : process(reg_134, tmp_9_reg_195, xbar_V_1_reg_199, ap_sig_cseq_ST_st3_fsm_2, ap_sig_cseq_ST_st4_fsm_3, ap_sig_cseq_ST_st5_fsm_4)
     begin
-        if (((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3) and not((ap_const_lv1_0 = tmp_8_reg_195)))) then 
-            grp_ModExp_montMult_fu_95_Y_V <= call_ret_reg_199;
+        if (((ap_const_logic_1 = ap_sig_cseq_ST_st4_fsm_3) and not((ap_const_lv1_0 = tmp_9_reg_195)))) then 
+            grp_ModExp_montMult_fu_95_Y0_V <= xbar_V_1_reg_199;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st5_fsm_4)) then 
-            grp_ModExp_montMult_fu_95_Y_V <= ap_const_lv1024_lc_3;
+            grp_ModExp_montMult_fu_95_Y0_V <= ap_const_lv1024_lc_2;
         elsif ((ap_const_logic_1 = ap_sig_cseq_ST_st3_fsm_2)) then 
-            grp_ModExp_montMult_fu_95_Y_V <= reg_134;
+            grp_ModExp_montMult_fu_95_Y0_V <= reg_134;
         else 
-            grp_ModExp_montMult_fu_95_Y_V <= "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
+            grp_ModExp_montMult_fu_95_Y0_V <= "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
         end if; 
     end process;
 
     grp_ModExp_montMult_fu_95_ap_start <= ap_reg_grp_ModExp_montMult_fu_95_ap_start;
-    i_fu_164_p2 <= std_logic_vector(unsigned(bvh_d_index_reg_83) + unsigned(ap_const_lv11_7FF));
-        index_assign_cast_fu_145_p1 <= std_logic_vector(resize(signed(bvh_d_index_reg_83),32));
+        i_assign_cast_fu_145_p1 <= std_logic_vector(resize(signed(i_assign_reg_83),32));
 
+    i_fu_164_p2 <= std_logic_vector(unsigned(i_assign_reg_83) + unsigned(ap_const_lv11_7FF));
     out_V <= grp_ModExp_montMult_fu_95_ap_return;
 
     out_V_ap_vld_assign_proc : process(grp_ModExp_montMult_fu_95_ap_done, ap_sig_cseq_ST_st5_fsm_4)
@@ -378,6 +378,6 @@ begin
         end if; 
     end process;
 
-    tmp_8_fu_157_p3 <= e_V(to_integer(unsigned(index_assign_cast_fu_145_p1)) downto to_integer(unsigned(index_assign_cast_fu_145_p1))) when (to_integer(unsigned(index_assign_cast_fu_145_p1))>= 0 and to_integer(unsigned(index_assign_cast_fu_145_p1))<=1023) else "-";
-    tmp_fu_149_p3 <= bvh_d_index_reg_83(10 downto 10);
+    tmp_9_fu_157_p3 <= e_V(to_integer(unsigned(i_assign_cast_fu_145_p1)) downto to_integer(unsigned(i_assign_cast_fu_145_p1))) when (to_integer(unsigned(i_assign_cast_fu_145_p1))>= 0 and to_integer(unsigned(i_assign_cast_fu_145_p1))<=1023) else "-";
+    tmp_fu_149_p3 <= i_assign_reg_83(10 downto 10);
 end behav;

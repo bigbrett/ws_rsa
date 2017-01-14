@@ -40,7 +40,7 @@
 <InvalidType>0</InvalidType>
 </RtlPorts>
 <RtlPorts>
-<name>xbar_V</name>
+<name>xbar_in_V</name>
 <CType>
 <TypeName>ap_uint 1024</TypeName>
 <TypeWidth>1024</TypeWidth>
