@@ -6,8 +6,11 @@ void montMult(uint1024_t X0, uint1024_t Y0, uint1024_t M0, uint1024_t* outData)
 {
 #pragma HLS ALLOCATION instances=mul limit=256 operation
 
-	ap_uint<2*NUM_BITS> S = 0;
-	ap_uint<2*NUM_BITS> X = X0, Y = Y0, M=M0;
+	/* IMPT BUGFIX: INTERMEDIATE WIDTHS MUST BE GREATER
+	 * THAN OR EQUAL TO NUM_BITS+1 OR OVERFLOW CAUSES
+	 * THE INTEGER LIBRARY TO SCREW UP SIGN EXTENTIONS */
+	ap_uint<NUM_BITS+2> S = 0;
+	ap_uint<NUM_BITS+2> X = X0, Y = Y0, M=M0;
 
 	int i;
 	for (i=0; i<NUM_BITS; i++)
@@ -21,19 +24,13 @@ void montMult(uint1024_t X0, uint1024_t Y0, uint1024_t M0, uint1024_t* outData)
 		}
 		S = S >> 1;       if(PRINT_ON){cout<<" S >> 1-->"<<endl<<"    "<<hex<<S<<endl<<endl;}
 
-//		if (X.test(0))
-//			S += Y;
-//		if (S.test(0))
-//			S += M;
-//		S = S >> 1;
-//		X = X >> 1;
 	}
 
-	cout << "LOOP END" << endl << " S = " << S << endl;
+	if(PRINT_ON){cout << "LOOP END" << endl << " S = " << S << endl;}
 	if (S >= M)
 	{
 		S -= M;
-		cout << "***SUBTRACTED MODULUS" << endl << "FINAL MONTMULT = " << hex << S << endl;
+		if(PRINT_ON){cout << "***SUBTRACTED MODULUS" << endl << "FINAL MONTMULT = " << hex << S << endl;}
 	}
 	*outData = S.range(NUM_BITS-1,0);
 }
