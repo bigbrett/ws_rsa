@@ -5,7 +5,7 @@
 
 
 
-void montMult(uint1024_t base, uint1024_t exponent, uint1024_t modulus, uint1024_t* outData);
+void montMult(uintRSA_t base, uintRSA_t exponent, uintRSA_t modulus, uintRSA_t* outData);
 
 
 #endif

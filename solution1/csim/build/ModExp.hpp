@@ -6,7 +6,7 @@
 #include "mwr2mm.hpp"
 
 
-void ModExp(uint1024_t M, uint1024_t e, uint1024_t n, uint1024_t Mbar, uint1024_t xbar, uint1024_t* out);
+void ModExp(uintRSA_t M, uintRSA_t e, uintRSA_t n, uintRSA_t Mbar, uintRSA_t xbar, uintRSA_t* out);
 
 
 #endif

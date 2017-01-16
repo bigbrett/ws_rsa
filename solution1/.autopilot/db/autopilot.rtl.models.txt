@@ -1,4 +1,7 @@
-ModExp_add_1026ns_1026ns_1026_2
-ModExp_sub_1024ns_1024ns_1024_2
-ModExp_montMult
-ModExp
+rsaModExp_add_1028ns_1028ns_1028_2
+rsaModExp_sub_1028ns_1028ns_1028_2
+rsaModExp_add_1026ns_1026ns_1026_2
+rsaModExp_sub_1024ns_1024ns_1024_2
+rsaModExp_interleaveModMult
+rsaModExp_montMult
+rsaModExp

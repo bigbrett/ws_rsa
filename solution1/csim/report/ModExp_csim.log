@@ -1,10 +1,9 @@
    Compiling ../../rsa_tb.cpp in debug mode
    Compiling ../../ModExp.cpp in debug mode
-   Compiling ../../modExpConstGen.cpp in debug mode
+   Compiling ../../interleaveModMult.cpp in debug mode
    Compiling ../../montMult.cpp in debug mode
-   Compiling ../../mwr2mm.cpp in debug mode
-   Compiling ../../testModMult.cpp in debug mode
    Generating csim.exe
+SUCCESS!
 res = 0x01D
  [ 0b0000011101 ]
 Test Passed !!!

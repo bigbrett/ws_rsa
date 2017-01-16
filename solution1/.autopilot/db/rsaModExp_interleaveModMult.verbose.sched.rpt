@@ -1,0 +1,221 @@
+
+
+================================================================
+== Vivado HLS Report for 'rsaModExp_interleaveModMult'
+================================================================
+* Date:           Sun Jan 15 22:09:41 2017
+
+* Version:        2016.2 (Build 1577090 on Thu Jun 02 16:59:10 MDT 2016)
+* Project:        ws_rsa64bit
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  25.00|     18.38|        3.12|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +------+------+------+------+---------+
+    |   Latency   |   Interval  | Pipeline|
+    |  min |  max |  min |  max |   Type  |
+    +------+------+------+------+---------+
+    |  6151|  6151|  6151|  6151|   none  |
+    +------+------+------+------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+------+------+----------+-----------+-----------+------+----------+
+        |          |   Latency   | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name|  min |  max |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------+------+------+----------+-----------+-----------+------+----------+
+        |- Loop 1  |  6150|  6150|         6|          -|          -|  1025|    no    |
+        +----------+------+------+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 7
+* Pipeline: 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / (!tmp_10)
+3 --> 
+	4  / true
+4 --> 
+	5  / true
+5 --> 
+	6  / true
+6 --> 
+	7  / true
+7 --> 
+	2  / true
+* FSM state operations: 
+
+ <State 1>: 1.57ns
+ST_1: M_V_read [1/1] 1.04ns
+:0  %M_V_read = call i1024 @_ssdm_op_Read.ap_auto.i1024(i1024 %M_V)
+
+ST_1: Y_V_read [1/1] 1.04ns
+:1  %Y_V_read = call i1024 @_ssdm_op_Read.ap_auto.i1024(i1024 %Y_V)
+
+ST_1: tmp [1/1] 0.00ns
+:2  %tmp = zext i1024 %M_V_read to i1028
+
+ST_1: tmp_s [1/1] 0.00ns
+:3  %tmp_s = zext i1024 %Y_V_read to i1028
+
+ST_1: stg_12 [1/1] 1.57ns
+:4  br label %1
+
+
+ <State 2>: 17.01ns
+ST_2: p_Val2_s [1/1] 0.00ns
+:0  %p_Val2_s = phi i1028 [ 0, %0 ], [ %P_V_5, %_ZlsILi1028ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit ]
+
+ST_2: i_assign [1/1] 0.00ns
+:1  %i_assign = phi i12 [ 1024, %0 ], [ %i, %_ZlsILi1028ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit ]
+
+ST_2: i_assign_cast [1/1] 0.00ns
+:2  %i_assign_cast = sext i12 %i_assign to i32
+
+ST_2: tmp_10 [1/1] 0.00ns
+:3  %tmp_10 = call i1 @_ssdm_op_BitSelect.i1.i12.i32(i12 %i_assign, i32 11)
+
+ST_2: empty [1/1] 0.00ns
+:4  %empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 1025, i64 1025, i64 1025)
+
+ST_2: stg_18 [1/1] 0.00ns
+:5  br i1 %tmp_10, label %2, label %_ZlsILi1028ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit
+
+ST_2: r_V [1/1] 0.00ns
+_ZlsILi1028ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit:0  %r_V = shl i1028 %p_Val2_s, 1
+
+ST_2: tmp_13 [1/1] 0.00ns
+_ZlsILi1028ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit:1  %tmp_13 = call i1 @_ssdm_op_BitSelect.i1.i1025.i32(i1025 -179769313486231590772930519078902473361797697894230657273430081157732675805500963132708477322407536021120113879871393357658789768814416622492847430639474124377767893424865485276302219601246094119453082952085005768838150682342462881473913110540827237163350510684586298239947245938479716304835356329624224137216, i32 %i_assign_cast)
+
+ST_2: P_V_1 [2/2] 17.01ns
+_ZlsILi1028ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit:2  %P_V_1 = add i1028 %r_V, %tmp_s
+
+ST_2: i [1/1] 1.84ns
+_ZlsILi1028ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit:10  %i = add i12 -1, %i_assign
+
+ST_2: tmp_11 [1/1] 0.00ns
+:0  %tmp_11 = trunc i1028 %p_Val2_s to i1024
+
+ST_2: stg_24 [1/1] 0.00ns
+:1  ret i1024 %tmp_11
+
+
+ <State 3>: 18.38ns
+ST_3: P_V_1 [1/2] 17.01ns
+_ZlsILi1028ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit:2  %P_V_1 = add i1028 %r_V, %tmp_s
+
+ST_3: P_V_4 [1/1] 1.37ns
+_ZlsILi1028ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit:3  %P_V_4 = select i1 %tmp_13, i1028 %P_V_1, i1028 %r_V
+
+
+ <State 4>: 17.01ns
+ST_4: P_V_2 [2/2] 17.01ns
+_ZlsILi1028ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit:5  %P_V_2 = sub i1028 %P_V_4, %tmp
+
+
+ <State 5>: 18.38ns
+ST_5: tmp_4 [1/1] 12.05ns
+_ZlsILi1028ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit:4  %tmp_4 = icmp ult i1028 %P_V_4, %tmp
+
+ST_5: P_V_2 [1/2] 17.01ns
+_ZlsILi1028ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit:5  %P_V_2 = sub i1028 %P_V_4, %tmp
+
+ST_5: p_036_1_P_V_2 [1/1] 1.37ns
+_ZlsILi1028ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit:6  %p_036_1_P_V_2 = select i1 %tmp_4, i1028 %P_V_4, i1028 %P_V_2
+
+
+ <State 6>: 17.01ns
+ST_6: tmp_5 [1/1] 12.05ns
+_ZlsILi1028ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit:7  %tmp_5 = icmp ult i1028 %p_036_1_P_V_2, %tmp
+
+ST_6: P_V_3 [2/2] 17.01ns
+_ZlsILi1028ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit:8  %P_V_3 = sub i1028 %p_036_1_P_V_2, %tmp
+
+
+ <State 7>: 18.38ns
+ST_7: P_V_3 [1/2] 17.01ns
+_ZlsILi1028ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit:8  %P_V_3 = sub i1028 %p_036_1_P_V_2, %tmp
+
+ST_7: P_V_5 [1/1] 1.37ns
+_ZlsILi1028ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit:9  %P_V_5 = select i1 %tmp_5, i1028 %p_036_1_P_V_2, i1028 %P_V_3
+
+ST_7: stg_35 [1/1] 0.00ns
+_ZlsILi1028ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit:11  br label %1
+
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 25ns, clock uncertainty: 3.12ns.
+
+ No timing violations. 
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

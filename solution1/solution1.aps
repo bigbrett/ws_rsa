@@ -3,10 +3,10 @@
         <DownStreamTool name="vivado"/>
     </downStreamTool>
     <clockList>
-        <clock default="false" name="default" period="20"/>
+        <clock default="false" name="default" period="25"/>
     </clockList>
     <config>
-        <schedule model="ModExp"/>
+        <schedule model="rsaModExp"/>
     </config>
     <UIConfigurations>
         <UIAutosynConf boardInfo="ZedBoard Zynq Evaluation and Development Kit (xc7z020clg484-1) " hideTrivialOp="true" isBasedOnBoard="true" isSolutionDirty="false" isStopAskAgain="false" showDetailDesignViewer="false">

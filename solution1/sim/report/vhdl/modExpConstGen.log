@@ -1,4 +1,0 @@
-@I [SIM-47] Using XSIM for RTL simulation.
-@I [SIM-14] Instrumenting C test bench ...
-@E [SIM-346] C test bench instrumentation failed: Cannot determine C object for RTL port r_V_4.
-@E [SIM-4] *** C/RTL co-simulation finished: FAIL ***

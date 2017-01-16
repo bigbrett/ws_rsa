@@ -1,0 +1,121 @@
+@I [SIM-47] Using XSIM for RTL simulation.
+@I [SIM-14] Instrumenting C test bench ...
+   Build using "/opt/Xilinx/Vivado_HLS/2016.2/lnx64/tools/gcc/bin/g++"
+   Compiling apatb_rsaModExp.cpp
+   Compiling interleaveModMult.cpp_pre.cpp.tb.cpp
+   Compiling ModExp.cpp_pre.cpp.tb.cpp
+   Compiling montMult.cpp_pre.cpp.tb.cpp
+   Compiling rsaModExp.cpp_pre.cpp.tb.cpp
+   Compiling rsa_tb.cpp_pre.cpp.tb.cpp
+   Generating cosim.tv.exe
+@I [SIM-302] Starting C TB testing ... 
+@I [SIM-333] Generating C post check test bench ...
+@I [SIM-12] Generating RTL test bench ...
+@I [SIM-322] Starting VHDL simulation. 
+@I [SIM-15] Starting XSIM ...
+@I [SIM-316] Starting C post checking ...
+res = 0x01D
+ [ 0b0000011101 ]
+Test Passed !!!
+INFO: [XSIM 43-3496] Using init file passed via -initfile option "/opt/Xilinx/Vivado/2016.2/bin/../data/xsim/ip/xsim_ip.ini".
+Vivado Simulator 2016.2
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: /opt/Xilinx/Vivado/2016.2/bin/unwrapped/lnx64.o/xelab xil_defaultlib.apatb_rsaModExp_top -prj rsaModExp.prj --initfile /opt/Xilinx/Vivado/2016.2/bin/../data/xsim/ip/xsim_ip.ini --lib ieee_proposed=./ieee_proposed -s rsaModExp 
+Multi-threading is on. Using 6 slave threads.
+Determining compilation order of HDL files.
+WARNING: [XSIM 43-3431] One or more environment variables have been detected which affect the operation of the C compiler. These are typically not set in standard installations and are not tested by Xilinx, however they may be appropriate for your system, so the flow will attempt to continue.  If errors occur, try running fuse with the "-mt off -v 1" switches to see more information from the C compiler. The following environment variables have been detected:
+    LIBRARY_PATH
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/brett/workspace/Vivado_WS/ws_rsa64bit/solution1/sim/vhdl/AESL_sim_pkg.vhd" into library xil_defaultlib
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/brett/workspace/Vivado_WS/ws_rsa64bit/solution1/sim/vhdl/rsaModExp_sub_1028ns_1028ns_1028_2.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity rsaModExp_sub_1028ns_1028ns_1028_2_AddSubnS_1
+INFO: [VRFC 10-307] analyzing entity rsaModExp_sub_1028ns_1028ns_1028_2_AddSubnS_1_fadder
+INFO: [VRFC 10-307] analyzing entity rsaModExp_sub_1028ns_1028ns_1028_2_AddSubnS_1_fadder_f
+INFO: [VRFC 10-307] analyzing entity rsaModExp_sub_1028ns_1028ns_1028_2
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/brett/workspace/Vivado_WS/ws_rsa64bit/solution1/sim/vhdl/rsaModExp_add_1028ns_1028ns_1028_2.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity rsaModExp_add_1028ns_1028ns_1028_2_AddSubnS_0
+INFO: [VRFC 10-307] analyzing entity rsaModExp_add_1028ns_1028ns_1028_2_AddSubnS_0_fadder
+INFO: [VRFC 10-307] analyzing entity rsaModExp_add_1028ns_1028ns_1028_2_AddSubnS_0_fadder_f
+INFO: [VRFC 10-307] analyzing entity rsaModExp_add_1028ns_1028ns_1028_2
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/brett/workspace/Vivado_WS/ws_rsa64bit/solution1/sim/vhdl/rsaModExp.autotb.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity apatb_rsaModExp_top
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/brett/workspace/Vivado_WS/ws_rsa64bit/solution1/sim/vhdl/rsaModExp_sub_1024ns_1024ns_1024_2.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity rsaModExp_sub_1024ns_1024ns_1024_2_AddSubnS_3
+INFO: [VRFC 10-307] analyzing entity rsaModExp_sub_1024ns_1024ns_1024_2_AddSubnS_3_fadder
+INFO: [VRFC 10-307] analyzing entity rsaModExp_sub_1024ns_1024ns_1024_2_AddSubnS_3_fadder_f
+INFO: [VRFC 10-307] analyzing entity rsaModExp_sub_1024ns_1024ns_1024_2
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/brett/workspace/Vivado_WS/ws_rsa64bit/solution1/sim/vhdl/rsaModExp_montMult.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity rsaModExp_montMult
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/brett/workspace/Vivado_WS/ws_rsa64bit/solution1/sim/vhdl/rsaModExp_add_1026ns_1026ns_1026_2.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity rsaModExp_add_1026ns_1026ns_1026_2_AddSubnS_2
+INFO: [VRFC 10-307] analyzing entity rsaModExp_add_1026ns_1026ns_1026_2_AddSubnS_2_fadder
+INFO: [VRFC 10-307] analyzing entity rsaModExp_add_1026ns_1026ns_1026_2_AddSubnS_2_fadder_f
+INFO: [VRFC 10-307] analyzing entity rsaModExp_add_1026ns_1026ns_1026_2
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/brett/workspace/Vivado_WS/ws_rsa64bit/solution1/sim/vhdl/rsaModExp_interleaveModMult.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity rsaModExp_interleaveModMult
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/brett/workspace/Vivado_WS/ws_rsa64bit/solution1/sim/vhdl/rsaModExp.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity rsaModExp
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package ieee.std_logic_1164
+Compiling package ieee.std_logic_arith
+Compiling package ieee.std_logic_unsigned
+Compiling package ieee.numeric_std
+Compiling package std.textio
+Compiling package ieee.std_logic_textio
+Compiling architecture behav of entity xil_defaultlib.rsaModExp_add_1028ns_1028ns_1028_2_AddSubnS_0_fadder [rsamodexp_add_1028ns_1028ns_1028...]
+Compiling architecture behav of entity xil_defaultlib.rsaModExp_add_1028ns_1028ns_1028_2_AddSubnS_0_fadder_f [rsamodexp_add_1028ns_1028ns_1028...]
+Compiling architecture behav of entity xil_defaultlib.rsaModExp_add_1028ns_1028ns_1028_2_AddSubnS_0 [rsamodexp_add_1028ns_1028ns_1028...]
+Compiling architecture arch of entity xil_defaultlib.rsaModExp_add_1028ns_1028ns_1028_2 [\rsaModExp_add_1028ns_1028ns_102...]
+Compiling architecture behav of entity xil_defaultlib.rsaModExp_sub_1028ns_1028ns_1028_2_AddSubnS_1_fadder [rsamodexp_sub_1028ns_1028ns_1028...]
+Compiling architecture behav of entity xil_defaultlib.rsaModExp_sub_1028ns_1028ns_1028_2_AddSubnS_1_fadder_f [rsamodexp_sub_1028ns_1028ns_1028...]
+Compiling architecture behav of entity xil_defaultlib.rsaModExp_sub_1028ns_1028ns_1028_2_AddSubnS_1 [rsamodexp_sub_1028ns_1028ns_1028...]
+Compiling architecture arch of entity xil_defaultlib.rsaModExp_sub_1028ns_1028ns_1028_2 [\rsaModExp_sub_1028ns_1028ns_102...]
+Compiling architecture behav of entity xil_defaultlib.rsaModExp_interleaveModMult [rsamodexp_interleavemodmult_defa...]
+Compiling architecture behav of entity xil_defaultlib.rsaModExp_add_1026ns_1026ns_1026_2_AddSubnS_2_fadder [rsamodexp_add_1026ns_1026ns_1026...]
+Compiling architecture behav of entity xil_defaultlib.rsaModExp_add_1026ns_1026ns_1026_2_AddSubnS_2_fadder_f [rsamodexp_add_1026ns_1026ns_1026...]
+Compiling architecture behav of entity xil_defaultlib.rsaModExp_add_1026ns_1026ns_1026_2_AddSubnS_2 [rsamodexp_add_1026ns_1026ns_1026...]
+Compiling architecture arch of entity xil_defaultlib.rsaModExp_add_1026ns_1026ns_1026_2 [\rsaModExp_add_1026ns_1026ns_102...]
+Compiling architecture behav of entity xil_defaultlib.rsaModExp_sub_1024ns_1024ns_1024_2_AddSubnS_3_fadder [rsamodexp_sub_1024ns_1024ns_1024...]
+Compiling architecture behav of entity xil_defaultlib.rsaModExp_sub_1024ns_1024ns_1024_2_AddSubnS_3_fadder_f [rsamodexp_sub_1024ns_1024ns_1024...]
+Compiling architecture behav of entity xil_defaultlib.rsaModExp_sub_1024ns_1024ns_1024_2_AddSubnS_3 [rsamodexp_sub_1024ns_1024ns_1024...]
+Compiling architecture arch of entity xil_defaultlib.rsaModExp_sub_1024ns_1024ns_1024_2 [\rsaModExp_sub_1024ns_1024ns_102...]
+Compiling architecture behav of entity xil_defaultlib.rsaModExp_montMult [rsamodexp_montmult_default]
+Compiling architecture behav of entity xil_defaultlib.rsaModExp [rsamodexp_default]
+Compiling architecture behav of entity xil_defaultlib.apatb_rsamodexp_top
+Built simulation snapshot rsaModExp
+
+****** Webtalk v2016.2 (64-bit)
+  **** SW Build 1577090 on Thu Jun  2 16:32:35 MDT 2016
+  **** IP Build 1577682 on Fri Jun  3 12:00:54 MDT 2016
+    ** Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+
+source /home/brett/workspace/Vivado_WS/ws_rsa64bit/solution1/sim/vhdl/xsim.dir/rsaModExp/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Sun Jan 15 22:10:45 2017...
+
+****** xsim v2016.2 (64-bit)
+  **** SW Build 1577090 on Thu Jun  2 16:32:35 MDT 2016
+  **** IP Build 1577682 on Fri Jun  3 12:00:54 MDT 2016
+    ** Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+
+source xsim.dir/rsaModExp/xsim_script.tcl
+# xsim {rsaModExp} -autoloadwcfg -tclbatch {rsaModExp.tcl}
+Vivado Simulator 2016.2
+Time resolution is 1 ps
+source rsaModExp.tcl
+## run all
+Note: simulation done!
+Time: 156659187500 ps  Iteration: 1  Process: /apatb_rsaModExp_top/generate_sim_done_proc  File: /home/brett/workspace/Vivado_WS/ws_rsa64bit/solution1/sim/vhdl/rsaModExp.autotb.vhd
+Failure: NORMAL EXIT (note: failure is to force the simulator to stop)
+Time: 156659187500 ps  Iteration: 1  Process: /apatb_rsaModExp_top/generate_sim_done_proc  File: /home/brett/workspace/Vivado_WS/ws_rsa64bit/solution1/sim/vhdl/rsaModExp.autotb.vhd
+$finish called at time : 156659187500 ps
+run: Time (s): cpu = 00:00:00.02 ; elapsed = 00:02:50 . Memory (MB): peak = 252.012 ; gain = 0.000 ; free physical = 22271 ; free virtual = 60625
+## quit
+INFO: [Common 17-206] Exiting xsim at Sun Jan 15 22:13:37 2017...
+res = 0x01D
+ [ 0b0000011101 ]
+Test Passed !!!
+@I [SIM-1000] *** C/RTL co-simulation finished: PASS ***

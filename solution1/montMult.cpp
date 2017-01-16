@@ -2,7 +2,7 @@
 #define PRINT_ON false
 
 //void montMult(uint1024_t X, uint1024_t Y, uint1024_t M, uint1024_t* outData){
-void montMult(uint1024_t X0, uint1024_t Y0, uint1024_t M0, uint1024_t* outData)
+void montMult(uintRSA_t X0, uintRSA_t Y0, uintRSA_t M0, uintRSA_t* outData)
 {
 #pragma HLS ALLOCATION instances=mul limit=256 operation
 

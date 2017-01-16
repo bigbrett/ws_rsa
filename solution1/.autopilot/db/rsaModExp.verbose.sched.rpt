@@ -1,0 +1,257 @@
+
+
+================================================================
+== Vivado HLS Report for 'rsaModExp'
+================================================================
+* Date:           Sun Jan 15 22:09:41 2017
+
+* Version:        2016.2 (Build 1577090 on Thu Jun 02 16:59:10 MDT 2016)
+* Project:        ws_rsa64bit
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  25.00|     19.83|        3.12|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +---------+---------+---------+---------+---------+
+    |      Latency      |      Interval     | Pipeline|
+    |   min   |   max   |   min   |   max   |   Type  |
+    +---------+---------+---------+---------+---------+
+    |  4216855|  8414231|  4216856|  8414232|   none  |
+    +---------+---------+---------+---------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+---------+---------+-------------+-----------+-----------+------+----------+
+        |          |      Latency      |  Iteration  |  Initiation Interval  | Trip |          |
+        | Loop Name|   min   |   max   |   Latency   |  achieved |   target  | Count| Pipelined|
+        +----------+---------+---------+-------------+-----------+-----------+------+----------+
+        |- Loop 1  |  4200448|  8397824| 4102 ~ 8201 |          -|          -|  1024|    no    |
+        +----------+---------+---------+-------------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 7
+* Pipeline: 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / true
+3 --> 
+	4  / true
+4 --> 
+	5  / (!tmp)
+	7  / (tmp)
+5 --> 
+	6  / true
+6 --> 
+	4  / true
+7 --> 
+* FSM state operations: 
+
+ <State 1>: 1.04ns
+ST_1: xbar_V_1 [1/1] 0.00ns
+:0  %xbar_V_1 = alloca i1024
+
+ST_1: n_V_read [1/1] 0.00ns
+:6  %n_V_read = call i1024 @_ssdm_op_Read.ap_auto.i1024(i1024 %n_V)
+
+ST_1: M_V_read [1/1] 0.00ns
+:8  %M_V_read = call i1024 @_ssdm_op_Read.ap_auto.i1024(i1024 %M_V)
+
+ST_1: Mbar_V [2/2] 1.04ns
+:11  %Mbar_V = call fastcc i1024 @rsaModExp_interleaveModMult(i1024 %M_V_read, i1024 %n_V_read)
+
+
+ <State 2>: 1.04ns
+ST_2: Mbar_V [1/2] 0.00ns
+:11  %Mbar_V = call fastcc i1024 @rsaModExp_interleaveModMult(i1024 %M_V_read, i1024 %n_V_read)
+
+ST_2: xbar_V [2/2] 1.04ns
+:12  %xbar_V = call fastcc i1024 @rsaModExp_interleaveModMult(i1024 1, i1024 %n_V_read)
+
+
+ <State 3>: 1.57ns
+ST_3: stg_14 [1/1] 0.00ns
+:1  call void (...)* @_ssdm_op_SpecBitsMap(i1024 %M_V), !map !86
+
+ST_3: stg_15 [1/1] 0.00ns
+:2  call void (...)* @_ssdm_op_SpecBitsMap(i1024 %e_V), !map !92
+
+ST_3: stg_16 [1/1] 0.00ns
+:3  call void (...)* @_ssdm_op_SpecBitsMap(i1024 %n_V), !map !96
+
+ST_3: stg_17 [1/1] 0.00ns
+:4  call void (...)* @_ssdm_op_SpecBitsMap(i1024* %out_V), !map !100
+
+ST_3: stg_18 [1/1] 0.00ns
+:5  call void (...)* @_ssdm_op_SpecTopModule([10 x i8]* @rsaModExp_str) nounwind
+
+ST_3: e_V_read [1/1] 0.00ns
+:7  %e_V_read = call i1024 @_ssdm_op_Read.ap_auto.i1024(i1024 %e_V)
+
+ST_3: stg_20 [1/1] 0.00ns
+:9  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [1 x i8]* @p_str, [1 x i8]* @p_str, [19 x i8]* @rsaModExp_montMult.str, [1 x i8]* @p_str) nounwind
+
+ST_3: stg_21 [1/1] 0.00ns
+:10  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [1 x i8]* @p_str, [1 x i8]* @p_str, [28 x i8]* @rsaModExp_interleaveModMult.str, [1 x i8]* @p_str) nounwind
+
+ST_3: xbar_V [1/2] 0.00ns
+:12  %xbar_V = call fastcc i1024 @rsaModExp_interleaveModMult(i1024 1, i1024 %n_V_read)
+
+ST_3: stg_23 [1/1] 1.57ns
+:13  store i1024 %xbar_V, i1024* %xbar_V_1
+
+ST_3: stg_24 [1/1] 1.57ns
+:14  br label %1
+
+
+ <State 4>: 1.04ns
+ST_4: i_assign [1/1] 0.00ns
+:0  %i_assign = phi i11 [ 1023, %0 ], [ %i, %._crit_edge ]
+
+ST_4: i_assign_cast [1/1] 0.00ns
+:1  %i_assign_cast = sext i11 %i_assign to i32
+
+ST_4: tmp [1/1] 0.00ns
+:2  %tmp = call i1 @_ssdm_op_BitSelect.i1.i11.i32(i11 %i_assign, i32 10)
+
+ST_4: empty [1/1] 0.00ns
+:3  %empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 1024, i64 1024, i64 1024)
+
+ST_4: stg_29 [1/1] 0.00ns
+:4  br i1 %tmp, label %4, label %2
+
+ST_4: xbar_V_1_load_1 [1/1] 0.00ns
+:0  %xbar_V_1_load_1 = load i1024* %xbar_V_1
+
+ST_4: xbar_V_2 [2/2] 1.04ns
+:1  %xbar_V_2 = call fastcc i1024 @rsaModExp_montMult(i1024 %xbar_V_1_load_1, i1024 %xbar_V_1_load_1, i1024 %n_V_read)
+
+ST_4: tmp_1 [1/1] 0.00ns
+:2  %tmp_1 = call i1 @_ssdm_op_BitSelect.i1.i1024.i32(i1024 %e_V_read, i32 %i_assign_cast)
+
+ST_4: xbar_V_1_load [1/1] 0.00ns
+:0  %xbar_V_1_load = load i1024* %xbar_V_1
+
+ST_4: call_ret [2/2] 1.04ns
+:1  %call_ret = call fastcc i1024 @rsaModExp_montMult(i1024 %xbar_V_1_load, i1024 1, i1024 %n_V_read)
+
+
+ <State 5>: 19.83ns
+ST_5: xbar_V_2 [1/2] 18.26ns
+:1  %xbar_V_2 = call fastcc i1024 @rsaModExp_montMult(i1024 %xbar_V_1_load_1, i1024 %xbar_V_1_load_1, i1024 %n_V_read)
+
+ST_5: stg_36 [1/1] 0.00ns
+:3  br i1 %tmp_1, label %3, label %._crit_edge.pre
+
+ST_5: stg_37 [1/1] 1.57ns
+._crit_edge.pre:0  store i1024 %xbar_V_2, i1024* %xbar_V_1
+
+ST_5: stg_38 [1/1] 0.00ns
+._crit_edge.pre:1  br label %._crit_edge
+
+ST_5: xbar_V_3 [2/2] 1.04ns
+:0  %xbar_V_3 = call fastcc i1024 @rsaModExp_montMult(i1024 %Mbar_V, i1024 %xbar_V_2, i1024 %n_V_read)
+
+
+ <State 6>: 19.83ns
+ST_6: xbar_V_3 [1/2] 18.26ns
+:0  %xbar_V_3 = call fastcc i1024 @rsaModExp_montMult(i1024 %Mbar_V, i1024 %xbar_V_2, i1024 %n_V_read)
+
+ST_6: stg_41 [1/1] 1.57ns
+:1  store i1024 %xbar_V_3, i1024* %xbar_V_1
+
+ST_6: stg_42 [1/1] 0.00ns
+:2  br label %._crit_edge
+
+ST_6: i [1/1] 1.84ns
+._crit_edge:0  %i = add i11 %i_assign, -1
+
+ST_6: stg_44 [1/1] 0.00ns
+._crit_edge:1  br label %1
+
+
+ <State 7>: 18.26ns
+ST_7: call_ret [1/2] 18.26ns
+:1  %call_ret = call fastcc i1024 @rsaModExp_montMult(i1024 %xbar_V_1_load, i1024 1, i1024 %n_V_read)
+
+ST_7: stg_46 [1/1] 0.00ns
+:2  call void @_ssdm_op_Write.ap_auto.i1024P(i1024* %out_V, i1024 %call_ret)
+
+ST_7: stg_47 [1/1] 0.00ns
+:3  ret void
+
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 25ns, clock uncertainty: 3.12ns.
+
+ No timing violations. 
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

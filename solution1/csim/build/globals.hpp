@@ -22,8 +22,7 @@ using namespace std;
 
 
 // arbitrary precision for RSA
-//typedef ap_uint<1024> uint1024_t; // 1024 bit unsigned integer
-typedef ap_uint<NUM_BITS> uint1024_t; // 1024 bit unsigned integer
+typedef ap_uint<NUM_BITS> uintRSA_t; // 1024 bit unsigned integer
 
 
 

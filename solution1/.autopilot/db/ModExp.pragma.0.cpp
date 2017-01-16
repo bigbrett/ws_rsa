@@ -48645,8 +48645,7 @@ using namespace std;
 
 
 // arbitrary precision for RSA
-//typedef ap_uint<1024> uint1024_t; // 1024 bit unsigned integer
-typedef ap_uint<1024> uint1024_t; // 1024 bit unsigned integer
+typedef ap_uint<1024> uintRSA_t; // 1024 bit unsigned integer
 #5 "ws_rsa64bit/solution1/ModExp.hpp" 2
 #1 "ws_rsa64bit/solution1/montMult.hpp" 1
 
@@ -48656,7 +48655,7 @@ typedef ap_uint<1024> uint1024_t; // 1024 bit unsigned integer
 
 
 
-void montMult(uint1024_t base, uint1024_t exponent, uint1024_t modulus, uint1024_t* outData);
+void montMult(uintRSA_t base, uintRSA_t exponent, uintRSA_t modulus, uintRSA_t* outData);
 #6 "ws_rsa64bit/solution1/ModExp.hpp" 2
 #1 "ws_rsa64bit/solution1/mwr2mm.hpp" 1
 
@@ -48664,80 +48663,33 @@ void montMult(uint1024_t base, uint1024_t exponent, uint1024_t modulus, uint1024
 
 
 
-void mwr2mm(uint1024_t X, uint1024_t Y, uint1024_t M, uint1024_t* outData);
+void mwr2mm(uintRSA_t X, uintRSA_t Y, uintRSA_t M, uintRSA_t* outData);
 #7 "ws_rsa64bit/solution1/ModExp.hpp" 2
 
 
-void ModExp(uint1024_t M, uint1024_t e, uint1024_t n, uint1024_t Mbar, uint1024_t xbar, uint1024_t* out);
+void ModExp(uintRSA_t M, uintRSA_t e, uintRSA_t n, uintRSA_t Mbar, uintRSA_t xbar, uintRSA_t* out);
 #2 "ws_rsa64bit/solution1/ModExp.cpp" 2
 
 
 
-//void ModExp(uint1024_t M, uint1024_t e, uint1024_t n,
-//			uint1024_t Mbar, uint1024_t xbar, uint1024_t* out)
-void ModExp(uint1024_t M, uint1024_t e, uint1024_t n,
-   uint1024_t Mbar, uint1024_t xbar_in, uint1024_t* out)
+void ModExp(uintRSA_t M, uintRSA_t e, uintRSA_t n,
+   uintRSA_t Mbar, uintRSA_t xbar_in, uintRSA_t* out)
 
 {
 
 #pragma HLS ALLOCATION instances=montMult limit=1 function
 
- uint1024_t xbar = xbar_in;
- uint1024_t xbar_temp = 0;
-
-//
-//	int i;
-//	for (i=NUM_BITS-1; i>=0; i--)
-//	{
-//		montMult(xbar,xbar,n,&xbar);
-//
-//		if (e.test(i)) // if (e.bit(i) == 1)
-//		{
-//			montMult(Mbar,xbar,n, &xbar_temp);
-//			xbar = xbar_temp;
-//		}
-//	}
-//	montMult(xbar,1,n, out);
+ uintRSA_t xbar = xbar_in;
 
  int i;
  for (i=1024 -1; i>=0; i--)
  {
-  montMult(xbar,xbar,n,&xbar); //cout << endl << "ME:xbar = " << endl<<hex << xbar << endl;
-
-  if (e.test(i)) // if (e.bit(i) == 1)
-   montMult(Mbar,xbar,n,&xbar); //cout << endl << "**ME:xbar = " << endl << hex << xbar << endl;
+  montMult(xbar,xbar,n,&xbar);
+  if (e.test(i))
+   montMult(Mbar,xbar,n,&xbar);
  }
- montMult(xbar,1,n,out); //cout << endl << "**FINALME1:xbar = " << endl<<hex << xbar << endl;
-#58 "ws_rsa64bit/solution1/ModExp.cpp"
-//	function ModExp(B, E, N: BigInteger): BigInteger;
-//	var
-//	  R, RR, MontB: BigInteger;
-//	  I: Integer;
-//
-//	begin
-//	  R:= BigInteger.PowerOfTwo(1024) mod N;
-//	  MontB:= (B * R) mod N;
+ montMult(xbar,1,n,out);
 
-//	  for I:= 1023 downto 0 do begin
-//	    R:= MontMult(R, R, N);
-//	    if not (E shr I).IsEven then begin
-//	      RR:= MontMult(MontB, R, N);
-//	      R:= RR;
-//	    end;
-//	  end;
-//	  Result:= MontMult(RR, 1, N);
-//	end;
-
-// OLD CODE
-//	int i;
-//	uint1024_t tempMbar = 0;
-//	for (i=NUM_BITS-1; i>=0; i--)
-//	{
-//		montMult(xbar,xbar,n,&xbar);
-//
-//		if (e.test(i)) // if (e.bit(i) == 1)
-//			montMult(Mbar,xbar,n,&xbar);
-//	}
-//	montMult(xbar,1,n,out);
-
+ // experimental multiword algorithm
+#40 "ws_rsa64bit/solution1/ModExp.cpp"
 }

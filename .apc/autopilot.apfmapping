@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="montMult.hpp" path="/home/brett/workspace/Vivado_WS/ws_rsa64bit/solution1/montMult.hpp"/>
+    <originFiles name="montMult.cpp" path="/home/brett/workspace/Vivado_WS/ws_rsa64bit/solution1/montMult.cpp"/>
+    <originFiles name="globals.hpp" path="/home/brett/workspace/Vivado_WS/ws_rsa64bit/solution1/globals.hpp"/>
+    <originFiles name="ModExp.hpp" path="/home/brett/workspace/Vivado_WS/ws_rsa64bit/solution1/ModExp.hpp"/>
+    <originFiles name="ModExp.cpp" path="/home/brett/workspace/Vivado_WS/ws_rsa64bit/solution1/ModExp.cpp"/>
+    <originFiles name="interleaveModMult.hpp" path="/home/brett/workspace/Vivado_WS/ws_rsa64bit/solution1/interleaveModMult.hpp"/>
+    <originFiles name="interleaveModMult.cpp" path="/home/brett/workspace/Vivado_WS/ws_rsa64bit/solution1/interleaveModMult.cpp"/>
+    <originFiles name="rsaModExp.hpp" path="/home/brett/workspace/Vivado_WS/ws_rsa64bit/solution1/rsaModExp.hpp"/>
+    <originFiles name="rsaModExp.cpp" path="/home/brett/workspace/Vivado_WS/ws_rsa64bit/solution1/rsaModExp.cpp"/>
+  </source>
+  <testbench>
+    <originFiles name="rsa_tb.cpp" path="/home/brett/workspace/Vivado_WS/ws_rsa64bit/solution1/rsa_tb.cpp"/>
+  </testbench>
+</autopilotfilemapping:AutoPilotFileMapping>

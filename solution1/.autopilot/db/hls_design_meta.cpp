@@ -9,9 +9,7 @@ const Port_Property HLS_Design_Meta::port_props[]={
 	Port_Property("M_V", 1024, hls_in, 0, "ap_none", "in_data", 1),
 	Port_Property("e_V", 1024, hls_in, 1, "ap_none", "in_data", 1),
 	Port_Property("n_V", 1024, hls_in, 2, "ap_none", "in_data", 1),
-	Port_Property("Mbar_V", 1024, hls_in, 3, "ap_none", "in_data", 1),
-	Port_Property("xbar_in_V", 1024, hls_in, 4, "ap_none", "in_data", 1),
-	Port_Property("out_V", 1024, hls_out, 5, "ap_vld", "out_data", 1),
-	Port_Property("out_V_ap_vld", 1, hls_out, 5, "ap_vld", "out_vld", 1),
+	Port_Property("out_V", 1024, hls_out, 3, "ap_vld", "out_data", 1),
+	Port_Property("out_V_ap_vld", 1, hls_out, 3, "ap_vld", "out_vld", 1),
 };
-const char* HLS_Design_Meta::dut_name = "ModExp";
+const char* HLS_Design_Meta::dut_name = "rsaModExp";

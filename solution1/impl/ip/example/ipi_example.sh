@@ -6,4 +6,4 @@
 # ==============================================================
 
 
-/opt/Xilinx/Vivado_HLS/2016.2/../../Vivado/2016.2/bin/vivado  -notrace -mode batch -source ipi_example.tcl -tclargs xc7z020clg484-1 ../xilinx_com_hls_ModExp_1_0.zip
+/opt/Xilinx/Vivado_HLS/2016.2/../../Vivado/2016.2/bin/vivado  -notrace -mode batch -source ipi_example.tcl -tclargs xc7z020clg484-1 ../xilinx_com_hls_rsaModExp_1_0.zip
