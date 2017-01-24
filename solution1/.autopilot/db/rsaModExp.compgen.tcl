@@ -18,7 +18,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_M_V \
     op interface \
-    ports { M_V { I 1024 vector } } \
+    ports { M_V { I 2048 vector } } \
 } "
 }
 
@@ -33,7 +33,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_e_V \
     op interface \
-    ports { e_V { I 1024 vector } } \
+    ports { e_V { I 2048 vector } } \
 } "
 }
 
@@ -48,7 +48,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_n_V \
     op interface \
-    ports { n_V { I 1024 vector } } \
+    ports { n_V { I 2048 vector } } \
 } "
 }
 
@@ -63,7 +63,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_out_V \
     op interface \
-    ports { out_V { O 1024 vector } out_V_ap_vld { O 1 bit } } \
+    ports { out_V { O 2048 vector } out_V_ap_vld { O 1 bit } } \
 } "
 }
 

@@ -48645,18 +48645,18 @@ using namespace std;
 #pragma empty_line
 #pragma empty_line
 // arbitrary precision for RSA
-typedef ap_uint<1024> uintRSA_t; // 1024 bit unsigned integer
+typedef ap_uint<2048> uintRSA_t; // 1024 bit unsigned integer
 #pragma line 5 "ws_rsa64bit/solution1/interleaveModMult.hpp" 2
 #pragma empty_line
-void interleaveModMult(ap_uint<1024 +1> X, ap_uint<1024 +1> Y, ap_uint<1024> M, uintRSA_t* out);
+void interleaveModMult(ap_uint<2048 +1> X, ap_uint<2048 +1> Y, ap_uint<2048> M, uintRSA_t* out);
 #pragma line 2 "ws_rsa64bit/solution1/interleaveModMult.cpp" 2
 #pragma empty_line
-void interleaveModMult(ap_uint<1024 +1> X, ap_uint<1024 +1> Y, ap_uint<1024> M, uintRSA_t* Pout)
+void interleaveModMult(ap_uint<2048 +1> X, ap_uint<2048 +1> Y, ap_uint<2048> M, uintRSA_t* Pout)
 {
- ap_uint<1024 +4> P=0;
+ ap_uint<2048 +4> P=0;
 #pragma empty_line
  int i;
- for (i=1024; i>=0; i--)
+ for (i=2048; i>=0; i--)
  {
   P = P << 1;
   if (X.test(i))
@@ -48666,5 +48666,5 @@ void interleaveModMult(ap_uint<1024 +1> X, ap_uint<1024 +1> Y, ap_uint<1024> M, 
   if (P>=M)
    P -= M;
  }
- *Pout = P.range(1024 -1,0);
+ *Pout = P.range(2048 -1,0);
 }

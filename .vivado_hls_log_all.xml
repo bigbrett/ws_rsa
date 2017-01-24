@@ -12,12 +12,14 @@
   <warningLogs>
     <logs>
       <synLog>
-        <logs message="WARNING: [SYN 201-223] Checking resource limit in 'rsaModExp_montMult': cannot find any operation of 'mul'." projectName="ws_rsa64bit" solutionName="solution1" date="2017-01-15T22:09:41.269-0500" type="Warning"/>
-        <logs message="WARNING: [SYNCHK 200-23] ws_rsa64bit/solution1/rsaModExp.cpp:30: variable-indexed range selection may cause suboptimal QoR." projectName="ws_rsa64bit" solutionName="solution1" date="2017-01-15T22:09:40.721-0500" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-21] The critical path consists of the following:&#xA;&#x9;'phi' operation ('p_s', ws_rsa64bit/solution1/montMult.cpp:22) with incoming values : ('tmp_5', ws_rsa64bit/solution1/montMult.cpp:22) (0 ns)&#xA;&#x9;'icmp' operation ('tmp', ws_rsa64bit/solution1/montMult.cpp:29) (21.9 ns)" projectName="ws_rsa64bit" solutionName="solution1" date="2017-01-15T23:34:25.414-0500" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-21] Estimated clock period (21.9ns) exceeds the target (target clock period: 25ns, clock uncertainty: 3.12ns, effective delay budget: 21.9ns)." projectName="ws_rsa64bit" solutionName="solution1" date="2017-01-15T23:34:25.408-0500" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-21] The critical path consists of the following:&#xA;&#x9;'icmp' operation ('tmp_4', ws_rsa64bit/solution1/interleaveModMult.cpp:13) (22 ns)" projectName="ws_rsa64bit" solutionName="solution1" date="2017-01-15T23:34:25.377-0500" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-21] Estimated clock period (22ns) exceeds the target (target clock period: 25ns, clock uncertainty: 3.12ns, effective delay budget: 21.9ns)." projectName="ws_rsa64bit" solutionName="solution1" date="2017-01-15T23:34:25.373-0500" type="Warning"/>
+        <logs message="WARNING: [SYN 201-223] Checking resource limit in 'rsaModExp_montMult': cannot find any operation of 'mul'." projectName="ws_rsa64bit" solutionName="solution1" date="2017-01-15T23:34:25.359-0500" type="Warning"/>
+        <logs message="WARNING: [SYNCHK 200-23] ws_rsa64bit/solution1/rsaModExp.cpp:30: variable-indexed range selection may cause suboptimal QoR." projectName="ws_rsa64bit" solutionName="solution1" date="2017-01-15T23:34:24.807-0500" type="Warning"/>
       </synLog>
-      <simLog>
-        <logs message="WARNING: [XSIM 43-3431] One or more environment variables have been detected which affect the operation of the C compiler. These are typically not set in standard installations and are not tested by Xilinx, however they may be appropriate for your system, so the flow will attempt to continue.  If errors occur, try running fuse with the &quot;-mt off -v 1&quot; switches to see more information from the C compiler. The following environment variables have been detected:&#xA;    LIBRARY_PATH" projectName="ws_rsa64bit" solutionName="solution1" date="2017-01-15T22:10:40.819-0500" type="Warning"/>
-      </simLog>
+      <simLog/>
       <mgLog/>
       <packageLog/>
       <csimLog/>

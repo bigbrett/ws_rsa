@@ -48663,7 +48663,7 @@ using namespace std;
 
 
 // arbitrary precision for RSA
-typedef ap_uint<1024> uintRSA_t; // 1024 bit unsigned integer
+typedef ap_uint<2048> uintRSA_t; // 1024 bit unsigned integer
 # 5 "ws_rsa64bit/solution1/ModExp.hpp" 2
 # 1 "ws_rsa64bit/solution1/montMult.hpp" 1
 
@@ -48700,7 +48700,7 @@ _ssdm_op_SpecResourceLimit(1, "", "", "montMult", "");
  uintRSA_t xbar = xbar_in;
 
  int i;
- for (i=1024 -1; i>=0; i--)
+ for (i=2048 -1; i>=0; i--)
  {
   montMult(xbar,xbar,n,&xbar);
   if (e.test(i))

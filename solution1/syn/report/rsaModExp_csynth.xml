@@ -17,29 +17,29 @@
 <PipelineType>none</PipelineType>
 <SummaryOfTimingAnalysis>
 <unit>ns</unit>
-<EstimatedClockPeriod>19.83</EstimatedClockPeriod>
+<EstimatedClockPeriod>21.97</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <unit>clock cycles</unit>
-<Best-caseLatency>4216855</Best-caseLatency>
-<Average-caseLatency>6316055</Average-caseLatency>
-<Worst-caseLatency>8414231</Worst-caseLatency>
-<Interval-min>4216856</Interval-min>
-<Interval-max>8414232</Interval-max>
+<Best-caseLatency>33636389</Best-caseLatency>
+<Average-caseLatency>50419749</Average-caseLatency>
+<Worst-caseLatency>67201061</Worst-caseLatency>
+<Interval-min>33636390</Interval-min>
+<Interval-max>67201062</Interval-max>
 </SummaryOfOverallLatency>
 <SummaryOfLoopLatency>
 <Loop1>
-<TripCount>1024</TripCount>
+<TripCount>2048</TripCount>
 <Latency>
 <range>
-<min>4200448</min>
-<max>8397824</max>
+<min>33570816</min>
+<max>67135488</max>
 </range>
 </Latency>
 <IterationLatency>
 <range>
-<min>4102</min>
-<max>8201</max>
+<min>16392</min>
+<max>32781</max>
 </range>
 </IterationLatency>
 </Loop1>
@@ -48,8 +48,8 @@
 
 <AreaEstimates>
 <Resources>
-<FF>43158</FF>
-<LUT>21606</LUT>
+<FF>123090</FF>
+<LUT>43109</LUT>
 <BRAM_18K>0</BRAM_18K>
 <DSP48E>0</DSP48E>
 </Resources>
@@ -136,7 +136,7 @@
 <IOProtocol>ap_none</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>in</Dir>
-<Bits>1024</Bits>
+<Bits>2048</Bits>
 <Attribute>data</Attribute>
 <CType>int</CType>
 </RtlPorts>
@@ -148,7 +148,7 @@
 <IOProtocol>ap_none</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>in</Dir>
-<Bits>1024</Bits>
+<Bits>2048</Bits>
 <Attribute>data</Attribute>
 <CType>int</CType>
 </RtlPorts>
@@ -160,7 +160,7 @@
 <IOProtocol>ap_none</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>in</Dir>
-<Bits>1024</Bits>
+<Bits>2048</Bits>
 <Attribute>data</Attribute>
 <CType>int</CType>
 </RtlPorts>
@@ -172,7 +172,7 @@
 <IOProtocol>ap_vld</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>out</Dir>
-<Bits>1024</Bits>
+<Bits>2048</Bits>
 <Attribute>data</Attribute>
 <CType>int</CType>
 </RtlPorts>

@@ -48645,7 +48645,7 @@ using namespace std;
 #pragma empty_line
 #pragma empty_line
 // arbitrary precision for RSA
-typedef ap_uint<1024> uintRSA_t; // 1024 bit unsigned integer
+typedef ap_uint<2048> uintRSA_t; // 1024 bit unsigned integer
 #pragma line 5 "ws_rsa64bit/solution1/ModExp.hpp" 2
 #pragma line 1 "ws_rsa64bit/solution1/montMult.hpp" 1
 #pragma empty_line
@@ -48682,7 +48682,7 @@ void ModExp(uintRSA_t M, uintRSA_t e, uintRSA_t n,
  uintRSA_t xbar = xbar_in;
 #pragma empty_line
  int i;
- for (i=1024 -1; i>=0; i--)
+ for (i=2048 -1; i>=0; i--)
  {
   montMult(xbar,xbar,n,&xbar);
   if (e.test(i))

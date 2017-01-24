@@ -2,9 +2,9 @@
 <RtlPorts>
 <name>M_V</name>
 <CType>
-<TypeName>ap_uint 1024</TypeName>
-<TypeWidth>1024</TypeWidth>
-<PhysicalWidth>1024</PhysicalWidth>
+<TypeName>ap_uint 2048</TypeName>
+<TypeWidth>2048</TypeWidth>
+<PhysicalWidth>2048</PhysicalWidth>
 </CType>
 <CFractionWidth>0</CFractionWidth>
 <InvalidType>0</InvalidType>
@@ -12,9 +12,9 @@
 <RtlPorts>
 <name>e_V</name>
 <CType>
-<TypeName>ap_uint 1024</TypeName>
-<TypeWidth>1024</TypeWidth>
-<PhysicalWidth>1024</PhysicalWidth>
+<TypeName>ap_uint 2048</TypeName>
+<TypeWidth>2048</TypeWidth>
+<PhysicalWidth>2048</PhysicalWidth>
 </CType>
 <CFractionWidth>0</CFractionWidth>
 <InvalidType>0</InvalidType>
@@ -22,9 +22,9 @@
 <RtlPorts>
 <name>n_V</name>
 <CType>
-<TypeName>ap_uint 1024</TypeName>
-<TypeWidth>1024</TypeWidth>
-<PhysicalWidth>1024</PhysicalWidth>
+<TypeName>ap_uint 2048</TypeName>
+<TypeWidth>2048</TypeWidth>
+<PhysicalWidth>2048</PhysicalWidth>
 </CType>
 <CFractionWidth>0</CFractionWidth>
 <InvalidType>0</InvalidType>
@@ -32,9 +32,9 @@
 <RtlPorts>
 <name>out_V</name>
 <CType>
-<TypeName>ap_uint 1024</TypeName>
-<TypeWidth>1024</TypeWidth>
-<PhysicalWidth>1024</PhysicalWidth>
+<TypeName>ap_uint 2048</TypeName>
+<TypeWidth>2048</TypeWidth>
+<PhysicalWidth>2048</PhysicalWidth>
 </CType>
 <CFractionWidth>0</CFractionWidth>
 <InvalidType>0</InvalidType>

@@ -48645,7 +48645,7 @@ using namespace std;
 
 
 // arbitrary precision for RSA
-typedef ap_uint<1024> uintRSA_t; // 1024 bit unsigned integer
+typedef ap_uint<2048> uintRSA_t; // 1024 bit unsigned integer
 #5 "ws_rsa64bit/solution1/montMult.hpp" 2
 
 
@@ -48662,11 +48662,11 @@ _ssdm_op_SpecResourceLimit(256, "mul", "", "", "");
  /* IMPT BUGFIX: INTERMEDIATE WIDTHS MUST BE GREATER
 	 * THAN OR EQUAL TO NUM_BITS+1 OR OVERFLOW CAUSES
 	 * THE INTEGER LIBRARY TO SCREW UP SIGN EXTENTIONS */
- ap_uint<1024 +2> S = 0;
- ap_uint<1024 +2> X = X0, Y = Y0, M=M0;
+ ap_uint<2048 +2> S = 0;
+ ap_uint<2048 +2> X = X0, Y = Y0, M=M0;
 
  int i;
- for (i=0; i<1024; i++)
+ for (i=0; i<2048; i++)
  {
   //if(PRINT_ON){cout << "i = "<<dec<<i<<endl;}
   if (X.test(i)) {
@@ -48684,5 +48684,5 @@ _ssdm_op_SpecResourceLimit(256, "mul", "", "", "");
   S -= M;
   //if(PRINT_ON){cout << "***SUBTRACTED MODULUS" << endl << "FINAL MONTMULT = " << hex << S << endl;}
  }
- *outData = S.range(1024 -1,0);
+ *outData = S.range(2048 -1,0);
 }

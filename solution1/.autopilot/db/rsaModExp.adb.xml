@@ -61,9 +61,9 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<node id="5" bw="1024" op_0_bw="32">
+<node id="5" bw="2048" op_0_bw="32">
 <![CDATA[
-:0  %xbar_V_1 = alloca i1024
+:0  %xbar_V_1 = alloca i2048
 
 ]]></node>
 <StgValue><ssdm name="xbar_V_1"/></StgValue>
@@ -76,9 +76,9 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<node id="11" bw="1024" op_0_bw="1024" op_1_bw="1024">
+<node id="11" bw="2048" op_0_bw="2048" op_1_bw="2048">
 <![CDATA[
-:6  %n_V_read = call i1024 @_ssdm_op_Read.ap_auto.i1024(i1024 %n_V)
+:6  %n_V_read = call i2048 @_ssdm_op_Read.ap_auto.i2048(i2048 %n_V)
 
 ]]></node>
 <StgValue><ssdm name="n_V_read"/></StgValue>
@@ -91,9 +91,9 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<node id="13" bw="1024" op_0_bw="1024" op_1_bw="1024">
+<node id="13" bw="2048" op_0_bw="2048" op_1_bw="2048">
 <![CDATA[
-:8  %M_V_read = call i1024 @_ssdm_op_Read.ap_auto.i1024(i1024 %M_V)
+:8  %M_V_read = call i2048 @_ssdm_op_Read.ap_auto.i2048(i2048 %M_V)
 
 ]]></node>
 <StgValue><ssdm name="M_V_read"/></StgValue>
@@ -106,9 +106,9 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<node id="16" bw="1024" op_0_bw="1024" op_1_bw="1024" op_2_bw="1024">
+<node id="16" bw="2048" op_0_bw="2048" op_1_bw="2048" op_2_bw="2048">
 <![CDATA[
-:11  %Mbar_V = call fastcc i1024 @rsaModExp_interleaveModMult(i1024 %M_V_read, i1024 %n_V_read)
+:11  %Mbar_V = call fastcc i2048 @rsaModExp_interleaveModMult(i2048 %M_V_read, i2048 %n_V_read)
 
 ]]></node>
 <StgValue><ssdm name="Mbar_V"/></StgValue>
@@ -124,9 +124,9 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<node id="16" bw="1024" op_0_bw="1024" op_1_bw="1024" op_2_bw="1024">
+<node id="16" bw="2048" op_0_bw="2048" op_1_bw="2048" op_2_bw="2048">
 <![CDATA[
-:11  %Mbar_V = call fastcc i1024 @rsaModExp_interleaveModMult(i1024 %M_V_read, i1024 %n_V_read)
+:11  %Mbar_V = call fastcc i2048 @rsaModExp_interleaveModMult(i2048 %M_V_read, i2048 %n_V_read)
 
 ]]></node>
 <StgValue><ssdm name="Mbar_V"/></StgValue>
@@ -139,9 +139,9 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<node id="17" bw="1024" op_0_bw="1024" op_1_bw="1024" op_2_bw="1024">
+<node id="17" bw="2048" op_0_bw="2048" op_1_bw="2048" op_2_bw="2048">
 <![CDATA[
-:12  %xbar_V = call fastcc i1024 @rsaModExp_interleaveModMult(i1024 1, i1024 %n_V_read)
+:12  %xbar_V = call fastcc i2048 @rsaModExp_interleaveModMult(i2048 1, i2048 %n_V_read)
 
 ]]></node>
 <StgValue><ssdm name="xbar_V"/></StgValue>
@@ -157,9 +157,9 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<node id="6" bw="0" op_0_bw="0" op_1_bw="1024">
+<node id="6" bw="0" op_0_bw="0" op_1_bw="2048">
 <![CDATA[
-:1  call void (...)* @_ssdm_op_SpecBitsMap(i1024 %M_V), !map !86
+:1  call void (...)* @_ssdm_op_SpecBitsMap(i2048 %M_V), !map !86
 
 ]]></node>
 <StgValue><ssdm name=""/></StgValue>
@@ -172,9 +172,9 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<node id="7" bw="0" op_0_bw="0" op_1_bw="1024">
+<node id="7" bw="0" op_0_bw="0" op_1_bw="2048">
 <![CDATA[
-:2  call void (...)* @_ssdm_op_SpecBitsMap(i1024 %e_V), !map !92
+:2  call void (...)* @_ssdm_op_SpecBitsMap(i2048 %e_V), !map !92
 
 ]]></node>
 <StgValue><ssdm name=""/></StgValue>
@@ -187,9 +187,9 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<node id="8" bw="0" op_0_bw="0" op_1_bw="1024">
+<node id="8" bw="0" op_0_bw="0" op_1_bw="2048">
 <![CDATA[
-:3  call void (...)* @_ssdm_op_SpecBitsMap(i1024 %n_V), !map !96
+:3  call void (...)* @_ssdm_op_SpecBitsMap(i2048 %n_V), !map !96
 
 ]]></node>
 <StgValue><ssdm name=""/></StgValue>
@@ -202,9 +202,9 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<node id="9" bw="0" op_0_bw="0" op_1_bw="1024">
+<node id="9" bw="0" op_0_bw="0" op_1_bw="2048">
 <![CDATA[
-:4  call void (...)* @_ssdm_op_SpecBitsMap(i1024* %out_V), !map !100
+:4  call void (...)* @_ssdm_op_SpecBitsMap(i2048* %out_V), !map !100
 
 ]]></node>
 <StgValue><ssdm name=""/></StgValue>
@@ -232,9 +232,9 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<node id="12" bw="1024" op_0_bw="1024" op_1_bw="1024">
+<node id="12" bw="2048" op_0_bw="2048" op_1_bw="2048">
 <![CDATA[
-:7  %e_V_read = call i1024 @_ssdm_op_Read.ap_auto.i1024(i1024 %e_V)
+:7  %e_V_read = call i2048 @_ssdm_op_Read.ap_auto.i2048(i2048 %e_V)
 
 ]]></node>
 <StgValue><ssdm name="e_V_read"/></StgValue>
@@ -249,7 +249,7 @@
 
 <node id="14" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="0" op_3_bw="0" op_4_bw="0" op_5_bw="0">
 <![CDATA[
-:9  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [1 x i8]* @p_str, [1 x i8]* @p_str, [19 x i8]* @rsaModExp_montMult.str, [1 x i8]* @p_str) nounwind
+:9  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [19 x i8]* @rsaModExp_montMult.str, [1 x i8]* @p_str16) nounwind
 
 ]]></node>
 <StgValue><ssdm name=""/></StgValue>
@@ -264,7 +264,7 @@
 
 <node id="15" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="0" op_3_bw="0" op_4_bw="0" op_5_bw="0">
 <![CDATA[
-:10  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [1 x i8]* @p_str, [1 x i8]* @p_str, [28 x i8]* @rsaModExp_interleaveModMult.str, [1 x i8]* @p_str) nounwind
+:10  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [28 x i8]* @rsaModExp_interleaveModMult.str, [1 x i8]* @p_str16) nounwind
 
 ]]></node>
 <StgValue><ssdm name=""/></StgValue>
@@ -277,9 +277,9 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<node id="17" bw="1024" op_0_bw="1024" op_1_bw="1024" op_2_bw="1024">
+<node id="17" bw="2048" op_0_bw="2048" op_1_bw="2048" op_2_bw="2048">
 <![CDATA[
-:12  %xbar_V = call fastcc i1024 @rsaModExp_interleaveModMult(i1024 1, i1024 %n_V_read)
+:12  %xbar_V = call fastcc i2048 @rsaModExp_interleaveModMult(i2048 1, i2048 %n_V_read)
 
 ]]></node>
 <StgValue><ssdm name="xbar_V"/></StgValue>
@@ -292,9 +292,9 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<node id="18" bw="0" op_0_bw="1024" op_1_bw="1024">
+<node id="18" bw="0" op_0_bw="2048" op_1_bw="2048">
 <![CDATA[
-:13  store i1024 %xbar_V, i1024* %xbar_V_1
+:13  store i2048 %xbar_V, i2048* %xbar_V_1
 
 ]]></node>
 <StgValue><ssdm name=""/></StgValue>
@@ -325,9 +325,9 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<node id="21" bw="11" op_0_bw="11" op_1_bw="0">
+<node id="21" bw="12" op_0_bw="12" op_1_bw="0">
 <![CDATA[
-:0  %i_assign = phi i11 [ 1023, %0 ], [ %i, %._crit_edge ]
+:0  %i_assign = phi i12 [ 2047, %0 ], [ %i, %._crit_edge ]
 
 ]]></node>
 <StgValue><ssdm name="i_assign"/></StgValue>
@@ -340,9 +340,9 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<node id="22" bw="32" op_0_bw="11">
+<node id="22" bw="32" op_0_bw="12">
 <![CDATA[
-:1  %i_assign_cast = sext i11 %i_assign to i32
+:1  %i_assign_cast = sext i12 %i_assign to i32
 
 ]]></node>
 <StgValue><ssdm name="i_assign_cast"/></StgValue>
@@ -355,9 +355,9 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<node id="23" bw="1" op_0_bw="1" op_1_bw="11" op_2_bw="32">
+<node id="23" bw="1" op_0_bw="1" op_1_bw="12" op_2_bw="32">
 <![CDATA[
-:2  %tmp = call i1 @_ssdm_op_BitSelect.i1.i11.i32(i11 %i_assign, i32 10)
+:2  %tmp = call i1 @_ssdm_op_BitSelect.i1.i12.i32(i12 %i_assign, i32 11)
 
 ]]></node>
 <StgValue><ssdm name="tmp"/></StgValue>
@@ -372,7 +372,7 @@
 
 <node id="24" bw="32" op_0_bw="32" op_1_bw="64" op_2_bw="64" op_3_bw="64">
 <![CDATA[
-:3  %empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 1024, i64 1024, i64 1024)
+:3  %empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 2048, i64 2048, i64 2048)
 
 ]]></node>
 <StgValue><ssdm name="empty"/></StgValue>
@@ -401,9 +401,9 @@
 </and_exp></or_exp>
 </condition>
 
-<node id="27" bw="1024" op_0_bw="1024">
+<node id="27" bw="2048" op_0_bw="2048">
 <![CDATA[
-:0  %xbar_V_1_load_1 = load i1024* %xbar_V_1
+:0  %xbar_V_1_load_1 = load i2048* %xbar_V_1
 
 ]]></node>
 <StgValue><ssdm name="xbar_V_1_load_1"/></StgValue>
@@ -417,9 +417,9 @@
 </and_exp></or_exp>
 </condition>
 
-<node id="28" bw="1024" op_0_bw="1024" op_1_bw="1024" op_2_bw="1024" op_3_bw="1024">
+<node id="28" bw="2048" op_0_bw="2048" op_1_bw="2048" op_2_bw="2048" op_3_bw="2048">
 <![CDATA[
-:1  %xbar_V_2 = call fastcc i1024 @rsaModExp_montMult(i1024 %xbar_V_1_load_1, i1024 %xbar_V_1_load_1, i1024 %n_V_read)
+:1  %xbar_V_2 = call fastcc i2048 @rsaModExp_montMult(i2048 %xbar_V_1_load_1, i2048 %xbar_V_1_load_1, i2048 %n_V_read)
 
 ]]></node>
 <StgValue><ssdm name="xbar_V_2"/></StgValue>
@@ -433,9 +433,9 @@
 </and_exp></or_exp>
 </condition>
 
-<node id="29" bw="1" op_0_bw="1" op_1_bw="1024" op_2_bw="32">
+<node id="29" bw="1" op_0_bw="1" op_1_bw="2048" op_2_bw="32">
 <![CDATA[
-:2  %tmp_1 = call i1 @_ssdm_op_BitSelect.i1.i1024.i32(i1024 %e_V_read, i32 %i_assign_cast)
+:2  %tmp_1 = call i1 @_ssdm_op_BitSelect.i1.i2048.i32(i2048 %e_V_read, i32 %i_assign_cast)
 
 ]]></node>
 <StgValue><ssdm name="tmp_1"/></StgValue>
@@ -449,9 +449,9 @@
 </and_exp></or_exp>
 </condition>
 
-<node id="42" bw="1024" op_0_bw="1024">
+<node id="42" bw="2048" op_0_bw="2048">
 <![CDATA[
-:0  %xbar_V_1_load = load i1024* %xbar_V_1
+:0  %xbar_V_1_load = load i2048* %xbar_V_1
 
 ]]></node>
 <StgValue><ssdm name="xbar_V_1_load"/></StgValue>
@@ -465,9 +465,9 @@
 </and_exp></or_exp>
 </condition>
 
-<node id="43" bw="1024" op_0_bw="1024" op_1_bw="1024" op_2_bw="1024" op_3_bw="1024">
+<node id="43" bw="2048" op_0_bw="2048" op_1_bw="2048" op_2_bw="2048" op_3_bw="2048">
 <![CDATA[
-:1  %call_ret = call fastcc i1024 @rsaModExp_montMult(i1024 %xbar_V_1_load, i1024 1, i1024 %n_V_read)
+:1  %call_ret = call fastcc i2048 @rsaModExp_montMult(i2048 %xbar_V_1_load, i2048 1, i2048 %n_V_read)
 
 ]]></node>
 <StgValue><ssdm name="call_ret"/></StgValue>
@@ -483,9 +483,9 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<node id="28" bw="1024" op_0_bw="1024" op_1_bw="1024" op_2_bw="1024" op_3_bw="1024">
+<node id="28" bw="2048" op_0_bw="2048" op_1_bw="2048" op_2_bw="2048" op_3_bw="2048">
 <![CDATA[
-:1  %xbar_V_2 = call fastcc i1024 @rsaModExp_montMult(i1024 %xbar_V_1_load_1, i1024 %xbar_V_1_load_1, i1024 %n_V_read)
+:1  %xbar_V_2 = call fastcc i2048 @rsaModExp_montMult(i2048 %xbar_V_1_load_1, i2048 %xbar_V_1_load_1, i2048 %n_V_read)
 
 ]]></node>
 <StgValue><ssdm name="xbar_V_2"/></StgValue>
@@ -514,9 +514,9 @@
 </and_exp></or_exp>
 </condition>
 
-<node id="32" bw="0" op_0_bw="1024" op_1_bw="1024">
+<node id="32" bw="0" op_0_bw="2048" op_1_bw="2048">
 <![CDATA[
-._crit_edge.pre:0  store i1024 %xbar_V_2, i1024* %xbar_V_1
+._crit_edge.pre:0  store i2048 %xbar_V_2, i2048* %xbar_V_1
 
 ]]></node>
 <StgValue><ssdm name=""/></StgValue>
@@ -546,9 +546,9 @@
 </and_exp></or_exp>
 </condition>
 
-<node id="35" bw="1024" op_0_bw="1024" op_1_bw="1024" op_2_bw="1024" op_3_bw="1024">
+<node id="35" bw="2048" op_0_bw="2048" op_1_bw="2048" op_2_bw="2048" op_3_bw="2048">
 <![CDATA[
-:0  %xbar_V_3 = call fastcc i1024 @rsaModExp_montMult(i1024 %Mbar_V, i1024 %xbar_V_2, i1024 %n_V_read)
+:0  %xbar_V_3 = call fastcc i2048 @rsaModExp_montMult(i2048 %Mbar_V, i2048 %xbar_V_2, i2048 %n_V_read)
 
 ]]></node>
 <StgValue><ssdm name="xbar_V_3"/></StgValue>
@@ -565,9 +565,9 @@
 </and_exp></or_exp>
 </condition>
 
-<node id="35" bw="1024" op_0_bw="1024" op_1_bw="1024" op_2_bw="1024" op_3_bw="1024">
+<node id="35" bw="2048" op_0_bw="2048" op_1_bw="2048" op_2_bw="2048" op_3_bw="2048">
 <![CDATA[
-:0  %xbar_V_3 = call fastcc i1024 @rsaModExp_montMult(i1024 %Mbar_V, i1024 %xbar_V_2, i1024 %n_V_read)
+:0  %xbar_V_3 = call fastcc i2048 @rsaModExp_montMult(i2048 %Mbar_V, i2048 %xbar_V_2, i2048 %n_V_read)
 
 ]]></node>
 <StgValue><ssdm name="xbar_V_3"/></StgValue>
@@ -581,9 +581,9 @@
 </and_exp></or_exp>
 </condition>
 
-<node id="36" bw="0" op_0_bw="1024" op_1_bw="1024">
+<node id="36" bw="0" op_0_bw="2048" op_1_bw="2048">
 <![CDATA[
-:1  store i1024 %xbar_V_3, i1024* %xbar_V_1
+:1  store i2048 %xbar_V_3, i2048* %xbar_V_1
 
 ]]></node>
 <StgValue><ssdm name=""/></StgValue>
@@ -612,9 +612,9 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<node id="39" bw="11" op_0_bw="11" op_1_bw="11">
+<node id="39" bw="12" op_0_bw="12" op_1_bw="12">
 <![CDATA[
-._crit_edge:0  %i = add i11 %i_assign, -1
+._crit_edge:0  %i = add i12 %i_assign, -1
 
 ]]></node>
 <StgValue><ssdm name="i"/></StgValue>
@@ -645,9 +645,9 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<node id="43" bw="1024" op_0_bw="1024" op_1_bw="1024" op_2_bw="1024" op_3_bw="1024">
+<node id="43" bw="2048" op_0_bw="2048" op_1_bw="2048" op_2_bw="2048" op_3_bw="2048">
 <![CDATA[
-:1  %call_ret = call fastcc i1024 @rsaModExp_montMult(i1024 %xbar_V_1_load, i1024 1, i1024 %n_V_read)
+:1  %call_ret = call fastcc i2048 @rsaModExp_montMult(i2048 %xbar_V_1_load, i2048 1, i2048 %n_V_read)
 
 ]]></node>
 <StgValue><ssdm name="call_ret"/></StgValue>
@@ -660,9 +660,9 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<node id="44" bw="0" op_0_bw="0" op_1_bw="1024" op_2_bw="1024">
+<node id="44" bw="0" op_0_bw="0" op_1_bw="2048" op_2_bw="2048">
 <![CDATA[
-:2  call void @_ssdm_op_Write.ap_auto.i1024P(i1024* %out_V, i1024 %call_ret)
+:2  call void @_ssdm_op_Write.ap_auto.i2048P(i2048* %out_V, i2048 %call_ret)
 
 ]]></node>
 <StgValue><ssdm name=""/></StgValue>
@@ -705,11 +705,11 @@
 <dataflows>
 <dataflow id="64" from="stg_63" to="xbar_V_1" fromId="63" toId="8">
 </dataflow>
-<dataflow id="66" from="_ssdm_op_Read.ap_auto.i1024" to="n_V_read" fromId="65" toId="9">
+<dataflow id="66" from="_ssdm_op_Read.ap_auto.i2048" to="n_V_read" fromId="65" toId="9">
 </dataflow>
 <dataflow id="67" from="n_V" to="n_V_read" fromId="61" toId="9">
 </dataflow>
-<dataflow id="68" from="_ssdm_op_Read.ap_auto.i1024" to="M_V_read" fromId="65" toId="10">
+<dataflow id="68" from="_ssdm_op_Read.ap_auto.i2048" to="M_V_read" fromId="65" toId="10">
 </dataflow>
 <dataflow id="69" from="M_V" to="M_V_read" fromId="59" toId="10">
 </dataflow>
@@ -751,7 +751,7 @@
 </dataflow>
 <dataflow id="93" from="rsaModExp_str" to="stg_18" fromId="92" toId="18">
 </dataflow>
-<dataflow id="94" from="_ssdm_op_Read.ap_auto.i1024" to="e_V_read" fromId="65" toId="19">
+<dataflow id="94" from="_ssdm_op_Read.ap_auto.i2048" to="e_V_read" fromId="65" toId="19">
 </dataflow>
 <dataflow id="95" from="e_V" to="e_V_read" fromId="60" toId="19">
 </dataflow>
@@ -759,25 +759,25 @@
 </dataflow>
 <dataflow id="98" from="stg_63" to="stg_20" fromId="63" toId="20">
 </dataflow>
-<dataflow id="100" from="p_str" to="stg_20" fromId="99" toId="20">
+<dataflow id="100" from="p_str16" to="stg_20" fromId="99" toId="20">
 </dataflow>
-<dataflow id="101" from="p_str" to="stg_20" fromId="99" toId="20">
+<dataflow id="101" from="p_str16" to="stg_20" fromId="99" toId="20">
 </dataflow>
 <dataflow id="103" from="rsaModExp_montMult.str" to="stg_20" fromId="102" toId="20">
 </dataflow>
-<dataflow id="104" from="p_str" to="stg_20" fromId="99" toId="20">
+<dataflow id="104" from="p_str16" to="stg_20" fromId="99" toId="20">
 </dataflow>
 <dataflow id="105" from="_ssdm_op_SpecResourceLimit" to="stg_21" fromId="96" toId="21">
 </dataflow>
 <dataflow id="106" from="stg_63" to="stg_21" fromId="63" toId="21">
 </dataflow>
-<dataflow id="107" from="p_str" to="stg_21" fromId="99" toId="21">
+<dataflow id="107" from="p_str16" to="stg_21" fromId="99" toId="21">
 </dataflow>
-<dataflow id="108" from="p_str" to="stg_21" fromId="99" toId="21">
+<dataflow id="108" from="p_str16" to="stg_21" fromId="99" toId="21">
 </dataflow>
 <dataflow id="110" from="rsaModExp_interleaveModMult.str" to="stg_21" fromId="109" toId="21">
 </dataflow>
-<dataflow id="111" from="p_str" to="stg_21" fromId="99" toId="21">
+<dataflow id="111" from="p_str16" to="stg_21" fromId="99" toId="21">
 </dataflow>
 <dataflow id="112" from="rsaModExp_interleaveModMult" to="xbar_V" fromId="70" toId="22">
 </dataflow>
@@ -807,7 +807,7 @@
 </dataflow>
 <dataflow id="122" from="i_assign" to="i_assign_cast" fromId="25" toId="26">
 </dataflow>
-<dataflow id="124" from="_ssdm_op_BitSelect.i1.i11.i32" to="tmp" fromId="123" toId="27">
+<dataflow id="124" from="_ssdm_op_BitSelect.i1.i12.i32" to="tmp" fromId="123" toId="27">
 </dataflow>
 <dataflow id="125" from="i_assign" to="tmp" fromId="25" toId="27">
 </dataflow>
@@ -833,7 +833,7 @@
 </dataflow>
 <dataflow id="140" from="n_V_read" to="xbar_V_2" fromId="9" toId="31">
 </dataflow>
-<dataflow id="142" from="_ssdm_op_BitSelect.i1.i1024.i32" to="tmp_1" fromId="141" toId="32">
+<dataflow id="142" from="_ssdm_op_BitSelect.i1.i2048.i32" to="tmp_1" fromId="141" toId="32">
 </dataflow>
 <dataflow id="143" from="e_V_read" to="tmp_1" fromId="19" toId="32">
 </dataflow>
@@ -895,7 +895,7 @@
 </dataflow>
 <dataflow id="173" from="n_V_read" to="call_ret" fromId="9" toId="45">
 </dataflow>
-<dataflow id="175" from="_ssdm_op_Write.ap_auto.i1024P" to="stg_46" fromId="174" toId="46">
+<dataflow id="175" from="_ssdm_op_Write.ap_auto.i2048P" to="stg_46" fromId="174" toId="46">
 </dataflow>
 <dataflow id="176" from="out_V" to="stg_46" fromId="62" toId="46">
 </dataflow>

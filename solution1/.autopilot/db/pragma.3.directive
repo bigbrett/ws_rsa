@@ -1,8 +1,15 @@
 <AutoPilot:ProjectResources xmlns:AutoPilot="com.autoesl.autopilot.ui.directiveView">
 <sourceFile name="">
-<directive functionLabel="" functionName="ModExp" label="">
+<directive functionLabel="" functionName="rsaModExp" label="">
 <pragma name="ALLOCATION">
 <option name="instances" positionalBoolean="4" value="montMult"/>
+<option name="limit" value="1"/>
+<option name="function" positionalBoolean="type" value=""/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="rsaModExp" label="">
+<pragma name="ALLOCATION">
+<option name="instances" positionalBoolean="4" value="interleaveModMult"/>
 <option name="limit" value="1"/>
 <option name="function" positionalBoolean="type" value=""/>
 </pragma>

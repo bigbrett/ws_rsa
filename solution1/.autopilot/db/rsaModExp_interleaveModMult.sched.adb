@@ -6,7 +6,7 @@
 	<userIPName></userIPName>
 	<cdfg class_id="1" tracking_level="1" version="0" object_id="_0">
 		<name>rsaModExp_interleaveModMult</name>
-		<ret_bitwidth>1024</ret_bitwidth>
+		<ret_bitwidth>2048</ret_bitwidth>
 		<ports class_id="2" tracking_level="0" version="0">
 			<count>2</count>
 			<item_version>0</item_version>
@@ -28,7 +28,7 @@
 						<rtlName></rtlName>
 						<coreName></coreName>
 					</Obj>
-					<bitwidth>1024</bitwidth>
+					<bitwidth>2048</bitwidth>
 				</Value>
 				<direction>0</direction>
 				<if_type>0</if_type>
@@ -56,7 +56,7 @@
 						<rtlName></rtlName>
 						<coreName></coreName>
 					</Obj>
-					<bitwidth>1024</bitwidth>
+					<bitwidth>2048</bitwidth>
 				</Value>
 				<direction>0</direction>
 				<if_type>0</if_type>
@@ -88,7 +88,7 @@
 						<rtlName></rtlName>
 						<coreName></coreName>
 					</Obj>
-					<bitwidth>1024</bitwidth>
+					<bitwidth>2048</bitwidth>
 				</Value>
 				<oprand_edges>
 					<count>2</count>
@@ -116,7 +116,7 @@
 						<rtlName></rtlName>
 						<coreName></coreName>
 					</Obj>
-					<bitwidth>1024</bitwidth>
+					<bitwidth>2048</bitwidth>
 				</Value>
 				<oprand_edges>
 					<count>2</count>
@@ -158,7 +158,7 @@
 						<rtlName></rtlName>
 						<coreName></coreName>
 					</Obj>
-					<bitwidth>1028</bitwidth>
+					<bitwidth>2052</bitwidth>
 				</Value>
 				<oprand_edges>
 					<count>1</count>
@@ -199,7 +199,7 @@
 						<rtlName></rtlName>
 						<coreName></coreName>
 					</Obj>
-					<bitwidth>1028</bitwidth>
+					<bitwidth>2052</bitwidth>
 				</Value>
 				<oprand_edges>
 					<count>1</count>
@@ -267,7 +267,7 @@
 						<rtlName></rtlName>
 						<coreName></coreName>
 					</Obj>
-					<bitwidth>1028</bitwidth>
+					<bitwidth>2052</bitwidth>
 				</Value>
 				<oprand_edges>
 					<count>4</count>
@@ -297,7 +297,7 @@
 						<rtlName></rtlName>
 						<coreName></coreName>
 					</Obj>
-					<bitwidth>12</bitwidth>
+					<bitwidth>13</bitwidth>
 				</Value>
 				<oprand_edges>
 					<count>4</count>
@@ -468,7 +468,7 @@
 						<rtlName></rtlName>
 						<coreName></coreName>
 					</Obj>
-					<bitwidth>1028</bitwidth>
+					<bitwidth>2052</bitwidth>
 				</Value>
 				<oprand_edges>
 					<count>2</count>
@@ -553,7 +553,7 @@
 						<rtlName></rtlName>
 						<coreName></coreName>
 					</Obj>
-					<bitwidth>1028</bitwidth>
+					<bitwidth>2052</bitwidth>
 				</Value>
 				<oprand_edges>
 					<count>2</count>
@@ -595,7 +595,7 @@
 						<rtlName></rtlName>
 						<coreName></coreName>
 					</Obj>
-					<bitwidth>1028</bitwidth>
+					<bitwidth>2052</bitwidth>
 				</Value>
 				<oprand_edges>
 					<count>3</count>
@@ -680,7 +680,7 @@
 						<rtlName></rtlName>
 						<coreName></coreName>
 					</Obj>
-					<bitwidth>1028</bitwidth>
+					<bitwidth>2052</bitwidth>
 				</Value>
 				<oprand_edges>
 					<count>2</count>
@@ -722,7 +722,7 @@
 						<rtlName></rtlName>
 						<coreName></coreName>
 					</Obj>
-					<bitwidth>1028</bitwidth>
+					<bitwidth>2052</bitwidth>
 				</Value>
 				<oprand_edges>
 					<count>3</count>
@@ -807,7 +807,7 @@
 						<rtlName></rtlName>
 						<coreName></coreName>
 					</Obj>
-					<bitwidth>1028</bitwidth>
+					<bitwidth>2052</bitwidth>
 				</Value>
 				<oprand_edges>
 					<count>2</count>
@@ -849,7 +849,7 @@
 						<rtlName></rtlName>
 						<coreName></coreName>
 					</Obj>
-					<bitwidth>1028</bitwidth>
+					<bitwidth>2052</bitwidth>
 				</Value>
 				<oprand_edges>
 					<count>3</count>
@@ -892,7 +892,7 @@
 						<rtlName></rtlName>
 						<coreName></coreName>
 					</Obj>
-					<bitwidth>12</bitwidth>
+					<bitwidth>13</bitwidth>
 				</Value>
 				<oprand_edges>
 					<count>2</count>
@@ -971,11 +971,11 @@
 								</second>
 							</item>
 						</inlineStackInfo>
-						<originalName>ssdm_int&amp;lt;1024 + 1024 * 0, false&amp;gt;.V</originalName>
+						<originalName>ssdm_int&amp;lt;1024 + 1024 * 1, false&amp;gt;.V</originalName>
 						<rtlName></rtlName>
 						<coreName></coreName>
 					</Obj>
-					<bitwidth>1024</bitwidth>
+					<bitwidth>2048</bitwidth>
 				</Value>
 				<oprand_edges>
 					<count>1</count>
@@ -1047,7 +1047,7 @@
 						<rtlName></rtlName>
 						<coreName></coreName>
 					</Obj>
-					<bitwidth>1028</bitwidth>
+					<bitwidth>2052</bitwidth>
 				</Value>
 				<const_type>0</const_type>
 				<content>0</content>
@@ -1070,10 +1070,10 @@
 						<rtlName></rtlName>
 						<coreName></coreName>
 					</Obj>
-					<bitwidth>12</bitwidth>
+					<bitwidth>13</bitwidth>
 				</Value>
 				<const_type>0</const_type>
-				<content>1024</content>
+				<content>2048</content>
 			</item>
 			<item class_id_reference="16" object_id="_29">
 				<Value>
@@ -1096,7 +1096,7 @@
 					<bitwidth>32</bitwidth>
 				</Value>
 				<const_type>0</const_type>
-				<content>11</content>
+				<content>12</content>
 			</item>
 			<item class_id_reference="16" object_id="_30">
 				<Value>
@@ -1116,7 +1116,7 @@
 						<rtlName></rtlName>
 						<coreName></coreName>
 					</Obj>
-					<bitwidth>1028</bitwidth>
+					<bitwidth>2052</bitwidth>
 				</Value>
 				<const_type>0</const_type>
 				<content>1</content>
@@ -1139,10 +1139,10 @@
 						<rtlName></rtlName>
 						<coreName></coreName>
 					</Obj>
-					<bitwidth>1025</bitwidth>
+					<bitwidth>2049</bitwidth>
 				</Value>
 				<const_type>0</const_type>
-				<content>179769313486231590772930519078902473361797697894230657273430081157732675805500963132708477322407536021120113879871393357658789768814416622492847430639474124377767893424865485276302219601246094119453082952085005768838150682342462881473913110540827237163350510684586298239947245938479716304835356329624224137216</content>
+				<content>32317006071311007300714876688669951960444102669715484032130345427524655138867890893197201411522913463688717960921898019494119559150490921095088152386448283120630877367300996091750197750389652106796057638384067568276792218642619756161838094338476170470581645852036305042887575891541065808607552399123930385521914333389668342420684974786564569494856176035326322058077805659331026192708460314150258592864177116725943603718461857357598351152301645904403697613233287231227125684710820209725157101726931323469678542580656697935045997268352998638215525166389437335543602135433229604645318478604952148193555853611059596230656</content>
 			</item>
 			<item class_id_reference="16" object_id="_32">
 				<Value>
@@ -1162,10 +1162,10 @@
 						<rtlName></rtlName>
 						<coreName></coreName>
 					</Obj>
-					<bitwidth>12</bitwidth>
+					<bitwidth>13</bitwidth>
 				</Value>
 				<const_type>0</const_type>
-				<content>4095</content>
+				<content>8191</content>
 			</item>
 		</consts>
 		<blocks class_id="17" tracking_level="0" version="0">
@@ -1229,7 +1229,7 @@
 				<Obj>
 					<type>3</type>
 					<id>28</id>
-					<name>_ZlsILi1028ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit</name>
+					<name>_ZlsILi2052ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit</name>
 					<fileName></fileName>
 					<fileDirectory></fileDirectory>
 					<lineNumber>0</lineNumber>
@@ -1617,7 +1617,7 @@
 			<mDepth>-1</mDepth>
 			<mMinTripCount>-1</mMinTripCount>
 			<mMaxTripCount>-1</mMaxTripCount>
-			<mMinLatency>6151</mMinLatency>
+			<mMinLatency>24589</mMinLatency>
 			<mMaxLatency>-1</mMaxLatency>
 			<mIsDfPipe>0</mIsDfPipe>
 			<mDfPipe class_id="-1"></mDfPipe>
@@ -1660,9 +1660,9 @@
 			</basic_blocks>
 			<mII>-1</mII>
 			<mDepth>-1</mDepth>
-			<mMinTripCount>1025</mMinTripCount>
-			<mMaxTripCount>1025</mMaxTripCount>
-			<mMinLatency>6150</mMinLatency>
+			<mMinTripCount>2049</mMinTripCount>
+			<mMaxTripCount>2049</mMaxTripCount>
+			<mMinLatency>24588</mMinLatency>
 			<mMaxLatency>-1</mMaxLatency>
 			<mIsDfPipe>0</mIsDfPipe>
 			<mDfPipe class_id="-1"></mDfPipe>
@@ -1783,55 +1783,55 @@
 			<first>18</first>
 			<second>
 				<first>1</first>
-				<second>1</second>
+				<second>3</second>
 			</second>
 		</item>
 		<item>
 			<first>19</first>
 			<second>
-				<first>2</first>
+				<first>4</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>20</first>
 			<second>
-				<first>4</first>
+				<first>7</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>21</first>
 			<second>
-				<first>3</first>
-				<second>1</second>
+				<first>5</first>
+				<second>3</second>
 			</second>
 		</item>
 		<item>
 			<first>22</first>
 			<second>
-				<first>4</first>
+				<first>8</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>23</first>
 			<second>
-				<first>5</first>
+				<first>9</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>24</first>
 			<second>
-				<first>5</first>
-				<second>1</second>
+				<first>9</first>
+				<second>3</second>
 			</second>
 		</item>
 		<item>
 			<first>25</first>
 			<second>
-				<first>6</first>
+				<first>12</first>
 				<second>0</second>
 			</second>
 		</item>
@@ -1845,7 +1845,7 @@
 		<item>
 			<first>27</first>
 			<second>
-				<first>6</first>
+				<first>12</first>
 				<second>0</second>
 			</second>
 		</item>
@@ -1885,7 +1885,7 @@
 			<first>28</first>
 			<second>
 				<first>1</first>
-				<second>6</second>
+				<second>12</second>
 			</second>
 		</item>
 		<item>

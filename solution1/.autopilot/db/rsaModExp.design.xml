@@ -25,29 +25,29 @@
 <SummaryOfTimingAnalysis>
 <TargetClockPeriod>25.00</TargetClockPeriod>
 <ClockUncertainty>3.12</ClockUncertainty>
-<EstimatedClockPeriod>18.38</EstimatedClockPeriod>
+<EstimatedClockPeriod>21.97</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
-<Best-caseLatency>6152</Best-caseLatency>
-<Average-caseLatency>6152</Average-caseLatency>
-<Worst-caseLatency>6152</Worst-caseLatency>
-<PipelineInitiationInterval>6152</PipelineInitiationInterval>
+<Best-caseLatency>24590</Best-caseLatency>
+<Average-caseLatency>24590</Average-caseLatency>
+<Worst-caseLatency>24590</Worst-caseLatency>
+<PipelineInitiationInterval>24590</PipelineInitiationInterval>
 <PipelineType>none</PipelineType>
 </SummaryOfOverallLatency>
 <SummaryOfLoopLatency>
 <Loop1>
 <Name>Loop 1</Name>
-<TripCount>1025</TripCount>
-<Latency>6150</Latency>
-<IterationLatency>6</IterationLatency>
-<PipelineDepth>6</PipelineDepth>
+<TripCount>2049</TripCount>
+<Latency>24588</Latency>
+<IterationLatency>12</IterationLatency>
+<PipelineDepth>12</PipelineDepth>
 </Loop1>
 </SummaryOfLoopLatency>
 </PerformanceEstimates>
 <AreaEstimates>
 <Resources>
-<FF>17492</FF>
-<LUT>8922</LUT>
+<FF>53377</FF>
+<LUT>17792</LUT>
 <BRAM_18K>0</BRAM_18K>
 <DSP48E>0</DSP48E>
 </Resources>
@@ -127,7 +127,7 @@
 <IOProtocol>ap_ctrl_hs</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>out</Dir>
-<Bits>1024</Bits>
+<Bits>2048</Bits>
 <Attribute>data</Attribute>
 </RtlPorts>
 <RtlPorts>
@@ -138,7 +138,7 @@
 <IOProtocol>ap_none</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>in</Dir>
-<Bits>1024</Bits>
+<Bits>2048</Bits>
 <Attribute>data</Attribute>
 </RtlPorts>
 <RtlPorts>
@@ -149,7 +149,7 @@
 <IOProtocol>ap_none</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>in</Dir>
-<Bits>1024</Bits>
+<Bits>2048</Bits>
 <Attribute>data</Attribute>
 </RtlPorts>
 </InterfaceSummary>
@@ -160,29 +160,29 @@
 <SummaryOfTimingAnalysis>
 <TargetClockPeriod>25.00</TargetClockPeriod>
 <ClockUncertainty>3.12</ClockUncertainty>
-<EstimatedClockPeriod>18.38</EstimatedClockPeriod>
+<EstimatedClockPeriod>21.94</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
-<Best-caseLatency>4099</Best-caseLatency>
-<Average-caseLatency>4099</Average-caseLatency>
-<Worst-caseLatency>4099</Worst-caseLatency>
-<PipelineInitiationInterval>4099</PipelineInitiationInterval>
+<Best-caseLatency>16389</Best-caseLatency>
+<Average-caseLatency>16389</Average-caseLatency>
+<Worst-caseLatency>16389</Worst-caseLatency>
+<PipelineInitiationInterval>16389</PipelineInitiationInterval>
 <PipelineType>none</PipelineType>
 </SummaryOfOverallLatency>
 <SummaryOfLoopLatency>
 <Loop1>
 <Name>Loop 1</Name>
-<TripCount>1024</TripCount>
-<Latency>4096</Latency>
-<IterationLatency>4</IterationLatency>
-<PipelineDepth>4</PipelineDepth>
+<TripCount>2048</TripCount>
+<Latency>16384</Latency>
+<IterationLatency>8</IterationLatency>
+<PipelineDepth>8</PipelineDepth>
 </Loop1>
 </SummaryOfLoopLatency>
 </PerformanceEstimates>
 <AreaEstimates>
 <Resources>
-<FF>21549</FF>
-<LUT>8564</LUT>
+<FF>61499</FF>
+<LUT>17099</LUT>
 <BRAM_18K>0</BRAM_18K>
 <DSP48E>0</DSP48E>
 </Resources>
@@ -262,7 +262,7 @@
 <IOProtocol>ap_ctrl_hs</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>out</Dir>
-<Bits>1024</Bits>
+<Bits>2048</Bits>
 <Attribute>data</Attribute>
 </RtlPorts>
 <RtlPorts>
@@ -273,7 +273,7 @@
 <IOProtocol>ap_none</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>in</Dir>
-<Bits>1024</Bits>
+<Bits>2048</Bits>
 <Attribute>data</Attribute>
 </RtlPorts>
 <RtlPorts>
@@ -284,7 +284,7 @@
 <IOProtocol>ap_none</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>in</Dir>
-<Bits>1024</Bits>
+<Bits>2048</Bits>
 <Attribute>data</Attribute>
 </RtlPorts>
 <RtlPorts>
@@ -295,7 +295,7 @@
 <IOProtocol>ap_none</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>in</Dir>
-<Bits>1024</Bits>
+<Bits>2048</Bits>
 <Attribute>data</Attribute>
 </RtlPorts>
 </InterfaceSummary>
@@ -306,34 +306,34 @@
 <SummaryOfTimingAnalysis>
 <TargetClockPeriod>25.00</TargetClockPeriod>
 <ClockUncertainty>3.12</ClockUncertainty>
-<EstimatedClockPeriod>19.83</EstimatedClockPeriod>
+<EstimatedClockPeriod>21.97</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
-<Best-caseLatency>4216855</Best-caseLatency>
-<Average-caseLatency>6316055</Average-caseLatency>
-<Worst-caseLatency>8414231</Worst-caseLatency>
-<PipelineInitiationInterval>4216856 ~ 8414232</PipelineInitiationInterval>
+<Best-caseLatency>33636389</Best-caseLatency>
+<Average-caseLatency>50419749</Average-caseLatency>
+<Worst-caseLatency>67201061</Worst-caseLatency>
+<PipelineInitiationInterval>33636390 ~ 67201062</PipelineInitiationInterval>
 <PipelineType>none</PipelineType>
 </SummaryOfOverallLatency>
 <SummaryOfLoopLatency>
 <Loop1>
 <Name>Loop 1</Name>
-<TripCount>1024</TripCount>
-<Latency>4200448 ~ 8397824</Latency>
+<TripCount>2048</TripCount>
+<Latency>33570816 ~ 67135488</Latency>
 <IterationLatency>
 <range>
-<min>4102</min>
-<max>8201</max>
+<min>16392</min>
+<max>32781</max>
 </range>
 </IterationLatency>
-<PipelineDepth>4102 ~ 8201</PipelineDepth>
+<PipelineDepth>16392 ~ 32781</PipelineDepth>
 </Loop1>
 </SummaryOfLoopLatency>
 </PerformanceEstimates>
 <AreaEstimates>
 <Resources>
-<FF>43158</FF>
-<LUT>21606</LUT>
+<FF>123090</FF>
+<LUT>43109</LUT>
 <BRAM_18K>0</BRAM_18K>
 <DSP48E>0</DSP48E>
 </Resources>
@@ -413,7 +413,7 @@
 <IOProtocol>ap_none</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>in</Dir>
-<Bits>1024</Bits>
+<Bits>2048</Bits>
 <Attribute>data</Attribute>
 <CType>int</CType>
 </RtlPorts>
@@ -425,7 +425,7 @@
 <IOProtocol>ap_none</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>in</Dir>
-<Bits>1024</Bits>
+<Bits>2048</Bits>
 <Attribute>data</Attribute>
 <CType>int</CType>
 </RtlPorts>
@@ -437,7 +437,7 @@
 <IOProtocol>ap_none</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>in</Dir>
-<Bits>1024</Bits>
+<Bits>2048</Bits>
 <Attribute>data</Attribute>
 <CType>int</CType>
 </RtlPorts>
@@ -449,7 +449,7 @@
 <IOProtocol>ap_vld</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>out</Dir>
-<Bits>1024</Bits>
+<Bits>2048</Bits>
 <Attribute>data</Attribute>
 <CType>int</CType>
 </RtlPorts>

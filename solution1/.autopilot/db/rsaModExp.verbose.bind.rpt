@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'rsaModExp'
 ================================================================
-* Date:           Sun Jan 15 22:09:41 2017
+* Date:           Sun Jan 15 23:34:25 2017
 
 * Version:        2016.2 (Build 1577090 on Thu Jun 02 16:59:10 MDT 2016)
 * Project:        ws_rsa64bit
@@ -20,29 +20,29 @@
     +--------+-------+----------+------------+
     |  Clock | Target| Estimated| Uncertainty|
     +--------+-------+----------+------------+
-    |ap_clk  |  25.00|     19.83|        3.12|
+    |ap_clk  |  25.00|     21.97|        3.12|
     +--------+-------+----------+------------+
 
 + Latency (clock cycles): 
     * Summary: 
-    +---------+---------+---------+---------+---------+
-    |      Latency      |      Interval     | Pipeline|
-    |   min   |   max   |   min   |   max   |   Type  |
-    +---------+---------+---------+---------+---------+
-    |  4216855|  8414231|  4216856|  8414232|   none  |
-    +---------+---------+---------+---------+---------+
+    +----------+----------+----------+----------+---------+
+    |       Latency       |       Interval      | Pipeline|
+    |    min   |    max   |    min   |    max   |   Type  |
+    +----------+----------+----------+----------+---------+
+    |  33636389|  67201061|  33636390|  67201062|   none  |
+    +----------+----------+----------+----------+---------+
 
     + Detail: 
         * Instance: 
         N/A
 
         * Loop: 
-        +----------+---------+---------+-------------+-----------+-----------+------+----------+
-        |          |      Latency      |  Iteration  |  Initiation Interval  | Trip |          |
-        | Loop Name|   min   |   max   |   Latency   |  achieved |   target  | Count| Pipelined|
-        +----------+---------+---------+-------------+-----------+-----------+------+----------+
-        |- Loop 1  |  4200448|  8397824| 4102 ~ 8201 |          -|          -|  1024|    no    |
-        +----------+---------+---------+-------------+-----------+-----------+------+----------+
+        +----------+----------+----------+---------------+-----------+-----------+------+----------+
+        |          |       Latency       |   Iteration   |  Initiation Interval  | Trip |          |
+        | Loop Name|    min   |    max   |    Latency    |  achieved |   target  | Count| Pipelined|
+        +----------+----------+----------+---------------+-----------+-----------+------+----------+
+        |- Loop 1  |  33570816|  67135488| 16392 ~ 32781 |          -|          -|  2048|    no    |
+        +----------+----------+----------+---------------+-----------+-----------+------+----------+
 
 ============================================================
 + Verbose Summary: Synthesis Manager
@@ -93,56 +93,56 @@ IsGatedGlobalClock: 0
 
  <State 1>: 1.04ns
 ST_1: xbar_V_1 [1/1] 0.00ns
-:0  %xbar_V_1 = alloca i1024
+:0  %xbar_V_1 = alloca i2048
 
 ST_1: n_V_read [1/1] 0.00ns
-:6  %n_V_read = call i1024 @_ssdm_op_Read.ap_auto.i1024(i1024 %n_V)
+:6  %n_V_read = call i2048 @_ssdm_op_Read.ap_auto.i2048(i2048 %n_V)
 
 ST_1: M_V_read [1/1] 0.00ns
-:8  %M_V_read = call i1024 @_ssdm_op_Read.ap_auto.i1024(i1024 %M_V)
+:8  %M_V_read = call i2048 @_ssdm_op_Read.ap_auto.i2048(i2048 %M_V)
 
 ST_1: Mbar_V [2/2] 1.04ns
-:11  %Mbar_V = call fastcc i1024 @rsaModExp_interleaveModMult(i1024 %M_V_read, i1024 %n_V_read)
+:11  %Mbar_V = call fastcc i2048 @rsaModExp_interleaveModMult(i2048 %M_V_read, i2048 %n_V_read)
 
 
  <State 2>: 1.04ns
 ST_2: Mbar_V [1/2] 0.00ns
-:11  %Mbar_V = call fastcc i1024 @rsaModExp_interleaveModMult(i1024 %M_V_read, i1024 %n_V_read)
+:11  %Mbar_V = call fastcc i2048 @rsaModExp_interleaveModMult(i2048 %M_V_read, i2048 %n_V_read)
 
 ST_2: xbar_V [2/2] 1.04ns
-:12  %xbar_V = call fastcc i1024 @rsaModExp_interleaveModMult(i1024 1, i1024 %n_V_read)
+:12  %xbar_V = call fastcc i2048 @rsaModExp_interleaveModMult(i2048 1, i2048 %n_V_read)
 
 
  <State 3>: 1.57ns
 ST_3: stg_14 [1/1] 0.00ns
-:1  call void (...)* @_ssdm_op_SpecBitsMap(i1024 %M_V), !map !86
+:1  call void (...)* @_ssdm_op_SpecBitsMap(i2048 %M_V), !map !86
 
 ST_3: stg_15 [1/1] 0.00ns
-:2  call void (...)* @_ssdm_op_SpecBitsMap(i1024 %e_V), !map !92
+:2  call void (...)* @_ssdm_op_SpecBitsMap(i2048 %e_V), !map !92
 
 ST_3: stg_16 [1/1] 0.00ns
-:3  call void (...)* @_ssdm_op_SpecBitsMap(i1024 %n_V), !map !96
+:3  call void (...)* @_ssdm_op_SpecBitsMap(i2048 %n_V), !map !96
 
 ST_3: stg_17 [1/1] 0.00ns
-:4  call void (...)* @_ssdm_op_SpecBitsMap(i1024* %out_V), !map !100
+:4  call void (...)* @_ssdm_op_SpecBitsMap(i2048* %out_V), !map !100
 
 ST_3: stg_18 [1/1] 0.00ns
 :5  call void (...)* @_ssdm_op_SpecTopModule([10 x i8]* @rsaModExp_str) nounwind
 
 ST_3: e_V_read [1/1] 0.00ns
-:7  %e_V_read = call i1024 @_ssdm_op_Read.ap_auto.i1024(i1024 %e_V)
+:7  %e_V_read = call i2048 @_ssdm_op_Read.ap_auto.i2048(i2048 %e_V)
 
 ST_3: stg_20 [1/1] 0.00ns
-:9  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [1 x i8]* @p_str, [1 x i8]* @p_str, [19 x i8]* @rsaModExp_montMult.str, [1 x i8]* @p_str) nounwind
+:9  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [19 x i8]* @rsaModExp_montMult.str, [1 x i8]* @p_str16) nounwind
 
 ST_3: stg_21 [1/1] 0.00ns
-:10  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [1 x i8]* @p_str, [1 x i8]* @p_str, [28 x i8]* @rsaModExp_interleaveModMult.str, [1 x i8]* @p_str) nounwind
+:10  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [28 x i8]* @rsaModExp_interleaveModMult.str, [1 x i8]* @p_str16) nounwind
 
 ST_3: xbar_V [1/2] 0.00ns
-:12  %xbar_V = call fastcc i1024 @rsaModExp_interleaveModMult(i1024 1, i1024 %n_V_read)
+:12  %xbar_V = call fastcc i2048 @rsaModExp_interleaveModMult(i2048 1, i2048 %n_V_read)
 
 ST_3: stg_23 [1/1] 1.57ns
-:13  store i1024 %xbar_V, i1024* %xbar_V_1
+:13  store i2048 %xbar_V, i2048* %xbar_V_1
 
 ST_3: stg_24 [1/1] 1.57ns
 :14  br label %1
@@ -150,65 +150,65 @@ ST_3: stg_24 [1/1] 1.57ns
 
  <State 4>: 1.04ns
 ST_4: i_assign [1/1] 0.00ns
-:0  %i_assign = phi i11 [ 1023, %0 ], [ %i, %._crit_edge ]
+:0  %i_assign = phi i12 [ 2047, %0 ], [ %i, %._crit_edge ]
 
 ST_4: i_assign_cast [1/1] 0.00ns
-:1  %i_assign_cast = sext i11 %i_assign to i32
+:1  %i_assign_cast = sext i12 %i_assign to i32
 
 ST_4: tmp [1/1] 0.00ns
-:2  %tmp = call i1 @_ssdm_op_BitSelect.i1.i11.i32(i11 %i_assign, i32 10)
+:2  %tmp = call i1 @_ssdm_op_BitSelect.i1.i12.i32(i12 %i_assign, i32 11)
 
 ST_4: empty [1/1] 0.00ns
-:3  %empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 1024, i64 1024, i64 1024)
+:3  %empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 2048, i64 2048, i64 2048)
 
 ST_4: stg_29 [1/1] 0.00ns
 :4  br i1 %tmp, label %4, label %2
 
 ST_4: xbar_V_1_load_1 [1/1] 0.00ns
-:0  %xbar_V_1_load_1 = load i1024* %xbar_V_1
+:0  %xbar_V_1_load_1 = load i2048* %xbar_V_1
 
 ST_4: xbar_V_2 [2/2] 1.04ns
-:1  %xbar_V_2 = call fastcc i1024 @rsaModExp_montMult(i1024 %xbar_V_1_load_1, i1024 %xbar_V_1_load_1, i1024 %n_V_read)
+:1  %xbar_V_2 = call fastcc i2048 @rsaModExp_montMult(i2048 %xbar_V_1_load_1, i2048 %xbar_V_1_load_1, i2048 %n_V_read)
 
 ST_4: tmp_1 [1/1] 0.00ns
-:2  %tmp_1 = call i1 @_ssdm_op_BitSelect.i1.i1024.i32(i1024 %e_V_read, i32 %i_assign_cast)
+:2  %tmp_1 = call i1 @_ssdm_op_BitSelect.i1.i2048.i32(i2048 %e_V_read, i32 %i_assign_cast)
 
 ST_4: xbar_V_1_load [1/1] 0.00ns
-:0  %xbar_V_1_load = load i1024* %xbar_V_1
+:0  %xbar_V_1_load = load i2048* %xbar_V_1
 
 ST_4: call_ret [2/2] 1.04ns
-:1  %call_ret = call fastcc i1024 @rsaModExp_montMult(i1024 %xbar_V_1_load, i1024 1, i1024 %n_V_read)
+:1  %call_ret = call fastcc i2048 @rsaModExp_montMult(i2048 %xbar_V_1_load, i2048 1, i2048 %n_V_read)
 
 
  <State 5>: 19.83ns
 ST_5: xbar_V_2 [1/2] 18.26ns
-:1  %xbar_V_2 = call fastcc i1024 @rsaModExp_montMult(i1024 %xbar_V_1_load_1, i1024 %xbar_V_1_load_1, i1024 %n_V_read)
+:1  %xbar_V_2 = call fastcc i2048 @rsaModExp_montMult(i2048 %xbar_V_1_load_1, i2048 %xbar_V_1_load_1, i2048 %n_V_read)
 
 ST_5: stg_36 [1/1] 0.00ns
 :3  br i1 %tmp_1, label %3, label %._crit_edge.pre
 
 ST_5: stg_37 [1/1] 1.57ns
-._crit_edge.pre:0  store i1024 %xbar_V_2, i1024* %xbar_V_1
+._crit_edge.pre:0  store i2048 %xbar_V_2, i2048* %xbar_V_1
 
 ST_5: stg_38 [1/1] 0.00ns
 ._crit_edge.pre:1  br label %._crit_edge
 
 ST_5: xbar_V_3 [2/2] 1.04ns
-:0  %xbar_V_3 = call fastcc i1024 @rsaModExp_montMult(i1024 %Mbar_V, i1024 %xbar_V_2, i1024 %n_V_read)
+:0  %xbar_V_3 = call fastcc i2048 @rsaModExp_montMult(i2048 %Mbar_V, i2048 %xbar_V_2, i2048 %n_V_read)
 
 
  <State 6>: 19.83ns
 ST_6: xbar_V_3 [1/2] 18.26ns
-:0  %xbar_V_3 = call fastcc i1024 @rsaModExp_montMult(i1024 %Mbar_V, i1024 %xbar_V_2, i1024 %n_V_read)
+:0  %xbar_V_3 = call fastcc i2048 @rsaModExp_montMult(i2048 %Mbar_V, i2048 %xbar_V_2, i2048 %n_V_read)
 
 ST_6: stg_41 [1/1] 1.57ns
-:1  store i1024 %xbar_V_3, i1024* %xbar_V_1
+:1  store i2048 %xbar_V_3, i2048* %xbar_V_1
 
 ST_6: stg_42 [1/1] 0.00ns
 :2  br label %._crit_edge
 
 ST_6: i [1/1] 1.84ns
-._crit_edge:0  %i = add i11 %i_assign, -1
+._crit_edge:0  %i = add i12 %i_assign, -1
 
 ST_6: stg_44 [1/1] 0.00ns
 ._crit_edge:1  br label %1
@@ -216,10 +216,10 @@ ST_6: stg_44 [1/1] 0.00ns
 
  <State 7>: 18.26ns
 ST_7: call_ret [1/2] 18.26ns
-:1  %call_ret = call fastcc i1024 @rsaModExp_montMult(i1024 %xbar_V_1_load, i1024 1, i1024 %n_V_read)
+:1  %call_ret = call fastcc i2048 @rsaModExp_montMult(i2048 %xbar_V_1_load, i2048 1, i2048 %n_V_read)
 
 ST_7: stg_46 [1/1] 0.00ns
-:2  call void @_ssdm_op_Write.ap_auto.i1024P(i1024* %out_V, i1024 %call_ret)
+:2  call void @_ssdm_op_Write.ap_auto.i2048P(i2048* %out_V, i2048 %call_ret)
 
 ST_7: stg_47 [1/1] 0.00ns
 :3  ret void
@@ -338,7 +338,7 @@ stg_47          (ret              ) [ 00000000]
 <pin id="11" dir="1" index="0" bw="1" slack="0"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="_ssdm_op_Read.ap_auto.i1024"/></StgValue>
+<StgValue><ssdm name="_ssdm_op_Read.ap_auto.i2048"/></StgValue>
 </bind>
 </comp>
 
@@ -401,7 +401,7 @@ stg_47          (ret              ) [ 00000000]
 <pin id="25" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="p_str"/></StgValue>
+<StgValue><ssdm name="p_str16"/></StgValue>
 </bind>
 </comp>
 
@@ -437,7 +437,7 @@ stg_47          (ret              ) [ 00000000]
 <pin id="33" dir="1" index="0" bw="1" slack="0"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="_ssdm_op_BitSelect.i1.i11.i32"/></StgValue>
+<StgValue><ssdm name="_ssdm_op_BitSelect.i1.i12.i32"/></StgValue>
 </bind>
 </comp>
 
@@ -482,7 +482,7 @@ stg_47          (ret              ) [ 00000000]
 <pin id="43" dir="1" index="0" bw="1" slack="0"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="_ssdm_op_BitSelect.i1.i1024.i32"/></StgValue>
+<StgValue><ssdm name="_ssdm_op_BitSelect.i1.i2048.i32"/></StgValue>
 </bind>
 </comp>
 
@@ -500,14 +500,14 @@ stg_47          (ret              ) [ 00000000]
 <pin id="47" dir="1" index="0" bw="1" slack="0"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="_ssdm_op_Write.ap_auto.i1024P"/></StgValue>
+<StgValue><ssdm name="_ssdm_op_Write.ap_auto.i2048P"/></StgValue>
 </bind>
 </comp>
 
 <comp id="48" class="1004" name="xbar_V_1_fu_48">
 <pin_list>
 <pin id="49" dir="0" index="0" bw="1" slack="0"/>
-<pin id="50" dir="1" index="1" bw="1024" slack="2"/>
+<pin id="50" dir="1" index="1" bw="2048" slack="2"/>
 </pin_list>
 <bind>
 <opcode="alloca(26) " fcode="alloca"/>
@@ -517,9 +517,9 @@ stg_47          (ret              ) [ 00000000]
 
 <comp id="52" class="1004" name="n_V_read_read_fu_52">
 <pin_list>
-<pin id="53" dir="0" index="0" bw="1024" slack="0"/>
-<pin id="54" dir="0" index="1" bw="1024" slack="0"/>
-<pin id="55" dir="1" index="2" bw="1024" slack="0"/>
+<pin id="53" dir="0" index="0" bw="2048" slack="0"/>
+<pin id="54" dir="0" index="1" bw="2048" slack="0"/>
+<pin id="55" dir="1" index="2" bw="2048" slack="0"/>
 </pin_list>
 <bind>
 <opcode="read(1150) " fcode="read"/>
@@ -529,9 +529,9 @@ stg_47          (ret              ) [ 00000000]
 
 <comp id="58" class="1004" name="M_V_read_read_fu_58">
 <pin_list>
-<pin id="59" dir="0" index="0" bw="1024" slack="0"/>
-<pin id="60" dir="0" index="1" bw="1024" slack="0"/>
-<pin id="61" dir="1" index="2" bw="1024" slack="0"/>
+<pin id="59" dir="0" index="0" bw="2048" slack="0"/>
+<pin id="60" dir="0" index="1" bw="2048" slack="0"/>
+<pin id="61" dir="1" index="2" bw="2048" slack="0"/>
 </pin_list>
 <bind>
 <opcode="read(1150) " fcode="read"/>
@@ -541,9 +541,9 @@ stg_47          (ret              ) [ 00000000]
 
 <comp id="64" class="1004" name="e_V_read_read_fu_64">
 <pin_list>
-<pin id="65" dir="0" index="0" bw="1024" slack="0"/>
-<pin id="66" dir="0" index="1" bw="1024" slack="0"/>
-<pin id="67" dir="1" index="2" bw="1024" slack="1"/>
+<pin id="65" dir="0" index="0" bw="2048" slack="0"/>
+<pin id="66" dir="0" index="1" bw="2048" slack="0"/>
+<pin id="67" dir="1" index="2" bw="2048" slack="1"/>
 </pin_list>
 <bind>
 <opcode="read(1150) " fcode="read"/>
@@ -554,8 +554,8 @@ stg_47          (ret              ) [ 00000000]
 <comp id="70" class="1004" name="stg_46_write_fu_70">
 <pin_list>
 <pin id="71" dir="0" index="0" bw="0" slack="0"/>
-<pin id="72" dir="0" index="1" bw="1024" slack="0"/>
-<pin id="73" dir="0" index="2" bw="1024" slack="0"/>
+<pin id="72" dir="0" index="1" bw="2048" slack="0"/>
+<pin id="73" dir="0" index="2" bw="2048" slack="0"/>
 <pin id="74" dir="1" index="3" bw="0" slack="2147483647"/>
 </pin_list>
 <bind>
@@ -566,8 +566,8 @@ stg_47          (ret              ) [ 00000000]
 
 <comp id="77" class="1005" name="i_assign_reg_77">
 <pin_list>
-<pin id="78" dir="0" index="0" bw="11" slack="1"/>
-<pin id="79" dir="1" index="1" bw="11" slack="1"/>
+<pin id="78" dir="0" index="0" bw="12" slack="1"/>
+<pin id="79" dir="1" index="1" bw="12" slack="1"/>
 </pin_list>
 <bind>
 <opset="i_assign (phireg) "/>
@@ -576,11 +576,11 @@ stg_47          (ret              ) [ 00000000]
 
 <comp id="81" class="1004" name="i_assign_phi_fu_81">
 <pin_list>
-<pin id="82" dir="0" index="0" bw="11" slack="1"/>
+<pin id="82" dir="0" index="0" bw="12" slack="1"/>
 <pin id="83" dir="0" index="1" bw="0" slack="2147483647"/>
-<pin id="84" dir="0" index="2" bw="11" slack="1"/>
+<pin id="84" dir="0" index="2" bw="12" slack="1"/>
 <pin id="85" dir="0" index="3" bw="0" slack="2147483647"/>
-<pin id="86" dir="1" index="4" bw="11" slack="0"/>
+<pin id="86" dir="1" index="4" bw="12" slack="0"/>
 </pin_list>
 <bind>
 <opcode="phi(47) " fcode="phi"/>
@@ -590,10 +590,10 @@ stg_47          (ret              ) [ 00000000]
 
 <comp id="89" class="1004" name="grp_rsaModExp_interleaveModMult_fu_89">
 <pin_list>
-<pin id="97" dir="0" index="0" bw="1024" slack="0"/>
-<pin id="98" dir="0" index="1" bw="1024" slack="0"/>
-<pin id="99" dir="0" index="2" bw="1024" slack="0"/>
-<pin id="100" dir="1" index="3" bw="1024" slack="0"/>
+<pin id="97" dir="0" index="0" bw="2048" slack="0"/>
+<pin id="98" dir="0" index="1" bw="2048" slack="0"/>
+<pin id="99" dir="0" index="2" bw="2048" slack="0"/>
+<pin id="100" dir="1" index="3" bw="2048" slack="0"/>
 </pin_list>
 <bind>
 <opcode="call(48) " fcode="call"/>
@@ -603,11 +603,11 @@ stg_47          (ret              ) [ 00000000]
 
 <comp id="112" class="1004" name="grp_rsaModExp_montMult_fu_112">
 <pin_list>
-<pin id="119" dir="0" index="0" bw="1024" slack="0"/>
-<pin id="120" dir="0" index="1" bw="1024" slack="0"/>
-<pin id="121" dir="0" index="2" bw="1024" slack="0"/>
-<pin id="122" dir="0" index="3" bw="1024" slack="3"/>
-<pin id="123" dir="1" index="4" bw="1024" slack="0"/>
+<pin id="119" dir="0" index="0" bw="2048" slack="0"/>
+<pin id="120" dir="0" index="1" bw="2048" slack="0"/>
+<pin id="121" dir="0" index="2" bw="2048" slack="0"/>
+<pin id="122" dir="0" index="3" bw="2048" slack="3"/>
+<pin id="123" dir="1" index="4" bw="2048" slack="0"/>
 </pin_list>
 <bind>
 <opcode="call(48) " fcode="call"/>
@@ -617,8 +617,8 @@ stg_47          (ret              ) [ 00000000]
 
 <comp id="141" class="1004" name="grp_load_fu_141">
 <pin_list>
-<pin id="142" dir="0" index="0" bw="1024" slack="3"/>
-<pin id="143" dir="1" index="1" bw="1024" slack="0"/>
+<pin id="142" dir="0" index="0" bw="2048" slack="3"/>
+<pin id="143" dir="1" index="1" bw="2048" slack="0"/>
 </pin_list>
 <bind>
 <opcode="load(27) " fcode="load"/>
@@ -628,8 +628,8 @@ stg_47          (ret              ) [ 00000000]
 
 <comp id="146" class="1004" name="grp_store_fu_146">
 <pin_list>
-<pin id="147" dir="0" index="0" bw="1024" slack="0"/>
-<pin id="148" dir="0" index="1" bw="1024" slack="4"/>
+<pin id="147" dir="0" index="0" bw="2048" slack="0"/>
+<pin id="148" dir="0" index="1" bw="2048" slack="4"/>
 <pin id="149" dir="1" index="2" bw="0" slack="2147483647"/>
 </pin_list>
 <bind>
@@ -640,8 +640,8 @@ stg_47          (ret              ) [ 00000000]
 
 <comp id="151" class="1005" name="reg_151">
 <pin_list>
-<pin id="152" dir="0" index="0" bw="1024" slack="1"/>
-<pin id="153" dir="1" index="1" bw="1024" slack="1"/>
+<pin id="152" dir="0" index="0" bw="2048" slack="1"/>
+<pin id="153" dir="1" index="1" bw="2048" slack="1"/>
 </pin_list>
 <bind>
 <opset="xbar_V_1_load_1 xbar_V_1_load "/>
@@ -650,8 +650,8 @@ stg_47          (ret              ) [ 00000000]
 
 <comp id="157" class="1004" name="stg_23_store_fu_157">
 <pin_list>
-<pin id="158" dir="0" index="0" bw="1024" slack="0"/>
-<pin id="159" dir="0" index="1" bw="1024" slack="2"/>
+<pin id="158" dir="0" index="0" bw="2048" slack="0"/>
+<pin id="159" dir="0" index="1" bw="2048" slack="2"/>
 <pin id="160" dir="1" index="2" bw="0" slack="2147483647"/>
 </pin_list>
 <bind>
@@ -662,7 +662,7 @@ stg_47          (ret              ) [ 00000000]
 
 <comp id="162" class="1004" name="i_assign_cast_fu_162">
 <pin_list>
-<pin id="163" dir="0" index="0" bw="11" slack="0"/>
+<pin id="163" dir="0" index="0" bw="12" slack="0"/>
 <pin id="164" dir="1" index="1" bw="32" slack="0"/>
 </pin_list>
 <bind>
@@ -674,7 +674,7 @@ stg_47          (ret              ) [ 00000000]
 <comp id="166" class="1004" name="tmp_fu_166">
 <pin_list>
 <pin id="167" dir="0" index="0" bw="1" slack="0"/>
-<pin id="168" dir="0" index="1" bw="11" slack="0"/>
+<pin id="168" dir="0" index="1" bw="12" slack="0"/>
 <pin id="169" dir="0" index="2" bw="5" slack="0"/>
 <pin id="170" dir="1" index="3" bw="1" slack="2147483647"/>
 </pin_list>
@@ -687,8 +687,8 @@ stg_47          (ret              ) [ 00000000]
 <comp id="174" class="1004" name="tmp_1_fu_174">
 <pin_list>
 <pin id="175" dir="0" index="0" bw="1" slack="0"/>
-<pin id="176" dir="0" index="1" bw="1024" slack="1"/>
-<pin id="177" dir="0" index="2" bw="11" slack="0"/>
+<pin id="176" dir="0" index="1" bw="2048" slack="1"/>
+<pin id="177" dir="0" index="2" bw="12" slack="0"/>
 <pin id="178" dir="1" index="3" bw="1" slack="1"/>
 </pin_list>
 <bind>
@@ -699,9 +699,9 @@ stg_47          (ret              ) [ 00000000]
 
 <comp id="181" class="1004" name="i_fu_181">
 <pin_list>
-<pin id="182" dir="0" index="0" bw="11" slack="2"/>
+<pin id="182" dir="0" index="0" bw="12" slack="2"/>
 <pin id="183" dir="0" index="1" bw="1" slack="0"/>
-<pin id="184" dir="1" index="2" bw="11" slack="1"/>
+<pin id="184" dir="1" index="2" bw="12" slack="1"/>
 </pin_list>
 <bind>
 <opcode="add(8) " fcode="add"/>
@@ -711,8 +711,8 @@ stg_47          (ret              ) [ 00000000]
 
 <comp id="187" class="1005" name="xbar_V_1_reg_187">
 <pin_list>
-<pin id="188" dir="0" index="0" bw="1024" slack="2"/>
-<pin id="189" dir="1" index="1" bw="1024" slack="2"/>
+<pin id="188" dir="0" index="0" bw="2048" slack="2"/>
+<pin id="189" dir="1" index="1" bw="2048" slack="2"/>
 </pin_list>
 <bind>
 <opset="xbar_V_1 "/>
@@ -721,8 +721,8 @@ stg_47          (ret              ) [ 00000000]
 
 <comp id="194" class="1005" name="n_V_read_reg_194">
 <pin_list>
-<pin id="195" dir="0" index="0" bw="1024" slack="1"/>
-<pin id="196" dir="1" index="1" bw="1024" slack="1"/>
+<pin id="195" dir="0" index="0" bw="2048" slack="1"/>
+<pin id="196" dir="1" index="1" bw="2048" slack="1"/>
 </pin_list>
 <bind>
 <opset="n_V_read "/>
@@ -731,8 +731,8 @@ stg_47          (ret              ) [ 00000000]
 
 <comp id="200" class="1005" name="M_V_read_reg_200">
 <pin_list>
-<pin id="201" dir="0" index="0" bw="1024" slack="1"/>
-<pin id="202" dir="1" index="1" bw="1024" slack="1"/>
+<pin id="201" dir="0" index="0" bw="2048" slack="1"/>
+<pin id="202" dir="1" index="1" bw="2048" slack="1"/>
 </pin_list>
 <bind>
 <opset="M_V_read "/>
@@ -741,8 +741,8 @@ stg_47          (ret              ) [ 00000000]
 
 <comp id="205" class="1005" name="Mbar_V_reg_205">
 <pin_list>
-<pin id="206" dir="0" index="0" bw="1024" slack="3"/>
-<pin id="207" dir="1" index="1" bw="1024" slack="3"/>
+<pin id="206" dir="0" index="0" bw="2048" slack="3"/>
+<pin id="207" dir="1" index="1" bw="2048" slack="3"/>
 </pin_list>
 <bind>
 <opset="Mbar_V "/>
@@ -751,8 +751,8 @@ stg_47          (ret              ) [ 00000000]
 
 <comp id="210" class="1005" name="e_V_read_reg_210">
 <pin_list>
-<pin id="211" dir="0" index="0" bw="1024" slack="1"/>
-<pin id="212" dir="1" index="1" bw="1024" slack="1"/>
+<pin id="211" dir="0" index="0" bw="2048" slack="1"/>
+<pin id="212" dir="1" index="1" bw="2048" slack="1"/>
 </pin_list>
 <bind>
 <opset="e_V_read "/>
@@ -771,8 +771,8 @@ stg_47          (ret              ) [ 00000000]
 
 <comp id="222" class="1005" name="xbar_V_2_reg_222">
 <pin_list>
-<pin id="223" dir="0" index="0" bw="1024" slack="1"/>
-<pin id="224" dir="1" index="1" bw="1024" slack="1"/>
+<pin id="223" dir="0" index="0" bw="2048" slack="1"/>
+<pin id="224" dir="1" index="1" bw="2048" slack="1"/>
 </pin_list>
 <bind>
 <opset="xbar_V_2 "/>
@@ -781,8 +781,8 @@ stg_47          (ret              ) [ 00000000]
 
 <comp id="227" class="1005" name="i_reg_227">
 <pin_list>
-<pin id="228" dir="0" index="0" bw="11" slack="1"/>
-<pin id="229" dir="1" index="1" bw="11" slack="1"/>
+<pin id="228" dir="0" index="0" bw="12" slack="1"/>
+<pin id="229" dir="1" index="1" bw="12" slack="1"/>
 </pin_list>
 <bind>
 <opset="i "/>
@@ -939,10 +939,10 @@ stg_47          (ret              ) [ 00000000]
 |----------|---------------------------------------|---------|---------|---------|
 | Operation|            Functional Unit            |  Delay  |    FF   |   LUT   |
 |----------|---------------------------------------|---------|---------|---------|
-|   call   | grp_rsaModExp_interleaveModMult_fu_89 |  1.571  |  16474  |   7884  |
-|          |     grp_rsaModExp_montMult_fu_112     |  3.142  |  21552  |   8551  |
+|   call   | grp_rsaModExp_interleaveModMult_fu_89 |  1.571  |  51329  |  15725  |
+|          |     grp_rsaModExp_montMult_fu_112     |  3.142  |  61496  |  17081  |
 |----------|---------------------------------------|---------|---------|---------|
-|    add   |                i_fu_181               |    0    |    0    |    11   |
+|    add   |                i_fu_181               |    0    |    0    |    12   |
 |----------|---------------------------------------|---------|---------|---------|
 |          |          n_V_read_read_fu_52          |    0    |    0    |    0    |
 |   read   |          M_V_read_read_fu_58          |    0    |    0    |    0    |
@@ -955,7 +955,7 @@ stg_47          (ret              ) [ 00000000]
 | bitselect|               tmp_fu_166              |    0    |    0    |    0    |
 |          |              tmp_1_fu_174             |    0    |    0    |    0    |
 |----------|---------------------------------------|---------|---------|---------|
-|   Total  |                                       |  4.713  |  38026  |  16446  |
+|   Total  |                                       |  4.713  |  112825 |  32818  |
 |----------|---------------------------------------|---------|---------|---------|
 
 Memories:
@@ -965,31 +965,31 @@ N/A
 +----------------+--------+
 |                |   FF   |
 +----------------+--------+
-|M_V_read_reg_200|  1024  |
-| Mbar_V_reg_205 |  1024  |
-|e_V_read_reg_210|  1024  |
-| i_assign_reg_77|   11   |
-|    i_reg_227   |   11   |
-|n_V_read_reg_194|  1024  |
-|     reg_151    |  1024  |
+|M_V_read_reg_200|  2048  |
+| Mbar_V_reg_205 |  2048  |
+|e_V_read_reg_210|  2048  |
+| i_assign_reg_77|   12   |
+|    i_reg_227   |   12   |
+|n_V_read_reg_194|  2048  |
+|     reg_151    |  2048  |
 |  tmp_1_reg_218 |    1   |
-|xbar_V_1_reg_187|  1024  |
-|xbar_V_2_reg_222|  1024  |
+|xbar_V_1_reg_187|  2048  |
+|xbar_V_2_reg_222|  2048  |
 +----------------+--------+
-|      Total     |  7191  |
+|      Total     |  14361 |
 +----------------+--------+
 
 * Multiplexer (MUX) list: 
 |---------------------------------------|------|------|------|--------||---------||---------|
 |                  Comp                 |  Pin | Size |  BW  | S x BW ||  Delay  ||   LUT   |
 |---------------------------------------|------|------|------|--------||---------||---------|
-|            i_assign_reg_77            |  p0  |   2  |  11  |   22   ||    11   |
-| grp_rsaModExp_interleaveModMult_fu_89 |  p1  |   3  | 1024 |  3072  ||   1024  |
-| grp_rsaModExp_interleaveModMult_fu_89 |  p2  |   2  | 1024 |  2048  ||   1024  |
-|     grp_rsaModExp_montMult_fu_112     |  p1  |   3  | 1024 |  3072  ||   1024  |
-|     grp_rsaModExp_montMult_fu_112     |  p2  |   5  | 1024 |  5120  ||   1024  |
+|            i_assign_reg_77            |  p0  |   2  |  12  |   24   ||    12   |
+| grp_rsaModExp_interleaveModMult_fu_89 |  p1  |   3  | 2048 |  6144  ||   2048  |
+| grp_rsaModExp_interleaveModMult_fu_89 |  p2  |   2  | 2048 |  4096  ||   2048  |
+|     grp_rsaModExp_montMult_fu_112     |  p1  |   3  | 2048 |  6144  ||   2048  |
+|     grp_rsaModExp_montMult_fu_112     |  p2  |   5  | 2048 |  10240 ||   2048  |
 |---------------------------------------|------|------|------|--------||---------||---------|
-|                 Total                 |      |      |      |  13334 ||  8.223  ||   4107  |
+|                 Total                 |      |      |      |  26648 ||  8.223  ||   8204  |
 |---------------------------------------|------|------|------|--------||---------||---------|
 
 
@@ -998,10 +998,10 @@ N/A
 +-----------+--------+--------+--------+
 |           |  Delay |   FF   |   LUT  |
 +-----------+--------+--------+--------+
-|  Function |    4   |  38026 |  16446 |
+|  Function |    4   | 112825 |  32818 |
 |   Memory  |    -   |    -   |    -   |
-|Multiplexer|    8   |    -   |  4107  |
-|  Register |    -   |  7191  |    -   |
+|Multiplexer|    8   |    -   |  8204  |
+|  Register |    -   |  14361 |    -   |
 +-----------+--------+--------+--------+
-|   Total   |   12   |  45217 |  20553 |
+|   Total   |   12   | 127186 |  41022 |
 +-----------+--------+--------+--------+

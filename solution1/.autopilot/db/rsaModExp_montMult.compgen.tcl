@@ -1,17 +1,17 @@
 # This script segment is generated automatically by AutoPilot
 
 set id 6
-set name rsaModExp_add_1026ns_1026ns_1026_2
+set name rsaModExp_add_2050ns_2050ns_2050_4
 set corename simcore_add
 set op add
-set stage_num 2
+set stage_num 4
 set max_latency -1
 set registered_input 1
-set in0_width 1026
+set in0_width 2050
 set in0_signed 0
-set in1_width 1026
+set in1_width 2050
 set in1_signed 0
-set out_width 1026
+set out_width 2050
 if {${::AESL::PGuard_simmodel_gen}} {
 if {[info proc ap_gen_simcore_add] == "ap_gen_simcore_add"} {
 eval "ap_gen_simcore_add { \
@@ -68,17 +68,17 @@ puts "@W \[IMPL-101\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_pipeaddsub, check y
 
 
 set id 7
-set name rsaModExp_sub_1024ns_1024ns_1024_2
+set name rsaModExp_sub_2048ns_2048ns_2048_4
 set corename simcore_sub
 set op sub
-set stage_num 2
+set stage_num 4
 set max_latency -1
 set registered_input 1
-set in0_width 1024
+set in0_width 2048
 set in0_signed 0
-set in1_width 1024
+set in1_width 2048
 set in1_signed 0
-set out_width 1024
+set out_width 2048
 if {${::AESL::PGuard_simmodel_gen}} {
 if {[info proc ap_gen_simcore_sub] == "ap_gen_simcore_sub"} {
 eval "ap_gen_simcore_sub { \
@@ -152,7 +152,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_X0_V \
     op interface \
-    ports { X0_V { I 1024 vector } } \
+    ports { X0_V { I 2048 vector } } \
 } "
 }
 
@@ -167,7 +167,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_Y0_V \
     op interface \
-    ports { Y0_V { I 1024 vector } } \
+    ports { Y0_V { I 2048 vector } } \
 } "
 }
 
@@ -182,7 +182,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_M0_V \
     op interface \
-    ports { M0_V { I 1024 vector } } \
+    ports { M0_V { I 2048 vector } } \
 } "
 }
 
@@ -210,7 +210,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename ap_return \
     op interface \
-    ports { ap_return { O 1024 vector } } \
+    ports { ap_return { O 2048 vector } } \
 } "
 }
 

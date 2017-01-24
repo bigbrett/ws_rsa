@@ -6,17 +6,17 @@ set pipeline_type none
 set FunctionProtocol ap_ctrl_hs
 set isOneStateSeq 0
 set C_modelName {rsaModExp_montMult}
-set C_modelType { int 1024 }
+set C_modelType { int 2048 }
 set C_modelArgList {
-	{ X0_V int 1024 regular  }
-	{ Y0_V int 1024 regular  }
-	{ M0_V int 1024 regular  }
+	{ X0_V int 2048 regular  }
+	{ Y0_V int 2048 regular  }
+	{ M0_V int 2048 regular  }
 }
 set C_modelArgMapList {[ 
-	{ "Name" : "X0_V", "interface" : "wire", "bitwidth" : 1024, "direction" : "READONLY"} , 
- 	{ "Name" : "Y0_V", "interface" : "wire", "bitwidth" : 1024, "direction" : "READONLY"} , 
- 	{ "Name" : "M0_V", "interface" : "wire", "bitwidth" : 1024, "direction" : "READONLY"} , 
- 	{ "Name" : "ap_return", "interface" : "wire", "bitwidth" : 1024} ]}
+	{ "Name" : "X0_V", "interface" : "wire", "bitwidth" : 2048, "direction" : "READONLY"} , 
+ 	{ "Name" : "Y0_V", "interface" : "wire", "bitwidth" : 2048, "direction" : "READONLY"} , 
+ 	{ "Name" : "M0_V", "interface" : "wire", "bitwidth" : 2048, "direction" : "READONLY"} , 
+ 	{ "Name" : "ap_return", "interface" : "wire", "bitwidth" : 2048} ]}
 # RTL Port declarations: 
 set portNum 10
 set portList { 
@@ -26,10 +26,10 @@ set portList {
 	{ ap_done sc_out sc_logic 1 predone -1 } 
 	{ ap_idle sc_out sc_logic 1 done -1 } 
 	{ ap_ready sc_out sc_logic 1 ready -1 } 
-	{ X0_V sc_in sc_lv 1024 signal 0 } 
-	{ Y0_V sc_in sc_lv 1024 signal 1 } 
-	{ M0_V sc_in sc_lv 1024 signal 2 } 
-	{ ap_return sc_out sc_lv 1024 signal -1 } 
+	{ X0_V sc_in sc_lv 2048 signal 0 } 
+	{ Y0_V sc_in sc_lv 2048 signal 1 } 
+	{ M0_V sc_in sc_lv 2048 signal 2 } 
+	{ ap_return sc_out sc_lv 2048 signal -1 } 
 }
 set NewPortList {[ 
 	{ "name": "ap_clk", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "clock", "bundle":{"name": "ap_clk", "role": "default" }} , 
@@ -38,10 +38,10 @@ set NewPortList {[
  	{ "name": "ap_done", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "predone", "bundle":{"name": "ap_done", "role": "default" }} , 
  	{ "name": "ap_idle", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "done", "bundle":{"name": "ap_idle", "role": "default" }} , 
  	{ "name": "ap_ready", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "ready", "bundle":{"name": "ap_ready", "role": "default" }} , 
- 	{ "name": "X0_V", "direction": "in", "datatype": "sc_lv", "bitwidth":1024, "type": "signal", "bundle":{"name": "X0_V", "role": "default" }} , 
- 	{ "name": "Y0_V", "direction": "in", "datatype": "sc_lv", "bitwidth":1024, "type": "signal", "bundle":{"name": "Y0_V", "role": "default" }} , 
- 	{ "name": "M0_V", "direction": "in", "datatype": "sc_lv", "bitwidth":1024, "type": "signal", "bundle":{"name": "M0_V", "role": "default" }} , 
- 	{ "name": "ap_return", "direction": "out", "datatype": "sc_lv", "bitwidth":1024, "type": "signal", "bundle":{"name": "ap_return", "role": "default" }}  ]}
+ 	{ "name": "X0_V", "direction": "in", "datatype": "sc_lv", "bitwidth":2048, "type": "signal", "bundle":{"name": "X0_V", "role": "default" }} , 
+ 	{ "name": "Y0_V", "direction": "in", "datatype": "sc_lv", "bitwidth":2048, "type": "signal", "bundle":{"name": "Y0_V", "role": "default" }} , 
+ 	{ "name": "M0_V", "direction": "in", "datatype": "sc_lv", "bitwidth":2048, "type": "signal", "bundle":{"name": "M0_V", "role": "default" }} , 
+ 	{ "name": "ap_return", "direction": "out", "datatype": "sc_lv", "bitwidth":2048, "type": "signal", "bundle":{"name": "ap_return", "role": "default" }}  ]}
 
 set RtlHierarchyInfo {[
 	{"Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "2", "3"], "CDFG" : "rsaModExp_montMult", "VariableLatency" : "1", "AlignedPipeline" : "0", "UnalignedPipeline" : "0", "ProcessNetwork" : "0", "Combinational" : "0", "ControlExist" : "1",
@@ -51,17 +51,17 @@ set RtlHierarchyInfo {[
 		{"Name" : "M0_V", "Type" : "None", "Direction" : "I", "BlockSignal" : [], "SubConnect" : []}],
 		"WaitState" : [],
 		"SubBlockPort" : []},
-	{"Level" : "1", "Path" : "`AUTOTB_DUT_INST.rsaModExp_add_1026ns_1026ns_1026_2_U6", "Parent" : "0", "Child" : []},
-	{"Level" : "1", "Path" : "`AUTOTB_DUT_INST.rsaModExp_sub_1024ns_1024ns_1024_2_U7", "Parent" : "0", "Child" : []},
-	{"Level" : "1", "Path" : "`AUTOTB_DUT_INST.rsaModExp_add_1026ns_1026ns_1026_2_U8", "Parent" : "0", "Child" : []}]}
+	{"Level" : "1", "Path" : "`AUTOTB_DUT_INST.rsaModExp_add_2050ns_2050ns_2050_4_U6", "Parent" : "0", "Child" : []},
+	{"Level" : "1", "Path" : "`AUTOTB_DUT_INST.rsaModExp_sub_2048ns_2048ns_2048_4_U7", "Parent" : "0", "Child" : []},
+	{"Level" : "1", "Path" : "`AUTOTB_DUT_INST.rsaModExp_add_2050ns_2050ns_2050_4_U8", "Parent" : "0", "Child" : []}]}
 
 set PerformanceInfo {[
-	{"Name" : "Latency", "Min" : "4099", "Max" : "4099"}
-	, {"Name" : "Interval", "Min" : "4099", "Max" : "4099"}
+	{"Name" : "Latency", "Min" : "16389", "Max" : "16389"}
+	, {"Name" : "Interval", "Min" : "16389", "Max" : "16389"}
 ]}
 
 set Spec2ImplPortList { 
-	X0_V { ap_none {  { X0_V in_data 0 1024 } } }
-	Y0_V { ap_none {  { Y0_V in_data 0 1024 } } }
-	M0_V { ap_none {  { M0_V in_data 0 1024 } } }
+	X0_V { ap_none {  { X0_V in_data 0 2048 } } }
+	Y0_V { ap_none {  { Y0_V in_data 0 2048 } } }
+	M0_V { ap_none {  { M0_V in_data 0 2048 } } }
 }

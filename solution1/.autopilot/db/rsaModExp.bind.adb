@@ -28,7 +28,7 @@
 						<rtlName></rtlName>
 						<coreName></coreName>
 					</Obj>
-					<bitwidth>1024</bitwidth>
+					<bitwidth>2048</bitwidth>
 				</Value>
 				<direction>0</direction>
 				<if_type>0</if_type>
@@ -56,7 +56,7 @@
 						<rtlName></rtlName>
 						<coreName></coreName>
 					</Obj>
-					<bitwidth>1024</bitwidth>
+					<bitwidth>2048</bitwidth>
 				</Value>
 				<direction>0</direction>
 				<if_type>0</if_type>
@@ -84,7 +84,7 @@
 						<rtlName></rtlName>
 						<coreName></coreName>
 					</Obj>
-					<bitwidth>1024</bitwidth>
+					<bitwidth>2048</bitwidth>
 				</Value>
 				<direction>0</direction>
 				<if_type>0</if_type>
@@ -112,7 +112,7 @@
 						<rtlName></rtlName>
 						<coreName></coreName>
 					</Obj>
-					<bitwidth>1024</bitwidth>
+					<bitwidth>2048</bitwidth>
 				</Value>
 				<direction>1</direction>
 				<if_type>0</if_type>
@@ -144,7 +144,7 @@
 						<rtlName></rtlName>
 						<coreName></coreName>
 					</Obj>
-					<bitwidth>1024</bitwidth>
+					<bitwidth>2048</bitwidth>
 				</Value>
 				<oprand_edges>
 					<count>1</count>
@@ -171,7 +171,7 @@
 						<rtlName></rtlName>
 						<coreName></coreName>
 					</Obj>
-					<bitwidth>1024</bitwidth>
+					<bitwidth>2048</bitwidth>
 				</Value>
 				<oprand_edges>
 					<count>2</count>
@@ -199,7 +199,7 @@
 						<rtlName></rtlName>
 						<coreName></coreName>
 					</Obj>
-					<bitwidth>1024</bitwidth>
+					<bitwidth>2048</bitwidth>
 				</Value>
 				<oprand_edges>
 					<count>2</count>
@@ -227,7 +227,7 @@
 						<rtlName></rtlName>
 						<coreName></coreName>
 					</Obj>
-					<bitwidth>1024</bitwidth>
+					<bitwidth>2048</bitwidth>
 				</Value>
 				<oprand_edges>
 					<count>2</count>
@@ -269,7 +269,7 @@
 						<rtlName></rtlName>
 						<coreName></coreName>
 					</Obj>
-					<bitwidth>1024</bitwidth>
+					<bitwidth>2048</bitwidth>
 				</Value>
 				<oprand_edges>
 					<count>3</count>
@@ -312,7 +312,7 @@
 						<rtlName></rtlName>
 						<coreName></coreName>
 					</Obj>
-					<bitwidth>1024</bitwidth>
+					<bitwidth>2048</bitwidth>
 				</Value>
 				<oprand_edges>
 					<count>3</count>
@@ -424,7 +424,7 @@
 						<rtlName></rtlName>
 						<coreName></coreName>
 					</Obj>
-					<bitwidth>11</bitwidth>
+					<bitwidth>12</bitwidth>
 				</Value>
 				<oprand_edges>
 					<count>4</count>
@@ -595,7 +595,7 @@
 						<rtlName></rtlName>
 						<coreName></coreName>
 					</Obj>
-					<bitwidth>1024</bitwidth>
+					<bitwidth>2048</bitwidth>
 				</Value>
 				<oprand_edges>
 					<count>2</count>
@@ -637,7 +637,7 @@
 						<rtlName></rtlName>
 						<coreName></coreName>
 					</Obj>
-					<bitwidth>1024</bitwidth>
+					<bitwidth>2048</bitwidth>
 				</Value>
 				<oprand_edges>
 					<count>4</count>
@@ -838,7 +838,7 @@
 						<rtlName></rtlName>
 						<coreName></coreName>
 					</Obj>
-					<bitwidth>1024</bitwidth>
+					<bitwidth>2048</bitwidth>
 				</Value>
 				<oprand_edges>
 					<count>4</count>
@@ -967,7 +967,7 @@
 						<rtlName></rtlName>
 						<coreName></coreName>
 					</Obj>
-					<bitwidth>11</bitwidth>
+					<bitwidth>12</bitwidth>
 				</Value>
 				<oprand_edges>
 					<count>2</count>
@@ -1050,7 +1050,7 @@
 						<rtlName></rtlName>
 						<coreName></coreName>
 					</Obj>
-					<bitwidth>1024</bitwidth>
+					<bitwidth>2048</bitwidth>
 				</Value>
 				<oprand_edges>
 					<count>2</count>
@@ -1092,7 +1092,7 @@
 						<rtlName></rtlName>
 						<coreName></coreName>
 					</Obj>
-					<bitwidth>1024</bitwidth>
+					<bitwidth>2048</bitwidth>
 				</Value>
 				<oprand_edges>
 					<count>4</count>
@@ -1232,7 +1232,7 @@
 						<rtlName></rtlName>
 						<coreName></coreName>
 					</Obj>
-					<bitwidth>1024</bitwidth>
+					<bitwidth>2048</bitwidth>
 				</Value>
 				<const_type>6</const_type>
 				<content>&lt;constant:rsaModExp_interleaveModMult&gt;</content>
@@ -1255,7 +1255,7 @@
 						<rtlName></rtlName>
 						<coreName></coreName>
 					</Obj>
-					<bitwidth>1024</bitwidth>
+					<bitwidth>2048</bitwidth>
 				</Value>
 				<const_type>0</const_type>
 				<content>1</content>
@@ -1278,10 +1278,10 @@
 						<rtlName></rtlName>
 						<coreName></coreName>
 					</Obj>
-					<bitwidth>11</bitwidth>
+					<bitwidth>12</bitwidth>
 				</Value>
 				<const_type>0</const_type>
-				<content>1023</content>
+				<content>2047</content>
 			</item>
 			<item class_id_reference="16" object_id="_36">
 				<Value>
@@ -1304,7 +1304,7 @@
 					<bitwidth>32</bitwidth>
 				</Value>
 				<const_type>0</const_type>
-				<content>10</content>
+				<content>11</content>
 			</item>
 			<item class_id_reference="16" object_id="_37">
 				<Value>
@@ -1324,7 +1324,7 @@
 						<rtlName></rtlName>
 						<coreName></coreName>
 					</Obj>
-					<bitwidth>1024</bitwidth>
+					<bitwidth>2048</bitwidth>
 				</Value>
 				<const_type>6</const_type>
 				<content>&lt;constant:rsaModExp_montMult&gt;</content>
@@ -1347,10 +1347,10 @@
 						<rtlName></rtlName>
 						<coreName></coreName>
 					</Obj>
-					<bitwidth>11</bitwidth>
+					<bitwidth>12</bitwidth>
 				</Value>
 				<const_type>0</const_type>
-				<content>2047</content>
+				<content>4095</content>
 			</item>
 		</consts>
 		<blocks class_id="17" tracking_level="0" version="0">
@@ -1967,7 +1967,7 @@
 			<mDepth>-1</mDepth>
 			<mMinTripCount>-1</mMinTripCount>
 			<mMaxTripCount>-1</mMaxTripCount>
-			<mMinLatency>8414231</mMinLatency>
+			<mMinLatency>67201061</mMinLatency>
 			<mMaxLatency>-1</mMaxLatency>
 			<mIsDfPipe>0</mIsDfPipe>
 			<mDfPipe class_id="-1"></mDfPipe>
@@ -1989,7 +1989,7 @@
 			<mDepth>-1</mDepth>
 			<mMinTripCount>-1</mMinTripCount>
 			<mMaxTripCount>-1</mMaxTripCount>
-			<mMinLatency>12306</mMinLatency>
+			<mMinLatency>49182</mMinLatency>
 			<mMaxLatency>-1</mMaxLatency>
 			<mIsDfPipe>0</mIsDfPipe>
 			<mDfPipe class_id="-1"></mDfPipe>
@@ -2013,9 +2013,9 @@
 			</basic_blocks>
 			<mII>-1</mII>
 			<mDepth>-1</mDepth>
-			<mMinTripCount>1024</mMinTripCount>
-			<mMaxTripCount>1024</mMaxTripCount>
-			<mMinLatency>8397824</mMinLatency>
+			<mMinTripCount>2048</mMinTripCount>
+			<mMaxTripCount>2048</mMaxTripCount>
+			<mMinLatency>67135488</mMinLatency>
 			<mMaxLatency>-1</mMaxLatency>
 			<mIsDfPipe>0</mIsDfPipe>
 			<mDfPipe class_id="-1"></mDfPipe>
@@ -2037,7 +2037,7 @@
 			<mDepth>-1</mDepth>
 			<mMinTripCount>-1</mMinTripCount>
 			<mMaxTripCount>-1</mMaxTripCount>
-			<mMinLatency>4100</mMinLatency>
+			<mMinLatency>16390</mMinLatency>
 			<mMaxLatency>-1</mMaxLatency>
 			<mIsDfPipe>0</mIsDfPipe>
 			<mDfPipe class_id="-1"></mDfPipe>

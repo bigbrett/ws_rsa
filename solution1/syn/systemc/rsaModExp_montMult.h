@@ -11,8 +11,8 @@
 #include "systemc.h"
 #include "AESL_pkg.h"
 
-#include "rsaModExp_add_1026ns_1026ns_1026_2.h"
-#include "rsaModExp_sub_1024ns_1024ns_1024_2.h"
+#include "rsaModExp_add_2050ns_2050ns_2050_4.h"
+#include "rsaModExp_sub_2048ns_2048ns_2048_4.h"
 
 namespace ap_rtl {
 
@@ -24,10 +24,10 @@ struct rsaModExp_montMult : public sc_module {
     sc_out< sc_logic > ap_done;
     sc_out< sc_logic > ap_idle;
     sc_out< sc_logic > ap_ready;
-    sc_in< sc_lv<1024> > X0_V;
-    sc_in< sc_lv<1024> > Y0_V;
-    sc_in< sc_lv<1024> > M0_V;
-    sc_out< sc_lv<1024> > ap_return;
+    sc_in< sc_lv<2048> > X0_V;
+    sc_in< sc_lv<2048> > Y0_V;
+    sc_in< sc_lv<2048> > M0_V;
+    sc_out< sc_lv<2048> > ap_return;
     sc_signal< sc_logic > ap_var_for_const0;
 
 
@@ -39,82 +39,88 @@ struct rsaModExp_montMult : public sc_module {
 
     sc_trace_file* mVcdFile;
 
-    rsaModExp_add_1026ns_1026ns_1026_2<1,2,1026,1026,1026>* rsaModExp_add_1026ns_1026ns_1026_2_U6;
-    rsaModExp_sub_1024ns_1024ns_1024_2<1,2,1024,1024,1024>* rsaModExp_sub_1024ns_1024ns_1024_2_U7;
-    rsaModExp_add_1026ns_1026ns_1026_2<1,2,1026,1026,1026>* rsaModExp_add_1026ns_1026ns_1026_2_U8;
-    sc_signal< sc_lv<6> > ap_CS_fsm;
+    rsaModExp_add_2050ns_2050ns_2050_4<1,4,2050,2050,2050>* rsaModExp_add_2050ns_2050ns_2050_4_U6;
+    rsaModExp_sub_2048ns_2048ns_2048_4<1,4,2048,2048,2048>* rsaModExp_sub_2048ns_2048ns_2048_4_U7;
+    rsaModExp_add_2050ns_2050ns_2050_4<1,4,2050,2050,2050>* rsaModExp_add_2050ns_2050ns_2050_4_U8;
+    sc_signal< sc_lv<12> > ap_CS_fsm;
     sc_signal< sc_logic > ap_sig_cseq_ST_st1_fsm_0;
-    sc_signal< bool > ap_sig_23;
-    sc_signal< sc_lv<1024> > M0_V_read_reg_188;
-    sc_signal< sc_lv<1026> > X_V_fu_76_p1;
-    sc_signal< sc_lv<1026> > X_V_reg_193;
-    sc_signal< sc_lv<1026> > Y_V_fu_80_p1;
-    sc_signal< sc_lv<1026> > Y_V_reg_198;
-    sc_signal< sc_lv<1026> > M_V_fu_84_p1;
-    sc_signal< sc_lv<1026> > M_V_reg_203;
-    sc_signal< sc_lv<1025> > M_V_cast_fu_88_p1;
-    sc_signal< sc_lv<1025> > M_V_cast_reg_208;
-    sc_signal< sc_lv<1026> > p_cast_fu_92_p1;
-    sc_signal< sc_lv<1026> > p_cast_reg_213;
+    sc_signal< bool > ap_sig_29;
+    sc_signal< sc_lv<2048> > M0_V_read_reg_188;
+    sc_signal< sc_lv<2050> > X_V_fu_76_p1;
+    sc_signal< sc_lv<2050> > X_V_reg_193;
+    sc_signal< sc_lv<2050> > Y_V_fu_80_p1;
+    sc_signal< sc_lv<2050> > Y_V_reg_198;
+    sc_signal< sc_lv<2050> > M_V_fu_84_p1;
+    sc_signal< sc_lv<2050> > M_V_reg_203;
+    sc_signal< sc_lv<2049> > M_V_cast_fu_88_p1;
+    sc_signal< sc_lv<2049> > M_V_cast_reg_208;
+    sc_signal< sc_lv<2050> > p_cast_fu_92_p1;
+    sc_signal< sc_lv<2050> > p_cast_reg_213;
     sc_signal< sc_logic > ap_sig_cseq_ST_st2_fsm_1;
-    sc_signal< bool > ap_sig_52;
-    sc_signal< sc_lv<11> > i_fu_106_p2;
-    sc_signal< sc_lv<11> > i_reg_222;
+    sc_signal< bool > ap_sig_58;
+    sc_signal< sc_lv<12> > i_fu_106_p2;
+    sc_signal< sc_lv<12> > i_reg_222;
     sc_signal< sc_lv<1> > tmp_8_fu_112_p3;
     sc_signal< sc_lv<1> > tmp_8_reg_227;
     sc_signal< sc_lv<1> > exitcond_fu_100_p2;
     sc_signal< sc_lv<1> > tmp_fu_124_p2;
     sc_signal< sc_lv<1> > tmp_reg_232;
-    sc_signal< sc_lv<1024> > tmp_6_fu_133_p1;
-    sc_signal< sc_lv<1024> > tmp_6_reg_242;
-    sc_signal< sc_lv<1026> > p_Val2_1_fu_142_p3;
-    sc_signal< sc_lv<1026> > p_Val2_1_reg_247;
-    sc_signal< sc_logic > ap_sig_cseq_ST_st3_fsm_2;
-    sc_signal< bool > ap_sig_77;
+    sc_signal< sc_lv<2048> > tmp_6_fu_133_p1;
+    sc_signal< sc_lv<2048> > tmp_6_reg_242;
+    sc_signal< sc_lv<2050> > p_Val2_1_fu_142_p3;
+    sc_signal< sc_lv<2050> > p_Val2_1_reg_247;
+    sc_signal< sc_logic > ap_sig_cseq_ST_st5_fsm_4;
+    sc_signal< bool > ap_sig_83;
     sc_signal< sc_lv<1> > tmp_9_fu_148_p1;
     sc_signal< sc_lv<1> > tmp_9_reg_252;
-    sc_signal< sc_lv<1025> > tmp_4_reg_257;
-    sc_signal< sc_lv<1025> > tmp_5_fu_176_p3;
-    sc_signal< sc_logic > ap_sig_cseq_ST_st5_fsm_4;
-    sc_signal< bool > ap_sig_90;
-    sc_signal< sc_lv<1025> > p_s_reg_54;
-    sc_signal< sc_lv<11> > i_assign_reg_65;
+    sc_signal< sc_lv<2049> > tmp_4_reg_257;
+    sc_signal< sc_lv<2049> > tmp_5_fu_176_p3;
+    sc_signal< sc_logic > ap_sig_cseq_ST_st9_fsm_8;
+    sc_signal< bool > ap_sig_96;
+    sc_signal< sc_lv<2049> > p_s_reg_54;
+    sc_signal< sc_lv<12> > i_assign_reg_65;
     sc_signal< sc_lv<32> > i_assign_cast1_fu_96_p1;
-    sc_signal< sc_lv<1026> > grp_fu_119_p1;
-    sc_signal< sc_lv<1024> > grp_fu_137_p0;
-    sc_signal< sc_lv<1026> > grp_fu_119_p2;
-    sc_signal< sc_logic > ap_sig_cseq_ST_st4_fsm_3;
-    sc_signal< bool > ap_sig_139;
-    sc_signal< sc_lv<1026> > grp_fu_162_p2;
-    sc_signal< sc_lv<1025> > tmp_3_fu_166_p4;
-    sc_signal< sc_lv<1024> > grp_fu_137_p2;
+    sc_signal< sc_lv<2050> > grp_fu_119_p1;
+    sc_signal< sc_lv<2048> > grp_fu_137_p0;
+    sc_signal< sc_lv<2050> > grp_fu_119_p2;
     sc_signal< sc_logic > ap_sig_cseq_ST_st6_fsm_5;
-    sc_signal< bool > ap_sig_158;
-    sc_signal< sc_lv<1024> > ssdm_int_V_write_assign_fu_182_p3;
-    sc_signal< sc_lv<1024> > ap_return_preg;
-    sc_signal< sc_lv<6> > ap_NS_fsm;
+    sc_signal< bool > ap_sig_145;
+    sc_signal< sc_lv<2050> > grp_fu_162_p2;
+    sc_signal< sc_lv<2049> > tmp_3_fu_166_p4;
+    sc_signal< sc_lv<2048> > grp_fu_137_p2;
+    sc_signal< sc_logic > ap_sig_cseq_ST_st12_fsm_11;
+    sc_signal< bool > ap_sig_164;
+    sc_signal< sc_lv<2048> > ssdm_int_V_write_assign_fu_182_p3;
+    sc_signal< sc_lv<2048> > ap_return_preg;
+    sc_signal< sc_lv<12> > ap_NS_fsm;
     static const sc_logic ap_const_logic_1;
     static const sc_logic ap_const_logic_0;
-    static const sc_lv<6> ap_ST_st1_fsm_0;
-    static const sc_lv<6> ap_ST_st2_fsm_1;
-    static const sc_lv<6> ap_ST_st3_fsm_2;
-    static const sc_lv<6> ap_ST_st4_fsm_3;
-    static const sc_lv<6> ap_ST_st5_fsm_4;
-    static const sc_lv<6> ap_ST_st6_fsm_5;
+    static const sc_lv<12> ap_ST_st1_fsm_0;
+    static const sc_lv<12> ap_ST_st2_fsm_1;
+    static const sc_lv<12> ap_ST_st3_fsm_2;
+    static const sc_lv<12> ap_ST_st4_fsm_3;
+    static const sc_lv<12> ap_ST_st5_fsm_4;
+    static const sc_lv<12> ap_ST_st6_fsm_5;
+    static const sc_lv<12> ap_ST_st7_fsm_6;
+    static const sc_lv<12> ap_ST_st8_fsm_7;
+    static const sc_lv<12> ap_ST_st9_fsm_8;
+    static const sc_lv<12> ap_ST_st10_fsm_9;
+    static const sc_lv<12> ap_ST_st11_fsm_10;
+    static const sc_lv<12> ap_ST_st12_fsm_11;
     static const sc_lv<32> ap_const_lv32_0;
     static const sc_lv<1> ap_const_lv1_1;
     static const sc_lv<32> ap_const_lv32_1;
     static const sc_lv<1> ap_const_lv1_0;
-    static const sc_lv<32> ap_const_lv32_2;
     static const sc_lv<32> ap_const_lv32_4;
-    static const sc_lv<1025> ap_const_lv1025_lc_1;
-    static const sc_lv<11> ap_const_lv11_0;
-    static const sc_lv<11> ap_const_lv11_400;
-    static const sc_lv<11> ap_const_lv11_1;
-    static const sc_lv<32> ap_const_lv32_401;
-    static const sc_lv<32> ap_const_lv32_3;
+    static const sc_lv<32> ap_const_lv32_8;
+    static const sc_lv<2049> ap_const_lv2049_lc_1;
+    static const sc_lv<12> ap_const_lv12_0;
+    static const sc_lv<12> ap_const_lv12_800;
+    static const sc_lv<12> ap_const_lv12_1;
+    static const sc_lv<32> ap_const_lv32_801;
     static const sc_lv<32> ap_const_lv32_5;
-    static const sc_lv<1024> ap_const_lv1024_lc_1;
+    static const sc_lv<32> ap_const_lv32_B;
+    static const sc_lv<2048> ap_const_lv2048_lc_1;
     // Thread declarations
     void thread_ap_var_for_const0();
     void thread_ap_clk_no_reset_();
@@ -125,18 +131,18 @@ struct rsaModExp_montMult : public sc_module {
     void thread_ap_done();
     void thread_ap_idle();
     void thread_ap_ready();
-    void thread_ap_sig_139();
-    void thread_ap_sig_158();
-    void thread_ap_sig_23();
-    void thread_ap_sig_52();
-    void thread_ap_sig_77();
-    void thread_ap_sig_90();
+    void thread_ap_sig_145();
+    void thread_ap_sig_164();
+    void thread_ap_sig_29();
+    void thread_ap_sig_58();
+    void thread_ap_sig_83();
+    void thread_ap_sig_96();
+    void thread_ap_sig_cseq_ST_st12_fsm_11();
     void thread_ap_sig_cseq_ST_st1_fsm_0();
     void thread_ap_sig_cseq_ST_st2_fsm_1();
-    void thread_ap_sig_cseq_ST_st3_fsm_2();
-    void thread_ap_sig_cseq_ST_st4_fsm_3();
     void thread_ap_sig_cseq_ST_st5_fsm_4();
     void thread_ap_sig_cseq_ST_st6_fsm_5();
+    void thread_ap_sig_cseq_ST_st9_fsm_8();
     void thread_exitcond_fu_100_p2();
     void thread_grp_fu_119_p1();
     void thread_grp_fu_137_p0();

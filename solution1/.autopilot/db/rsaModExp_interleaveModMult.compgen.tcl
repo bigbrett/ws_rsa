@@ -1,17 +1,17 @@
 # This script segment is generated automatically by AutoPilot
 
 set id 1
-set name rsaModExp_add_1028ns_1028ns_1028_2
+set name rsaModExp_add_2052ns_2052ns_2052_4
 set corename simcore_add
 set op add
-set stage_num 2
+set stage_num 4
 set max_latency -1
 set registered_input 1
-set in0_width 1028
+set in0_width 2052
 set in0_signed 0
-set in1_width 1028
+set in1_width 2052
 set in1_signed 0
-set out_width 1028
+set out_width 2052
 if {${::AESL::PGuard_simmodel_gen}} {
 if {[info proc ap_gen_simcore_add] == "ap_gen_simcore_add"} {
 eval "ap_gen_simcore_add { \
@@ -68,17 +68,17 @@ puts "@W \[IMPL-101\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_pipeaddsub, check y
 
 
 set id 2
-set name rsaModExp_sub_1028ns_1028ns_1028_2
+set name rsaModExp_sub_2052ns_2052ns_2052_4
 set corename simcore_sub
 set op sub
-set stage_num 2
+set stage_num 4
 set max_latency -1
 set registered_input 1
-set in0_width 1028
+set in0_width 2052
 set in0_signed 0
-set in1_width 1028
+set in1_width 2052
 set in1_signed 0
-set out_width 1028
+set out_width 2052
 if {${::AESL::PGuard_simmodel_gen}} {
 if {[info proc ap_gen_simcore_sub] == "ap_gen_simcore_sub"} {
 eval "ap_gen_simcore_sub { \
@@ -152,7 +152,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_Y_V \
     op interface \
-    ports { Y_V { I 1024 vector } } \
+    ports { Y_V { I 2048 vector } } \
 } "
 }
 
@@ -167,7 +167,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_M_V \
     op interface \
-    ports { M_V { I 1024 vector } } \
+    ports { M_V { I 2048 vector } } \
 } "
 }
 
@@ -195,7 +195,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename ap_return \
     op interface \
-    ports { ap_return { O 1024 vector } } \
+    ports { ap_return { O 2048 vector } } \
 } "
 }
 
