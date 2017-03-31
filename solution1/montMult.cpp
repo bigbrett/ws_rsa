@@ -4,8 +4,6 @@
 //void montMult(uint1024_t X, uint1024_t Y, uint1024_t M, uint1024_t* outData){
 void montMult(uintRSA_t X0, uintRSA_t Y0, uintRSA_t M0, uintRSA_t* outData)
 {
-#pragma HLS ALLOCATION instances=mul limit=256 operation
-
 	/* IMPT BUGFIX: INTERMEDIATE WIDTHS MUST BE GREATER
 	 * THAN OR EQUAL TO NUM_BITS+1 OR OVERFLOW CAUSES
 	 * THE INTEGER LIBRARY TO SCREW UP SIGN EXTENTIONS */
