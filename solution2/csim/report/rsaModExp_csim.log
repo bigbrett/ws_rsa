@@ -1,0 +1,12 @@
+INFO: [SIM 2] *************** CSIM start ***************
+INFO: [SIM 4] CSIM will launch GCC as the compiler.
+   Compiling ../../../solution1/rsa_tb.cpp in debug mode
+   Compiling ../../../solution1/interleaveModMult.cpp in debug mode
+   Compiling ../../../solution1/montMult.cpp in debug mode
+   Compiling ../../../solution1/rsaModExp.cpp in debug mode
+   Generating csim.exe
+res = 0x048656C6C6F2C20576F726C6421
+ [ 0b0000100001 ]
+Test Passed !!!
+INFO: [SIM 1] CSim done with 0 errors.
+INFO: [SIM 3] *************** CSIM finish ***************

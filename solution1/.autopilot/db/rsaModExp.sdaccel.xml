@@ -1,10 +1,10 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'rsaModExp'" level="0">
-<item name = "Date">Sun Jan 15 23:34:25 2017
+<item name = "Date">Wed Jul 12 11:25:49 2017
 </item>
-<item name = "Version">2016.2 (Build 1577090 on Thu Jun 02 16:59:10 MDT 2016)</item>
-<item name = "Project">ws_rsa64bit</item>
+<item name = "Version">2016.4 (Build 1756540 on Mon Jan 23 19:31:01 MST 2017)</item>
+<item name = "Project">ws_rsa</item>
 <item name = "Solution">solution1</item>
 <item name = "Product family">zynq</item>
 <item name = "Target device">xc7z020clg484-1</item>
@@ -22,20 +22,21 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="6">, min, max, min, max, Type</keys>
-<column name="">33636389, 67201061, 33636390, 67201062, none</column>
+<column name="">33628189, 67192861, 33628190, 67192862, none</column>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="7">Instance, Module, min, max, min, max, Type</keys>
-<column name="grp_rsaModExp_interleaveModMult_fu_89">rsaModExp_interleaveModMult, 24590, 24590, 24590, 24590, none</column>
-<column name="grp_rsaModExp_montMult_fu_112">rsaModExp_montMult, 16389, 16389, 16389, 16389, none</column>
+<column name="grp_montMult_fu_143">montMult, 16389, 16389, 16389, 16389, none</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- Loop 1">33570816, 67135488, 16392 ~ 32781, -, -, 2048, no</column>
+<column name="- Loop 1">24588, 24588, 12, -, -, 2049, no</column>
+<column name="- Loop 2">16392, 16392, 8, -, -, 2049, no</column>
+<column name="- Loop 3">33570816, 67135488, 16392 ~ 32781, -, -, 2048, no</column>
 </table>
 </item>
 </section>
@@ -48,22 +49,26 @@
 <item name = "Summary"><table name="" hasTotal="1">
 <keys size="5">Name, BRAM_18K, DSP48E, FF, LUT</keys>
 <column name="DSP">-, -, -, -</column>
-<column name="Expression">-, -, 0, 12</column>
+<column name="Expression">-, -, 0, 12994</column>
 <column name="FIFO">-, -, -, -</column>
-<column name="Instance">-, -, 114876, 34891</column>
+<column name="Instance">-, -, 123059, 27359</column>
 <column name="Memory">-, -, -, -</column>
-<column name="Multiplexer">-, -, -, 8206</column>
-<column name="Register">-, -, 8214, -</column>
+<column name="Multiplexer">-, -, -, 10307</column>
+<column name="Register">-, -, 26747, -</column>
 <specialColumn name="Available">280, 220, 106400, 53200</specialColumn>
-<specialColumn name="Utilization (%)">0, 0, 115, 81</specialColumn>
+<specialColumn name="Utilization (%)">0, 0, 140, 95</specialColumn>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="6">Instance, Module, BRAM_18K, DSP48E, FF, LUT</keys>
-<column name="grp_rsaModExp_interleaveModMult_fu_89">rsaModExp_interleaveModMult, 0, 0, 53377, 17792</column>
-<column name="grp_rsaModExp_montMult_fu_112">rsaModExp_montMult, 0, 0, 61499, 17099</column>
+<column name="grp_montMult_fu_143">montMult, 0, 0, 61499, 17099</column>
+<column name="rsaModExp_add_205dEe_U7">rsaModExp_add_205dEe, 0, 0, 12312, 2052</column>
+<column name="rsaModExp_sub_205eOg_U8">rsaModExp_sub_205eOg, 0, 0, 12312, 2052</column>
+<column name="rsaModExp_sub_205eOg_U9">rsaModExp_sub_205eOg, 0, 0, 12312, 2052</column>
+<column name="rsaModExp_sub_205eOg_U10">rsaModExp_sub_205eOg, 0, 0, 12312, 2052</column>
+<column name="rsaModExp_sub_205eOg_U11">rsaModExp_sub_205eOg, 0, 0, 12312, 2052</column>
 </table>
 </item>
 <item name = "DSP48"><table name="" hasTotal="0">
@@ -80,30 +85,61 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="i_fu_181_p2">+, 0, 0, 12, 12, 2</column>
+<column name="i_1_fu_208_p2">+, 0, 0, 13, 2, 13</column>
+<column name="i_2_fu_289_p2">+, 0, 0, 13, 2, 13</column>
+<column name="i_fu_347_p2">+, 0, 0, 12, 12, 2</column>
+<column name="tmp_4_i1_fu_304_p2">icmp, 0, 0, 674, 2052, 2052</column>
+<column name="tmp_4_i_fu_228_p2">icmp, 0, 0, 674, 2052, 2052</column>
+<column name="tmp_5_i1_fu_318_p2">icmp, 0, 0, 674, 2052, 2052</column>
+<column name="tmp_5_i_fu_238_p2">icmp, 0, 0, 674, 2052, 2052</column>
+<column name="P_V_2_fu_218_p3">select, 0, 0, 2052, 1, 2052</column>
+<column name="P_V_5_fu_246_p3">select, 0, 0, 2052, 1, 2052</column>
+<column name="P_V_9_fu_322_p3">select, 0, 0, 2052, 1, 2052</column>
+<column name="p_036_1_P_V_2_i1_fu_308_p3">select, 0, 0, 2052, 1, 2052</column>
+<column name="p_036_1_P_V_2_i_fu_232_p3">select, 0, 0, 2052, 1, 2052</column>
 </table>
 </item>
 <item name = "Multiplexer"><table name="" hasTotal="1">
 <keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
-<column name="ap_NS_fsm">2, 8, 1, 8</column>
-<column name="grp_rsaModExp_interleaveModMult_fu_89_Y_V">2048, 3, 2048, 6144</column>
-<column name="grp_rsaModExp_montMult_fu_112_X0_V">2048, 3, 2048, 6144</column>
-<column name="grp_rsaModExp_montMult_fu_112_Y0_V">2048, 4, 2048, 8192</column>
-<column name="i_assign_reg_77">12, 2, 12, 24</column>
-<column name="xbar_V_1_fu_48">2048, 2, 2048, 4096</column>
+<column name="ap_NS_fsm">21, 26, 1, 26</column>
+<column name="grp_montMult_fu_143_X0_V">2048, 3, 2048, 6144</column>
+<column name="grp_montMult_fu_143_Y0_V">2048, 4, 2048, 8192</column>
+<column name="i_assign_1_reg_98">13, 2, 13, 26</column>
+<column name="i_assign_2_reg_120">13, 2, 13, 26</column>
+<column name="i_assign_reg_131">12, 2, 12, 24</column>
+<column name="p_Val2_1_reg_109">2052, 2, 2052, 4104</column>
+<column name="p_Val2_s_reg_87">2052, 2, 2052, 4104</column>
+<column name="xbar_V_fu_58">2048, 2, 2048, 4096</column>
 </table>
 </item>
 <item name = "Register"><table name="" hasTotal="1">
 <keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
-<column name="Mbar_V_reg_205">2048, 0, 2048, 0</column>
-<column name="ap_CS_fsm">7, 0, 7, 0</column>
-<column name="ap_reg_grp_rsaModExp_interleaveModMult_fu_89_ap_start">1, 0, 1, 0</column>
-<column name="ap_reg_grp_rsaModExp_montMult_fu_112_ap_start">1, 0, 1, 0</column>
-<column name="i_assign_reg_77">12, 0, 12, 0</column>
-<column name="reg_151">2048, 0, 2048, 0</column>
-<column name="tmp_1_reg_218">1, 0, 1, 0</column>
-<column name="xbar_V_1_fu_48">2048, 0, 2048, 0</column>
-<column name="xbar_V_2_reg_222">2048, 0, 2048, 0</column>
+<column name="Mbar_V_reg_399">2048, 0, 2048, 0</column>
+<column name="P_V_2_reg_404">2052, 0, 2052, 0</column>
+<column name="P_V_6_reg_436">2052, 0, 2052, 0</column>
+<column name="ap_CS_fsm">25, 0, 25, 0</column>
+<column name="ap_reg_grp_montMult_fu_143_ap_start">1, 0, 1, 0</column>
+<column name="i_1_reg_394">13, 0, 13, 0</column>
+<column name="i_2_reg_443">13, 0, 13, 0</column>
+<column name="i_assign_1_reg_98">13, 0, 13, 0</column>
+<column name="i_assign_2_reg_120">13, 0, 13, 0</column>
+<column name="i_assign_reg_131">12, 0, 12, 0</column>
+<column name="p_036_1_P_V_2_i1_reg_460">2052, 0, 2052, 0</column>
+<column name="p_036_1_P_V_2_i_reg_416">2052, 0, 2052, 0</column>
+<column name="p_Val2_1_reg_109">2052, 0, 2052, 0</column>
+<column name="p_Val2_s_reg_87">2052, 0, 2052, 0</column>
+<column name="r_V_reg_383">2051, 0, 2052, 1</column>
+<column name="reg_163">2048, 0, 2048, 0</column>
+<column name="tmp_3_reg_389">1, 0, 1, 0</column>
+<column name="tmp_4_i1_reg_455">1, 0, 1, 0</column>
+<column name="tmp_4_i_reg_411">1, 0, 1, 0</column>
+<column name="tmp_5_i1_reg_467">1, 0, 1, 0</column>
+<column name="tmp_5_i_reg_423">1, 0, 1, 0</column>
+<column name="tmp_9_reg_480">1, 0, 1, 0</column>
+<column name="tmp_i_5_reg_375">2048, 0, 2052, 4</column>
+<column name="tmp_i_reg_363">2048, 0, 2052, 4</column>
+<column name="xbar_V_2_reg_484">2048, 0, 2048, 0</column>
+<column name="xbar_V_fu_58">2048, 0, 2048, 0</column>
 </table>
 </item>
 </section>
@@ -129,11 +165,10 @@
 </section>
 
 <section name = "Critical Path" level="0">
-<item name = "Max Delay">19.83</item>
+<item name = "Max Delay">21.97</item>
 <item name = "Critical Path Table"><table name="Critical Path Table" hasTotal="0">
 <keys size="15">Name, Operator, Delay, Accumulated Delay, Store Source, Resource, Core, Interface, Type, Port, Array, Scope, Pointer, Callee, Phi Node</keys>
-<column name="'xbar.V', ws_rsa64bit/solution1/rsaModExp.cpp:29">call, 18.26, 18.26, -, -, -, -, -, -, -, -, -, rsaModExp_montMult, -</column>
-<column name="ws_rsa64bit/solution1/rsaModExp.cpp:29">store, 1.57, 19.83, &apos;xbar.V&apos;, ws_rsa64bit/solution1/rsaModExp.cpp:29, -, -, -, -, -, -, -, &apos;xbar.V&apos;, -, -</column>
+<column name="'tmp_4_i', ws_rsa/solution1/interleaveModMult.cpp:13->ws_rsa/solution1/rsaModExp.cpp:20">icmp, 21.97, 21.97, -, -, -, -, -, -, -, -, -, -, -</column>
 </table>
 </item>
 </section>

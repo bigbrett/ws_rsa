@@ -1,12 +1,12 @@
 #-----------------------------------------------------------
-# Webtalk v2016.2 (64-bit)
-# SW Build 1577090 on Thu Jun  2 16:32:35 MDT 2016
-# IP Build 1577682 on Fri Jun  3 12:00:54 MDT 2016
-# Start of session at: Sun Jan 15 22:13:37 2017
-# Process ID: 25870
-# Current directory: /home/brett/workspace/Vivado_WS/ws_rsa64bit/solution1/sim/vhdl
-# Command line: wbtcv -mode batch -source /home/brett/workspace/Vivado_WS/ws_rsa64bit/solution1/sim/vhdl/xsim.dir/rsaModExp/webtalk/xsim_webtalk.tcl -notrace
-# Log file: /home/brett/workspace/Vivado_WS/ws_rsa64bit/solution1/sim/vhdl/webtalk.log
-# Journal file: /home/brett/workspace/Vivado_WS/ws_rsa64bit/solution1/sim/vhdl/webtalk.jou
+# Webtalk v2016.4 (64-bit)
+# SW Build 1756540 on Mon Jan 23 19:11:19 MST 2017
+# IP Build 1755317 on Mon Jan 23 20:30:07 MST 2017
+# Start of session at: Wed Jul 12 12:16:17 2017
+# Process ID: 32669
+# Current directory: /home/brett/Thesis/Vivado_WS/ws_rsa/solution1/sim/vhdl
+# Command line: wbtcv -mode batch -source /home/brett/Thesis/Vivado_WS/ws_rsa/solution1/sim/vhdl/xsim.dir/rsaModExp/webtalk/xsim_webtalk.tcl -notrace
+# Log file: /home/brett/Thesis/Vivado_WS/ws_rsa/solution1/sim/vhdl/webtalk.log
+# Journal file: /home/brett/Thesis/Vivado_WS/ws_rsa/solution1/sim/vhdl/webtalk.jou
 #-----------------------------------------------------------
-source /home/brett/workspace/Vivado_WS/ws_rsa64bit/solution1/sim/vhdl/xsim.dir/rsaModExp/webtalk/xsim_webtalk.tcl -notrace
+source /home/brett/Thesis/Vivado_WS/ws_rsa/solution1/sim/vhdl/xsim.dir/rsaModExp/webtalk/xsim_webtalk.tcl -notrace

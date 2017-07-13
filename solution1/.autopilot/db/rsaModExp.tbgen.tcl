@@ -10,6 +10,8 @@ set isPipelined 0
 set pipeline_type none
 set FunctionProtocol ap_ctrl_hs
 set isOneStateSeq 0
+set ProfileFlag 0
+set StallSigGenFlag 0
 set C_modelName {rsaModExp}
 set C_modelType { void 0 }
 set C_modelArgList {
@@ -52,42 +54,49 @@ set NewPortList {[
  	{ "name": "out_V_ap_vld", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "outvld", "bundle":{"name": "out_V", "role": "ap_vld" }}  ]}
 
 set RtlHierarchyInfo {[
-	{"Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "5"], "CDFG" : "rsaModExp", "VariableLatency" : "1", "AlignedPipeline" : "0", "UnalignedPipeline" : "0", "ProcessNetwork" : "0", "Combinational" : "0", "ControlExist" : "1",
+	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "5", "6", "7", "8", "9"],
+		"CDFG" : "rsaModExp",
+		"VariableLatency" : "1",
+		"AlignedPipeline" : "0",
+		"UnalignedPipeline" : "0",
+		"ProcessNetwork" : "0",
+		"Combinational" : "0",
+		"ControlExist" : "1",
 		"Port" : [
-		{"Name" : "M_V", "Type" : "None", "Direction" : "I", "BlockSignal" : [], "SubConnect" : []}, 
-		{"Name" : "e_V", "Type" : "None", "Direction" : "I", "BlockSignal" : [], "SubConnect" : []}, 
-		{"Name" : "n_V", "Type" : "None", "Direction" : "I", "BlockSignal" : [], "SubConnect" : []}, 
-		{"Name" : "out_V", "Type" : "Vld", "Direction" : "O", "BlockSignal" : [], "SubConnect" : []}],
+		{"Name" : "M_V", "Type" : "None", "Direction" : "I"},
+		{"Name" : "e_V", "Type" : "None", "Direction" : "I"},
+		{"Name" : "n_V", "Type" : "None", "Direction" : "I"},
+		{"Name" : "out_V", "Type" : "Vld", "Direction" : "O"}],
 		"WaitState" : [
-		{"State" : "ap_ST_st2_fsm_1", "FSM" : "ap_CS_fsm", "SubInst" : "grp_rsaModExp_interleaveModMult_fu_89"},
-		{"State" : "ap_ST_st3_fsm_2", "FSM" : "ap_CS_fsm", "SubInst" : "grp_rsaModExp_interleaveModMult_fu_89"},
-		{"State" : "ap_ST_st5_fsm_4", "FSM" : "ap_CS_fsm", "SubInst" : "grp_rsaModExp_montMult_fu_112"},
-		{"State" : "ap_ST_st7_fsm_6", "FSM" : "ap_CS_fsm", "SubInst" : "grp_rsaModExp_montMult_fu_112"},
-		{"State" : "ap_ST_st6_fsm_5", "FSM" : "ap_CS_fsm", "SubInst" : "grp_rsaModExp_montMult_fu_112"}],
-		"SubBlockPort" : []},
-	{"Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_rsaModExp_interleaveModMult_fu_89", "Parent" : "0", "Child" : ["2", "3", "4"], "CDFG" : "rsaModExp_interleaveModMult", "VariableLatency" : "1", "AlignedPipeline" : "0", "UnalignedPipeline" : "0", "ProcessNetwork" : "0", "Combinational" : "0", "ControlExist" : "1",
+		{"State" : "ap_ST_fsm_state23", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_montMult_fu_143"},
+		{"State" : "ap_ST_fsm_state25", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_montMult_fu_143"},
+		{"State" : "ap_ST_fsm_state24", "FSM" : "ap_CS_fsm", "SubInstance" : "grp_montMult_fu_143"}]},
+	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_montMult_fu_143", "Parent" : "0", "Child" : ["2", "3", "4"],
+		"CDFG" : "montMult",
+		"VariableLatency" : "1",
+		"AlignedPipeline" : "0",
+		"UnalignedPipeline" : "0",
+		"ProcessNetwork" : "0",
+		"Combinational" : "0",
+		"ControlExist" : "1",
 		"Port" : [
-		{"Name" : "Y_V", "Type" : "None", "Direction" : "I", "BlockSignal" : [], "SubConnect" : []}, 
-		{"Name" : "M_V", "Type" : "None", "Direction" : "I", "BlockSignal" : [], "SubConnect" : []}],
-		"WaitState" : [],
-		"SubBlockPort" : []},
-	{"Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_rsaModExp_interleaveModMult_fu_89.rsaModExp_add_2052ns_2052ns_2052_4_U1", "Parent" : "1", "Child" : []},
-	{"Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_rsaModExp_interleaveModMult_fu_89.rsaModExp_sub_2052ns_2052ns_2052_4_U2", "Parent" : "1", "Child" : []},
-	{"Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_rsaModExp_interleaveModMult_fu_89.rsaModExp_sub_2052ns_2052ns_2052_4_U3", "Parent" : "1", "Child" : []},
-	{"Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_rsaModExp_montMult_fu_112", "Parent" : "0", "Child" : ["6", "7", "8"], "CDFG" : "rsaModExp_montMult", "VariableLatency" : "1", "AlignedPipeline" : "0", "UnalignedPipeline" : "0", "ProcessNetwork" : "0", "Combinational" : "0", "ControlExist" : "1",
-		"Port" : [
-		{"Name" : "X0_V", "Type" : "None", "Direction" : "I", "BlockSignal" : [], "SubConnect" : []}, 
-		{"Name" : "Y0_V", "Type" : "None", "Direction" : "I", "BlockSignal" : [], "SubConnect" : []}, 
-		{"Name" : "M0_V", "Type" : "None", "Direction" : "I", "BlockSignal" : [], "SubConnect" : []}],
-		"WaitState" : [],
-		"SubBlockPort" : []},
-	{"Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_rsaModExp_montMult_fu_112.rsaModExp_add_2050ns_2050ns_2050_4_U6", "Parent" : "5", "Child" : []},
-	{"Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_rsaModExp_montMult_fu_112.rsaModExp_sub_2048ns_2048ns_2048_4_U7", "Parent" : "5", "Child" : []},
-	{"Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_rsaModExp_montMult_fu_112.rsaModExp_add_2050ns_2050ns_2050_4_U8", "Parent" : "5", "Child" : []}]}
+		{"Name" : "X0_V", "Type" : "None", "Direction" : "I"},
+		{"Name" : "Y0_V", "Type" : "None", "Direction" : "I"},
+		{"Name" : "M0_V", "Type" : "None", "Direction" : "I"}]},
+	{"ID" : "2", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_montMult_fu_143.rsaModExp_add_205bkb_U1", "Parent" : "1"},
+	{"ID" : "3", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_montMult_fu_143.rsaModExp_sub_204cud_U2", "Parent" : "1"},
+	{"ID" : "4", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_montMult_fu_143.rsaModExp_add_205bkb_U3", "Parent" : "1"},
+	{"ID" : "5", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.rsaModExp_add_205dEe_U7", "Parent" : "0"},
+	{"ID" : "6", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.rsaModExp_sub_205eOg_U8", "Parent" : "0"},
+	{"ID" : "7", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.rsaModExp_sub_205eOg_U9", "Parent" : "0"},
+	{"ID" : "8", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.rsaModExp_sub_205eOg_U10", "Parent" : "0"},
+	{"ID" : "9", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.rsaModExp_sub_205eOg_U11", "Parent" : "0"}]}
+
+set hasDtUnsupportedChannel 0
 
 set PerformanceInfo {[
-	{"Name" : "Latency", "Min" : "33636389", "Max" : "67201061"}
-	, {"Name" : "Interval", "Min" : "33636390", "Max" : "67201062"}
+	{"Name" : "Latency", "Min" : "33628189", "Max" : "67192861"}
+	, {"Name" : "Interval", "Min" : "33628190", "Max" : "67192862"}
 ]}
 
 set Spec2ImplPortList { 

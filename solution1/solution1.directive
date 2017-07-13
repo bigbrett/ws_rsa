@@ -1,2 +1,17 @@
-<AutoPilot:ProjectResources xmlns:AutoPilot="com.autoesl.autopilot.ui.directiveView"/>
-
+<?xml version="1.0" encoding="UTF-8"?>
+<AutoPilot:ProjectResources xmlns:AutoPilot="com.autoesl.autopilot.ui.directiveView">
+  <sourceFile name="ws_rsa/solution1/rsaModExp.cpp">
+    <directive functionName="rsaModExp" label=" " functionLabel=" ">
+      <pragma name="ALLOCATION">
+        <option name="instances" value="interleaveModMult" positionalBoolean="4"/>
+        <option name="limit" value="1"/>
+        <option name="function" value=" " positionalBoolean="type"/>
+      </pragma>
+      <pragma name="ALLOCATION">
+        <option name="instances" value="montMult" positionalBoolean="4"/>
+        <option name="limit" value="1"/>
+        <option name="function" value=" " positionalBoolean="type"/>
+      </pragma>
+    </directive>
+  </sourceFile>
+</AutoPilot:ProjectResources>

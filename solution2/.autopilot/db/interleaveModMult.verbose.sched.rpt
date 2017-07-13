@@ -1,0 +1,324 @@
+
+
+================================================================
+== Vivado HLS Report for 'interleaveModMult'
+================================================================
+* Date:           Thu Jul 13 08:01:29 2017
+
+* Version:        2016.4 (Build 1756540 on Mon Jan 23 19:31:01 MST 2017)
+* Project:        ws_rsa
+* Solution:       solution2
+* Product family: zynq
+* Target device:  xc7z020clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  25.00|     21.97|        3.12|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-------+-------+-------+-------+---------+
+    |    Latency    |    Interval   | Pipeline|
+    |  min  |  max  |  min  |  max  |   Type  |
+    +-------+-------+-------+-------+---------+
+    |  24589|  24589|  24589|  24589|   none  |
+    +-------+-------+-------+-------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+-------+-------+----------+-----------+-----------+------+----------+
+        |          |    Latency    | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name|  min  |  max  |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------+-------+-------+----------+-----------+-----------+------+----------+
+        |- Loop 1  |  24588|  24588|        12|          -|          -|  2049|    no    |
+        +----------+-------+-------+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 13
+* Pipeline: 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / (!tmp_10)
+3 --> 
+	4  / true
+4 --> 
+	5  / true
+5 --> 
+	6  / true
+6 --> 
+	7  / true
+7 --> 
+	8  / true
+8 --> 
+	9  / true
+9 --> 
+	10  / true
+10 --> 
+	11  / true
+11 --> 
+	12  / true
+12 --> 
+	13  / true
+13 --> 
+	2  / true
+* FSM state operations: 
+
+ <State 1>: 1.57ns
+ST_1: M_V_read (3)  [1/1] 0.00ns
+:0  %M_V_read = call i2048 @_ssdm_op_Read.ap_auto.i2048(i2048 %M_V)
+
+ST_1: Y_V_read (4)  [1/1] 0.00ns
+:1  %Y_V_read = call i2048 @_ssdm_op_Read.ap_auto.i2048(i2048 %Y_V)
+
+ST_1: tmp (5)  [1/1] 0.00ns  loc: ws_rsa/solution1/interleaveModMult.cpp:13
+:2  %tmp = zext i2048 %M_V_read to i2052
+
+ST_1: tmp_s (6)  [1/1] 0.00ns  loc: ws_rsa/solution1/interleaveModMult.cpp:12
+:3  %tmp_s = zext i2048 %Y_V_read to i2052
+
+ST_1: StgValue_18 (7)  [1/1] 1.57ns  loc: ws_rsa/solution1/interleaveModMult.cpp:8
+:4  br label %1
+
+
+ <State 2>: 17.01ns
+ST_2: p_Val2_s (9)  [1/1] 0.00ns
+:0  %p_Val2_s = phi i2052 [ 0, %0 ], [ %P_V_5, %_ZlsILi2052ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit ]
+
+ST_2: i_assign (10)  [1/1] 0.00ns
+:1  %i_assign = phi i13 [ 2048, %0 ], [ %i, %_ZlsILi2052ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit ]
+
+ST_2: i_assign_cast (11)  [1/1] 0.00ns  loc: ws_rsa/solution1/interleaveModMult.cpp:8
+:2  %i_assign_cast = sext i13 %i_assign to i32
+
+ST_2: tmp_10 (12)  [1/1] 0.00ns  loc: ws_rsa/solution1/interleaveModMult.cpp:8
+:3  %tmp_10 = call i1 @_ssdm_op_BitSelect.i1.i13.i32(i13 %i_assign, i32 12)
+
+ST_2: empty (13)  [1/1] 0.00ns
+:4  %empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 2049, i64 2049, i64 2049)
+
+ST_2: StgValue_24 (14)  [1/1] 0.00ns  loc: ws_rsa/solution1/interleaveModMult.cpp:8
+:5  br i1 %tmp_10, label %2, label %_ZlsILi2052ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit
+
+ST_2: r_V (16)  [1/1] 0.00ns  loc: ws_rsa/solution1/interleaveModMult.cpp:10
+_ZlsILi2052ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit:0  %r_V = shl i2052 %p_Val2_s, 1
+
+ST_2: tmp_13 (17)  [1/1] 0.00ns  loc: ws_rsa/solution1/interleaveModMult.cpp:11
+_ZlsILi2052ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit:1  %tmp_13 = call i1 @_ssdm_op_BitSelect.i1.i2049.i32(i2049 -32317006071311007300714876688669951960444102669715484032130345427524655138867890893197201411522913463688717960921898019494119559150490921095088152386448283120630877367300996091750197750389652106796057638384067568276792218642619756161838094338476170470581645852036305042887575891541065808607552399123930385521914333389668342420684974786564569494856176035326322058077805659331026192708460314150258592864177116725943603718461857357598351152301645904403697613233287231227125684710820209725157101726931323469678542580656697935045997268352998638215525166389437335543602135433229604645318478604952148193555853611059596230656, i32 %i_assign_cast)
+
+ST_2: P_V_1 (18)  [4/4] 17.01ns  loc: ws_rsa/solution1/interleaveModMult.cpp:12
+_ZlsILi2052ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit:2  %P_V_1 = add i2052 %r_V, %tmp_s
+
+ST_2: i (26)  [1/1] 1.96ns  loc: ws_rsa/solution1/interleaveModMult.cpp:8
+_ZlsILi2052ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit:10  %i = add i13 -1, %i_assign
+
+ST_2: tmp_11 (29)  [1/1] 0.00ns  loc: ws_rsa/solution1/interleaveModMult.cpp:18
+:0  %tmp_11 = trunc i2052 %p_Val2_s to i2048
+
+ST_2: StgValue_30 (30)  [1/1] 0.00ns  loc: ws_rsa/solution1/interleaveModMult.cpp:19
+:1  ret i2048 %tmp_11
+
+
+ <State 3>: 17.01ns
+ST_3: P_V_1 (18)  [3/4] 17.01ns  loc: ws_rsa/solution1/interleaveModMult.cpp:12
+_ZlsILi2052ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit:2  %P_V_1 = add i2052 %r_V, %tmp_s
+
+
+ <State 4>: 17.01ns
+ST_4: P_V_1 (18)  [2/4] 17.01ns  loc: ws_rsa/solution1/interleaveModMult.cpp:12
+_ZlsILi2052ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit:2  %P_V_1 = add i2052 %r_V, %tmp_s
+
+
+ <State 5>: 18.38ns
+ST_5: P_V_1 (18)  [1/4] 17.01ns  loc: ws_rsa/solution1/interleaveModMult.cpp:12
+_ZlsILi2052ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit:2  %P_V_1 = add i2052 %r_V, %tmp_s
+
+ST_5: P_V_4 (19)  [1/1] 1.37ns  loc: ws_rsa/solution1/interleaveModMult.cpp:11
+_ZlsILi2052ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit:3  %P_V_4 = select i1 %tmp_13, i2052 %P_V_1, i2052 %r_V
+
+
+ <State 6>: 17.01ns
+ST_6: P_V_2 (21)  [4/4] 17.01ns  loc: ws_rsa/solution1/interleaveModMult.cpp:14
+_ZlsILi2052ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit:5  %P_V_2 = sub i2052 %P_V_4, %tmp
+
+
+ <State 7>: 17.01ns
+ST_7: P_V_2 (21)  [3/4] 17.01ns  loc: ws_rsa/solution1/interleaveModMult.cpp:14
+_ZlsILi2052ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit:5  %P_V_2 = sub i2052 %P_V_4, %tmp
+
+
+ <State 8>: 21.97ns
+ST_8: tmp_4 (20)  [1/1] 21.97ns  loc: ws_rsa/solution1/interleaveModMult.cpp:13
+_ZlsILi2052ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit:4  %tmp_4 = icmp ult i2052 %P_V_4, %tmp
+
+ST_8: P_V_2 (21)  [2/4] 17.01ns  loc: ws_rsa/solution1/interleaveModMult.cpp:14
+_ZlsILi2052ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit:5  %P_V_2 = sub i2052 %P_V_4, %tmp
+
+
+ <State 9>: 18.38ns
+ST_9: P_V_2 (21)  [1/4] 17.01ns  loc: ws_rsa/solution1/interleaveModMult.cpp:14
+_ZlsILi2052ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit:5  %P_V_2 = sub i2052 %P_V_4, %tmp
+
+ST_9: p_036_1_P_V_2 (22)  [1/1] 1.37ns  loc: ws_rsa/solution1/interleaveModMult.cpp:13
+_ZlsILi2052ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit:6  %p_036_1_P_V_2 = select i1 %tmp_4, i2052 %P_V_4, i2052 %P_V_2
+
+
+ <State 10>: 21.97ns
+ST_10: tmp_5 (23)  [1/1] 21.97ns  loc: ws_rsa/solution1/interleaveModMult.cpp:15
+_ZlsILi2052ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit:7  %tmp_5 = icmp ult i2052 %p_036_1_P_V_2, %tmp
+
+ST_10: P_V_3 (24)  [4/4] 17.01ns  loc: ws_rsa/solution1/interleaveModMult.cpp:16
+_ZlsILi2052ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit:8  %P_V_3 = sub i2052 %p_036_1_P_V_2, %tmp
+
+
+ <State 11>: 17.01ns
+ST_11: P_V_3 (24)  [3/4] 17.01ns  loc: ws_rsa/solution1/interleaveModMult.cpp:16
+_ZlsILi2052ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit:8  %P_V_3 = sub i2052 %p_036_1_P_V_2, %tmp
+
+
+ <State 12>: 17.01ns
+ST_12: P_V_3 (24)  [2/4] 17.01ns  loc: ws_rsa/solution1/interleaveModMult.cpp:16
+_ZlsILi2052ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit:8  %P_V_3 = sub i2052 %p_036_1_P_V_2, %tmp
+
+
+ <State 13>: 18.38ns
+ST_13: P_V_3 (24)  [1/4] 17.01ns  loc: ws_rsa/solution1/interleaveModMult.cpp:16
+_ZlsILi2052ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit:8  %P_V_3 = sub i2052 %p_036_1_P_V_2, %tmp
+
+ST_13: P_V_5 (25)  [1/1] 1.37ns  loc: ws_rsa/solution1/interleaveModMult.cpp:15
+_ZlsILi2052ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit:9  %P_V_5 = select i1 %tmp_5, i2052 %p_036_1_P_V_2, i2052 %P_V_3
+
+ST_13: StgValue_47 (27)  [1/1] 0.00ns  loc: ws_rsa/solution1/interleaveModMult.cpp:8
+_ZlsILi2052ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit:11  br label %1
+
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 25ns, clock uncertainty: 3.12ns.
+
+ <State 1>: 1.57ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('P.V') with incoming values : ('P.V', ws_rsa/solution1/interleaveModMult.cpp:15) [9]  (1.57 ns)
+
+ <State 2>: 17ns
+The critical path consists of the following:
+	'phi' operation ('P.V') with incoming values : ('P.V', ws_rsa/solution1/interleaveModMult.cpp:15) [9]  (0 ns)
+	'shl' operation ('r.V', ws_rsa/solution1/interleaveModMult.cpp:10) [16]  (0 ns)
+	'add' operation ('P.V', ws_rsa/solution1/interleaveModMult.cpp:12) [18]  (17 ns)
+
+ <State 3>: 17ns
+The critical path consists of the following:
+	'add' operation ('P.V', ws_rsa/solution1/interleaveModMult.cpp:12) [18]  (17 ns)
+
+ <State 4>: 17ns
+The critical path consists of the following:
+	'add' operation ('P.V', ws_rsa/solution1/interleaveModMult.cpp:12) [18]  (17 ns)
+
+ <State 5>: 18.4ns
+The critical path consists of the following:
+	'add' operation ('P.V', ws_rsa/solution1/interleaveModMult.cpp:12) [18]  (17 ns)
+	'select' operation ('P.V', ws_rsa/solution1/interleaveModMult.cpp:11) [19]  (1.37 ns)
+
+ <State 6>: 17ns
+The critical path consists of the following:
+	'sub' operation ('P.V', ws_rsa/solution1/interleaveModMult.cpp:14) [21]  (17 ns)
+
+ <State 7>: 17ns
+The critical path consists of the following:
+	'sub' operation ('P.V', ws_rsa/solution1/interleaveModMult.cpp:14) [21]  (17 ns)
+
+ <State 8>: 22ns
+The critical path consists of the following:
+	'icmp' operation ('tmp_4', ws_rsa/solution1/interleaveModMult.cpp:13) [20]  (22 ns)
+
+ <State 9>: 18.4ns
+The critical path consists of the following:
+	'sub' operation ('P.V', ws_rsa/solution1/interleaveModMult.cpp:14) [21]  (17 ns)
+	'select' operation ('p_036_1_P_V_2', ws_rsa/solution1/interleaveModMult.cpp:13) [22]  (1.37 ns)
+
+ <State 10>: 22ns
+The critical path consists of the following:
+	'icmp' operation ('tmp_5', ws_rsa/solution1/interleaveModMult.cpp:15) [23]  (22 ns)
+
+ <State 11>: 17ns
+The critical path consists of the following:
+	'sub' operation ('P.V', ws_rsa/solution1/interleaveModMult.cpp:16) [24]  (17 ns)
+
+ <State 12>: 17ns
+The critical path consists of the following:
+	'sub' operation ('P.V', ws_rsa/solution1/interleaveModMult.cpp:16) [24]  (17 ns)
+
+ <State 13>: 18.4ns
+The critical path consists of the following:
+	'sub' operation ('P.V', ws_rsa/solution1/interleaveModMult.cpp:16) [24]  (17 ns)
+	'select' operation ('P.V', ws_rsa/solution1/interleaveModMult.cpp:15) [25]  (1.37 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

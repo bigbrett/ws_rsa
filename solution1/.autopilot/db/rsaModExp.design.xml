@@ -5,14 +5,9 @@
 <ModuleName>rsaModExp</ModuleName>
 <InstancesList>
 <Instance>
-<InstName>grp_rsaModExp_interleaveModMult_fu_89</InstName>
-<ModuleName>rsaModExp_interleaveModMult</ModuleName>
-<ID>89</ID>
-</Instance>
-<Instance>
-<InstName>grp_rsaModExp_montMult_fu_112</InstName>
-<ModuleName>rsaModExp_montMult</ModuleName>
-<ID>112</ID>
+<InstName>grp_montMult_fu_143</InstName>
+<ModuleName>montMult</ModuleName>
+<ID>143</ID>
 </Instance>
 </InstancesList>
 </TopModule>
@@ -20,142 +15,7 @@
 
 <ModuleInformation>
 <Module>
-<Name>rsaModExp_interleaveModMult</Name>
-<PerformanceEstimates>
-<SummaryOfTimingAnalysis>
-<TargetClockPeriod>25.00</TargetClockPeriod>
-<ClockUncertainty>3.12</ClockUncertainty>
-<EstimatedClockPeriod>21.97</EstimatedClockPeriod>
-</SummaryOfTimingAnalysis>
-<SummaryOfOverallLatency>
-<Best-caseLatency>24590</Best-caseLatency>
-<Average-caseLatency>24590</Average-caseLatency>
-<Worst-caseLatency>24590</Worst-caseLatency>
-<PipelineInitiationInterval>24590</PipelineInitiationInterval>
-<PipelineType>none</PipelineType>
-</SummaryOfOverallLatency>
-<SummaryOfLoopLatency>
-<Loop1>
-<Name>Loop 1</Name>
-<TripCount>2049</TripCount>
-<Latency>24588</Latency>
-<IterationLatency>12</IterationLatency>
-<PipelineDepth>12</PipelineDepth>
-</Loop1>
-</SummaryOfLoopLatency>
-</PerformanceEstimates>
-<AreaEstimates>
-<Resources>
-<FF>53377</FF>
-<LUT>17792</LUT>
-<BRAM_18K>0</BRAM_18K>
-<DSP48E>0</DSP48E>
-</Resources>
-</AreaEstimates>
-<InterfaceSummary>
-<RtlPorts>
-<name>ap_clk</name>
-<Object>rsaModExp_interleaveModMult</Object>
-<Type>return value</Type>
-<Scope></Scope>
-<IOProtocol>ap_ctrl_hs</IOProtocol>
-<IOConfig></IOConfig>
-<Dir>in</Dir>
-<Bits>1</Bits>
-<Attribute>control</Attribute>
-</RtlPorts>
-<RtlPorts>
-<name>ap_rst</name>
-<Object>rsaModExp_interleaveModMult</Object>
-<Type>return value</Type>
-<Scope></Scope>
-<IOProtocol>ap_ctrl_hs</IOProtocol>
-<IOConfig></IOConfig>
-<Dir>in</Dir>
-<Bits>1</Bits>
-<Attribute>control</Attribute>
-</RtlPorts>
-<RtlPorts>
-<name>ap_start</name>
-<Object>rsaModExp_interleaveModMult</Object>
-<Type>return value</Type>
-<Scope></Scope>
-<IOProtocol>ap_ctrl_hs</IOProtocol>
-<IOConfig></IOConfig>
-<Dir>in</Dir>
-<Bits>1</Bits>
-<Attribute>control</Attribute>
-</RtlPorts>
-<RtlPorts>
-<name>ap_done</name>
-<Object>rsaModExp_interleaveModMult</Object>
-<Type>return value</Type>
-<Scope></Scope>
-<IOProtocol>ap_ctrl_hs</IOProtocol>
-<IOConfig></IOConfig>
-<Dir>out</Dir>
-<Bits>1</Bits>
-<Attribute>control</Attribute>
-</RtlPorts>
-<RtlPorts>
-<name>ap_idle</name>
-<Object>rsaModExp_interleaveModMult</Object>
-<Type>return value</Type>
-<Scope></Scope>
-<IOProtocol>ap_ctrl_hs</IOProtocol>
-<IOConfig></IOConfig>
-<Dir>out</Dir>
-<Bits>1</Bits>
-<Attribute>control</Attribute>
-</RtlPorts>
-<RtlPorts>
-<name>ap_ready</name>
-<Object>rsaModExp_interleaveModMult</Object>
-<Type>return value</Type>
-<Scope></Scope>
-<IOProtocol>ap_ctrl_hs</IOProtocol>
-<IOConfig></IOConfig>
-<Dir>out</Dir>
-<Bits>1</Bits>
-<Attribute>control</Attribute>
-</RtlPorts>
-<RtlPorts>
-<name>ap_return</name>
-<Object>rsaModExp_interleaveModMult</Object>
-<Type>return value</Type>
-<Scope></Scope>
-<IOProtocol>ap_ctrl_hs</IOProtocol>
-<IOConfig></IOConfig>
-<Dir>out</Dir>
-<Bits>2048</Bits>
-<Attribute>data</Attribute>
-</RtlPorts>
-<RtlPorts>
-<name>Y_V</name>
-<Object>Y_V</Object>
-<Type>scalar</Type>
-<Scope></Scope>
-<IOProtocol>ap_none</IOProtocol>
-<IOConfig></IOConfig>
-<Dir>in</Dir>
-<Bits>2048</Bits>
-<Attribute>data</Attribute>
-</RtlPorts>
-<RtlPorts>
-<name>M_V</name>
-<Object>M_V</Object>
-<Type>scalar</Type>
-<Scope></Scope>
-<IOProtocol>ap_none</IOProtocol>
-<IOConfig></IOConfig>
-<Dir>in</Dir>
-<Bits>2048</Bits>
-<Attribute>data</Attribute>
-</RtlPorts>
-</InterfaceSummary>
-</Module>
-<Module>
-<Name>rsaModExp_montMult</Name>
+<Name>montMult</Name>
 <PerformanceEstimates>
 <SummaryOfTimingAnalysis>
 <TargetClockPeriod>25.00</TargetClockPeriod>
@@ -190,7 +50,7 @@
 <InterfaceSummary>
 <RtlPorts>
 <name>ap_clk</name>
-<Object>rsaModExp_montMult</Object>
+<Object>montMult</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -201,7 +61,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_rst</name>
-<Object>rsaModExp_montMult</Object>
+<Object>montMult</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -212,7 +72,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_start</name>
-<Object>rsaModExp_montMult</Object>
+<Object>montMult</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -223,7 +83,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_done</name>
-<Object>rsaModExp_montMult</Object>
+<Object>montMult</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -234,7 +94,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_idle</name>
-<Object>rsaModExp_montMult</Object>
+<Object>montMult</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -245,7 +105,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_ready</name>
-<Object>rsaModExp_montMult</Object>
+<Object>montMult</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -256,7 +116,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_return</name>
-<Object>rsaModExp_montMult</Object>
+<Object>montMult</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -309,15 +169,29 @@
 <EstimatedClockPeriod>21.97</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
-<Best-caseLatency>33636389</Best-caseLatency>
-<Average-caseLatency>50419749</Average-caseLatency>
-<Worst-caseLatency>67201061</Worst-caseLatency>
-<PipelineInitiationInterval>33636390 ~ 67201062</PipelineInitiationInterval>
+<Best-caseLatency>33628189</Best-caseLatency>
+<Average-caseLatency>50411549</Average-caseLatency>
+<Worst-caseLatency>67192861</Worst-caseLatency>
+<PipelineInitiationInterval>33628190 ~ 67192862</PipelineInitiationInterval>
 <PipelineType>none</PipelineType>
 </SummaryOfOverallLatency>
 <SummaryOfLoopLatency>
 <Loop1>
 <Name>Loop 1</Name>
+<TripCount>2049</TripCount>
+<Latency>24588</Latency>
+<IterationLatency>12</IterationLatency>
+<PipelineDepth>12</PipelineDepth>
+</Loop1>
+<Loop2>
+<Name>Loop 2</Name>
+<TripCount>2049</TripCount>
+<Latency>16392</Latency>
+<IterationLatency>8</IterationLatency>
+<PipelineDepth>8</PipelineDepth>
+</Loop2>
+<Loop3>
+<Name>Loop 3</Name>
 <TripCount>2048</TripCount>
 <Latency>33570816 ~ 67135488</Latency>
 <IterationLatency>
@@ -327,13 +201,13 @@
 </range>
 </IterationLatency>
 <PipelineDepth>16392 ~ 32781</PipelineDepth>
-</Loop1>
+</Loop3>
 </SummaryOfLoopLatency>
 </PerformanceEstimates>
 <AreaEstimates>
 <Resources>
-<FF>123090</FF>
-<LUT>43109</LUT>
+<FF>149806</FF>
+<LUT>50660</LUT>
 <BRAM_18K>0</BRAM_18K>
 <DSP48E>0</DSP48E>
 </Resources>

@@ -1,7 +1,6 @@
-rsaModExp_add_2052ns_2052ns_2052_4
-rsaModExp_sub_2052ns_2052ns_2052_4
-rsaModExp_add_2050ns_2050ns_2050_4
-rsaModExp_sub_2048ns_2048ns_2048_4
-rsaModExp_interleaveModMult
-rsaModExp_montMult
+rsaModExp_add_205bkb
+rsaModExp_sub_204cud
+rsaModExp_add_205dEe
+rsaModExp_sub_205eOg
+montMult
 rsaModExp

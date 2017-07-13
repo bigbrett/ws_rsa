@@ -1,0 +1,145 @@
+<profile>
+
+<section name = "Vivado HLS Report for 'rsaModExp'" level="0">
+<item name = "Date">Thu Jul 13 08:01:29 2017
+</item>
+<item name = "Version">2016.4 (Build 1756540 on Mon Jan 23 19:31:01 MST 2017)</item>
+<item name = "Project">ws_rsa</item>
+<item name = "Solution">solution2</item>
+<item name = "Product family">zynq</item>
+<item name = "Target device">xc7z020clg484-1</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing (ns)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">25.00, 21.97, 3.12</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency (clock cycles)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">, min, max, min, max, Type</keys>
+<column name="">33636389, 67201061, 33636390, 67201062, none</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="7">Instance, Module, min, max, min, max, Type</keys>
+<column name="grp_interleaveModMult_fu_95">interleaveModMult, 24590, 24590, 24590, 24590, none</column>
+<column name="grp_montMult_fu_118">montMult, 16389, 16389, 16389, 16389, none</column>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+<column name="- Loop 1">33570816, 67135488, 16392 ~ 32781, -, -, 2048, no</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Utilization Estimates" level="0">
+<item name = "Summary"><table name="" hasTotal="1">
+<keys size="5">Name, BRAM_18K, DSP48E, FF, LUT</keys>
+<column name="DSP">-, -, -, -</column>
+<column name="Expression">-, -, 0, 12</column>
+<column name="FIFO">-, -, -, -</column>
+<column name="Instance">0, -, 123128, 51315</column>
+<column name="Memory">-, -, -, -</column>
+<column name="Multiplexer">-, -, -, 8206</column>
+<column name="Register">-, -, 14358, -</column>
+<specialColumn name="Available">280, 220, 106400, 53200</specialColumn>
+<specialColumn name="Utilization (%)">0, 0, 129, 111</specialColumn>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="1">
+<keys size="6">Instance, Module, BRAM_18K, DSP48E, FF, LUT</keys>
+<column name="grp_interleaveModMult_fu_95">interleaveModMult, 0, 0, 53377, 17792</column>
+<column name="grp_montMult_fu_118">montMult, 0, 0, 61499, 17099</column>
+<column name="rsaModExp_AXILiteS_s_axi_U">rsaModExp_AXILiteS_s_axi, 0, 0, 8252, 16424</column>
+</table>
+</item>
+<item name = "DSP48"><table name="" hasTotal="0">
+<keys size="3">Instance, Module, Expression</keys>
+</table>
+</item>
+<item name = "Memory"><table name="" hasTotal="1">
+<keys size="9">Memory, Module, BRAM_18K, FF, LUT, Words, Bits, Banks, W*Bits*Banks</keys>
+</table>
+</item>
+<item name = "FIFO"><table name="" hasTotal="1">
+<keys size="7">Name, BRAM_18K, FF, LUT, Depth, Bits, Size:D*B</keys>
+</table>
+</item>
+<item name = "Expression"><table name="" hasTotal="1">
+<keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
+<column name="i_fu_187_p2">+, 0, 0, 12, 12, 2</column>
+</table>
+</item>
+<item name = "Multiplexer"><table name="" hasTotal="1">
+<keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
+<column name="ap_NS_fsm">2, 8, 1, 8</column>
+<column name="grp_interleaveModMult_fu_95_Y_V">2048, 3, 2048, 6144</column>
+<column name="grp_montMult_fu_118_X0_V">2048, 3, 2048, 6144</column>
+<column name="grp_montMult_fu_118_Y0_V">2048, 4, 2048, 8192</column>
+<column name="i_assign_reg_83">12, 2, 12, 24</column>
+<column name="xbar_V_1_fu_54">2048, 2, 2048, 4096</column>
+</table>
+</item>
+<item name = "Register"><table name="" hasTotal="1">
+<keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
+<column name="M_V_read_reg_211">2048, 0, 2048, 0</column>
+<column name="Mbar_V_reg_216">2048, 0, 2048, 0</column>
+<column name="ap_CS_fsm">7, 0, 7, 0</column>
+<column name="ap_reg_grp_interleaveModMult_fu_95_ap_start">1, 0, 1, 0</column>
+<column name="ap_reg_grp_montMult_fu_118_ap_start">1, 0, 1, 0</column>
+<column name="e_V_read_reg_206">2048, 0, 2048, 0</column>
+<column name="i_assign_reg_83">12, 0, 12, 0</column>
+<column name="n_V_read_reg_200">2048, 0, 2048, 0</column>
+<column name="reg_157">2048, 0, 2048, 0</column>
+<column name="tmp_1_reg_224">1, 0, 1, 0</column>
+<column name="xbar_V_1_fu_54">2048, 0, 2048, 0</column>
+<column name="xbar_V_2_reg_228">2048, 0, 2048, 0</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Interface" level="0">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">RTL Ports, Dir, Bits, Protocol, Source Object, C Type</keys>
+<column name="s_axi_AXILiteS_AWVALID">in, 1, s_axi, AXILiteS, pointer</column>
+<column name="s_axi_AXILiteS_AWREADY">out, 1, s_axi, AXILiteS, pointer</column>
+<column name="s_axi_AXILiteS_AWADDR">in, 11, s_axi, AXILiteS, pointer</column>
+<column name="s_axi_AXILiteS_WVALID">in, 1, s_axi, AXILiteS, pointer</column>
+<column name="s_axi_AXILiteS_WREADY">out, 1, s_axi, AXILiteS, pointer</column>
+<column name="s_axi_AXILiteS_WDATA">in, 32, s_axi, AXILiteS, pointer</column>
+<column name="s_axi_AXILiteS_WSTRB">in, 4, s_axi, AXILiteS, pointer</column>
+<column name="s_axi_AXILiteS_ARVALID">in, 1, s_axi, AXILiteS, pointer</column>
+<column name="s_axi_AXILiteS_ARREADY">out, 1, s_axi, AXILiteS, pointer</column>
+<column name="s_axi_AXILiteS_ARADDR">in, 11, s_axi, AXILiteS, pointer</column>
+<column name="s_axi_AXILiteS_RVALID">out, 1, s_axi, AXILiteS, pointer</column>
+<column name="s_axi_AXILiteS_RREADY">in, 1, s_axi, AXILiteS, pointer</column>
+<column name="s_axi_AXILiteS_RDATA">out, 32, s_axi, AXILiteS, pointer</column>
+<column name="s_axi_AXILiteS_RRESP">out, 2, s_axi, AXILiteS, pointer</column>
+<column name="s_axi_AXILiteS_BVALID">out, 1, s_axi, AXILiteS, pointer</column>
+<column name="s_axi_AXILiteS_BREADY">in, 1, s_axi, AXILiteS, pointer</column>
+<column name="s_axi_AXILiteS_BRESP">out, 2, s_axi, AXILiteS, pointer</column>
+<column name="ap_clk">in, 1, ap_ctrl_hs, rsaModExp, return value</column>
+<column name="ap_rst_n">in, 1, ap_ctrl_hs, rsaModExp, return value</column>
+<column name="interrupt">out, 1, ap_ctrl_hs, rsaModExp, return value</column>
+</table>
+</item>
+</section>
+</profile>

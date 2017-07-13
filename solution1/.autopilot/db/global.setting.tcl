@@ -41,15 +41,16 @@ set SCTraceFileName "mytrace"
 set SCTraceFileFormat "vcd"
 set SCTraceOption "all"
 set TargetInfo "xc7z020:clg484:-1"
-set SourceFiles {sc {} c {ModExp.cpp interleaveModMult.cpp montMult.cpp rsaModExp.cpp}}
-set SourceFlags {sc {} c {{} {} {} {}}}
-set DirectiveFile {/home/brett/workspace/Vivado_WS/ws_rsa64bit/solution1/solution1.directive}
+set SourceFiles {sc {} c {rsaModExp.cpp montMult.cpp interleaveModMult.cpp}}
+set SourceFlags {sc {} c {{} {} {}}}
+set DirectiveFile {/home/brett/Thesis/Vivado_WS/ws_rsa/solution1/solution1.directive}
 set TBFiles {verilog rsa_tb.cpp bc rsa_tb.cpp vhdl rsa_tb.cpp sc rsa_tb.cpp cas rsa_tb.cpp c {}}
 set SpecLanguage "C"
 set TVInFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}
 set TVOutFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}
 set TBTops {verilog {} bc {} vhdl {} sc {} cas {} c {}}
 set TBInstNames {verilog {} bc {} vhdl {} sc {} cas {} c {}}
+set XDCFiles {}
 set ExtraGlobalOptions {"area_timing" 1 "clock_gate" 1 "impl_flow" map "power_gate" 0}
 set PlatformFiles {{DefaultPlatform {xilinx/zynq/zynq xilinx/zynq/zynq_fpv6}}}
 set DefaultPlatform "DefaultPlatform"

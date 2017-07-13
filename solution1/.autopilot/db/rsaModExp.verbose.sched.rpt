@@ -3,10 +3,10 @@
 ================================================================
 == Vivado HLS Report for 'rsaModExp'
 ================================================================
-* Date:           Sun Jan 15 23:34:25 2017
+* Date:           Wed Jul 12 11:25:49 2017
 
-* Version:        2016.2 (Build 1577090 on Thu Jun 02 16:59:10 MDT 2016)
-* Project:        ws_rsa64bit
+* Version:        2016.4 (Build 1756540 on Mon Jan 23 19:31:01 MST 2017)
+* Project:        ws_rsa
 * Solution:       solution1
 * Product family: zynq
 * Target device:  xc7z020clg484-1
@@ -29,7 +29,7 @@
     |       Latency       |       Interval      | Pipeline|
     |    min   |    max   |    min   |    max   |   Type  |
     +----------+----------+----------+----------+---------+
-    |  33636389|  67201061|  33636390|  67201062|   none  |
+    |  33628189|  67192861|  33628190|  67192862|   none  |
     +----------+----------+----------+----------+---------+
 
     + Detail: 
@@ -41,7 +41,9 @@
         |          |       Latency       |   Iteration   |  Initiation Interval  | Trip |          |
         | Loop Name|    min   |    max   |    Latency    |  achieved |   target  | Count| Pipelined|
         +----------+----------+----------+---------------+-----------+-----------+------+----------+
-        |- Loop 1  |  33570816|  67135488| 16392 ~ 32781 |          -|          -|  2048|    no    |
+        |- Loop 1  |     24588|     24588|             12|          -|          -|  2049|    no    |
+        |- Loop 2  |     16392|     16392|              8|          -|          -|  2049|    no    |
+        |- Loop 3  |  33570816|  67135488| 16392 ~ 32781 |          -|          -|  2048|    no    |
         +----------+----------+----------+---------------+-----------+-----------+------+----------+
 
 ============================================================
@@ -70,7 +72,7 @@ IsGatedGlobalClock: 0
 ============================================================
 + Verbose Summary: Schedule
 ============================================================
-* Number of FSM states: 7
+* Number of FSM states: 25
 * Pipeline: 0
 * Dataflow Pipeline: 0
 
@@ -78,150 +80,374 @@ IsGatedGlobalClock: 0
 1 --> 
 	2  / true
 2 --> 
-	3  / true
+	3  / (!tmp)
+	14  / (tmp)
 3 --> 
 	4  / true
 4 --> 
-	5  / (!tmp)
-	7  / (tmp)
+	5  / true
 5 --> 
 	6  / true
 6 --> 
-	4  / true
+	7  / true
 7 --> 
+	8  / true
+8 --> 
+	9  / true
+9 --> 
+	10  / true
+10 --> 
+	11  / true
+11 --> 
+	12  / true
+12 --> 
+	13  / true
+13 --> 
+	2  / true
+14 --> 
+	15  / (!tmp_4)
+	22  / (tmp_4)
+15 --> 
+	16  / true
+16 --> 
+	17  / true
+17 --> 
+	18  / true
+18 --> 
+	19  / true
+19 --> 
+	20  / true
+20 --> 
+	21  / true
+21 --> 
+	14  / true
+22 --> 
+	23  / (!tmp_8)
+	25  / (tmp_8)
+23 --> 
+	24  / true
+24 --> 
+	22  / true
+25 --> 
 * FSM state operations: 
 
- <State 1>: 1.04ns
-ST_1: xbar_V_1 [1/1] 0.00ns
-:0  %xbar_V_1 = alloca i2048
+ <State 1>: 1.57ns
+ST_1: StgValue_26 (5)  [1/1] 0.00ns
+:0  call void (...)* @_ssdm_op_SpecBitsMap(i2048 %M_V), !map !80
 
-ST_1: n_V_read [1/1] 0.00ns
-:6  %n_V_read = call i2048 @_ssdm_op_Read.ap_auto.i2048(i2048 %n_V)
+ST_1: StgValue_27 (6)  [1/1] 0.00ns
+:1  call void (...)* @_ssdm_op_SpecBitsMap(i2048 %e_V), !map !86
 
-ST_1: M_V_read [1/1] 0.00ns
-:8  %M_V_read = call i2048 @_ssdm_op_Read.ap_auto.i2048(i2048 %M_V)
+ST_1: StgValue_28 (7)  [1/1] 0.00ns
+:2  call void (...)* @_ssdm_op_SpecBitsMap(i2048 %n_V), !map !90
 
-ST_1: Mbar_V [2/2] 1.04ns
-:11  %Mbar_V = call fastcc i2048 @rsaModExp_interleaveModMult(i2048 %M_V_read, i2048 %n_V_read)
+ST_1: StgValue_29 (8)  [1/1] 0.00ns
+:3  call void (...)* @_ssdm_op_SpecBitsMap(i2048* %out_V), !map !94
 
+ST_1: StgValue_30 (9)  [1/1] 0.00ns
+:4  call void (...)* @_ssdm_op_SpecTopModule([10 x i8]* @rsaModExp_str) nounwind
 
- <State 2>: 1.04ns
-ST_2: Mbar_V [1/2] 0.00ns
-:11  %Mbar_V = call fastcc i2048 @rsaModExp_interleaveModMult(i2048 %M_V_read, i2048 %n_V_read)
+ST_1: n_V_read (10)  [1/1] 0.00ns
+:5  %n_V_read = call i2048 @_ssdm_op_Read.ap_auto.i2048(i2048 %n_V)
 
-ST_2: xbar_V [2/2] 1.04ns
-:12  %xbar_V = call fastcc i2048 @rsaModExp_interleaveModMult(i2048 1, i2048 %n_V_read)
+ST_1: e_V_read (11)  [1/1] 0.00ns
+:6  %e_V_read = call i2048 @_ssdm_op_Read.ap_auto.i2048(i2048 %e_V)
 
+ST_1: M_V_read (12)  [1/1] 0.00ns
+:7  %M_V_read = call i2048 @_ssdm_op_Read.ap_auto.i2048(i2048 %M_V)
 
- <State 3>: 1.57ns
-ST_3: stg_14 [1/1] 0.00ns
-:1  call void (...)* @_ssdm_op_SpecBitsMap(i2048 %M_V), !map !86
+ST_1: tmp_i (13)  [1/1] 0.00ns  loc: ws_rsa/solution1/interleaveModMult.cpp:13->ws_rsa/solution1/rsaModExp.cpp:20
+:8  %tmp_i = zext i2048 %n_V_read to i2052
 
-ST_3: stg_15 [1/1] 0.00ns
-:2  call void (...)* @_ssdm_op_SpecBitsMap(i2048 %e_V), !map !92
+ST_1: tmp_i_5 (14)  [1/1] 0.00ns  loc: ws_rsa/solution1/interleaveModMult.cpp:12->ws_rsa/solution1/rsaModExp.cpp:20
+:9  %tmp_i_5 = zext i2048 %M_V_read to i2052
 
-ST_3: stg_16 [1/1] 0.00ns
-:3  call void (...)* @_ssdm_op_SpecBitsMap(i2048 %n_V), !map !96
-
-ST_3: stg_17 [1/1] 0.00ns
-:4  call void (...)* @_ssdm_op_SpecBitsMap(i2048* %out_V), !map !100
-
-ST_3: stg_18 [1/1] 0.00ns
-:5  call void (...)* @_ssdm_op_SpecTopModule([10 x i8]* @rsaModExp_str) nounwind
-
-ST_3: e_V_read [1/1] 0.00ns
-:7  %e_V_read = call i2048 @_ssdm_op_Read.ap_auto.i2048(i2048 %e_V)
-
-ST_3: stg_20 [1/1] 0.00ns
-:9  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [19 x i8]* @rsaModExp_montMult.str, [1 x i8]* @p_str16) nounwind
-
-ST_3: stg_21 [1/1] 0.00ns
-:10  call void (...)* @_ssdm_op_SpecResourceLimit(i32 1, [1 x i8]* @p_str16, [1 x i8]* @p_str16, [28 x i8]* @rsaModExp_interleaveModMult.str, [1 x i8]* @p_str16) nounwind
-
-ST_3: xbar_V [1/2] 0.00ns
-:12  %xbar_V = call fastcc i2048 @rsaModExp_interleaveModMult(i2048 1, i2048 %n_V_read)
-
-ST_3: stg_23 [1/1] 1.57ns
-:13  store i2048 %xbar_V, i2048* %xbar_V_1
-
-ST_3: stg_24 [1/1] 1.57ns
-:14  br label %1
+ST_1: StgValue_36 (15)  [1/1] 1.57ns  loc: ws_rsa/solution1/interleaveModMult.cpp:8->ws_rsa/solution1/rsaModExp.cpp:20
+:10  br label %1
 
 
- <State 4>: 1.04ns
-ST_4: i_assign [1/1] 0.00ns
-:0  %i_assign = phi i12 [ 2047, %0 ], [ %i, %._crit_edge ]
+ <State 2>: 17.01ns
+ST_2: p_Val2_s (17)  [1/1] 0.00ns
+:0  %p_Val2_s = phi i2052 [ 0, %0 ], [ %P_V_5, %_ZlsILi2052ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit.i ]
 
-ST_4: i_assign_cast [1/1] 0.00ns
+ST_2: i_assign_1 (18)  [1/1] 0.00ns
+:1  %i_assign_1 = phi i13 [ 2048, %0 ], [ %i_1, %_ZlsILi2052ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit.i ]
+
+ST_2: i_assign_1_cast (19)  [1/1] 0.00ns  loc: ws_rsa/solution1/interleaveModMult.cpp:8->ws_rsa/solution1/rsaModExp.cpp:20
+:2  %i_assign_1_cast = sext i13 %i_assign_1 to i32
+
+ST_2: tmp (20)  [1/1] 0.00ns  loc: ws_rsa/solution1/interleaveModMult.cpp:8->ws_rsa/solution1/rsaModExp.cpp:20
+:3  %tmp = call i1 @_ssdm_op_BitSelect.i1.i13.i32(i13 %i_assign_1, i32 12)
+
+ST_2: empty (21)  [1/1] 0.00ns
+:4  %empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 2049, i64 2049, i64 2049)
+
+ST_2: StgValue_42 (22)  [1/1] 0.00ns  loc: ws_rsa/solution1/interleaveModMult.cpp:8->ws_rsa/solution1/rsaModExp.cpp:20
+:5  br i1 %tmp, label %interleaveModMult.exit, label %_ZlsILi2052ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit.i
+
+ST_2: r_V (24)  [1/1] 0.00ns  loc: ws_rsa/solution1/interleaveModMult.cpp:10->ws_rsa/solution1/rsaModExp.cpp:20
+_ZlsILi2052ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit.i:0  %r_V = shl i2052 %p_Val2_s, 1
+
+ST_2: tmp_3 (25)  [1/1] 0.00ns  loc: ws_rsa/solution1/interleaveModMult.cpp:11->ws_rsa/solution1/rsaModExp.cpp:20
+_ZlsILi2052ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit.i:1  %tmp_3 = call i1 @_ssdm_op_BitSelect.i1.i2049.i32(i2049 -32317006071311007300714876688669951960444102669715484032130345427524655138867890893197201411522913463688717960921898019494119559150490921095088152386448283120630877367300996091750197750389652106796057638384067568276792218642619756161838094338476170470581645852036305042887575891541065808607552399123930385521914333389668342420684974786564569494856176035326322058077805659331026192708460314150258592864177116725943603718461857357598351152301645904403697613233287231227125684710820209725157101726931323469678542580656697935045997268352998638215525166389437335543602135433229604645318478604952148193555853611059596230656, i32 %i_assign_1_cast)
+
+ST_2: P_V_1 (26)  [4/4] 17.01ns  loc: ws_rsa/solution1/interleaveModMult.cpp:12->ws_rsa/solution1/rsaModExp.cpp:20
+_ZlsILi2052ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit.i:2  %P_V_1 = add i2052 %r_V, %tmp_i_5
+
+ST_2: i_1 (34)  [1/1] 1.96ns  loc: ws_rsa/solution1/interleaveModMult.cpp:8->ws_rsa/solution1/rsaModExp.cpp:20
+_ZlsILi2052ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit.i:10  %i_1 = add i13 -1, %i_assign_1
+
+ST_2: Mbar_V (37)  [1/1] 0.00ns  loc: ws_rsa/solution1/interleaveModMult.cpp:18->ws_rsa/solution1/rsaModExp.cpp:20
+interleaveModMult.exit:0  %Mbar_V = trunc i2052 %p_Val2_s to i2048
+
+ST_2: StgValue_48 (38)  [1/1] 1.57ns  loc: ws_rsa/solution1/interleaveModMult.cpp:8->ws_rsa/solution1/rsaModExp.cpp:23
+interleaveModMult.exit:1  br label %2
+
+
+ <State 3>: 17.01ns
+ST_3: P_V_1 (26)  [3/4] 17.01ns  loc: ws_rsa/solution1/interleaveModMult.cpp:12->ws_rsa/solution1/rsaModExp.cpp:20
+_ZlsILi2052ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit.i:2  %P_V_1 = add i2052 %r_V, %tmp_i_5
+
+
+ <State 4>: 17.01ns
+ST_4: P_V_1 (26)  [2/4] 17.01ns  loc: ws_rsa/solution1/interleaveModMult.cpp:12->ws_rsa/solution1/rsaModExp.cpp:20
+_ZlsILi2052ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit.i:2  %P_V_1 = add i2052 %r_V, %tmp_i_5
+
+
+ <State 5>: 18.38ns
+ST_5: P_V_1 (26)  [1/4] 17.01ns  loc: ws_rsa/solution1/interleaveModMult.cpp:12->ws_rsa/solution1/rsaModExp.cpp:20
+_ZlsILi2052ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit.i:2  %P_V_1 = add i2052 %r_V, %tmp_i_5
+
+ST_5: P_V_2 (27)  [1/1] 1.37ns  loc: ws_rsa/solution1/interleaveModMult.cpp:11->ws_rsa/solution1/rsaModExp.cpp:20
+_ZlsILi2052ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit.i:3  %P_V_2 = select i1 %tmp_3, i2052 %P_V_1, i2052 %r_V
+
+
+ <State 6>: 17.01ns
+ST_6: P_V_3 (29)  [4/4] 17.01ns  loc: ws_rsa/solution1/interleaveModMult.cpp:14->ws_rsa/solution1/rsaModExp.cpp:20
+_ZlsILi2052ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit.i:5  %P_V_3 = sub i2052 %P_V_2, %tmp_i
+
+
+ <State 7>: 17.01ns
+ST_7: P_V_3 (29)  [3/4] 17.01ns  loc: ws_rsa/solution1/interleaveModMult.cpp:14->ws_rsa/solution1/rsaModExp.cpp:20
+_ZlsILi2052ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit.i:5  %P_V_3 = sub i2052 %P_V_2, %tmp_i
+
+
+ <State 8>: 21.97ns
+ST_8: tmp_4_i (28)  [1/1] 21.97ns  loc: ws_rsa/solution1/interleaveModMult.cpp:13->ws_rsa/solution1/rsaModExp.cpp:20
+_ZlsILi2052ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit.i:4  %tmp_4_i = icmp ult i2052 %P_V_2, %tmp_i
+
+ST_8: P_V_3 (29)  [2/4] 17.01ns  loc: ws_rsa/solution1/interleaveModMult.cpp:14->ws_rsa/solution1/rsaModExp.cpp:20
+_ZlsILi2052ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit.i:5  %P_V_3 = sub i2052 %P_V_2, %tmp_i
+
+
+ <State 9>: 18.38ns
+ST_9: P_V_3 (29)  [1/4] 17.01ns  loc: ws_rsa/solution1/interleaveModMult.cpp:14->ws_rsa/solution1/rsaModExp.cpp:20
+_ZlsILi2052ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit.i:5  %P_V_3 = sub i2052 %P_V_2, %tmp_i
+
+ST_9: p_036_1_P_V_2_i (30)  [1/1] 1.37ns  loc: ws_rsa/solution1/interleaveModMult.cpp:13->ws_rsa/solution1/rsaModExp.cpp:20
+_ZlsILi2052ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit.i:6  %p_036_1_P_V_2_i = select i1 %tmp_4_i, i2052 %P_V_2, i2052 %P_V_3
+
+
+ <State 10>: 21.97ns
+ST_10: tmp_5_i (31)  [1/1] 21.97ns  loc: ws_rsa/solution1/interleaveModMult.cpp:15->ws_rsa/solution1/rsaModExp.cpp:20
+_ZlsILi2052ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit.i:7  %tmp_5_i = icmp ult i2052 %p_036_1_P_V_2_i, %tmp_i
+
+ST_10: P_V_4 (32)  [4/4] 17.01ns  loc: ws_rsa/solution1/interleaveModMult.cpp:16->ws_rsa/solution1/rsaModExp.cpp:20
+_ZlsILi2052ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit.i:8  %P_V_4 = sub i2052 %p_036_1_P_V_2_i, %tmp_i
+
+
+ <State 11>: 17.01ns
+ST_11: P_V_4 (32)  [3/4] 17.01ns  loc: ws_rsa/solution1/interleaveModMult.cpp:16->ws_rsa/solution1/rsaModExp.cpp:20
+_ZlsILi2052ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit.i:8  %P_V_4 = sub i2052 %p_036_1_P_V_2_i, %tmp_i
+
+
+ <State 12>: 17.01ns
+ST_12: P_V_4 (32)  [2/4] 17.01ns  loc: ws_rsa/solution1/interleaveModMult.cpp:16->ws_rsa/solution1/rsaModExp.cpp:20
+_ZlsILi2052ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit.i:8  %P_V_4 = sub i2052 %p_036_1_P_V_2_i, %tmp_i
+
+
+ <State 13>: 18.38ns
+ST_13: P_V_4 (32)  [1/4] 17.01ns  loc: ws_rsa/solution1/interleaveModMult.cpp:16->ws_rsa/solution1/rsaModExp.cpp:20
+_ZlsILi2052ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit.i:8  %P_V_4 = sub i2052 %p_036_1_P_V_2_i, %tmp_i
+
+ST_13: P_V_5 (33)  [1/1] 1.37ns  loc: ws_rsa/solution1/interleaveModMult.cpp:15->ws_rsa/solution1/rsaModExp.cpp:20
+_ZlsILi2052ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit.i:9  %P_V_5 = select i1 %tmp_5_i, i2052 %p_036_1_P_V_2_i, i2052 %P_V_4
+
+ST_13: StgValue_65 (35)  [1/1] 0.00ns  loc: ws_rsa/solution1/interleaveModMult.cpp:8->ws_rsa/solution1/rsaModExp.cpp:20
+_ZlsILi2052ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit.i:11  br label %1
+
+
+ <State 14>: 17.01ns
+ST_14: p_Val2_1 (40)  [1/1] 0.00ns
+:0  %p_Val2_1 = phi i2052 [ 0, %interleaveModMult.exit ], [ %P_V_9, %_ZlsILi2052ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit.i32 ]
+
+ST_14: i_assign_2 (41)  [1/1] 0.00ns
+:1  %i_assign_2 = phi i13 [ 2048, %interleaveModMult.exit ], [ %i_2, %_ZlsILi2052ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit.i32 ]
+
+ST_14: i_assign_2_cast (42)  [1/1] 0.00ns  loc: ws_rsa/solution1/interleaveModMult.cpp:8->ws_rsa/solution1/rsaModExp.cpp:23
+:2  %i_assign_2_cast = sext i13 %i_assign_2 to i32
+
+ST_14: tmp_4 (43)  [1/1] 0.00ns  loc: ws_rsa/solution1/interleaveModMult.cpp:8->ws_rsa/solution1/rsaModExp.cpp:23
+:3  %tmp_4 = call i1 @_ssdm_op_BitSelect.i1.i13.i32(i13 %i_assign_2, i32 12)
+
+ST_14: empty_6 (44)  [1/1] 0.00ns
+:4  %empty_6 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 2049, i64 2049, i64 2049)
+
+ST_14: StgValue_71 (45)  [1/1] 0.00ns  loc: ws_rsa/solution1/interleaveModMult.cpp:8->ws_rsa/solution1/rsaModExp.cpp:23
+:5  br i1 %tmp_4, label %interleaveModMult.exit34, label %_ZlsILi2052ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit.i32
+
+ST_14: tmp_6 (47)  [1/1] 0.00ns  loc: ws_rsa/solution1/interleaveModMult.cpp:11->ws_rsa/solution1/rsaModExp.cpp:23
+_ZlsILi2052ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit.i32:0  %tmp_6 = call i1 @_ssdm_op_BitSelect.i1.i2049.i32(i2049 -32317006071311007300714876688669951960444102669715484032130345427524655138867890893197201411522913463688717960921898019494119559150490921095088152386448283120630877367300996091750197750389652106796057638384067568276792218642619756161838094338476170470581645852036305042887575891541065808607552399123930385521914333389668342420684974786564569494856176035326322058077805659331026192708460314150258592864177116725943603718461857357598351152301645904403697613233287231227125684710820209725157101726931323469678542580656697935045997268352998638215525166389437335543602135433229604645318478604952148193555853611059596230656, i32 %i_assign_2_cast)
+
+ST_14: tmp_7 (48)  [1/1] 0.00ns  loc: ws_rsa/solution1/interleaveModMult.cpp:15->ws_rsa/solution1/rsaModExp.cpp:23
+_ZlsILi2052ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit.i32:1  %tmp_7 = trunc i2052 %p_Val2_1 to i2051
+
+ST_14: P_V_6 (49)  [1/1] 0.00ns  loc: ws_rsa/solution1/interleaveModMult.cpp:11->ws_rsa/solution1/rsaModExp.cpp:23
+_ZlsILi2052ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit.i32:2  %P_V_6 = call i2052 @_ssdm_op_BitConcatenate.i2052.i2051.i1(i2051 %tmp_7, i1 %tmp_6)
+
+ST_14: P_V_7 (51)  [4/4] 17.01ns  loc: ws_rsa/solution1/interleaveModMult.cpp:14->ws_rsa/solution1/rsaModExp.cpp:23
+_ZlsILi2052ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit.i32:4  %P_V_7 = sub i2052 %P_V_6, %tmp_i
+
+ST_14: i_2 (56)  [1/1] 1.96ns  loc: ws_rsa/solution1/interleaveModMult.cpp:8->ws_rsa/solution1/rsaModExp.cpp:23
+_ZlsILi2052ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit.i32:9  %i_2 = add i13 -1, %i_assign_2
+
+ST_14: xbar_V (59)  [1/1] 0.00ns
+interleaveModMult.exit34:0  %xbar_V = alloca i2048
+
+ST_14: xbar_V_1 (60)  [1/1] 0.00ns  loc: ws_rsa/solution1/interleaveModMult.cpp:18->ws_rsa/solution1/rsaModExp.cpp:23
+interleaveModMult.exit34:1  %xbar_V_1 = trunc i2052 %p_Val2_1 to i2048
+
+ST_14: StgValue_79 (61)  [1/1] 1.57ns  loc: ws_rsa/solution1/rsaModExp.cpp:23
+interleaveModMult.exit34:2  store i2048 %xbar_V_1, i2048* %xbar_V
+
+ST_14: StgValue_80 (62)  [1/1] 1.57ns  loc: ws_rsa/solution1/rsaModExp.cpp:27
+interleaveModMult.exit34:3  br label %3
+
+
+ <State 15>: 17.01ns
+ST_15: P_V_7 (51)  [3/4] 17.01ns  loc: ws_rsa/solution1/interleaveModMult.cpp:14->ws_rsa/solution1/rsaModExp.cpp:23
+_ZlsILi2052ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit.i32:4  %P_V_7 = sub i2052 %P_V_6, %tmp_i
+
+
+ <State 16>: 21.97ns
+ST_16: tmp_4_i1 (50)  [1/1] 21.97ns  loc: ws_rsa/solution1/interleaveModMult.cpp:13->ws_rsa/solution1/rsaModExp.cpp:23
+_ZlsILi2052ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit.i32:3  %tmp_4_i1 = icmp ult i2052 %P_V_6, %tmp_i
+
+ST_16: P_V_7 (51)  [2/4] 17.01ns  loc: ws_rsa/solution1/interleaveModMult.cpp:14->ws_rsa/solution1/rsaModExp.cpp:23
+_ZlsILi2052ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit.i32:4  %P_V_7 = sub i2052 %P_V_6, %tmp_i
+
+
+ <State 17>: 18.38ns
+ST_17: P_V_7 (51)  [1/4] 17.01ns  loc: ws_rsa/solution1/interleaveModMult.cpp:14->ws_rsa/solution1/rsaModExp.cpp:23
+_ZlsILi2052ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit.i32:4  %P_V_7 = sub i2052 %P_V_6, %tmp_i
+
+ST_17: p_036_1_P_V_2_i1 (52)  [1/1] 1.37ns  loc: ws_rsa/solution1/interleaveModMult.cpp:13->ws_rsa/solution1/rsaModExp.cpp:23
+_ZlsILi2052ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit.i32:5  %p_036_1_P_V_2_i1 = select i1 %tmp_4_i1, i2052 %P_V_6, i2052 %P_V_7
+
+
+ <State 18>: 17.01ns
+ST_18: P_V_8 (54)  [4/4] 17.01ns  loc: ws_rsa/solution1/interleaveModMult.cpp:16->ws_rsa/solution1/rsaModExp.cpp:23
+_ZlsILi2052ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit.i32:7  %P_V_8 = sub i2052 %p_036_1_P_V_2_i1, %tmp_i
+
+
+ <State 19>: 17.01ns
+ST_19: P_V_8 (54)  [3/4] 17.01ns  loc: ws_rsa/solution1/interleaveModMult.cpp:16->ws_rsa/solution1/rsaModExp.cpp:23
+_ZlsILi2052ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit.i32:7  %P_V_8 = sub i2052 %p_036_1_P_V_2_i1, %tmp_i
+
+
+ <State 20>: 21.97ns
+ST_20: tmp_5_i1 (53)  [1/1] 21.97ns  loc: ws_rsa/solution1/interleaveModMult.cpp:15->ws_rsa/solution1/rsaModExp.cpp:23
+_ZlsILi2052ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit.i32:6  %tmp_5_i1 = icmp ult i2052 %p_036_1_P_V_2_i1, %tmp_i
+
+ST_20: P_V_8 (54)  [2/4] 17.01ns  loc: ws_rsa/solution1/interleaveModMult.cpp:16->ws_rsa/solution1/rsaModExp.cpp:23
+_ZlsILi2052ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit.i32:7  %P_V_8 = sub i2052 %p_036_1_P_V_2_i1, %tmp_i
+
+
+ <State 21>: 18.38ns
+ST_21: P_V_8 (54)  [1/4] 17.01ns  loc: ws_rsa/solution1/interleaveModMult.cpp:16->ws_rsa/solution1/rsaModExp.cpp:23
+_ZlsILi2052ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit.i32:7  %P_V_8 = sub i2052 %p_036_1_P_V_2_i1, %tmp_i
+
+ST_21: P_V_9 (55)  [1/1] 1.37ns  loc: ws_rsa/solution1/interleaveModMult.cpp:15->ws_rsa/solution1/rsaModExp.cpp:23
+_ZlsILi2052ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit.i32:8  %P_V_9 = select i1 %tmp_5_i1, i2052 %p_036_1_P_V_2_i1, i2052 %P_V_8
+
+ST_21: StgValue_92 (57)  [1/1] 0.00ns  loc: ws_rsa/solution1/interleaveModMult.cpp:8->ws_rsa/solution1/rsaModExp.cpp:23
+_ZlsILi2052ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit.i32:10  br label %2
+
+
+ <State 22>: 1.57ns
+ST_22: i_assign (64)  [1/1] 0.00ns
+:0  %i_assign = phi i12 [ 2047, %interleaveModMult.exit34 ], [ %i, %._crit_edge ]
+
+ST_22: i_assign_cast (65)  [1/1] 0.00ns  loc: ws_rsa/solution1/rsaModExp.cpp:27
 :1  %i_assign_cast = sext i12 %i_assign to i32
 
-ST_4: tmp [1/1] 0.00ns
-:2  %tmp = call i1 @_ssdm_op_BitSelect.i1.i12.i32(i12 %i_assign, i32 11)
+ST_22: tmp_8 (66)  [1/1] 0.00ns  loc: ws_rsa/solution1/rsaModExp.cpp:27
+:2  %tmp_8 = call i1 @_ssdm_op_BitSelect.i1.i12.i32(i12 %i_assign, i32 11)
 
-ST_4: empty [1/1] 0.00ns
-:3  %empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 2048, i64 2048, i64 2048)
+ST_22: empty_7 (67)  [1/1] 0.00ns
+:3  %empty_7 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 2048, i64 2048, i64 2048)
 
-ST_4: stg_29 [1/1] 0.00ns
-:4  br i1 %tmp, label %4, label %2
+ST_22: StgValue_97 (68)  [1/1] 0.00ns  loc: ws_rsa/solution1/rsaModExp.cpp:27
+:4  br i1 %tmp_8, label %6, label %4
 
-ST_4: xbar_V_1_load_1 [1/1] 0.00ns
-:0  %xbar_V_1_load_1 = load i2048* %xbar_V_1
+ST_22: xbar_V_load_1 (70)  [1/1] 0.00ns  loc: ws_rsa/solution1/rsaModExp.cpp:29
+:0  %xbar_V_load_1 = load i2048* %xbar_V
 
-ST_4: xbar_V_2 [2/2] 1.04ns
-:1  %xbar_V_2 = call fastcc i2048 @rsaModExp_montMult(i2048 %xbar_V_1_load_1, i2048 %xbar_V_1_load_1, i2048 %n_V_read)
+ST_22: xbar_V_2 (71)  [2/2] 1.57ns  loc: ws_rsa/solution1/rsaModExp.cpp:29
+:1  %xbar_V_2 = call fastcc i2048 @montMult(i2048 %xbar_V_load_1, i2048 %xbar_V_load_1, i2048 %n_V_read)
 
-ST_4: tmp_1 [1/1] 0.00ns
-:2  %tmp_1 = call i1 @_ssdm_op_BitSelect.i1.i2048.i32(i2048 %e_V_read, i32 %i_assign_cast)
+ST_22: tmp_9 (72)  [1/1] 0.00ns  loc: ws_rsa/solution1/rsaModExp.cpp:30
+:2  %tmp_9 = call i1 @_ssdm_op_BitSelect.i1.i2048.i32(i2048 %e_V_read, i32 %i_assign_cast)
 
-ST_4: xbar_V_1_load [1/1] 0.00ns
-:0  %xbar_V_1_load = load i2048* %xbar_V_1
+ST_22: xbar_V_load (85)  [1/1] 0.00ns  loc: ws_rsa/solution1/rsaModExp.cpp:34
+:0  %xbar_V_load = load i2048* %xbar_V
 
-ST_4: call_ret [2/2] 1.04ns
-:1  %call_ret = call fastcc i2048 @rsaModExp_montMult(i2048 %xbar_V_1_load, i2048 1, i2048 %n_V_read)
+ST_22: call_ret (86)  [2/2] 1.57ns  loc: ws_rsa/solution1/rsaModExp.cpp:34
+:1  %call_ret = call fastcc i2048 @montMult(i2048 %xbar_V_load, i2048 1, i2048 %n_V_read)
 
 
- <State 5>: 19.83ns
-ST_5: xbar_V_2 [1/2] 18.26ns
-:1  %xbar_V_2 = call fastcc i2048 @rsaModExp_montMult(i2048 %xbar_V_1_load_1, i2048 %xbar_V_1_load_1, i2048 %n_V_read)
+ <State 23>: 19.83ns
+ST_23: xbar_V_2 (71)  [1/2] 18.26ns  loc: ws_rsa/solution1/rsaModExp.cpp:29
+:1  %xbar_V_2 = call fastcc i2048 @montMult(i2048 %xbar_V_load_1, i2048 %xbar_V_load_1, i2048 %n_V_read)
 
-ST_5: stg_36 [1/1] 0.00ns
-:3  br i1 %tmp_1, label %3, label %._crit_edge.pre
+ST_23: StgValue_104 (73)  [1/1] 0.00ns  loc: ws_rsa/solution1/rsaModExp.cpp:30
+:3  br i1 %tmp_9, label %5, label %._crit_edge.pre
 
-ST_5: stg_37 [1/1] 1.57ns
-._crit_edge.pre:0  store i2048 %xbar_V_2, i2048* %xbar_V_1
+ST_23: StgValue_105 (75)  [1/1] 1.57ns  loc: ws_rsa/solution1/rsaModExp.cpp:29
+._crit_edge.pre:0  store i2048 %xbar_V_2, i2048* %xbar_V
 
-ST_5: stg_38 [1/1] 0.00ns
+ST_23: StgValue_106 (76)  [1/1] 0.00ns
 ._crit_edge.pre:1  br label %._crit_edge
 
-ST_5: xbar_V_3 [2/2] 1.04ns
-:0  %xbar_V_3 = call fastcc i2048 @rsaModExp_montMult(i2048 %Mbar_V, i2048 %xbar_V_2, i2048 %n_V_read)
+ST_23: xbar_V_3 (78)  [2/2] 1.57ns  loc: ws_rsa/solution1/rsaModExp.cpp:31
+:0  %xbar_V_3 = call fastcc i2048 @montMult(i2048 %Mbar_V, i2048 %xbar_V_2, i2048 %n_V_read)
 
 
- <State 6>: 19.83ns
-ST_6: xbar_V_3 [1/2] 18.26ns
-:0  %xbar_V_3 = call fastcc i2048 @rsaModExp_montMult(i2048 %Mbar_V, i2048 %xbar_V_2, i2048 %n_V_read)
+ <State 24>: 19.83ns
+ST_24: xbar_V_3 (78)  [1/2] 18.26ns  loc: ws_rsa/solution1/rsaModExp.cpp:31
+:0  %xbar_V_3 = call fastcc i2048 @montMult(i2048 %Mbar_V, i2048 %xbar_V_2, i2048 %n_V_read)
 
-ST_6: stg_41 [1/1] 1.57ns
-:1  store i2048 %xbar_V_3, i2048* %xbar_V_1
+ST_24: StgValue_109 (79)  [1/1] 1.57ns  loc: ws_rsa/solution1/rsaModExp.cpp:31
+:1  store i2048 %xbar_V_3, i2048* %xbar_V
 
-ST_6: stg_42 [1/1] 0.00ns
+ST_24: StgValue_110 (80)  [1/1] 0.00ns  loc: ws_rsa/solution1/rsaModExp.cpp:31
 :2  br label %._crit_edge
 
-ST_6: i [1/1] 1.84ns
+ST_24: i (82)  [1/1] 1.84ns  loc: ws_rsa/solution1/rsaModExp.cpp:27
 ._crit_edge:0  %i = add i12 %i_assign, -1
 
-ST_6: stg_44 [1/1] 0.00ns
-._crit_edge:1  br label %1
+ST_24: StgValue_112 (83)  [1/1] 0.00ns  loc: ws_rsa/solution1/rsaModExp.cpp:27
+._crit_edge:1  br label %3
 
 
- <State 7>: 18.26ns
-ST_7: call_ret [1/2] 18.26ns
-:1  %call_ret = call fastcc i2048 @rsaModExp_montMult(i2048 %xbar_V_1_load, i2048 1, i2048 %n_V_read)
+ <State 25>: 18.26ns
+ST_25: call_ret (86)  [1/2] 18.26ns  loc: ws_rsa/solution1/rsaModExp.cpp:34
+:1  %call_ret = call fastcc i2048 @montMult(i2048 %xbar_V_load, i2048 1, i2048 %n_V_read)
 
-ST_7: stg_46 [1/1] 0.00ns
+ST_25: StgValue_114 (87)  [1/1] 0.00ns  loc: ws_rsa/solution1/rsaModExp.cpp:34
 :2  call void @_ssdm_op_Write.ap_auto.i2048P(i2048* %out_V, i2048 %call_ret)
 
-ST_7: stg_47 [1/1] 0.00ns
+ST_25: StgValue_115 (88)  [1/1] 0.00ns  loc: ws_rsa/solution1/rsaModExp.cpp:35
 :3  ret void
 
 
@@ -231,7 +457,116 @@ ST_7: stg_47 [1/1] 0.00ns
 ============================================================
 Target clock period: 25ns, clock uncertainty: 3.12ns.
 
- No timing violations. 
+ <State 1>: 1.57ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('P.V') with incoming values : ('P.V', ws_rsa/solution1/interleaveModMult.cpp:15->ws_rsa/solution1/rsaModExp.cpp:20) [17]  (1.57 ns)
+
+ <State 2>: 17ns
+The critical path consists of the following:
+	'phi' operation ('P.V') with incoming values : ('P.V', ws_rsa/solution1/interleaveModMult.cpp:15->ws_rsa/solution1/rsaModExp.cpp:20) [17]  (0 ns)
+	'shl' operation ('r.V', ws_rsa/solution1/interleaveModMult.cpp:10->ws_rsa/solution1/rsaModExp.cpp:20) [24]  (0 ns)
+	'add' operation ('P.V', ws_rsa/solution1/interleaveModMult.cpp:12->ws_rsa/solution1/rsaModExp.cpp:20) [26]  (17 ns)
+
+ <State 3>: 17ns
+The critical path consists of the following:
+	'add' operation ('P.V', ws_rsa/solution1/interleaveModMult.cpp:12->ws_rsa/solution1/rsaModExp.cpp:20) [26]  (17 ns)
+
+ <State 4>: 17ns
+The critical path consists of the following:
+	'add' operation ('P.V', ws_rsa/solution1/interleaveModMult.cpp:12->ws_rsa/solution1/rsaModExp.cpp:20) [26]  (17 ns)
+
+ <State 5>: 18.4ns
+The critical path consists of the following:
+	'add' operation ('P.V', ws_rsa/solution1/interleaveModMult.cpp:12->ws_rsa/solution1/rsaModExp.cpp:20) [26]  (17 ns)
+	'select' operation ('P.V', ws_rsa/solution1/interleaveModMult.cpp:11->ws_rsa/solution1/rsaModExp.cpp:20) [27]  (1.37 ns)
+
+ <State 6>: 17ns
+The critical path consists of the following:
+	'sub' operation ('P.V', ws_rsa/solution1/interleaveModMult.cpp:14->ws_rsa/solution1/rsaModExp.cpp:20) [29]  (17 ns)
+
+ <State 7>: 17ns
+The critical path consists of the following:
+	'sub' operation ('P.V', ws_rsa/solution1/interleaveModMult.cpp:14->ws_rsa/solution1/rsaModExp.cpp:20) [29]  (17 ns)
+
+ <State 8>: 22ns
+The critical path consists of the following:
+	'icmp' operation ('tmp_4_i', ws_rsa/solution1/interleaveModMult.cpp:13->ws_rsa/solution1/rsaModExp.cpp:20) [28]  (22 ns)
+
+ <State 9>: 18.4ns
+The critical path consists of the following:
+	'sub' operation ('P.V', ws_rsa/solution1/interleaveModMult.cpp:14->ws_rsa/solution1/rsaModExp.cpp:20) [29]  (17 ns)
+	'select' operation ('p_036_1_P_V_2_i', ws_rsa/solution1/interleaveModMult.cpp:13->ws_rsa/solution1/rsaModExp.cpp:20) [30]  (1.37 ns)
+
+ <State 10>: 22ns
+The critical path consists of the following:
+	'icmp' operation ('tmp_5_i', ws_rsa/solution1/interleaveModMult.cpp:15->ws_rsa/solution1/rsaModExp.cpp:20) [31]  (22 ns)
+
+ <State 11>: 17ns
+The critical path consists of the following:
+	'sub' operation ('P.V', ws_rsa/solution1/interleaveModMult.cpp:16->ws_rsa/solution1/rsaModExp.cpp:20) [32]  (17 ns)
+
+ <State 12>: 17ns
+The critical path consists of the following:
+	'sub' operation ('P.V', ws_rsa/solution1/interleaveModMult.cpp:16->ws_rsa/solution1/rsaModExp.cpp:20) [32]  (17 ns)
+
+ <State 13>: 18.4ns
+The critical path consists of the following:
+	'sub' operation ('P.V', ws_rsa/solution1/interleaveModMult.cpp:16->ws_rsa/solution1/rsaModExp.cpp:20) [32]  (17 ns)
+	'select' operation ('P.V', ws_rsa/solution1/interleaveModMult.cpp:15->ws_rsa/solution1/rsaModExp.cpp:20) [33]  (1.37 ns)
+
+ <State 14>: 17ns
+The critical path consists of the following:
+	'phi' operation ('P.V') with incoming values : ('P.V', ws_rsa/solution1/interleaveModMult.cpp:15->ws_rsa/solution1/rsaModExp.cpp:23) [40]  (0 ns)
+	'sub' operation ('P.V', ws_rsa/solution1/interleaveModMult.cpp:14->ws_rsa/solution1/rsaModExp.cpp:23) [51]  (17 ns)
+
+ <State 15>: 17ns
+The critical path consists of the following:
+	'sub' operation ('P.V', ws_rsa/solution1/interleaveModMult.cpp:14->ws_rsa/solution1/rsaModExp.cpp:23) [51]  (17 ns)
+
+ <State 16>: 22ns
+The critical path consists of the following:
+	'icmp' operation ('tmp_4_i1', ws_rsa/solution1/interleaveModMult.cpp:13->ws_rsa/solution1/rsaModExp.cpp:23) [50]  (22 ns)
+
+ <State 17>: 18.4ns
+The critical path consists of the following:
+	'sub' operation ('P.V', ws_rsa/solution1/interleaveModMult.cpp:14->ws_rsa/solution1/rsaModExp.cpp:23) [51]  (17 ns)
+	'select' operation ('p_036_1_P_V_2_i1', ws_rsa/solution1/interleaveModMult.cpp:13->ws_rsa/solution1/rsaModExp.cpp:23) [52]  (1.37 ns)
+
+ <State 18>: 17ns
+The critical path consists of the following:
+	'sub' operation ('P.V', ws_rsa/solution1/interleaveModMult.cpp:16->ws_rsa/solution1/rsaModExp.cpp:23) [54]  (17 ns)
+
+ <State 19>: 17ns
+The critical path consists of the following:
+	'sub' operation ('P.V', ws_rsa/solution1/interleaveModMult.cpp:16->ws_rsa/solution1/rsaModExp.cpp:23) [54]  (17 ns)
+
+ <State 20>: 22ns
+The critical path consists of the following:
+	'icmp' operation ('tmp_5_i1', ws_rsa/solution1/interleaveModMult.cpp:15->ws_rsa/solution1/rsaModExp.cpp:23) [53]  (22 ns)
+
+ <State 21>: 18.4ns
+The critical path consists of the following:
+	'sub' operation ('P.V', ws_rsa/solution1/interleaveModMult.cpp:16->ws_rsa/solution1/rsaModExp.cpp:23) [54]  (17 ns)
+	'select' operation ('P.V', ws_rsa/solution1/interleaveModMult.cpp:15->ws_rsa/solution1/rsaModExp.cpp:23) [55]  (1.37 ns)
+
+ <State 22>: 1.57ns
+The critical path consists of the following:
+	'load' operation ('xbar_V_load_1', ws_rsa/solution1/rsaModExp.cpp:29) on local variable 'xbar.V' [70]  (0 ns)
+	'call' operation ('xbar.V', ws_rsa/solution1/rsaModExp.cpp:29) to 'montMult' [71]  (1.57 ns)
+
+ <State 23>: 19.8ns
+The critical path consists of the following:
+	'call' operation ('xbar.V', ws_rsa/solution1/rsaModExp.cpp:29) to 'montMult' [71]  (18.3 ns)
+	'store' operation (ws_rsa/solution1/rsaModExp.cpp:29) of variable 'xbar.V', ws_rsa/solution1/rsaModExp.cpp:29 on local variable 'xbar.V' [75]  (1.57 ns)
+
+ <State 24>: 19.8ns
+The critical path consists of the following:
+	'call' operation ('xbar.V', ws_rsa/solution1/rsaModExp.cpp:31) to 'montMult' [78]  (18.3 ns)
+	'store' operation (ws_rsa/solution1/rsaModExp.cpp:31) of variable 'xbar.V', ws_rsa/solution1/rsaModExp.cpp:31 on local variable 'xbar.V' [79]  (1.57 ns)
+
+ <State 25>: 18.3ns
+The critical path consists of the following:
+	'call' operation ('call_ret', ws_rsa/solution1/rsaModExp.cpp:34) to 'montMult' [86]  (18.3 ns)
 
 
 ============================================================
@@ -249,6 +584,24 @@ N/A
 	State 5
 	State 6
 	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
+	State 18
+	State 19
+	State 20
+	State 21
+	State 22
+	State 23
+	State 24
+	State 25
 
 
 ============================================================

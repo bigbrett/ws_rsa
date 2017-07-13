@@ -1,0 +1,332 @@
+
+
+================================================================
+== Vivado HLS Report for 'montMult'
+================================================================
+* Date:           Thu Jul 13 08:01:29 2017
+
+* Version:        2016.4 (Build 1756540 on Mon Jan 23 19:31:01 MST 2017)
+* Project:        ws_rsa
+* Solution:       solution2
+* Product family: zynq
+* Target device:  xc7z020clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  25.00|     21.94|        3.12|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-------+-------+-------+-------+---------+
+    |    Latency    |    Interval   | Pipeline|
+    |  min  |  max  |  min  |  max  |   Type  |
+    +-------+-------+-------+-------+---------+
+    |  16388|  16388|  16388|  16388|   none  |
+    +-------+-------+-------+-------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+-------+-------+----------+-----------+-----------+------+----------+
+        |          |    Latency    | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name|  min  |  max  |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------+-------+-------+----------+-----------+-----------+------+----------+
+        |- Loop 1  |  16384|  16384|         8|          -|          -|  2048|    no    |
+        +----------+-------+-------+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 12
+* Pipeline: 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / (!exitcond)
+	10  / (exitcond)
+3 --> 
+	4  / true
+4 --> 
+	5  / true
+5 --> 
+	6  / true
+6 --> 
+	7  / true
+7 --> 
+	8  / true
+8 --> 
+	9  / true
+9 --> 
+	2  / true
+10 --> 
+	11  / true
+11 --> 
+	12  / true
+12 --> 
+* FSM state operations: 
+
+ <State 1>: 1.57ns
+ST_1: M0_V_read (4)  [1/1] 0.00ns
+:0  %M0_V_read = call i2048 @_ssdm_op_Read.ap_auto.i2048(i2048 %M0_V)
+
+ST_1: Y0_V_read (5)  [1/1] 0.00ns
+:1  %Y0_V_read = call i2048 @_ssdm_op_Read.ap_auto.i2048(i2048 %Y0_V)
+
+ST_1: X0_V_read (6)  [1/1] 0.00ns
+:2  %X0_V_read = call i2048 @_ssdm_op_Read.ap_auto.i2048(i2048 %X0_V)
+
+ST_1: X_V (7)  [1/1] 0.00ns  loc: ws_rsa/solution1/montMult.cpp:11
+:3  %X_V = zext i2048 %X0_V_read to i2050
+
+ST_1: Y_V (8)  [1/1] 0.00ns  loc: ws_rsa/solution1/montMult.cpp:11
+:4  %Y_V = zext i2048 %Y0_V_read to i2050
+
+ST_1: M_V (9)  [1/1] 0.00ns  loc: ws_rsa/solution1/montMult.cpp:11
+:5  %M_V = zext i2048 %M0_V_read to i2050
+
+ST_1: M_V_cast (10)  [1/1] 0.00ns  loc: ws_rsa/solution1/montMult.cpp:11
+:6  %M_V_cast = zext i2048 %M0_V_read to i2049
+
+ST_1: StgValue_20 (11)  [1/1] 1.57ns  loc: ws_rsa/solution1/montMult.cpp:14
+:7  br label %1
+
+
+ <State 2>: 21.94ns
+ST_2: p_s (13)  [1/1] 0.00ns  loc: ws_rsa/solution1/montMult.cpp:19
+:0  %p_s = phi i2049 [ 0, %0 ], [ %tmp_5, %_ZrsILi2050ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit ]
+
+ST_2: i_assign (14)  [1/1] 0.00ns
+:1  %i_assign = phi i12 [ 0, %0 ], [ %i, %_ZrsILi2050ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit ]
+
+ST_2: p_cast (15)  [1/1] 0.00ns  loc: ws_rsa/solution1/montMult.cpp:14
+:2  %p_cast = zext i2049 %p_s to i2050
+
+ST_2: i_assign_cast1 (16)  [1/1] 0.00ns  loc: ws_rsa/solution1/montMult.cpp:14
+:3  %i_assign_cast1 = zext i12 %i_assign to i32
+
+ST_2: exitcond (17)  [1/1] 2.14ns  loc: ws_rsa/solution1/montMult.cpp:14
+:4  %exitcond = icmp eq i12 %i_assign, -2048
+
+ST_2: empty (18)  [1/1] 0.00ns
+:5  %empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 2048, i64 2048, i64 2048)
+
+ST_2: i (19)  [1/1] 1.84ns  loc: ws_rsa/solution1/montMult.cpp:14
+:6  %i = add i12 %i_assign, 1
+
+ST_2: StgValue_28 (20)  [1/1] 0.00ns  loc: ws_rsa/solution1/montMult.cpp:14
+:7  br i1 %exitcond, label %2, label %_ZrsILi2050ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit
+
+ST_2: tmp_8 (22)  [1/1] 0.00ns  loc: ws_rsa/solution1/montMult.cpp:16
+_ZrsILi2050ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit:0  %tmp_8 = call i1 @_ssdm_op_BitSelect.i1.i2050.i32(i2050 %X_V, i32 %i_assign_cast1)
+
+ST_2: S_V (23)  [4/4] 17.01ns  loc: ws_rsa/solution1/montMult.cpp:17
+_ZrsILi2050ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit:1  %S_V = add i2050 %Y_V, %p_cast
+
+ST_2: tmp (32)  [1/1] 21.94ns  loc: ws_rsa/solution1/montMult.cpp:25
+:0  %tmp = icmp ult i2049 %p_s, %M_V_cast
+
+ST_2: tmp_2 (33)  [1/1] 0.00ns  loc: ws_rsa/solution1/montMult.cpp:27
+:1  %tmp_2 = trunc i2049 %p_s to i2048
+
+ST_2: tmp_6 (34)  [1/1] 0.00ns  loc: ws_rsa/solution1/montMult.cpp:29
+:2  %tmp_6 = trunc i2049 %p_s to i2048
+
+ST_2: tmp_7 (35)  [4/4] 16.89ns  loc: ws_rsa/solution1/montMult.cpp:29
+:3  %tmp_7 = sub i2048 %tmp_2, %M0_V_read
+
+
+ <State 3>: 17.01ns
+ST_3: S_V (23)  [3/4] 17.01ns  loc: ws_rsa/solution1/montMult.cpp:17
+_ZrsILi2050ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit:1  %S_V = add i2050 %Y_V, %p_cast
+
+
+ <State 4>: 17.01ns
+ST_4: S_V (23)  [2/4] 17.01ns  loc: ws_rsa/solution1/montMult.cpp:17
+_ZrsILi2050ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit:1  %S_V = add i2050 %Y_V, %p_cast
+
+
+ <State 5>: 18.38ns
+ST_5: S_V (23)  [1/4] 17.01ns  loc: ws_rsa/solution1/montMult.cpp:17
+_ZrsILi2050ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit:1  %S_V = add i2050 %Y_V, %p_cast
+
+ST_5: p_Val2_1 (24)  [1/1] 1.37ns  loc: ws_rsa/solution1/montMult.cpp:16
+_ZrsILi2050ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit:2  %p_Val2_1 = select i1 %tmp_8, i2050 %S_V, i2050 %p_cast
+
+ST_5: tmp_9 (25)  [1/1] 0.00ns  loc: ws_rsa/solution1/montMult.cpp:19
+_ZrsILi2050ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit:3  %tmp_9 = trunc i2050 %p_Val2_1 to i1
+
+ST_5: tmp_4 (28)  [1/1] 0.00ns  loc: ws_rsa/solution1/montMult.cpp:22
+_ZrsILi2050ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit:6  %tmp_4 = call i2049 @_ssdm_op_PartSelect.i2049.i2050.i32.i32(i2050 %p_Val2_1, i32 1, i32 2049)
+
+
+ <State 6>: 17.01ns
+ST_6: S_V_1 (26)  [4/4] 17.01ns  loc: ws_rsa/solution1/montMult.cpp:20
+_ZrsILi2050ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit:4  %S_V_1 = add i2050 %M_V, %p_Val2_1
+
+
+ <State 7>: 17.01ns
+ST_7: S_V_1 (26)  [3/4] 17.01ns  loc: ws_rsa/solution1/montMult.cpp:20
+_ZrsILi2050ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit:4  %S_V_1 = add i2050 %M_V, %p_Val2_1
+
+
+ <State 8>: 17.01ns
+ST_8: S_V_1 (26)  [2/4] 17.01ns  loc: ws_rsa/solution1/montMult.cpp:20
+_ZrsILi2050ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit:4  %S_V_1 = add i2050 %M_V, %p_Val2_1
+
+
+ <State 9>: 18.38ns
+ST_9: S_V_1 (26)  [1/4] 17.01ns  loc: ws_rsa/solution1/montMult.cpp:20
+_ZrsILi2050ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit:4  %S_V_1 = add i2050 %M_V, %p_Val2_1
+
+ST_9: tmp_3 (27)  [1/1] 0.00ns  loc: ws_rsa/solution1/montMult.cpp:22
+_ZrsILi2050ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit:5  %tmp_3 = call i2049 @_ssdm_op_PartSelect.i2049.i2050.i32.i32(i2050 %S_V_1, i32 1, i32 2049)
+
+ST_9: tmp_5 (29)  [1/1] 1.37ns  loc: ws_rsa/solution1/montMult.cpp:19
+_ZrsILi2050ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit:7  %tmp_5 = select i1 %tmp_9, i2049 %tmp_3, i2049 %tmp_4
+
+ST_9: StgValue_47 (30)  [1/1] 0.00ns  loc: ws_rsa/solution1/montMult.cpp:14
+_ZrsILi2050ELb0EE11ap_int_baseIXT_EXT0_EXleT_Li64EEERKS1_i.exit:8  br label %1
+
+
+ <State 10>: 16.89ns
+ST_10: tmp_7 (35)  [3/4] 16.89ns  loc: ws_rsa/solution1/montMult.cpp:29
+:3  %tmp_7 = sub i2048 %tmp_2, %M0_V_read
+
+
+ <State 11>: 16.89ns
+ST_11: tmp_7 (35)  [2/4] 16.89ns  loc: ws_rsa/solution1/montMult.cpp:29
+:3  %tmp_7 = sub i2048 %tmp_2, %M0_V_read
+
+
+ <State 12>: 18.26ns
+ST_12: tmp_7 (35)  [1/4] 16.89ns  loc: ws_rsa/solution1/montMult.cpp:29
+:3  %tmp_7 = sub i2048 %tmp_2, %M0_V_read
+
+ST_12: ssdm_int_V_write_ass (36)  [1/1] 1.37ns  loc: ws_rsa/solution1/montMult.cpp:25
+:4  %ssdm_int_V_write_ass = select i1 %tmp, i2048 %tmp_6, i2048 %tmp_7
+
+ST_12: StgValue_52 (37)  [1/1] 0.00ns  loc: ws_rsa/solution1/montMult.cpp:30
+:5  ret i2048 %ssdm_int_V_write_ass
+
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 25ns, clock uncertainty: 3.12ns.
+
+ <State 1>: 1.57ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('p_s', ws_rsa/solution1/montMult.cpp:19) with incoming values : ('tmp_5', ws_rsa/solution1/montMult.cpp:19) [13]  (1.57 ns)
+
+ <State 2>: 21.9ns
+The critical path consists of the following:
+	'phi' operation ('p_s', ws_rsa/solution1/montMult.cpp:19) with incoming values : ('tmp_5', ws_rsa/solution1/montMult.cpp:19) [13]  (0 ns)
+	'icmp' operation ('tmp', ws_rsa/solution1/montMult.cpp:25) [32]  (21.9 ns)
+
+ <State 3>: 17ns
+The critical path consists of the following:
+	'add' operation ('S.V', ws_rsa/solution1/montMult.cpp:17) [23]  (17 ns)
+
+ <State 4>: 17ns
+The critical path consists of the following:
+	'add' operation ('S.V', ws_rsa/solution1/montMult.cpp:17) [23]  (17 ns)
+
+ <State 5>: 18.4ns
+The critical path consists of the following:
+	'add' operation ('S.V', ws_rsa/solution1/montMult.cpp:17) [23]  (17 ns)
+	'select' operation ('__Val2__', ws_rsa/solution1/montMult.cpp:16) [24]  (1.37 ns)
+
+ <State 6>: 17ns
+The critical path consists of the following:
+	'add' operation ('S.V', ws_rsa/solution1/montMult.cpp:20) [26]  (17 ns)
+
+ <State 7>: 17ns
+The critical path consists of the following:
+	'add' operation ('S.V', ws_rsa/solution1/montMult.cpp:20) [26]  (17 ns)
+
+ <State 8>: 17ns
+The critical path consists of the following:
+	'add' operation ('S.V', ws_rsa/solution1/montMult.cpp:20) [26]  (17 ns)
+
+ <State 9>: 18.4ns
+The critical path consists of the following:
+	'add' operation ('S.V', ws_rsa/solution1/montMult.cpp:20) [26]  (17 ns)
+	'select' operation ('tmp_5', ws_rsa/solution1/montMult.cpp:19) [29]  (1.37 ns)
+
+ <State 10>: 16.9ns
+The critical path consists of the following:
+	'sub' operation ('tmp_7', ws_rsa/solution1/montMult.cpp:29) [35]  (16.9 ns)
+
+ <State 11>: 16.9ns
+The critical path consists of the following:
+	'sub' operation ('tmp_7', ws_rsa/solution1/montMult.cpp:29) [35]  (16.9 ns)
+
+ <State 12>: 18.3ns
+The critical path consists of the following:
+	'sub' operation ('tmp_7', ws_rsa/solution1/montMult.cpp:29) [35]  (16.9 ns)
+	'select' operation ('ssdm_int<1024 + 1024 * 1, false>.V', ws_rsa/solution1/montMult.cpp:25) [36]  (1.37 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

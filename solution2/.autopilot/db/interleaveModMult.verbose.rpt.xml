@@ -1,0 +1,137 @@
+<profile>
+
+<section name = "Vivado HLS Report for 'interleaveModMult'" level="0">
+<item name = "Date">Thu Jul 13 08:01:29 2017
+</item>
+<item name = "Version">2016.4 (Build 1756540 on Mon Jan 23 19:31:01 MST 2017)</item>
+<item name = "Project">ws_rsa</item>
+<item name = "Solution">solution2</item>
+<item name = "Product family">zynq</item>
+<item name = "Target device">xc7z020clg484-1</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing (ns)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">25.00, 21.97, 3.12</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency (clock cycles)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">, min, max, min, max, Type</keys>
+<column name="">24590, 24590, 24590, 24590, none</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="7">Instance, Module, min, max, min, max, Type</keys>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+<column name="- Loop 1">24588, 24588, 12, -, -, 2049, no</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Utilization Estimates" level="0">
+<item name = "Summary"><table name="" hasTotal="1">
+<keys size="5">Name, BRAM_18K, DSP48E, FF, LUT</keys>
+<column name="DSP">-, -, -, -</column>
+<column name="Expression">-, -, 0, 7517</column>
+<column name="FIFO">-, -, -, -</column>
+<column name="Instance">-, -, 36936, 6156</column>
+<column name="Memory">-, -, -, -</column>
+<column name="Multiplexer">-, -, -, 4119</column>
+<column name="Register">-, -, 16441, -</column>
+<specialColumn name="Available">280, 220, 106400, 53200</specialColumn>
+<specialColumn name="Utilization (%)">0, 0, 50, 33</specialColumn>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="1">
+<keys size="6">Instance, Module, BRAM_18K, DSP48E, FF, LUT</keys>
+<column name="rsaModExp_add_205bkb_U1">rsaModExp_add_205bkb, 0, 0, 12312, 2052</column>
+<column name="rsaModExp_sub_205cud_U2">rsaModExp_sub_205cud, 0, 0, 12312, 2052</column>
+<column name="rsaModExp_sub_205cud_U3">rsaModExp_sub_205cud, 0, 0, 12312, 2052</column>
+</table>
+</item>
+<item name = "DSP48"><table name="" hasTotal="0">
+<keys size="3">Instance, Module, Expression</keys>
+</table>
+</item>
+<item name = "Memory"><table name="" hasTotal="1">
+<keys size="9">Memory, Module, BRAM_18K, FF, LUT, Words, Bits, Banks, W*Bits*Banks</keys>
+</table>
+</item>
+<item name = "FIFO"><table name="" hasTotal="1">
+<keys size="7">Name, BRAM_18K, FF, LUT, Depth, Bits, Size:D*B</keys>
+</table>
+</item>
+<item name = "Expression"><table name="" hasTotal="1">
+<keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
+<column name="i_fu_99_p2">+, 0, 0, 13, 2, 13</column>
+<column name="tmp_4_fu_119_p2">icmp, 0, 0, 674, 2052, 2052</column>
+<column name="tmp_5_fu_129_p2">icmp, 0, 0, 674, 2052, 2052</column>
+<column name="P_V_4_fu_109_p3">select, 0, 0, 2052, 1, 2052</column>
+<column name="P_V_5_fu_137_p3">select, 0, 0, 2052, 1, 2052</column>
+<column name="p_036_1_P_V_2_fu_123_p3">select, 0, 0, 2052, 1, 2052</column>
+</table>
+</item>
+<item name = "Multiplexer"><table name="" hasTotal="1">
+<keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
+<column name="ap_NS_fsm">6, 14, 1, 14</column>
+<column name="ap_return">2048, 2, 2048, 4096</column>
+<column name="i_assign_reg_49">13, 2, 13, 26</column>
+<column name="p_Val2_s_reg_38">2052, 2, 2052, 4104</column>
+</table>
+</item>
+<item name = "Register"><table name="" hasTotal="1">
+<keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
+<column name="P_V_4_reg_175">2052, 0, 2052, 0</column>
+<column name="ap_CS_fsm">13, 0, 13, 0</column>
+<column name="ap_return">2048, 0, 2048, 0</column>
+<column name="ap_return_preg">2048, 0, 2048, 0</column>
+<column name="i_assign_reg_49">13, 0, 13, 0</column>
+<column name="i_reg_170">13, 0, 13, 0</column>
+<column name="p_036_1_P_V_2_reg_187">2052, 0, 2052, 0</column>
+<column name="p_Val2_s_reg_38">2052, 0, 2052, 0</column>
+<column name="r_V_reg_159">2051, 0, 2052, 1</column>
+<column name="tmp_13_reg_165">1, 0, 1, 0</column>
+<column name="tmp_4_reg_182">1, 0, 1, 0</column>
+<column name="tmp_5_reg_194">1, 0, 1, 0</column>
+<column name="tmp_reg_143">2048, 0, 2052, 4</column>
+<column name="tmp_s_reg_151">2048, 0, 2052, 4</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Interface" level="0">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">RTL Ports, Dir, Bits, Protocol, Source Object, C Type</keys>
+<column name="ap_clk">in, 1, ap_ctrl_hs, interleaveModMult, return value</column>
+<column name="ap_rst">in, 1, ap_ctrl_hs, interleaveModMult, return value</column>
+<column name="ap_start">in, 1, ap_ctrl_hs, interleaveModMult, return value</column>
+<column name="ap_done">out, 1, ap_ctrl_hs, interleaveModMult, return value</column>
+<column name="ap_idle">out, 1, ap_ctrl_hs, interleaveModMult, return value</column>
+<column name="ap_ready">out, 1, ap_ctrl_hs, interleaveModMult, return value</column>
+<column name="ap_return">out, 2048, ap_ctrl_hs, interleaveModMult, return value</column>
+<column name="Y_V">in, 2048, ap_none, Y_V, scalar</column>
+<column name="M_V">in, 2048, ap_none, M_V, scalar</column>
+</table>
+</item>
+</section>
+</profile>

@@ -1,6 +1,12 @@
+INFO: [SIM 2] *************** CSIM start ***************
+INFO: [SIM 4] CSIM will launch GCC as the compiler.
    Compiling ../../rsa_tb.cpp in debug mode
-../../rsa_tb.cpp: In function ‘int main()’:
-../../rsa_tb.cpp:113:22: error: too few arguments to function ‘void rsaModExp(uintRSA_t, uintRSA_t, uintRSA_t, uintRSA_t, uintRSA_t, uintRSA_t*)’
-../../rsaModExp.hpp:9:6: note: declared here
-make: *** [obj/rsa_tb.o] Error 1
-CRITICAL WARNING: [SIM 1] 'csim_design' failed: compilation error(s).
+   Compiling ../../interleaveModMult.cpp in debug mode
+   Compiling ../../montMult.cpp in debug mode
+   Compiling ../../rsaModExp.cpp in debug mode
+   Generating csim.exe
+res = 0x048656C6C6F2C20576F726C6421
+ [ 0b0000100001 ]
+Test Passed !!!
+INFO: [SIM 1] CSim done with 0 errors.
+INFO: [SIM 3] *************** CSIM finish ***************

@@ -12,7 +12,7 @@ int main()
 {
 	uintRSA_t returnval = 0;
 
-#define sel 1
+#define sel 6
 
 #if sel==0
 	uintRSA_t M =    uintRSA_t("00be5416af9696937b7234421f7256f78dba8001c80a5fdecdb4ed761f2b7f955946ec920399f23ce9627f66286239d3f20e7a46df185946c6c8482e227b9ce172dd518202381706ed0f91b53c5436f233dec27e8cb46c4478f0398d2c254021a7c21596b30f77e9886e2fd2a081cadd3faf83c86bfdd6e9daad12559f8d2747",16);
@@ -79,7 +79,7 @@ int main()
 			cerr << "Incorrect bitwidth specified" << endl;
 			return 1;
 		}
-#else
+#elif sel == 5
 		uintRSA_t M   = 7;
 		uintRSA_t e   = 10;
 		uintRSA_t n   = 13;
@@ -92,22 +92,20 @@ int main()
 			cerr << "Incorrect bitwidth specified" << endl;
 			return 1;
 		}
+#else
+		uintRSA_t M   = uintRSA_t("1da244c4ca2a463a931e14f7c51b5660a73ee441338c72f8388f1da84d3a9e8cc2c43f665d7c337161852df98e752c938dd6e7394935e1a462f93ec7a67a14b7a4aa2749ae6ee0cb9b5654eb64c2e59dabf75cde308ecb9e8a7d295ec821605d6ea00986bcdab54b7785ea953bb95cd4e9e39244c8fc4d362ee1c59a40e17684c833a2c4f77bd6c055e54e7282e6d50fc5ca018d7a0a801d9dcbb6094ea9decddf04edd5a4fb57ea6821b38b0172e4cf81175985b9c773798f6b1adf27122ba1b22bb68357f7dfafd866848bc0910b726380c203b32ed8f1967099c2be43bf976dded458877bd987edc04a26e6318204a2e1005071c467e6572fdab11e37ecda",16);
+		uintRSA_t e   = uintRSA_t("19297a6086f1a6e1432a69ef4b33e6bb0fb2b8273e86cd4de006c6870aa37de267ed591c9090594aaaf42e90423291094685502698911faaf9e65cae85343aa46184489d524f3bc72ff67be5d7826f8473ee6f617b5654de1ce1460fc4a30238f78adccaf889938d62e03b79584e68f6819c4efdea463ad2f8681d5eaaa16900e85f8c02a075e2654b6e854da6a8aa14d2330f0531f5e7cdc1233db65bfa80353af07653cf4d226029db565729b7a8e1a7062b47c3d06d154fb615f74bf1881c36675f888a31c9930fd88e0269c88bf881442dcce2056e79593c008eead2a7666104aadbd4b41eed5d20c459b4a1c24365cdbe73ccf657df7a0fb6f7c1ff3271",16);
+		uintRSA_t n   = uintRSA_t("97066fc9a3411a89c41ce91646bd3fdd43967e0a9cfdc4caf96d56b85ad7019d8668132d1fee399b0ccc32a6feeadb95ec39d4ffc24903aeea702d212c2a4ab61499c2004d91ff127207d3d628d92cd32ed75a6144aac7e7d868eaaa6ad5d788604f40d29213d63e2fe9d431b2f3e8937c1d8e278eff2884aec987fa5f84ab36281df3a27945764b8abb71e3710357d97254d67bf3ed4eaf4e025b516efef045b390c51ef1b8bcfacfe53bce2def99008f75c0308a12d9e3a54de3098ac8f8a88814a2ed070fef3e18b0f858e19d9ed12dd00171663abc2986496253f49e663a692ee3e2167fba32396cbf7a7b4a5f01fd3e3c27093ff44f0051c219a01ef3cf",16);
+		uintRSA_t Mbar = uintRSA_t("0",16);
+		uintRSA_t xbar = uintRSA_t("0",16);
+		uintRSA_t ans = uintRSA_t("48656c6c6f2c20576f726c6421",16);
+
+		if (NUM_BITS != 2048)
+		{
+			cerr << "Incorrect bitwidth specified" << endl;
+			return 1;
+		}
 #endif
-
-
-
-//	uintRSA_t Mbar0=0,xbar0;
-//	ap_uint<NUM_BITS+1> r = ap_uint<NUM_BITS+1>("10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",16);
-//	interleaveModMult(r,M,n,&Mbar0);
-//	interleaveModMult(r,ap_uint<NUM_BITS>(1),n,&xbar0);
-//
-//	if ((Mbar0 != Mbar) || (xbar0 != xbar))
-//	{
-//		cout << "FAILURE" << endl;
-//		returnval = 1;
-//	}
-//	else
-//		cout << "SUCCESS!" << endl;
 
 	uintRSA_t res;
 	rsaModExp(M,e,n,&res);
@@ -115,7 +113,6 @@ int main()
 
 	// Read output from DUT function
 	cerr << "res = " << hex << res << endl << " [ 0b" << bitset<10>(res) << " ]" << endl;
-
 
 	if (res != ans)
 	{
