@@ -5,14 +5,14 @@
 ############################################################
 open_project ws_rsa
 set_top rsaModExp
-add_files ws_rsa/solution1/rsaModExp.hpp
-add_files ws_rsa/solution1/rsaModExp.cpp
-add_files ws_rsa/solution1/montMult.hpp
-add_files ws_rsa/solution1/montMult.cpp
-add_files ws_rsa/solution1/interleaveModMult.hpp
-add_files ws_rsa/solution1/interleaveModMult.cpp
-add_files ws_rsa/solution1/globals.hpp
-add_files -tb ws_rsa/solution1/rsa_tb.cpp
+add_files ws_rsa/src/rsaModExp.hpp
+add_files ws_rsa/src/rsaModExp.cpp
+add_files ws_rsa/src/montMult.hpp
+add_files ws_rsa/src/montMult.cpp
+add_files ws_rsa/src/interleaveModMult.hpp
+add_files ws_rsa/src/interleaveModMult.cpp
+add_files ws_rsa/src/globals.hpp
+add_files -tb ws_rsa/src/rsa_tb.cpp
 open_solution "solution1"
 set_part {xc7z020clg484-1} -tool vivado
 create_clock -period 10 -name default
