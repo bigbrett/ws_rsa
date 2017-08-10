@@ -8,3 +8,5 @@
 # "/" is NOT optional when followed by a *
 !src/*.cpp
 !src/*.hpp
+!/solution*/directives.tcl
+!/solution*/script.tcl
