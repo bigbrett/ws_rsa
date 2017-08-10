@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
   <source>
-    <originFiles name="rsaModExp.hpp" path="/home/brett/Thesis/Vivado_WS/ws_rsa/solution1/rsaModExp.hpp"/>
-    <originFiles name="rsaModExp.cpp" path="/home/brett/Thesis/Vivado_WS/ws_rsa/solution1/rsaModExp.cpp"/>
-    <originFiles name="montMult.hpp" path="/home/brett/Thesis/Vivado_WS/ws_rsa/solution1/montMult.hpp"/>
-    <originFiles name="montMult.cpp" path="/home/brett/Thesis/Vivado_WS/ws_rsa/solution1/montMult.cpp"/>
-    <originFiles name="interleaveModMult.hpp" path="/home/brett/Thesis/Vivado_WS/ws_rsa/solution1/interleaveModMult.hpp"/>
-    <originFiles name="interleaveModMult.cpp" path="/home/brett/Thesis/Vivado_WS/ws_rsa/solution1/interleaveModMult.cpp"/>
-    <originFiles name="globals.hpp" path="/home/brett/Thesis/Vivado_WS/ws_rsa/solution1/globals.hpp"/>
+    <originFiles name="rsaModExp.hpp" path="/home/brett/Thesis/Vivado_WS/ws_rsa/src/rsaModExp.hpp"/>
+    <originFiles name="rsaModExp.cpp" path="/home/brett/Thesis/Vivado_WS/ws_rsa/src/rsaModExp.cpp"/>
+    <originFiles name="montMult.hpp" path="/home/brett/Thesis/Vivado_WS/ws_rsa/src/montMult.hpp"/>
+    <originFiles name="montMult.cpp" path="/home/brett/Thesis/Vivado_WS/ws_rsa/src/montMult.cpp"/>
+    <originFiles name="interleaveModMult.hpp" path="/home/brett/Thesis/Vivado_WS/ws_rsa/src/interleaveModMult.hpp"/>
+    <originFiles name="interleaveModMult.cpp" path="/home/brett/Thesis/Vivado_WS/ws_rsa/src/interleaveModMult.cpp"/>
+    <originFiles name="globals.hpp" path="/home/brett/Thesis/Vivado_WS/ws_rsa/src/globals.hpp"/>
   </source>
   <testbench>
-    <originFiles name="rsa_tb.cpp" path="/home/brett/Thesis/Vivado_WS/ws_rsa/solution1/rsa_tb.cpp"/>
+    <originFiles name="rsa_tb.cpp" path="/home/brett/Thesis/Vivado_WS/ws_rsa/src/rsa_tb.cpp"/>
   </testbench>
 </autopilotfilemapping:AutoPilotFileMapping>

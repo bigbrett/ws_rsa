@@ -3,7 +3,7 @@
 /*
  * Actually computes the modular multiplication, with the result not in the montgomery domain
  */
-void interleaveModMult(ap_uint<NUM_BITS+1> X, ap_uint<NUM_BITS+1> Y, ap_uint<NUM_BITS> M, uintRSA_t* Pout)
+void interleaveModMult(ap_uint<NUM_BITS+2> X, ap_uint<NUM_BITS+2> Y, ap_uint<NUM_BITS+2> M, ap_uint<NUM_BITS+2>* Pout)
 {
 	ap_uint<NUM_BITS+4> P=0;
 

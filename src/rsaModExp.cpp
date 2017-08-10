@@ -1,14 +1,14 @@
 #include "rsaModExp.hpp"
 #include "montMult.hpp"
-#include "ap_shift_reg.h"
 
-void rsaModExp( uintRSA_t Mbar, uintRSA_t e, uintRSA_t n,
-				uintRSA_t xbar, uintRSA_t *out)
+
+void rsaModExp( ap_uint<NUM_BITS+2> Mbar, ap_uint<NUM_BITS+2> e, ap_uint<NUM_BITS+2> n,
+		ap_uint<NUM_BITS+2> xbar, ap_uint<NUM_BITS+2> *out)
 {
 
 	// compute montgomery modular exponentiation using square and multiply algorithm
-	int i;
-	for (i=NUM_BITS-1; i>=0; i--)
+//	for (i=NUM_BITS-1; i>=0; i--)
+	for (int i=NUM_BITS-1; i>=0; i--)
 	{
 		montMult(xbar,xbar,n,&xbar); // square
 		if (e.test(i)) {
@@ -16,7 +16,7 @@ void rsaModExp( uintRSA_t Mbar, uintRSA_t e, uintRSA_t n,
 		}
 	}
 	// undo montgomery transform
-	montMult(xbar,(rsaSize_t)1,n,out);
+	montMult(xbar,(ap_uint<NUM_BITS+2>)1,n,out);
 }
 
 

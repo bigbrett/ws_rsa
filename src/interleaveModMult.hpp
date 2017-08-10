@@ -3,7 +3,7 @@
 
 #include "globals.hpp"
 
-void interleaveModMult(ap_uint<NUM_BITS+1> X, ap_uint<NUM_BITS+1> Y, ap_uint<NUM_BITS> M, uintRSA_t* out);
+void interleaveModMult(ap_uint<NUM_BITS+2> X, ap_uint<NUM_BITS+2> Y, ap_uint<NUM_BITS+2> M, ap_uint<NUM_BITS+2>* out);
 
 
 
