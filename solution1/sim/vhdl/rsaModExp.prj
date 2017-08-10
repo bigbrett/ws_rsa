@@ -1,9 +1,0 @@
-vhdl xil_defaultlib "AESL_sim_pkg.vhd"
-vhdl xil_defaultlib "rsaModExp_add_205bkb.vhd"
-vhdl xil_defaultlib "rsaModExp_add_205dEe.vhd"
-vhdl xil_defaultlib "rsaModExp_sub_204cud.vhd"
-vhdl xil_defaultlib "rsaModExp.autotb.vhd"
-vhdl xil_defaultlib "rsaModExp.vhd"
-vhdl xil_defaultlib "montMult.vhd"
-vhdl xil_defaultlib "rsaModExp_sub_205eOg.vhd"
-
