@@ -8,6 +8,8 @@
     <originFiles name="interleaveModMult.hpp" path="/home/brett/Thesis/Vivado_WS/ws_rsa/src/interleaveModMult.hpp"/>
     <originFiles name="interleaveModMult.cpp" path="/home/brett/Thesis/Vivado_WS/ws_rsa/src/interleaveModMult.cpp"/>
     <originFiles name="globals.hpp" path="/home/brett/Thesis/Vivado_WS/ws_rsa/src/globals.hpp"/>
+    <originFiles name="wsrsa2048.hpp" path="/home/brett/Thesis/Vivado_WS/ws_rsa/src/wsrsa2048.hpp"/>
+    <originFiles name="wsrsa2048.cpp" path="/home/brett/Thesis/Vivado_WS/ws_rsa/src/wsrsa2048.cpp"/>
   </source>
   <testbench>
     <originFiles name="rsa_tb.cpp" path="/home/brett/Thesis/Vivado_WS/ws_rsa/src/rsa_tb.cpp"/>

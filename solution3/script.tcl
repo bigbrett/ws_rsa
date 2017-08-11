@@ -5,13 +5,15 @@
 ############################################################
 open_project ws_rsa
 set_top rsaModExp
-add_files ws_rsa/src/rsaModExp.hpp
-add_files ws_rsa/src/rsaModExp.cpp
-add_files ws_rsa/src/montMult.hpp
-add_files ws_rsa/src/montMult.cpp
-add_files ws_rsa/src/interleaveModMult.hpp
-add_files ws_rsa/src/interleaveModMult.cpp
 add_files ws_rsa/src/globals.hpp
+add_files ws_rsa/src/interleaveModMult.cpp
+add_files ws_rsa/src/interleaveModMult.hpp
+add_files ws_rsa/src/montMult.cpp
+add_files ws_rsa/src/montMult.hpp
+add_files ws_rsa/src/rsaModExp.cpp
+add_files ws_rsa/src/rsaModExp.hpp
+add_files ws_rsa/src/wsrsa2048.cpp
+add_files ws_rsa/src/wsrsa2048.hpp
 add_files -tb ws_rsa/src/rsa_tb.cpp
 open_solution "solution3"
 set_part {xc7z020clg484-1}

@@ -5,7 +5,7 @@
 #include "montMult.hpp"
 
 
-void rsaModExp( ap_uint<NUM_BITS+2> Mbar, ap_uint<NUM_BITS+2> e, ap_uint<NUM_BITS+2> n,
-		ap_uint<NUM_BITS+2> xbar,  ap_uint<NUM_BITS+2> *out);
+void rsaModExp( ap_uint<NUM_BITS+2> M, ap_uint<NUM_BITS+2> e, ap_uint<NUM_BITS+2> n,
+				ap_uint<NUM_BITS+2> rbar,  ap_uint<NUM_BITS+2> *out);
 
 #endif

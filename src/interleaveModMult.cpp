@@ -1,3 +1,4 @@
+#ifndef __SYNTHESIS__
 #include "interleaveModMult.hpp"
 
 /*
@@ -20,3 +21,4 @@ void interleaveModMult(ap_uint<NUM_BITS+2> X, ap_uint<NUM_BITS+2> Y, ap_uint<NUM
 	}
 	*Pout = P.range(NUM_BITS-1,0);
 }
+#endif

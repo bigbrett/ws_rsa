@@ -4,10 +4,16 @@
 #include "globals.hpp"
 #include "montMult.hpp"
 #include "rsaModExp.hpp"
+
+#ifndef __SYNTHESIS__
 #include "interleaveModMult.hpp"
+#endif
 
 typedef enum {MM,ME} test_t;
 test_t TEST = ME;
+
+
+
 // THIS IS THE OLD R THAT WORKED, BUT REQUIRED FINAL SUBTRACTION AT EVERY MM CALL
 //const ap_uint<NUM_BITS+1> r = ap_uint<NUM_BITS+1>("32317006071311007300714876688669951960444102669715484032130345427524655138867890893197201411522913463688717960921898019494119559150490921095088152386448283120630877367300996091750197750389652106796057638384067568276792218642619756161838094338476170470581645852036305042887575891541065808607552399123930385521914333389668342420684974786564569494856176035326322058077805659331026192708460314150258592864177116725943603718461857357598351152301645904403697613233287231227125684710820209725157101726931323469678542580656697935045997268352998638215525166389437335543602135433229604645318478604952148193555853611059596230656",10);
 
@@ -38,19 +44,20 @@ int main()
 
 		ap_uint<NUM_BITS+2> xbar=0,Mbar=0;
 
-		// rbar is given by 2^(2(n+2)) mod N
-
-
 		// Compute Montgomery residue of message with respect to the radix (modulo n)
-		interleaveModMult(r, M, n, &Mbar);// interleaveModMult(r, M, n, &Mbar);
+//		interleaveModMult(r, M, n, &Mbar);// interleaveModMult(r, M, n, &Mbar);
 		// initialize xbar to montgomery residue of 1 with respect to the radix (modulo n)
-		interleaveModMult(r,ap_uint<NUM_BITS+2>(1),n,&xbar);//interleaveModMult(r,ap_uint<NUM_BITS+2>(1),n,&xbar);
-//		montMult(rbar, M, n, &Mbar);
-//		montMult(rbar,ap_uint<NUM_BITS+2>(1),n,&xbar);
-		cout << hex << "M = " << M << endl << "e = " << e << endl << "n = " << n << endl;
-		cout << "Mbar = " << Mbar << endl << "xbar = " << xbar << endl;
+//		interleaveModMult(r,ap_uint<NUM_BITS+2>(1),n,&xbar);//interleaveModMult(r,ap_uint<NUM_BITS+2>(1),n,&xbar);
 
-		rsaModExp(Mbar,e,n,xbar,&res);
+//		montMult(rbar,M, n, &Mbar);
+//		montMult(rbar,ap_uint<NUM_BITS+2>(1), n, &xbar);
+
+//		cout << hex << "M = " << M << endl << "e = " << e << endl << "n = " << n << endl;
+//		cout << "Mbar = " << Mbar << endl << "xbar = " << xbar << endl;
+
+//		rsaModExp(Mbar,e,n,xbar,&res);
+		rsaModExp(M,e,n,rbar,&res);
+
 
 	}
 	/*
@@ -67,10 +74,7 @@ int main()
 
 	// Read output from DUT function
 	cout << "res   = " << hex << res << endl;
-//	while (res>=M) {
-//		res-=M;
-//		cout << "res-M = " << hex << res << endl;
-//	}
+
 
 
 	if (res != ans)
